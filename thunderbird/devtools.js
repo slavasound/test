@@ -7,9 +7,9 @@ pref("devtools.devedition.promo.shown", false);
 pref("devtools.devedition.promo.url", "https://www.mozilla.org/firefox/developer/?utm_source=firefox-dev-tools&utm_medium=firefox-browser&utm_content=betadoorhanger");
 
 // Only potentially show in beta release
-//@line 13 "z:\task_1542148442\build\src\devtools\client\preferences\devtools.js"
+//@line 13 "z:\task_1543945082\build\src\devtools\client\preferences\devtools.js"
   pref("devtools.devedition.promo.enabled", false);
-//@line 15 "z:\task_1542148442\build\src\devtools\client\preferences\devtools.js"
+//@line 15 "z:\task_1543945082\build\src\devtools\client\preferences\devtools.js"
 
 // Developer toolbar preferences
 pref("devtools.toolbar.enabled", true);
@@ -140,9 +140,9 @@ pref("devtools.performance.ui.show-triggers-for-gc-types",
 pref("devtools.performance.ui.enable-memory-flame", false);
 
 // Enable experimental options in the UI only in Nightly
-//@line 148 "z:\task_1542148442\build\src\devtools\client\preferences\devtools.js"
+//@line 148 "z:\task_1543945082\build\src\devtools\client\preferences\devtools.js"
 pref("devtools.performance.ui.experimental", false);
-//@line 150 "z:\task_1542148442\build\src\devtools\client\preferences\devtools.js"
+//@line 150 "z:\task_1543945082\build\src\devtools\client\preferences\devtools.js"
 
 // The default cache UI setting
 pref("devtools.cache.disabled", false);

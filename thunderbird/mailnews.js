@@ -163,7 +163,7 @@ pref("mail.addr_book.mapit_url.4.name", "chrome://messenger-region/locale/region
 pref("mail.addr_book.mapit_url.4.format", "chrome://messenger-region/locale/region.properties");
 pref("mail.addr_book.mapit_url.5.name", "chrome://messenger-region/locale/region.properties");
 pref("mail.addr_book.mapit_url.5.format", "chrome://messenger-region/locale/region.properties");
-//@line 175 "z:\task_1542148442\build\src\comm\mailnews\mailnews.js"
+//@line 175 "z:\task_1543945082\build\src\comm\mailnews\mailnews.js"
 
 pref("mail.addr_book.view.startupURI", "moz-abdirectory://?");
 pref("mail.addr_book.view.startupURIisDefault", true);
@@ -276,6 +276,14 @@ pref("mailnews.reply_in_default_charset",   false);
 // don't fallback from <charset> to UTF-8 even if some characters are not found in <charset>.
 // those characters will be crippled.
 pref("mailnews.disable_fallback_to_utf8.ISO-2022-JP", false);
+
+// AppleDouble is causing problems with some webmail clients and Microsoft mail servers
+// rejecting a MIME part of multipart/appledouble. Mac uses resource forks less and less
+// so we only use AppleDouble if the file has no extension or its extension is whitelisted below.
+// "" (default) - AppleDouble won't be used if the file has an extension
+// "*" - AppleDouble will always be used
+// Comma-separated list of extensions for which to use AppleDouble, for example "doc,xls" (not-case sensitive).
+pref("mailnews.extensions_using_appledouble", "");
 pref("mailnews.localizedRe",                "chrome://messenger-region/locale/region.properties");
 
 pref("mailnews.search_date_format",        "chrome://messenger/locale/messenger.properties");
@@ -356,7 +364,7 @@ pref("mailnews.customDBHeaders", "");
 // close standalone message window when deleting the displayed message
 pref("mail.close_message_window.on_delete", false);
 
-//@line 370 "z:\task_1542148442\build\src\comm\mailnews\mailnews.js"
+//@line 378 "z:\task_1543945082\build\src\comm\mailnews\mailnews.js"
 
 pref("mailnews.open_window_warning", 10); // warn user if they attempt to open more than this many messages at once
 pref("mailnews.open_tab_warning", 20); // warn user if they attempt to open more than this many messages at once
@@ -415,7 +423,7 @@ pref("mail.identity.default.headers", "");
 
 // by default, only collect addresses the user sends to (outgoing)
 // incoming is all spam anyways
-//@line 432 "z:\task_1542148442\build\src\comm\mailnews\mailnews.js"
+//@line 440 "z:\task_1543945082\build\src\comm\mailnews\mailnews.js"
 pref("mail.collect_email_address_outgoing", true);
 // by default, use the Collected Addressbook for collection
 pref("mail.collect_addressbook", "moz-abmdbdirectory://history.mab");
@@ -529,9 +537,9 @@ pref("mail.server.default.autosync_max_age_days", -1);
 pref("mail.server.default.canChangeStoreType", false);
 
 // Store conversion (mbox <-> maildir)
-//@line 548 "z:\task_1542148442\build\src\comm\mailnews\mailnews.js"
+//@line 556 "z:\task_1543945082\build\src\comm\mailnews\mailnews.js"
 pref("mail.store_conversion_enabled", false);
-//@line 550 "z:\task_1542148442\build\src\comm\mailnews\mailnews.js"
+//@line 558 "z:\task_1543945082\build\src\comm\mailnews\mailnews.js"
 
 // This is the default store contractID for newly created servers.
 // We don't use mail.server.default because we want to ensure that the
@@ -704,26 +712,26 @@ pref("mail.biff.alert.show_subject", true);
 pref("mail.biff.alert.show_sender",  true);
 pref("mail.biff.alert.preview_length", 40);
 
-//@line 725 "z:\task_1542148442\build\src\comm\mailnews\mailnews.js"
+//@line 733 "z:\task_1543945082\build\src\comm\mailnews\mailnews.js"
 pref("mail.biff.play_sound", true);
-//@line 727 "z:\task_1542148442\build\src\comm\mailnews\mailnews.js"
+//@line 735 "z:\task_1543945082\build\src\comm\mailnews\mailnews.js"
 // 0 == default system sound, 1 == user specified wav
 pref("mail.biff.play_sound.type", 0);
 // _moz_mailbeep is a magic key, for the default sound.
 // otherwise, this needs to be a file url
 pref("mail.biff.play_sound.url", "");
 pref("mail.biff.show_alert", true);
-//@line 734 "z:\task_1542148442\build\src\comm\mailnews\mailnews.js"
+//@line 742 "z:\task_1543945082\build\src\comm\mailnews\mailnews.js"
 pref("mail.biff.show_tray_icon", true);
 pref("mail.biff.show_balloon", false);
-//@line 741 "z:\task_1542148442\build\src\comm\mailnews\mailnews.js"
+//@line 749 "z:\task_1543945082\build\src\comm\mailnews\mailnews.js"
 
 // add jitter to biff interval
 pref("mail.biff.add_interval_jitter", true);
 
-//@line 749 "z:\task_1542148442\build\src\comm\mailnews\mailnews.js"
+//@line 757 "z:\task_1543945082\build\src\comm\mailnews\mailnews.js"
 
-//@line 756 "z:\task_1542148442\build\src\comm\mailnews\mailnews.js"
+//@line 764 "z:\task_1543945082\build\src\comm\mailnews\mailnews.js"
 
 // For feed account serverType=rss sound on biff; if true, mail.biff.play_sound.* settings are used.
 pref("mail.feed.play_sound", false);
@@ -831,7 +839,7 @@ pref("mail.password_protect_local_cache", false);
 // the users last used preference.
 pref("mailnews.import.text.skipfirstrecord", true);
 
-//@line 882 "z:\task_1542148442\build\src\comm\mailnews\mailnews.js"
+//@line 890 "z:\task_1543945082\build\src\comm\mailnews\mailnews.js"
 
 // For the Empty Junk/Trash confirmation dialogs.
 pref("mailnews.emptyJunk.dontAskAgain", false);

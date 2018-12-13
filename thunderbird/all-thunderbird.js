@@ -3,18 +3,18 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-//@line 7 "z:\task_1542148442\build\src\comm\mail\app\profile\all-thunderbird.js"
+//@line 7 "z:\task_1543945082\build\src\comm\mail\app\profile\all-thunderbird.js"
 
-//@line 13 "z:\task_1542148442\build\src\comm\mail\app\profile\all-thunderbird.js"
+//@line 13 "z:\task_1543945082\build\src\comm\mail\app\profile\all-thunderbird.js"
 
 pref("general.skins.selectedSkin", "classic/1.0");
 
-//@line 20 "z:\task_1542148442\build\src\comm\mail\app\profile\all-thunderbird.js"
+//@line 20 "z:\task_1543945082\build\src\comm\mail\app\profile\all-thunderbird.js"
 
 pref("mail.rights.version", 0);
 
 // Don't show the about:rights notification in debug or non-official builds.
-//@line 30 "z:\task_1542148442\build\src\comm\mail\app\profile\all-thunderbird.js"
+//@line 30 "z:\task_1543945082\build\src\comm\mail\app\profile\all-thunderbird.js"
 
 // The minimum delay in seconds for the timer to fire between the notification
 // of each consumer of the timer manager.
@@ -94,9 +94,9 @@ pref("app.update.url.details", "https://www.thunderbird.net/%LOCALE%/%APP%/relea
 pref("app.update.idletime", 60);
 
 // Whether or not to attempt using the service for updates.
-//@line 110 "z:\task_1542148442\build\src\comm\mail\app\profile\all-thunderbird.js"
+//@line 110 "z:\task_1543945082\build\src\comm\mail\app\profile\all-thunderbird.js"
 pref("app.update.service.enabled", true);
-//@line 112 "z:\task_1542148442\build\src\comm\mail\app\profile\all-thunderbird.js"
+//@line 112 "z:\task_1543945082\build\src\comm\mail\app\profile\all-thunderbird.js"
 
 // Release notes URL
 pref("app.releaseNotesURL", "https://live.thunderbird.net/%APP%/releasenotes?locale=%LOCALE%&version=%VERSION%&channel=%CHANNEL%&os=%OS%&buildid=%APPBUILDID%");
@@ -115,9 +115,9 @@ pref("javascript.options.showInConsole", true);
 pref("extensions.logging.enabled", false);
 
 // Strict compatibility makes add-ons incompatible by default.
-//@line 133 "z:\task_1542148442\build\src\comm\mail\app\profile\all-thunderbird.js"
+//@line 133 "z:\task_1543945082\build\src\comm\mail\app\profile\all-thunderbird.js"
 pref("extensions.strictCompatibility", true);
-//@line 135 "z:\task_1542148442\build\src\comm\mail\app\profile\all-thunderbird.js"
+//@line 135 "z:\task_1543945082\build\src\comm\mail\app\profile\all-thunderbird.js"
 
 // Specifies a minimum maxVersion an addon needs to say it's compatible with
 // for it to be compatible by default.
@@ -195,12 +195,13 @@ pref("lightweightThemes.selectedThemeID", "");
 
 pref("lightweightThemes.update.enabled", true);
 
-pref("xpinstall.whitelist.add", "addons.thunderbird.net");
+// Built-in default permissions.
+pref("permissions.manager.defaultsUrl", "resource://app/defaults/permissions");
 
 pref("general.smoothScroll", true);
-//@line 218 "z:\task_1542148442\build\src\comm\mail\app\profile\all-thunderbird.js"
+//@line 219 "z:\task_1543945082\build\src\comm\mail\app\profile\all-thunderbird.js"
 pref("general.autoScroll", true);
-//@line 220 "z:\task_1542148442\build\src\comm\mail\app\profile\all-thunderbird.js"
+//@line 221 "z:\task_1543945082\build\src\comm\mail\app\profile\all-thunderbird.js"
 
 pref("mail.shell.checkDefaultClient", true);
 pref("mail.spellcheck.inline", true);
@@ -223,11 +224,11 @@ pref("mail.last_msg_movecopy_was_move", true);
 //Set the font color for links to something lighter
 pref("browser.anchor_color", "#0B6CDA");
 
-//@line 243 "z:\task_1542148442\build\src\comm\mail\app\profile\all-thunderbird.js"
+//@line 244 "z:\task_1543945082\build\src\comm\mail\app\profile\all-thunderbird.js"
 pref("browser.preferences.instantApply", false);
-//@line 250 "z:\task_1542148442\build\src\comm\mail\app\profile\all-thunderbird.js"
+//@line 251 "z:\task_1543945082\build\src\comm\mail\app\profile\all-thunderbird.js"
 pref("browser.preferences.animateFadeIn", false);
-//@line 252 "z:\task_1542148442\build\src\comm\mail\app\profile\all-thunderbird.js"
+//@line 253 "z:\task_1543945082\build\src\comm\mail\app\profile\all-thunderbird.js"
 
 // load the Preferences in a tab
 pref("mail.preferences.inContent", false);
@@ -398,9 +399,9 @@ pref("browser.download.manager.closeWhenDone", true);
 pref("browser.download.manager.focusWhenStarting", false);
 pref("browser.download.manager.flashCount", 0);
 pref("browser.download.manager.addToRecentDocs", true);
-//@line 423 "z:\task_1542148442\build\src\comm\mail\app\profile\all-thunderbird.js"
+//@line 424 "z:\task_1543945082\build\src\comm\mail\app\profile\all-thunderbird.js"
 pref("browser.helperApps.deleteTempFileOnExit", true);
-//@line 425 "z:\task_1542148442\build\src\comm\mail\app\profile\all-thunderbird.js"
+//@line 426 "z:\task_1543945082\build\src\comm\mail\app\profile\all-thunderbird.js"
 
 pref("spellchecker.dictionary", "");
 // Dictionary download preference
@@ -412,9 +413,9 @@ pref("spellchecker.dictionaries.download.url", "https://addons.thunderbird.net/%
 pref("profile.force.migration", "");
 
 // prefs to control the mail alert notification
-//@line 437 "z:\task_1542148442\build\src\comm\mail\app\profile\all-thunderbird.js"
+//@line 438 "z:\task_1543945082\build\src\comm\mail\app\profile\all-thunderbird.js"
 pref("alerts.totalOpenTime", 10000);
-//@line 439 "z:\task_1542148442\build\src\comm\mail\app\profile\all-thunderbird.js"
+//@line 440 "z:\task_1543945082\build\src\comm\mail\app\profile\all-thunderbird.js"
 
 // analyze urls in mail messages for scams
 pref("mail.phishing.detection.enabled", true);
@@ -453,31 +454,31 @@ pref("mail.tabs.closeWindowWithLastTab", true);
 pref("mail.tabs.closeButtons", 1);
 
 // Allow the tabs to be in the titlebar on supported systems
-//@line 480 "z:\task_1542148442\build\src\comm\mail\app\profile\all-thunderbird.js"
+//@line 481 "z:\task_1543945082\build\src\comm\mail\app\profile\all-thunderbird.js"
 pref("mail.tabs.drawInTitlebar", true);
-//@line 482 "z:\task_1542148442\build\src\comm\mail\app\profile\all-thunderbird.js"
+//@line 483 "z:\task_1543945082\build\src\comm\mail\app\profile\all-thunderbird.js"
 
 // The breakpad report server to link to in about:crashes
 pref("breakpad.reportURL", "https://crash-stats.mozilla.com/report/index/");
 
 // OS Integrated Search and Indexing
-//@line 488 "z:\task_1542148442\build\src\comm\mail\app\profile\all-thunderbird.js"
+//@line 489 "z:\task_1543945082\build\src\comm\mail\app\profile\all-thunderbird.js"
 pref("mail.winsearch.enable", false);
 pref("mail.winsearch.firstRunDone", false);
-//@line 496 "z:\task_1542148442\build\src\comm\mail\app\profile\all-thunderbird.js"
+//@line 497 "z:\task_1543945082\build\src\comm\mail\app\profile\all-thunderbird.js"
 
 // -- Windows Search/Spotlight logging options
-//@line 499 "z:\task_1542148442\build\src\comm\mail\app\profile\all-thunderbird.js"
+//@line 500 "z:\task_1543945082\build\src\comm\mail\app\profile\all-thunderbird.js"
 // Should we output warnings and errors to the "error console"?
 pref("mail.winsearch.logging.console", false);
 // Should we output all output levels to stdout via dump?
 pref("mail.winsearch.logging.dump", false);
-//@line 511 "z:\task_1542148442\build\src\comm\mail\app\profile\all-thunderbird.js"
+//@line 512 "z:\task_1543945082\build\src\comm\mail\app\profile\all-thunderbird.js"
 
 // Whether to use a panel that looks like an OS X sheet for customization
-//@line 516 "z:\task_1542148442\build\src\comm\mail\app\profile\all-thunderbird.js"
+//@line 517 "z:\task_1543945082\build\src\comm\mail\app\profile\all-thunderbird.js"
 pref("toolbar.customization.usesheet", false);
-//@line 518 "z:\task_1542148442\build\src\comm\mail\app\profile\all-thunderbird.js"
+//@line 519 "z:\task_1543945082\build\src\comm\mail\app\profile\all-thunderbird.js"
 
 // Number of recipient rows shown by default
 pref("mail.compose.addresswidget.numRowsShownDefault", 3);
@@ -539,13 +540,13 @@ pref("font.default.x-western", "sans-serif");
 pref("font.default.x-cyrillic", "sans-serif");
 pref("font.default.el", "sans-serif");
 
-//@line 608 "z:\task_1542148442\build\src\comm\mail\app\profile\all-thunderbird.js"
+//@line 609 "z:\task_1543945082\build\src\comm\mail\app\profile\all-thunderbird.js"
 
 // Since different versions of Windows need different settings, we'll handle
 // this in mailMigrator.js.
 
 // Linux, in other words.  Other OSes may wish to override.
-//@line 633 "z:\task_1542148442\build\src\comm\mail\app\profile\all-thunderbird.js"
+//@line 634 "z:\task_1543945082\build\src\comm\mail\app\profile\all-thunderbird.js"
 
 pref("mail.font.windows.version", 0);
 
@@ -623,9 +624,9 @@ pref("browser.urlbar.restrict.openpage", "%");
 
 // The default for this pref reflects whether the build is capable of IPC.
 // (Turning it on in a no-IPC build will have no effect.)
-//@line 719 "z:\task_1542148442\build\src\comm\mail\app\profile\all-thunderbird.js"
+//@line 720 "z:\task_1543945082\build\src\comm\mail\app\profile\all-thunderbird.js"
 pref("dom.ipc.plugins.enabled", true);
-//@line 721 "z:\task_1542148442\build\src\comm\mail\app\profile\all-thunderbird.js"
+//@line 722 "z:\task_1543945082\build\src\comm\mail\app\profile\all-thunderbird.js"
 
 // This pref governs whether we attempt to work around problems caused by
 // plugins using OS calls to manipulate the cursor while running out-of-
@@ -634,7 +635,7 @@ pref("dom.ipc.plugins.enabled", true);
 // in the browser process.  Eventually plugins will be required to use the
 // NPAPI to manipulate the cursor, and these workarounds will be removed.
 // See bug 621117.
-//@line 732 "z:\task_1542148442\build\src\comm\mail\app\profile\all-thunderbird.js"
+//@line 733 "z:\task_1543945082\build\src\comm\mail\app\profile\all-thunderbird.js"
 
 // plugin finder service url
 pref("pfs.datasource.url", "https://pfs.mozilla.org/plugins/PluginFinderService.
@@ -645,7 +646,7 @@ php?mimetype=%PLUGIN_MIMETYPE%&appID=%APP_ID%&appVersion=%APP_VERSION%&clientOS=
 // outdated.
 pref("plugins.hide_infobar_for_outdated_plugin", false);
 
-//@line 746 "z:\task_1542148442\build\src\comm\mail\app\profile\all-thunderbird.js"
+//@line 747 "z:\task_1543945082\build\src\comm\mail\app\profile\all-thunderbird.js"
 
 pref("plugins.update.url", "https://www.mozilla.org/%LOCALE%/plugincheck/");
 pref("plugins.update.notifyUser", false);
@@ -666,17 +667,17 @@ pref("plugin.state.flash", 2);
 pref("plugin.state.java", 0);
 
 // Windows taskbar support
-//@line 767 "z:\task_1542148442\build\src\comm\mail\app\profile\all-thunderbird.js"
+//@line 768 "z:\task_1543945082\build\src\comm\mail\app\profile\all-thunderbird.js"
 pref("mail.taskbar.lists.enabled", true);
 pref("mail.taskbar.lists.tasks.enabled", true);
-//@line 770 "z:\task_1542148442\build\src\comm\mail\app\profile\all-thunderbird.js"
+//@line 771 "z:\task_1543945082\build\src\comm\mail\app\profile\all-thunderbird.js"
 
 // Disable hardware accelerated layers
 pref("layers.acceleration.disabled", true);
-//@line 774 "z:\task_1542148442\build\src\comm\mail\app\profile\all-thunderbird.js"
+//@line 775 "z:\task_1543945082\build\src\comm\mail\app\profile\all-thunderbird.js"
 // and direct2d support on Windows.
 pref("gfx.direct2d.disabled", true);
-//@line 777 "z:\task_1542148442\build\src\comm\mail\app\profile\all-thunderbird.js"
+//@line 778 "z:\task_1543945082\build\src\comm\mail\app\profile\all-thunderbird.js"
 
 // Account provisioner.
 pref("mail.provider.providerList", "https://broker.thunderbird.net/provider/list");
@@ -754,14 +755,14 @@ pref("mail.save_msg_filename_underscores_for_space", false);
 // calendar promotion status
 pref("mail.calendar-integration.opt-out", false);
 
-//@line 855 "z:\task_1542148442\build\src\comm\mail\app\profile\all-thunderbird.js"
+//@line 856 "z:\task_1543945082\build\src\comm\mail\app\profile\all-thunderbird.js"
 // This controls the strength of the Windows content process sandbox for testing
 // purposes. This will require a restart.
 // On windows these levels are:
 // See - security/sandbox/win/src/sandboxbroker/sandboxBroker.cpp
 // SetSecurityLevelForContentProcess() for what the different settings mean.
 pref("security.sandbox.content.level", 0);
-//@line 862 "z:\task_1542148442\build\src\comm\mail\app\profile\all-thunderbird.js"
+//@line 863 "z:\task_1543945082\build\src\comm\mail\app\profile\all-thunderbird.js"
 
 // Enable FIDO U2F
 pref("security.webauth.u2f", true);
