@@ -29,19 +29,12 @@ pref("devtools.command-button-noautohide.enabled", false);
 // Enable the Inspector
 pref("devtools.inspector.enabled", true);
 // What was the last active sidebar in the inspector
-pref("devtools.inspector.activeSidebar", "ruleview");
+pref("devtools.inspector.activeSidebar", "layoutview");
 pref("devtools.inspector.remote", false);
-// Show the 3 pane onboarding tooltip in the inspector only in release or beta builds.
-//@line 41 "/builds/worker/workspace/build/src/devtools/client/preferences/devtools-client.js"
-pref("devtools.inspector.show-three-pane-tooltip", true);
-//@line 45 "/builds/worker/workspace/build/src/devtools/client/preferences/devtools-client.js"
 // Enable the 3 pane mode in the inspector
 pref("devtools.inspector.three-pane-enabled", true);
 // Enable the 3 pane mode in the chrome inspector
 pref("devtools.inspector.chrome.three-pane-enabled", false);
-// Whether or not this is the first run of the 3 pane mode. Used to reset the default
-// inspector sidebar widths for its first run.
-pref("devtools.inspector.three-pane-first-run", true);
 // Collapse pseudo-elements by default in the rule-view
 pref("devtools.inspector.show_pseudo_elements", false);
 // The default size for image preview tooltips in the rule-view/computed-view/markup-view
@@ -52,25 +45,26 @@ pref("devtools.inspector.showUserAgentStyles", false);
 pref("devtools.inspector.showAllAnonymousContent", false);
 // Enable the CSS shapes highlighter
 pref("devtools.inspector.shapesHighlighter.enabled", true);
-// Enable the new Animation Inspector
-pref("devtools.new-animationinspector.enabled", true);
 // Enable the Font Editor
 pref("devtools.inspector.fonteditor.enabled", true);
 // Enable the font highlight-on-hover feature
 pref("devtools.inspector.fonthighlighter.enabled", true);
+// Enable tracking of style changes and the Changes panel in the Inspector
+pref("devtools.inspector.changes.enabled", false);
 // Flexbox preferences
-// Enable the Flexbox highlighter in Nightly
-//@line 74 "/builds/worker/workspace/build/src/devtools/client/preferences/devtools-client.js"
+// Enable the Flexbox highlighter and inspector panel in Nightly and DevEdition
+//@line 66 "/builds/worker/workspace/build/src/devtools/client/preferences/devtools-client.js"
 pref("devtools.inspector.flexboxHighlighter.enabled", false);
-//@line 76 "/builds/worker/workspace/build/src/devtools/client/preferences/devtools-client.js"
-// Enable the Flexbox Inspector panel
 pref("devtools.flexboxinspector.enabled", false);
+//@line 69 "/builds/worker/workspace/build/src/devtools/client/preferences/devtools-client.js"
 // Grid highlighter preferences
 pref("devtools.gridinspector.gridOutlineMaxColumns", 50);
 pref("devtools.gridinspector.gridOutlineMaxRows", 50);
 pref("devtools.gridinspector.showGridAreas", false);
 pref("devtools.gridinspector.showGridLineNumbers", false);
 pref("devtools.gridinspector.showInfiniteLines", false);
+// Max number of grid highlighters that can be displayed
+pref("devtools.gridinspector.maxHighlighters", 3);
 // Whether or not the box model panel is opened in the layout view
 pref("devtools.layout.boxmodel.opened", true);
 // Whether or not the flexbox panel is opened in the layout view
@@ -116,9 +110,15 @@ pref("devtools.performance.ui.show-triggers-for-gc-types", "TOO_MUCH_MALLOC ALLO
 // TODO remove once we have flame charts via bug 1148663
 pref("devtools.performance.ui.enable-memory-flame", false);
 // Enable experimental options in the UI only in Nightly
-//@line 147 "/builds/worker/workspace/build/src/devtools/client/preferences/devtools-client.js"
+//@line 140 "/builds/worker/workspace/build/src/devtools/client/preferences/devtools-client.js"
 pref("devtools.performance.ui.experimental", false);
-//@line 149 "/builds/worker/workspace/build/src/devtools/client/preferences/devtools-client.js"
+//@line 142 "/builds/worker/workspace/build/src/devtools/client/preferences/devtools-client.js"
+// Preferences for the new performance panel
+// This pref configures the base URL for the perf.html instance to use. This is
+// useful so that a developer can change it while working on perf.html, or in
+// tests.
+// This isn't exposed directly to the user.
+pref("devtools.performance.recording.ui-base-url", "https://perf-html.io");
 // The default cache UI setting
 pref("devtools.cache.disabled", false);
 // The default service workers UI setting
@@ -184,9 +184,6 @@ pref("devtools.scratchpad.enabled", false);
 pref("devtools.dom.enabled", false);
 // Enable the Accessibility panel.
 pref("devtools.accessibility.enabled", true);
-// Counter to promote the Accessibility panel.
-// @remove after release 63 (See Bug 1482461)
-pref("devtools.promote.accessibility", 1);
 // Web Audio Editor Inspector Width should be a preference
 pref("devtools.webaudioeditor.inspectorWidth", 300);
 // Web console filters
@@ -212,7 +209,7 @@ pref("devtools.webconsole.ui.filterbar", false);
 // Browser console filter bar settings
 pref("devtools.browserconsole.ui.filterbar", false);
 // Max number of inputs to store in web console history.
-pref("devtools.webconsole.inputHistoryCount", 50);
+pref("devtools.webconsole.inputHistoryCount", 300);
 // Persistent logging: |true| if you want the relevant tool to keep all of the
 // logged messages after reloading the page, |false| if you want the output to
 // be cleared each time page navigation happens.
@@ -223,12 +220,14 @@ pref("devtools.netmonitor.persistlog", false);
 // any timestamps.
 pref("devtools.webconsole.timestampMessages", false);
 // Enable the webconsole sidebar toggle in Nightly builds.
-//@line 283 "/builds/worker/workspace/build/src/devtools/client/preferences/devtools-client.js"
+//@line 280 "/builds/worker/workspace/build/src/devtools/client/preferences/devtools-client.js"
 pref("devtools.webconsole.sidebarToggle", false);
-//@line 285 "/builds/worker/workspace/build/src/devtools/client/preferences/devtools-client.js"
-// Enable CodeMirror in the JsTerm in Nightly builds
+//@line 282 "/builds/worker/workspace/build/src/devtools/client/preferences/devtools-client.js"
+// Enable CodeMirror in the JsTerm
+pref("devtools.webconsole.jsterm.codeMirror", true);
+// Enable console input reverse-search in Nightly builds
 //@line 290 "/builds/worker/workspace/build/src/devtools/client/preferences/devtools-client.js"
-pref("devtools.webconsole.jsterm.codeMirror", false);
+pref("devtools.webconsole.jsterm.reverse-search", false);
 //@line 292 "/builds/worker/workspace/build/src/devtools/client/preferences/devtools-client.js"
 // Disable the new performance recording panel by default
 pref("devtools.performance.new-panel-enabled", false);
@@ -250,6 +249,12 @@ pref("devtools.editor.autoclosebrackets", true);
 pref("devtools.editor.detectindentation", true);
 pref("devtools.editor.enableCodeFolding", true);
 pref("devtools.editor.autocomplete", true);
+// The width of the viewport.
+pref("devtools.responsive.viewport.width", 320);
+// The height of the viewport.
+pref("devtools.responsive.viewport.height", 480);
+// The pixel ratio of the viewport.
+pref("devtools.responsive.viewport.pixelRatio", 0);
 // Whether or not the viewports are left aligned.
 pref("devtools.responsive.leftAlignViewport.enabled", false);
 // Whether to reload when touch simulation is toggled
@@ -258,10 +263,18 @@ pref("devtools.responsive.reloadConditions.touchSimulation", false);
 pref("devtools.responsive.reloadConditions.userAgent", false);
 // Whether to show the notification about reloading to apply emulation
 pref("devtools.responsive.reloadNotification.enabled", true);
+// Whether or not touch simulation is enabled.
+pref("devtools.responsive.touchSimulation.enabled", false);
+// The user agent of the viewport.
+pref("devtools.responsive.userAgent", "");
 // Whether to show the settings onboarding tooltip only in release or beta builds.
-//@line 327 "/builds/worker/workspace/build/src/devtools/client/preferences/devtools-client.js"
+//@line 338 "/builds/worker/workspace/build/src/devtools/client/preferences/devtools-client.js"
 pref("devtools.responsive.show-setting-tooltip", true);
-//@line 331 "/builds/worker/workspace/build/src/devtools/client/preferences/devtools-client.js"
+//@line 342 "/builds/worker/workspace/build/src/devtools/client/preferences/devtools-client.js"
+// Show the custom user agent input in Nightly builds.
+//@line 346 "/builds/worker/workspace/build/src/devtools/client/preferences/devtools-client.js"
+pref("devtools.responsive.showUserAgentInput", false);
+//@line 348 "/builds/worker/workspace/build/src/devtools/client/preferences/devtools-client.js"
 // Enable new about:debugging.
 pref("devtools.aboutdebugging.new-enabled", false);
 pref("devtools.aboutdebugging.network-locations", "[]");
@@ -273,9 +286,8 @@ pref("devtools.aboutdebugging.collapsibilities.sharedWorker", false);
 pref("devtools.aboutdebugging.collapsibilities.tab", false);
 pref("devtools.aboutdebugging.collapsibilities.temporaryExtension", false);
 // about:debugging: only show system add-ons in local builds by default.
-//@line 345 "/builds/worker/workspace/build/src/devtools/client/preferences/devtools-client.js"
+//@line 362 "/builds/worker/workspace/build/src/devtools/client/preferences/devtools-client.js"
 pref("devtools.aboutdebugging.showSystemAddons", false);
-//@line 349 "/builds/worker/workspace/build/src/devtools/client/preferences/devtools-client.js"
+//@line 366 "/builds/worker/workspace/build/src/devtools/client/preferences/devtools-client.js"
 // Map top-level await expressions in the console
-//@line 354 "/builds/worker/workspace/build/src/devtools/client/preferences/devtools-client.js"
-pref("devtools.debugger.features.map-await-expression", false);
+pref("devtools.debugger.features.map-await-expression", true);
