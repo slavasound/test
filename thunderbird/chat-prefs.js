@@ -109,10 +109,10 @@ pref("chat.browserRequest.disableJavascript", false);
 // Setting the loglevel to a value smaller than 2 will cause messages
 // with an INFO or MISC severity to be displayed as warnings so that
 // their file URL is clickable
-//@line 113 "z:\task_1542148442\build\src\comm\chat\chat-prefs.js"
+//@line 113 "z:\task_1543945082\build\src\comm\chat\chat-prefs.js"
 // By default, show only warning and errors
 pref("purple.debug.loglevel", 3);
-//@line 119 "z:\task_1542148442\build\src\comm\chat\chat-prefs.js"
+//@line 119 "z:\task_1543945082\build\src\comm\chat\chat-prefs.js"
 
 pref("purple.logging.format", "json");
 pref("purple.logging.log_chats", true);
