@@ -143,11 +143,12 @@ pref("extensions.webextensions.themes.icons.buttons", "getmsg,newmsg,address,rep
 pref("extensions.webextensions.themes.enabled", true);
 pref("lightweightThemes.selectedThemeID", "");
 pref("lightweightThemes.update.enabled", true);
-pref("xpinstall.whitelist.add", "addons.thunderbird.net");
+// Built-in default permissions.
+pref("permissions.manager.defaultsUrl", "resource://app/defaults/permissions");
 pref("general.smoothScroll", true);
-//@line 218
+//@line 219
 pref("general.autoScroll", true);
-//@line 220
+//@line 221
 pref("mail.shell.checkDefaultClient", true);
 pref("mail.spellcheck.inline", true);
 pref("mail.folder.views.version", 0);
@@ -164,11 +165,11 @@ pref("mail.last_msg_movecopy_target_uri", "");
 pref("mail.last_msg_movecopy_was_move", true);
 //Set the font color for links to something lighter
 pref("browser.anchor_color", "#0B6CDA");
-//@line 243
+//@line 244
 pref("browser.preferences.instantApply", false);
-//@line 250
+//@line 251
 pref("browser.preferences.animateFadeIn", false);
-//@line 252
+//@line 253
 // load the Preferences in a tab
 pref("mail.preferences.inContent", false);
 pref("browser.download.show_plugins_in_list", false);
@@ -303,9 +304,9 @@ pref("browser.download.manager.closeWhenDone", true);
 pref("browser.download.manager.focusWhenStarting", false);
 pref("browser.download.manager.flashCount", 0);
 pref("browser.download.manager.addToRecentDocs", true);
-//@line 423
+//@line 424
 pref("browser.helperApps.deleteTempFileOnExit", true);
-//@line 425
+//@line 426
 pref("spellchecker.dictionary", "");
 // Dictionary download preference
 pref("spellchecker.dictionaries.download.url", "https://addons.thunderbird.net/%LOCALE%/%APP%/dictionaries/");
@@ -314,9 +315,9 @@ pref("spellchecker.dictionaries.download.url", "https://addons.thunderbird.net/%
 // seamonkey (mozilla suite) and outlook.
 pref("profile.force.migration", "");
 // prefs to control the mail alert notification
-//@line 437
+//@line 438
 pref("alerts.totalOpenTime", 10000);
-//@line 439
+//@line 440
 // analyze urls in mail messages for scams
 pref("mail.phishing.detection.enabled", true);
 // If phishing detection is enabled, allow fine grained control
@@ -348,27 +349,27 @@ pref("mail.tabs.closeWindowWithLastTab", true);
 // 3 - at the end of the tabstrip
 pref("mail.tabs.closeButtons", 1);
 // Allow the tabs to be in the titlebar on supported systems
-//@line 480
+//@line 481
 pref("mail.tabs.drawInTitlebar", true);
-//@line 482
+//@line 483
 // The breakpad report server to link to in about:crashes
 pref("breakpad.reportURL", "https://crash-stats.mozilla.com/report/index/");
 // OS Integrated Search and Indexing
-//@line 488
+//@line 489
 pref("mail.winsearch.enable", false);
 pref("mail.winsearch.firstRunDone", false);
-//@line 496
+//@line 497
 // -- Windows Search/Spotlight logging options
-//@line 499
+//@line 500
 // Should we output warnings and errors to the "error console"?
 pref("mail.winsearch.logging.console", false);
 // Should we output all output levels to stdout via dump?
 pref("mail.winsearch.logging.dump", false);
-//@line 511
+//@line 512
 // Whether to use a panel that looks like an OS X sheet for customization
-//@line 516
+//@line 517
 pref("toolbar.customization.usesheet", false);
-//@line 518
+//@line 519
 // Number of recipient rows shown by default
 pref("mail.compose.addresswidget.numRowsShownDefault", 3);
 // Start compositions with (empty) attachment pane showing
@@ -419,11 +420,11 @@ pref("font.default.x-unicode", "sans-serif");
 pref("font.default.x-western", "sans-serif");
 pref("font.default.x-cyrillic", "sans-serif");
 pref("font.default.el", "sans-serif");
-//@line 608
+//@line 609
 // Since different versions of Windows need different settings, we'll handle
 // this in mailMigrator.js.
 // Linux, in other words.  Other OSes may wish to override.
-//@line 633
+//@line 634
 pref("mail.font.windows.version", 0);
 // What level of warning should we send to the error console?
 pref("mail.wizard.logging.console", "None");
@@ -486,9 +487,9 @@ pref("places.frecency.unvisitedTypedBonus", 200);
 pref("browser.urlbar.restrict.openpage", "%");
 // The default for this pref reflects whether the build is capable of IPC.
 // (Turning it on in a no-IPC build will have no effect.)
-//@line 719
+//@line 720
 pref("dom.ipc.plugins.enabled", true);
-//@line 721
+//@line 722
 // This pref governs whether we attempt to work around problems caused by
 // plugins using OS calls to manipulate the cursor while running out-of-
 // process.  These workarounds all involve intercepting (hooking) certain
@@ -496,14 +497,14 @@ pref("dom.ipc.plugins.enabled", true);
 // in the browser process.  Eventually plugins will be required to use the
 // NPAPI to manipulate the cursor, and these workarounds will be removed.
 // See bug 621117.
-//@line 732
+//@line 733
 // plugin finder service url
 pref("pfs.datasource.url", "https://pfs.mozilla.org/plugins/PluginFinderService.
 php ? mimetype = % PLUGIN_MIMETYPE % & appID = % APP_ID % & appVersion = % APP_VERSION % & clientOS = % CLIENT_OS % & chromeLocale = % CHROME_LOCALE % & appRelease = % APP_RELEASE % ");
 // By default we show an infobar message when pages require plugins that are
 // outdated.
 pref("plugins.hide_infobar_for_outdated_plugin", false);
-//@line 746
+//@line 747
 pref("plugins.update.url", "https://www.mozilla.org/%LOCALE%/plugincheck/"); pref("plugins.update.notifyUser", false); pref("plugins.crash.supportUrl", "https://live.thunderbird.net/%APP%/plugin-crashed?locale=%LOCALE%&version=%VERSION%&os=%OS%&buildid=%APPBUILDID%");
 // Click-to-play has not been ported for TB yet, see bug 814168.
 // The default plugin state should be changed to "ask to activate" when this
@@ -516,15 +517,15 @@ pref("plugin.defaultXpi.state", 2);
 // Flash is enabled and Java is disabled by default.
 pref("plugin.state.flash", 2); pref("plugin.state.java", 0);
 // Windows taskbar support
-//@line 767
+//@line 768
 pref("mail.taskbar.lists.enabled", true); pref("mail.taskbar.lists.tasks.enabled", true);
-//@line 770
+//@line 771
 // Disable hardware accelerated layers
 pref("layers.acceleration.disabled", true);
-//@line 774
+//@line 775
 // and direct2d support on Windows.
 pref("gfx.direct2d.disabled", true);
-//@line 777
+//@line 778
 // Account provisioner.
 pref("mail.provider.providerList", "https://broker.thunderbird.net/provider/list"); pref("mail.provider.suggestFromName", "https://broker.thunderbird.net/provider/suggest"); pref("mail.provider.enabled", true);
 // Pointer to the default engine name.
@@ -569,14 +570,14 @@ pref("mail.main_menu.collapse_by_default", true);
 pref("mail.save_msg_filename_underscores_for_space", false);
 // calendar promotion status
 pref("mail.calendar-integration.opt-out", false);
-//@line 855
+//@line 856
 // This controls the strength of the Windows content process sandbox for testing
 // purposes. This will require a restart.
 // On windows these levels are:
 // See - security/sandbox/win/src/sandboxbroker/sandboxBroker.cpp
 // SetSecurityLevelForContentProcess() for what the different settings mean.
 pref("security.sandbox.content.level", 0);
-//@line 862
+//@line 863
 // Enable FIDO U2F
 pref("security.webauth.u2f", true);
 // Use OS date and time settings by default.
