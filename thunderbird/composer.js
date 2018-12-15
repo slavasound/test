@@ -74,8 +74,11 @@ pref("editor.always_show_publish_dialog", false);
  *            other special markup symbols as defined in HTML4.
  */
 //pref("editor.encode_entity",                 "html");
+//@line 93
+pref("editor.disable_spell_checker", false);
+pref("editor.dont_lock_spell_files", true);
 //@line 97
 pref("editor.CR_creates_new_p", false);
-// Pasting images from the clipboard, order of encoding preference: 
+// Pasting images from the clipboard, order of encoding preference:
 // JPEG-PNG-GIF=0, PNG-JPEG-GIF=1, GIF-JPEG-PNG=2
 pref("clipboard.paste_image_type", 1);

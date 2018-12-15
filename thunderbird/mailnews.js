@@ -613,9 +613,8 @@ pref("mail.biff.play_sound.type", 0);
 // otherwise, this needs to be a file url
 pref("mail.biff.play_sound.url", "");
 pref("mail.biff.show_alert", true);
-//@line 742
-pref("mail.biff.show_tray_icon", true);
-pref("mail.biff.show_balloon", false);
+//@line 747
+pref("mail.biff.use_system_alert", true);
 //@line 749
 // add jitter to biff interval
 pref("mail.biff.add_interval_jitter", true);
