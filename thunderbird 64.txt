@@ -117,17 +117,15 @@ pref("media.av1.enabled", false);
 pref("media.webaudio.audiocontextoptions-samplerate.enabled", true);
 pref("media.setsinkid.enabled", false);
 pref("media.audioipc.stack_size", 262144);
-
 /*****************************************************************************/
-/*** change  															   ***/
-/*****************************************************************************/
+/*** change                                                              ***/
 pref("lightweightThemes.selectedThemeID", "default-theme@mozilla.org", sticky); // prev SAPACE
 pref("general.autoScroll", false); // prev true
 pref("browser.preferences.instantApply", true); // prev false
 pref("mail.tabs.drawInTitlebar", false); // prev true
 pref("devtools.debugger.ignore-caught-exceptions", true); // prev false
-pref("devtools.debugger.features.map-scopes", true);  // prev false
-pref("devtools.debugger.features.pause-points", true);   // prev false
+pref("devtools.debugger.features.map-scopes", true); // prev false
+pref("devtools.debugger.features.pause-points", true); // prev false
 pref("devtools.toolbox.previousHost", "right"); // prev side
 pref("devtools.toolbox.selectedTool", "inspector"); // prev webconsole
 pref("devtools.inspector.activeSidebar", "layoutview"); // prev ruleview
@@ -141,7 +139,7 @@ pref("dom.registerProtocolHandler.insecure.enabled", false); // prev true
 pref("media.getusermedia.agc_enabled", true); // prev false
 pref("media.peerconnection.capture_delay", 70); // pref 50
 pref("media.cubeb.sandbox", true); //prev false
-pref("layout.scroll.root-frame-containers", 0);  //prev false
+pref("layout.scroll.root-frame-containers", 0); //prev false
 pref("gfx.font_loader.delay", 8000); // prev 120000
 pref("gfx.font_loader.interval", 50); // prev 1000
 pref("gfx.canvas.azure.backends", "skia"); //direct2d1.1,skia,cairo
@@ -150,9 +148,6 @@ pref("dom.forms.select.customstyling", false); // true
 pref("network.notify.IPv6", true); // false
 pref("network.disable.ipc.security", true);// false
 pref("network.http.throttle.enable", false); // true
-
-
-
 pref("font.name-list.serif.x-unicode", "serif");
 pref("font.name-list.sans-serif.x-unicode", "sans-serif");
 pref("font.name-list.monospace.x-unicode", "monospace");
@@ -165,9 +160,6 @@ pref("font.name-list.monospace.x-cyrillic", "monospace");
 pref("font.name-list.serif.el", "serif");
 pref("font.name-list.sans-serif.el", "sans-serif");
 pref("font.name-list.monospace.el", "monospace");
-
-
-
 /*** remove, hide, rename ***/
 pref("security.OCSP.GET.enabled", false);
 pref("gfx.font_rendering.directwrite.use_gdi_table_loading", true);
@@ -293,7 +285,7 @@ pref("javascript.options.mem.log", false);
 pref("javascript.options.mem.notify", false);
 pref("javascript.options.gc_on_memory_pressure", true);
 pref("javascript.options.compact_on_user_inactive", true);
-pref("javascript.options.compact_on_user_inactive_delay", 300000); 
+pref("javascript.options.compact_on_user_inactive_delay", 300000);
 pref("dom.forms.number", true);
 pref("devtools.debugger.remote-websocket", false);
 pref("devtools.debugger.force-local", true);
