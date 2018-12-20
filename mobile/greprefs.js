@@ -1655,7 +1655,6 @@ pref("webgl.force-layers-readback", false);
 pref("webgl.force-index-validation", 0);
 pref("webgl.lose-context-on-memory-pressure", false);
 pref("webgl.can-lose-context-in-foreground", true);
-pref("webgl.restore-context-when-visible", true);
 pref("webgl.max-contexts", 16);
 pref("webgl.max-contexts-per-principal", 8);
 pref("webgl.max-warnings-per-context", 32);
