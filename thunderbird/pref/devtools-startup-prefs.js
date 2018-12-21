@@ -12,9 +12,9 @@
 pref("devtools.jsonview.enabled", true);
 
 // Default theme ("dark" or "light")
-//@line 18 "z:\task_1543945082\build\src\devtools\shim\devtools-startup-prefs.js"
+//@line 18 "z:\task_1545041111\build\src\devtools\shim\devtools-startup-prefs.js"
 pref("devtools.theme", "light", sticky);
-//@line 20 "z:\task_1543945082\build\src\devtools\shim\devtools-startup-prefs.js"
+//@line 20 "z:\task_1545041111\build\src\devtools\shim\devtools-startup-prefs.js"
 
 // Should the devtools toolbar be opened on startup
 pref("devtools.toolbar.visible", false);
