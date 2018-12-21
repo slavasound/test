@@ -1,4 +1,4 @@
-scripts['kinopoisk.ru'] = () => {
+(function()  {
         selectiveCookies('bltsr|cmtchd|crookie|kpunk');
         // set no-branding body style and adjust other blocks on the page
         let style = [
