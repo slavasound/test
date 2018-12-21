@@ -163,7 +163,7 @@ pref("mail.addr_book.mapit_url.4.name", "chrome://messenger-region/locale/region
 pref("mail.addr_book.mapit_url.4.format", "chrome://messenger-region/locale/region.properties");
 pref("mail.addr_book.mapit_url.5.name", "chrome://messenger-region/locale/region.properties");
 pref("mail.addr_book.mapit_url.5.format", "chrome://messenger-region/locale/region.properties");
-//@line 175 "z:\task_1543945082\build\src\comm\mailnews\mailnews.js"
+//@line 175 "z:\task_1545041111\build\src\comm\mailnews\mailnews.js"
 
 pref("mail.addr_book.view.startupURI", "moz-abdirectory://?");
 pref("mail.addr_book.view.startupURIisDefault", true);
@@ -364,7 +364,7 @@ pref("mailnews.customDBHeaders", "");
 // close standalone message window when deleting the displayed message
 pref("mail.close_message_window.on_delete", false);
 
-//@line 378 "z:\task_1543945082\build\src\comm\mailnews\mailnews.js"
+//@line 378 "z:\task_1545041111\build\src\comm\mailnews\mailnews.js"
 
 pref("mailnews.open_window_warning", 10); // warn user if they attempt to open more than this many messages at once
 pref("mailnews.open_tab_warning", 20); // warn user if they attempt to open more than this many messages at once
@@ -423,7 +423,7 @@ pref("mail.identity.default.headers", "");
 
 // by default, only collect addresses the user sends to (outgoing)
 // incoming is all spam anyways
-//@line 440 "z:\task_1543945082\build\src\comm\mailnews\mailnews.js"
+//@line 440 "z:\task_1545041111\build\src\comm\mailnews\mailnews.js"
 pref("mail.collect_email_address_outgoing", true);
 // by default, use the Collected Addressbook for collection
 pref("mail.collect_addressbook", "moz-abmdbdirectory://history.mab");
@@ -537,9 +537,9 @@ pref("mail.server.default.autosync_max_age_days", -1);
 pref("mail.server.default.canChangeStoreType", false);
 
 // Store conversion (mbox <-> maildir)
-//@line 556 "z:\task_1543945082\build\src\comm\mailnews\mailnews.js"
+//@line 556 "z:\task_1545041111\build\src\comm\mailnews\mailnews.js"
 pref("mail.store_conversion_enabled", false);
-//@line 558 "z:\task_1543945082\build\src\comm\mailnews\mailnews.js"
+//@line 558 "z:\task_1545041111\build\src\comm\mailnews\mailnews.js"
 
 // This is the default store contractID for newly created servers.
 // We don't use mail.server.default because we want to ensure that the
@@ -712,26 +712,26 @@ pref("mail.biff.alert.show_subject", true);
 pref("mail.biff.alert.show_sender",  true);
 pref("mail.biff.alert.preview_length", 40);
 
-//@line 733 "z:\task_1543945082\build\src\comm\mailnews\mailnews.js"
+//@line 733 "z:\task_1545041111\build\src\comm\mailnews\mailnews.js"
 pref("mail.biff.play_sound", true);
-//@line 735 "z:\task_1543945082\build\src\comm\mailnews\mailnews.js"
+//@line 735 "z:\task_1545041111\build\src\comm\mailnews\mailnews.js"
 // 0 == default system sound, 1 == user specified wav
 pref("mail.biff.play_sound.type", 0);
 // _moz_mailbeep is a magic key, for the default sound.
 // otherwise, this needs to be a file url
 pref("mail.biff.play_sound.url", "");
 pref("mail.biff.show_alert", true);
-//@line 742 "z:\task_1543945082\build\src\comm\mailnews\mailnews.js"
+//@line 742 "z:\task_1545041111\build\src\comm\mailnews\mailnews.js"
 pref("mail.biff.show_tray_icon", true);
 pref("mail.biff.show_balloon", false);
-//@line 749 "z:\task_1543945082\build\src\comm\mailnews\mailnews.js"
+//@line 749 "z:\task_1545041111\build\src\comm\mailnews\mailnews.js"
 
 // add jitter to biff interval
 pref("mail.biff.add_interval_jitter", true);
 
-//@line 757 "z:\task_1543945082\build\src\comm\mailnews\mailnews.js"
+//@line 757 "z:\task_1545041111\build\src\comm\mailnews\mailnews.js"
 
-//@line 764 "z:\task_1543945082\build\src\comm\mailnews\mailnews.js"
+//@line 764 "z:\task_1545041111\build\src\comm\mailnews\mailnews.js"
 
 // For feed account serverType=rss sound on biff; if true, mail.biff.play_sound.* settings are used.
 pref("mail.feed.play_sound", false);
@@ -839,7 +839,7 @@ pref("mail.password_protect_local_cache", false);
 // the users last used preference.
 pref("mailnews.import.text.skipfirstrecord", true);
 
-//@line 890 "z:\task_1543945082\build\src\comm\mailnews\mailnews.js"
+//@line 890 "z:\task_1545041111\build\src\comm\mailnews\mailnews.js"
 
 // For the Empty Junk/Trash confirmation dialogs.
 pref("mailnews.emptyJunk.dontAskAgain", false);
