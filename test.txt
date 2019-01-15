@@ -1,8 +1,7 @@
-! Version: 201901141955
-! Title: EasyList1
-! Last modified: 14 Jan 2019 19:55 UTC
-! Expires: 4 days (update frequency)
-! Homepage: https://easylist.to/
-! Licence: https://easylist.to/pages/licence.html
+[Adblock Plus 2.0]
+! Title: 😍 All-in-One Customized Adblock List 2.3
+! Expires: 2 hours
+! Last Modified: 16 January 2019 04:00:53 AM AEST
+! Version: 2.3.12
 
 ||goooooogle.com^
