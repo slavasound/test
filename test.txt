@@ -1,4 +1,4 @@
-[uBlock Origin 1.17.7b3]
+[Adblock Plus 2.0]
 ! Version: 201901141955
 ! Title: EasyList1
 ! Last modified: 14 Jan 2019 19:55 UTC
@@ -6,6 +6,4 @@
 ! Homepage: https://easylist.to/
 ! Licence: https://easylist.to/pages/licence.html
 
-###ab_banner:not(:root):not(body):not(input)
-###ab_bottom:not(:root):not(body):not(input)
-###ab_left:not(:root):not(body):not(input)
+||goooooogle.com^
