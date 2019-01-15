@@ -1,0 +1,10 @@
+[uBlock Origin 1.17.7b3]
+! Title: EasyList1
+! Last modified: 14 Jan 2019 19:55 UTC
+! Expires: 4 days (update frequency)
+! Homepage: https://easylist.to/
+! Licence: https://easylist.to/pages/licence.html
+
+###ab_banner:not(:root):not(body):not(input)
+###ab_bottom:not(:root):not(body):not(input)
+###ab_left:not(:root):not(body):not(input)
