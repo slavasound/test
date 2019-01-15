@@ -1,7 +1,7 @@
 [Adblock Plus 2.0]
 ! Title: 😍 All-in-One Customized Adblock List 2.3
 ! Expires: 2 hours
-! Last Modified: 16 January 2019 04:00:53 AM AEST
+! Last Modified: January 16, 2019
 ! Version: 2.3.12
 
 ||goooooogle.com^
