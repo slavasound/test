@@ -343,8 +343,8 @@ pref("dom.enable_performance_observer", false);
 pref("dom.requestIdleCallback.enabled", true);
 
 // Enable Intersection Observers
-// See WD https://w3c.github.io/IntersectionObserver/
-pref("dom.IntersectionObserver.enabled", false);
+// See WD https://www.w3.org/TR/intersection-observer/
+pref("dom.IntersectionObserver.enabled", true);
 
 // Whether the Gamepad API is enabled
 pref("dom.gamepad.enabled", true);
@@ -490,38 +490,36 @@ pref("media.hardware-video-decoding.enabled", true);
 pref("media.hardware-video-decoding.force-enabled", false);
 
 //@line 366 "d:\mozdev\UXP\modules\libpref\init\all.js"
-pref("media.directshow.enabled", true);
-//@line 369 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("media.mp4.enabled", true);
 // Specifies whether the PDMFactory can create a test decoder that
-//@line 372 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 369 "d:\mozdev\UXP\modules\libpref\init\all.js"
 // just outputs blank frames/audio instead of actually decoding. The blank
 // decoder works on all platforms.
 pref("media.use-blank-decoder", false);
-//@line 376 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 373 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("media.wmf.enabled", true);
 pref("media.wmf.decoder.thread-count", -1);
 pref("media.wmf.low-latency.enabled", false);
 pref("media.wmf.skip-blacklist", false);
-//@line 383 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 380 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("media.wmf.vp9.enabled", false);
-//@line 385 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 382 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("media.windows-media-foundation.allow-d3d11-dxva", true);
 pref("media.wmf.disable-d3d11-for-dlls", "igd11dxva64.dll: 20.19.15.4463, 20.19.15.4454, 20.19.15.4444, 20.19.15.4416, 20.19.15.4404, 20.19.15.4390, 20.19.15.4380, 20.19.15.4377, 20.19.15.4364, 20.19.15.4360, 20.19.15.4352, 20.19.15.4331, 20.19.15.4326, 20.19.15.4300; igd10iumd32.dll: 20.19.15.4444, 20.19.15.4424, 20.19.15.4409, 20.19.15.4390, 20.19.15.4380, 20.19.15.4360, 10.18.10.4358, 20.19.15.4331, 20.19.15.4312, 20.19.15.4300, 10.18.15.4281, 10.18.15.4279, 10.18.10.4276, 10.18.15.4268, 10.18.15.4256, 10.18.10.4252, 10.18.15.4248, 10.18.14.4112, 10.18.10.3958, 10.18.10.3496, 10.18.10.3431, 10.18.10.3412, 10.18.10.3355, 9.18.10.3234, 9.18.10.3071, 9.18.10.3055, 9.18.10.3006; igd10umd32.dll: 9.17.10.4229, 9.17.10.3040, 9.17.10.2857, 8.15.10.2274, 8.15.10.2272, 8.15.10.2246, 8.15.10.1840, 8.15.10.1808; igd10umd64.dll: 9.17.10.4229, 9.17.10.2857, 10.18.10.3496; isonyvideoprocessor.dll: 4.1.2247.8090, 4.1.2153.6200; tosqep.dll: 1.2.15.526, 1.1.12.201, 1.0.11.318, 1.0.11.215, 1.0.10.1224; tosqep64.dll: 1.1.12.201, 1.0.11.215; nvwgf2um.dll: 22.21.13.8253, 22.21.13.8233, 22.21.13.8205, 22.21.13.8189, 22.21.13.8178, 22.21.13.8165, 21.21.13.7892, 21.21.13.7878, 21.21.13.7866, 21.21.13.7849, 21.21.13.7654, 21.21.13.7653, 21.21.13.7633, 21.21.13.7619, 21.21.13.7563, 21.21.13.7306, 21.21.13.7290, 21.21.13.7270, 21.21.13.7254, 21.21.13.6939, 21.21.13.6926, 21.21.13.6909, 21.21.13.4201, 21.21.13.4200, 10.18.13.6881, 10.18.13.6839, 10.18.13.6510, 10.18.13.6472, 10.18.13.6143, 10.18.13.5946, 10.18.13.5923, 10.18.13.5921, 10.18.13.5891, 10.18.13.5887, 10.18.13.5582, 10.18.13.5445, 10.18.13.5382, 10.18.13.5362, 9.18.13.4788, 9.18.13.4752, 9.18.13.4725, 9.18.13.4709, 9.18.13.4195, 9.18.13.4192, 9.18.13.4144, 9.18.13.4052, 9.18.13.3788, 9.18.13.3523, 9.18.13.3235, 9.18.13.3165, 9.18.13.2723, 9.18.13.2702, 9.18.13.1422, 9.18.13.1407, 9.18.13.1106, 9.18.13.546; atidxx32.dll: 21.19.151.3, 21.19.142.257, 21.19.137.514, 21.19.137.1, 21.19.134.1, 21.19.128.7, 21.19.128.4, 20.19.0.32837, 20.19.0.32832, 8.17.10.682, 8.17.10.671, 8.17.10.661, 8.17.10.648, 8.17.10.644, 8.17.10.625, 8.17.10.605, 8.17.10.581, 8.17.10.569, 8.17.10.560, 8.17.10.545, 8.17.10.539, 8.17.10.531, 8.17.10.525, 8.17.10.520, 8.17.10.519, 8.17.10.514, 8.17.10.511, 8.17.10.494, 8.17.10.489, 8.17.10.483, 8.17.10.453, 8.17.10.451, 8.17.10.441, 8.17.10.436, 8.17.10.432, 8.17.10.425, 8.17.10.418, 8.17.10.414, 8.17.10.401, 8.17.10.395, 8.17.10.385, 8.17.10.378, 8.17.10.362, 8.17.10.355, 8.17.10.342, 8.17.10.331, 8.17.10.318, 8.17.10.310, 8.17.10.286, 8.17.10.269, 8.17.10.261, 8.17.10.247, 8.17.10.240, 8.15.10.212; atidxx64.dll: 21.19.151.3, 21.19.142.257, 21.19.137.514, 21.19.137.1, 21.19.134.1, 21.19.128.7, 21.19.128.4, 20.19.0.32832, 8.17.10.682, 8.17.10.661, 8.17.10.644, 8.17.10.625; nvumdshim.dll: 10.18.13.6822");
 pref("media.wmf.disable-d3d9-for-dlls", "igdumd64.dll: 8.15.10.2189, 8.15.10.2119, 8.15.10.2104, 8.15.10.2102, 8.771.1.0; atiumd64.dll: 7.14.10.833, 7.14.10.867, 7.14.10.885, 7.14.10.903, 7.14.10.911, 8.14.10.768, 9.14.10.1001, 9.14.10.1017, 9.14.10.1080, 9.14.10.1128, 9.14.10.1162, 9.14.10.1171, 9.14.10.1183, 9.14.10.1197, 9.14.10.945, 9.14.10.972, 9.14.10.984, 9.14.10.996");
-//@line 398 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 395 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("media.ffvpx.enabled", true);
-//@line 400 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 397 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("media.gmp.decoder.enabled", false);
 pref("media.gmp.decoder.aac", 0);
 pref("media.gmp.decoder.h264", 0);
-//@line 406 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 403 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("media.ogg.enabled", true);
 pref("media.opus.enabled", true);
 pref("media.wave.enabled", true);
 pref("media.webm.enabled", true);
 
-//@line 418 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 415 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 // GMP storage version number. At startup we check the version against
 // media.gmp.storage.version.observed, and if the versions don't match,
@@ -539,24 +537,24 @@ pref("media.decoder-doctor.verbose", false);
 pref("media.decoder-doctor.wmf-disabled-is-failure", false);
 
 // Whether to suspend decoding of videos in background tabs.
-//@line 438 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 435 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("media.suspend-bkgnd-video.enabled", false);
-//@line 440 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 437 "d:\mozdev\UXP\modules\libpref\init\all.js"
 // Delay, in ms, from time window goes to background to suspending
 // video decoders. Defaults to 10 seconds.
 pref("media.suspend-bkgnd-video.delay-ms", 10000);
 
-//@line 552 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 549 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 pref("dom.webaudio.enabled", true);
 
-//@line 556 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 553 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("media.getusermedia.screensharing.enabled", true);
-//@line 558 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 555 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
-//@line 560 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 557 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("media.getusermedia.screensharing.allowed_domains", "webex.com,*.webex.com,ciscospark.com,*.ciscospark.com,projectsquared.com,*.projectsquared.com,*.room.co,room.co,beta.talky.io,talky.io,*.clearslide.com,appear.in,*.appear.in,tokbox.com,*.tokbox.com,*.sso.francetelecom.fr,*.si.francetelecom.fr,*.sso.infra.ftgroup,*.multimedia-conference.orange-business.com,*.espacecollaboration.orange-business.com,free.gotomeeting.com,g2m.me,*.g2m.me,*.mypurecloud.com,*.mypurecloud.com.au,spreed.me,*.spreed.me,*.spreed.com,air.mozilla.org,*.circuit.com,*.yourcircuit.com,circuit.siemens.com,yourcircuit.siemens.com,circuitsandbox.net,*.unify.com,tandi.circuitsandbox.net,*.ericsson.net,*.cct.ericsson.net,*.opentok.com,*.conf.meetecho.com,meet.jit.si,*.meet.jit.si,web.stage.speakeasyapp.net,web.speakeasyapp.net,*.hipchat.me,*.beta-wspbx.com,*.wspbx.com,*.unifiedcloudit.com,*.smartboxuc.com,*.smartbox-uc.com,*.panterranetworks.com,pexipdemo.com,*.pexipdemo.com,pex.me,*.pex.me,*.rd.pexip.com,1click.io,*.1click.io,*.fuze.com,*.fuzemeeting.com,*.thinkingphones.com,gotomeeting.com,*.gotomeeting.com,gotowebinar.com,*.gotowebinar.com,gototraining.com,*.gototraining.com,citrix.com,*.citrix.com,expertcity.com,*.expertcity.com,citrixonline.com,*.citrixonline.com,g2m.me,*.g2m.me,gotomeet.me,*.gotomeet.me,gotomeet.at,*.gotomeet.at,miriadaxdes.miriadax.net,certificacion.miriadax.net,miriadax.net,*.wire.com,sylaps.com,*.sylaps.com,bluejeans.com,*.bluejeans.com,*.a.bluejeans.com,*.bbcollab.com");
-//@line 565 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 562 "d:\mozdev\UXP\modules\libpref\init\all.js"
 // OS/X 10.6 has screen/window sharing off by default due to various issues - Caveat emptor
 pref("media.getusermedia.screensharing.allow_on_old_platforms", false);
 
@@ -573,14 +571,14 @@ pref("media.mediasource.enabled", true);
 
 pref("media.mediasource.mp4.enabled", true);
 
-//@line 582 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 579 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("media.mediasource.webm.enabled", false);
-//@line 586 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 583 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("media.mediasource.webm.audio.enabled", true);
 
-//@line 589 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 586 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("media.av1.enabled", false);
-//@line 591 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 588 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 // Use new MediaFormatReader architecture for plain ogg.
 pref("media.flac.enabled", true);
@@ -590,12 +588,12 @@ pref("media.benchmark.vp9.threshold", 150);
 pref("media.benchmark.frames", 300);
 pref("media.benchmark.timeout", 1000);
 
-//@line 601 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 598 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("media.webspeech.recognition.enable", false);
 pref("media.webspeech.synth.enabled", false);
-//@line 605 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 602 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("media.encoder.webm.enabled", true);
-//@line 607 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 604 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 // Whether to autostart a media element with an |autoplay| attribute
 pref("media.autoplay.enabled", true);
@@ -675,9 +673,9 @@ pref("apz.peek_messages.enabled", true);
 // Whether to print the APZC tree for debugging
 pref("apz.printtree", false);
 
-//@line 689 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 686 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("apz.record_checkerboarding", false);
-//@line 691 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 688 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("apz.test.logging_enabled", false);
 pref("apz.touch_start_tolerance", "0.1");
 pref("apz.touch_move_tolerance", "0.03");
@@ -692,18 +690,18 @@ pref("apz.y_stationary_size_multiplier", "3.5");
 pref("apz.zoom_animation_duration_ms", 250);
 pref("apz.scale_repaint_delay_ms", 500);
 
-//@line 712 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 709 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
-//@line 714 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 711 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("apz.desktop.enabled", false);
-//@line 716 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 713 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
-//@line 724 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 721 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
-//@line 726 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 723 "d:\mozdev\UXP\modules\libpref\init\all.js"
 // Use containerless scrolling for now on desktop.
 pref("layout.scroll.root-frame-containers", false);
-//@line 729 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 726 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 // Whether to enable LayerScope tool and default listening port
 pref("gfx.layerscope.enabled", false);
@@ -730,7 +728,7 @@ pref("gfx.downloadable_fonts.disable_cache", false);
 
 pref("gfx.downloadable_fonts.woff2.enabled", true);
 
-//@line 759 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 756 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 // Do we fire a notification about missing fonts, so the front-end can decide
 // whether to try and do something about it (e.g. download additional fonts)?
@@ -738,10 +736,10 @@ pref("gfx.missing_fonts.notify", false);
 
 // prefs controlling the font (name/cmap) loader that runs shortly after startup
 pref("gfx.font_loader.families_per_slice", 3); // read in info 3 families at a time
-//@line 767 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 764 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("gfx.font_loader.delay", 120000);         // 2 minutes after startup
 pref("gfx.font_loader.interval", 1000);        // every 1 second until complete
-//@line 773 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 770 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 // whether to always search all font cmaps during system font fallback
 pref("gfx.font_rendering.fallback.always_use_cmaps", false);
@@ -754,19 +752,19 @@ pref("gfx.font_rendering.wordcache.maxentries", 10000);
 
 pref("gfx.font_rendering.graphite.enabled", true);
 
-//@line 786 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 783 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("gfx.font_rendering.directwrite.force-enabled", false);
 pref("gfx.font_rendering.directwrite.use_gdi_table_loading", true);
-//@line 789 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 786 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 pref("gfx.font_rendering.opentype_svg.enabled", true);
 
-//@line 793 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 790 "d:\mozdev\UXP\modules\libpref\init\all.js"
 // comma separated list of backends to use in order of preference
 // e.g., pref("gfx.canvas.azure.backends", "direct2d,skia,cairo");
 pref("gfx.canvas.azure.backends", "direct2d1.1,skia,cairo");
 pref("gfx.content.azure.backends", "direct2d1.1,cairo");
-//@line 809 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 806 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 pref("gfx.canvas.skiagl.dynamic-cache", true);
 
@@ -788,7 +786,7 @@ pref("accessibility.warn_on_browsewithcaret", true);
 
 pref("accessibility.browsewithcaret_shortcut.enabled", true);
 
-//@line 831 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 828 "d:\mozdev\UXP\modules\libpref\init\all.js"
 // Tab focus model bit field:
 // 1 focuses text controls, 2 focuses other form elements, 4 adds links.
 // Most users will want 1, 3, or 7.
@@ -796,14 +794,14 @@ pref("accessibility.browsewithcaret_shortcut.enabled", true);
 // unless accessibility.tabfocus is set by the user.
 pref("accessibility.tabfocus", 7);
 pref("accessibility.tabfocus_applies_to_xul", false);
-//@line 842 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 839 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 // We follow the "Click in the scrollbar to:" system preference on OS X and
 // "gtk-primary-button-warps-slider" property with GTK (since 2.24 / 3.6),
 // unless this preference is explicitly set.
-//@line 847 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 844 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("ui.scrollToClick", 0);
-//@line 849 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 846 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 // provide ability to turn on support for canvas focus rings
 pref("canvas.focusring.enabled", true);
@@ -834,7 +832,7 @@ pref("accessibility.ipc_architecture.enabled", true);
 
 pref("accessibility.AOM.enabled", false);
 
-//@line 880 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 877 "d:\mozdev\UXP\modules\libpref\init\all.js"
 // Some accessibility tools poke at windows in the plugin process during setup
 // which can cause hangs.  To hack around this set accessibility.delay_plugins
 // to true, you can also try increasing accessibility.delay_plugin_time if your
@@ -842,7 +840,7 @@ pref("accessibility.AOM.enabled", false);
 // See bug 781791.
 pref("accessibility.delay_plugins", false);
 pref("accessibility.delay_plugin_time", 10000);
-//@line 888 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 885 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 pref("focusmanager.testmode", false);
 
@@ -865,9 +863,9 @@ pref("accessibility.typeaheadfind.timeout", 4000);
 pref("accessibility.typeaheadfind.enabletimeout", true);
 pref("accessibility.typeaheadfind.soundURL", "beep");
 pref("accessibility.typeaheadfind.enablesound", true);
-//@line 913 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 910 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("accessibility.typeaheadfind.prefillwithselection", true);
-//@line 915 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 912 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("accessibility.typeaheadfind.matchesCountLimit", 1000);
 pref("findbar.highlightAll", false);
 pref("findbar.modalHighlight", false);
@@ -914,6 +912,9 @@ pref("toolkit.asyncshutdown.log", false);
 
 // Enable deprecation warnings.
 pref("devtools.errorconsole.deprecation_warnings", true);
+
+// Enable performance warnings.
+pref("devtools.errorconsole.performance_warnings", true);
 
 // Disable debugging chrome
 pref("devtools.chrome.enabled", false);
@@ -4035,28 +4036,6 @@ pref("dom.browserElement.maxScreenshotDelayMS", 2000);
 // Whether we should show the placeholder when the element is focused but empty.
 pref("dom.placeholder.show_on_focus", true);
 
-// VR is disabled by default in release and enabled for nightly and aurora
-//@line 4903 "d:\mozdev\UXP\modules\libpref\init\all.js"
-pref("dom.vr.enabled", false);
-//@line 4907 "d:\mozdev\UXP\modules\libpref\init\all.js"
-pref("dom.vr.oculus.enabled", true);
-// OSVR device
-pref("dom.vr.osvr.enabled", false);
-// OpenVR device
-pref("dom.vr.openvr.enabled", false);
-// Pose prediction reduces latency effects by returning future predicted HMD
-// poses to callers of the WebVR API.  This currently only has an effect for
-// Oculus Rift on SDK 0.8 or greater.  It is disabled by default for now due to
-// frame uniformity issues with e10s.
-pref("dom.vr.poseprediction.enabled", false);
-// path to openvr DLL
-pref("gfx.vr.openvr-runtime", "");
-// path to OSVR DLLs
-pref("gfx.vr.osvr.utilLibPath", "");
-pref("gfx.vr.osvr.commonLibPath", "");
-pref("gfx.vr.osvr.clientLibPath", "");
-pref("gfx.vr.osvr.clientKitLibPath", "");
-
 // MMS UA Profile settings
 pref("wap.UAProf.url", "");
 pref("wap.UAProf.tagname", "x-wap-profile");
@@ -4121,9 +4100,9 @@ pref("captivedetect.maxWaitingTime", 5000);
 pref("captivedetect.pollingTime", 3000);
 pref("captivedetect.maxRetryCount", 5);
 
-//@line 4990 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 4966 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("dom.forms.inputmode", false);
-//@line 4994 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 4970 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 // InputMethods for soft keyboards in B2G
 pref("dom.mozInputMethod.enabled", false);
@@ -4133,7 +4112,7 @@ pref("dom.flyweb.enabled", false);
 // Enable mapped array buffer by default.
 pref("dom.mapped_arraybuffer.enabled", true);
 
-//@line 5112 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 5088 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 // Turn off Spatial navigation by default.
 pref("snav.enabled", false);
@@ -4234,7 +4213,7 @@ pref("dom.presentation.discoverable.encrypted", true);
 pref("dom.presentation.discoverable.retry_ms", 5000);
 pref("dom.presentation.session_transport.data_channel.enable", false);
 
-//@line 5220 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 5196 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 // Enable meta-viewport support in remote APZ-enabled frames.
 pref("dom.meta-viewport.enabled", false);
@@ -4257,9 +4236,9 @@ pref("dom.mozSettings.SettingsService.verbose.enabled", false);
 pref("dom.mozSettings.allowForceReadOnly", false);
 
 // The interval at which to check for slow running addons
-//@line 5245 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 5221 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("browser.addon-watch.interval", -1);
-//@line 5247 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 5223 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("browser.addon-watch.ignore", "[\"mochikit@mozilla.org\",\"special-powers@mozilla.org\",\"fxdevtools-adapters@mozilla.org\",\"fx-devtools\"]");
 
 // Search service settings
@@ -4274,10 +4253,10 @@ pref("browser.search.geoSpecificDefaults", false);
 pref("browser.search.geoip.url", "https://location.services.mozilla.com/v1/country?key=%MOZILLA_API_KEY%");
 pref("browser.search.geoip.timeout", 3000);
 
-//@line 5262 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 5238 "d:\mozdev\UXP\modules\libpref\init\all.js"
 // {moz:official} expands to "official"
 pref("browser.search.official", true);
-//@line 5265 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 5241 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 // GMPInstallManager prefs
 
@@ -4285,7 +4264,7 @@ pref("browser.search.official", true);
 //pref("media.gmp-manager.url.override", "");
 
 // Update service URL for GMP install/updates:
-pref("media.gmp-manager.url", "https://aus5.mozilla.org/update/3/GMP/55.0/%BUILD_ID%/%BUILD_TARGET%/%LOCALE%/%CHANNEL%/%OS_VERSION%/%DISTRIBUTION%/%DISTRIBUTION_VERSION%/update.xml");
+pref("media.gmp-manager.url", "https://aus5.mozilla.org/update/3/GMP/60.0/%BUILD_ID%/%BUILD_TARGET%/%LOCALE%/%CHANNEL%/%OS_VERSION%/%DISTRIBUTION%/%DISTRIBUTION_VERSION%/update.xml");
 
 // When |media.gmp-manager.cert.requireBuiltIn| is true or not specified the
 // final certificate and all certificates the connection is redirected to before
@@ -4358,9 +4337,9 @@ pref("reader.has_used_toolbar", false);
 // Whether to use a vertical or horizontal toolbar.
 pref("reader.toolbar.vertical", true);
 
-//@line 5346 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 5322 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("narrate.enabled", true);
-//@line 5350 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 5326 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 pref("narrate.test", false);
 pref("narrate.rate", 0);
@@ -4374,9 +4353,9 @@ pref("dom.audiochannel.mutedByDefault", false);
 pref("dom.details_element.enabled", true);
 
 // Secure Element API
-//@line 5364 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 5340 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("dom.secureelement.enabled", false);
-//@line 5366 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 5342 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 // Allow control characters appear in composition string.
 // When this is false, control characters except
@@ -4405,9 +4384,9 @@ pref("webextensions.webRequest.requestBodyMaxRawBytes", 16777216);
 
 // This functionality is still experimental
 pref("webextensions.storage.sync.enabled", false);
-//@line 5395 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 5371 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("webextensions.storage.sync.serverURL", "https://webextensions.settings.services.mozilla.com/v1");
-//@line 5399 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 5375 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 // Allow customization of the fallback directory for file uploads
 pref("dom.input.fallbackUploadDir", "");
@@ -4431,35 +4410,35 @@ pref("dom.audiochannel.audioCompeting", false);
 pref("dom.audiochannel.audioCompeting.allAgents", false);
 
 // Disable Node.rootNode in release builds.
-//@line 5423 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 5399 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("dom.node.rootNode.enabled", false);
-//@line 5427 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 5403 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 // Default media volume
 pref("media.default_volume", "1.0");
 
 // Once bug 1276272 is resolved, we will trun this preference to default ON in
 // non-release channels.
-//@line 5434 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 5410 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("media.seekToNextFrame.enabled", false);
-//@line 5438 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 5414 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 // return the maximum number of cores that navigator.hardwareCurrency returns
 pref("dom.maxHardwareConcurrency", 16);
 
 // Shutdown the osfile worker if its no longer needed.
-//@line 5446 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 5422 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
-//@line 5448 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 5424 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("dom.webkitBlink.dirPicker.enabled", true);
 pref("dom.webkitBlink.filesystem.enabled", true);
-//@line 5451 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 5427 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
-//@line 5455 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 5431 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("media.block-autoplay-until-in-foreground", false);
-//@line 5457 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 5433 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
-//@line 5462 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 5438 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 // Block toplevel data: URI navigations
 // If true, all toplevel data: URI navigations will be blocked.
@@ -4468,9 +4447,9 @@ pref("media.block-autoplay-until-in-foreground", false);
 pref("security.data_uri.block_toplevel_data_uri_navigations", true);
 
 // Disable Storage api in release builds.
-//@line 5473 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 5449 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("dom.storageManager.enabled", false);
-//@line 5475 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 5451 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 // When a user cancels this number of authentication dialogs coming from
 // a single web page in a row, all following authentication dialogs will

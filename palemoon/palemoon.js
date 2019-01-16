@@ -248,6 +248,9 @@ pref("browser.slowStartup.maxSamples", 5);
 pref("browser.enable_automatic_image_resizing", true);
 pref("browser.chrome.site_icons", true);
 pref("browser.chrome.favicons", true);
+// If enabled, will process favicons by drawing them on a canvas,
+// optimizing display size for the UI. This also strips animations.
+pref("browser.chrome.favicons.process", false);
 // browser.warnOnQuit == false will override all other possible prompts when quitting or restarting
 pref("browser.warnOnQuit", true);
 // browser.showQuitWarning specifically controls the quit warning dialog. We
@@ -378,10 +381,10 @@ pref("browser.search.update.interval", 21600);
 // enable search suggestions by default
 pref("browser.search.suggest.enabled", true);
 
-//@line 398 "d:\mozdev\UXP\application\palemoon\app\profile\palemoon.js"
+//@line 401 "d:\mozdev\UXP\application\palemoon\app\profile\palemoon.js"
 // {moz:official} expands to "official"
 pref("browser.search.official", true);
-//@line 401 "d:\mozdev\UXP\application\palemoon\app\profile\palemoon.js"
+//@line 404 "d:\mozdev\UXP\application\palemoon\app\profile\palemoon.js"
 
 pref("browser.sessionhistory.max_entries", 50);
 
@@ -404,9 +407,9 @@ pref("browser.link.open_newwindow.restriction", 2);
 // window.open arguments) when the browser is in fullscreen mode.
 // We set this differently on Mac because the fullscreen implementation there is
 // different.
-//@line 426 "d:\mozdev\UXP\application\palemoon\app\profile\palemoon.js"
+//@line 429 "d:\mozdev\UXP\application\palemoon\app\profile\palemoon.js"
 pref("browser.link.open_newwindow.disabled_in_fullscreen", false);
-//@line 428 "d:\mozdev\UXP\application\palemoon\app\profile\palemoon.js"
+//@line 431 "d:\mozdev\UXP\application\palemoon\app\profile\palemoon.js"
 
 // Tabbed browser
 pref("browser.tabs.autoHide", false);
@@ -424,9 +427,9 @@ pref("browser.tabs.noWindowActivationOnExternal", false);
 pref("browser.tabs.tabClipWidth", 140);
 pref("browser.tabs.animate", true);
 pref("browser.tabs.onTop", false);
-//@line 446 "d:\mozdev\UXP\application\palemoon\app\profile\palemoon.js"
+//@line 449 "d:\mozdev\UXP\application\palemoon\app\profile\palemoon.js"
 pref("browser.tabs.drawInTitlebar", true);
-//@line 450 "d:\mozdev\UXP\application\palemoon\app\profile\palemoon.js"
+//@line 453 "d:\mozdev\UXP\application\palemoon\app\profile\palemoon.js"
 pref("browser.tabs.resize_immediately", false);
 
 // Where to show tab close buttons:
@@ -442,6 +445,10 @@ pref("browser.tabs.closeButtons", 1);
 // true   return to the tab that opened this tab (its owner)
 // false  return to the adjacent tab (old default)
 pref("browser.tabs.selectOwnerOnClose", true);
+
+pref("browser.tabs.showAudioPlayingIcon", true);
+// This should match Chromium's audio indicator delay.
+pref("browser.tabs.delayHidingAudioPlayingIconMS", 3000);
 
 pref("browser.allTabs.previews", true);
 pref("browser.ctrlTab.previews", true);
@@ -461,7 +468,7 @@ pref("browser.bookmarks.max_backups",             10);
 // Scripts & Windows prefs
 pref("dom.disable_open_during_load",              true);
 pref("javascript.options.showInConsole",          true);
-//@line 487 "d:\mozdev\UXP\application\palemoon\app\profile\palemoon.js"
+//@line 494 "d:\mozdev\UXP\application\palemoon\app\profile\palemoon.js"
 
 // This is the pref to control the location bar, change this to true to 
 // force this - this makes the origin of popup windows more obvious to avoid
@@ -546,16 +553,16 @@ pref("browser.gesture.swipe.left", "Browser:BackOrBackDuplicate");
 pref("browser.gesture.swipe.right", "Browser:ForwardOrForwardDuplicate");
 pref("browser.gesture.swipe.up", "cmd_scrollTop");
 pref("browser.gesture.swipe.down", "cmd_scrollBottom");
-//@line 575 "d:\mozdev\UXP\application\palemoon\app\profile\palemoon.js"
+//@line 582 "d:\mozdev\UXP\application\palemoon\app\profile\palemoon.js"
 pref("browser.gesture.pinch.latched", false);
 pref("browser.gesture.pinch.threshold", 25);
-//@line 579 "d:\mozdev\UXP\application\palemoon\app\profile\palemoon.js"
+//@line 586 "d:\mozdev\UXP\application\palemoon\app\profile\palemoon.js"
 // Enabled for touch input display zoom.
 pref("browser.gesture.pinch.out", "cmd_fullZoomEnlarge");
 pref("browser.gesture.pinch.in", "cmd_fullZoomReduce");
 pref("browser.gesture.pinch.out.shift", "cmd_fullZoomReset");
 pref("browser.gesture.pinch.in.shift", "cmd_fullZoomReset");
-//@line 591 "d:\mozdev\UXP\application\palemoon\app\profile\palemoon.js"
+//@line 598 "d:\mozdev\UXP\application\palemoon\app\profile\palemoon.js"
 pref("browser.gesture.twist.latched", false);
 pref("browser.gesture.twist.threshold", 0);
 pref("browser.gesture.twist.right", "cmd_gestureRotateRight");
@@ -570,11 +577,11 @@ pref("browser.snapshots.limit", 0);
 // 2: Go back or go forward, in your history
 // 3: Zoom in or out
 // 4: Scroll contents with X and Y swapped
-//@line 622 "d:\mozdev\UXP\application\palemoon\app\profile\palemoon.js"
+//@line 629 "d:\mozdev\UXP\application\palemoon\app\profile\palemoon.js"
 pref("mousewheel.with_alt.action", 1);
 pref("mousewheel.with_shift.action", 2);
 pref("mousewheel.with_meta.action", 1); // win key on Win, Super/Hyper on Linux
-//@line 626 "d:\mozdev\UXP\application\palemoon\app\profile\palemoon.js"
+//@line 633 "d:\mozdev\UXP\application\palemoon\app\profile\palemoon.js"
 pref("mousewheel.with_control.action",3);
 pref("mousewheel.with_win.action", 1);
 
@@ -589,18 +596,18 @@ pref("network.protocol-handler.external.mailto", true); // for mail
 pref("network.protocol-handler.external.news", true);   // for news
 pref("network.protocol-handler.external.snews", true);  // for secure news
 pref("network.protocol-handler.external.nntp", true);   // also news
-//@line 641 "d:\mozdev\UXP\application\palemoon\app\profile\palemoon.js"
+//@line 648 "d:\mozdev\UXP\application\palemoon\app\profile\palemoon.js"
 pref("network.protocol-handler.external.ms-windows-store", true);
-//@line 643 "d:\mozdev\UXP\application\palemoon\app\profile\palemoon.js"
+//@line 650 "d:\mozdev\UXP\application\palemoon\app\profile\palemoon.js"
 
 // ...without warning dialogs
 pref("network.protocol-handler.warn-external.mailto", false);
 pref("network.protocol-handler.warn-external.news", false);
 pref("network.protocol-handler.warn-external.snews", false);
 pref("network.protocol-handler.warn-external.nntp", false);
-//@line 650 "d:\mozdev\UXP\application\palemoon\app\profile\palemoon.js"
+//@line 657 "d:\mozdev\UXP\application\palemoon\app\profile\palemoon.js"
 pref("network.protocol-handler.warn-external.ms-windows-store", false);
-//@line 652 "d:\mozdev\UXP\application\palemoon\app\profile\palemoon.js"
+//@line 659 "d:\mozdev\UXP\application\palemoon\app\profile\palemoon.js"
 
 // By default, all protocol handlers are exposed.  This means that
 // the browser will respond to openURL commands for all URL types.
@@ -630,11 +637,11 @@ pref("plugins.update.notifyUser", false);
 //Enable tri-state option (Always/Never/Ask)
 pref("plugins.click_to_play", true);
 
-//@line 682 "d:\mozdev\UXP\application\palemoon\app\profile\palemoon.js"
-pref("browser.preferences.instantApply", false);
 //@line 689 "d:\mozdev\UXP\application\palemoon\app\profile\palemoon.js"
+pref("browser.preferences.instantApply", false);
+//@line 696 "d:\mozdev\UXP\application\palemoon\app\profile\palemoon.js"
 pref("browser.preferences.animateFadeIn", false);
-//@line 691 "d:\mozdev\UXP\application\palemoon\app\profile\palemoon.js"
+//@line 698 "d:\mozdev\UXP\application\palemoon\app\profile\palemoon.js"
 
 pref("browser.download.show_plugins_in_list", true);
 pref("browser.download.hide_plugins_without_extensions", true);
@@ -643,9 +650,9 @@ pref("browser.download.hide_plugins_without_extensions", true);
 // 0 goes Back/Forward
 // 1 act like PgUp/PgDown
 // 2 and other values, nothing
-//@line 702 "d:\mozdev\UXP\application\palemoon\app\profile\palemoon.js"
+//@line 709 "d:\mozdev\UXP\application\palemoon\app\profile\palemoon.js"
 pref("browser.backspace_action", 0);
-//@line 704 "d:\mozdev\UXP\application\palemoon\app\profile\palemoon.js"
+//@line 711 "d:\mozdev\UXP\application\palemoon\app\profile\palemoon.js"
 
 // Pale Moon never eats the space with word selection, regardless of O.S.
 pref("layout.word_select.eat_space_to_next_word", false);
@@ -745,7 +752,7 @@ pref("browser.EULA.version", 3);
 pref("browser.rights.version", 3);
 pref("browser.rights.3.shown", false);
 
-//@line 807 "d:\mozdev\UXP\application\palemoon\app\profile\palemoon.js"
+//@line 814 "d:\mozdev\UXP\application\palemoon\app\profile\palemoon.js"
 
 pref("browser.sessionstore.resume_from_crash", true);
 pref("browser.sessionstore.resume_session_once", false);
@@ -875,13 +882,13 @@ pref("browser.privatebrowsing.autostart", false);
 pref("browser.bookmarks.editDialog.firstEditField", "namePicker");
 
 // Whether to use a panel that looks like an OS X sheet for customization
-//@line 939 "d:\mozdev\UXP\application\palemoon\app\profile\palemoon.js"
+//@line 946 "d:\mozdev\UXP\application\palemoon\app\profile\palemoon.js"
 pref("toolbar.customization.usesheet", false);
-//@line 941 "d:\mozdev\UXP\application\palemoon\app\profile\palemoon.js"
+//@line 948 "d:\mozdev\UXP\application\palemoon\app\profile\palemoon.js"
 
-//@line 947 "d:\mozdev\UXP\application\palemoon\app\profile\palemoon.js"
+//@line 954 "d:\mozdev\UXP\application\palemoon\app\profile\palemoon.js"
 pref("dom.ipc.plugins.enabled", true);
-//@line 949 "d:\mozdev\UXP\application\palemoon\app\profile\palemoon.js"
+//@line 956 "d:\mozdev\UXP\application\palemoon\app\profile\palemoon.js"
 
 pref("browser.tabs.remote", false);
 
@@ -892,9 +899,9 @@ pref("browser.tabs.remote", false);
 // in the browser process.  Eventually plugins will be required to use the
 // NPAPI to manipulate the cursor, and these workarounds will be removed.
 // See bug 621117.
-//@line 962 "d:\mozdev\UXP\application\palemoon\app\profile\palemoon.js"
+//@line 969 "d:\mozdev\UXP\application\palemoon\app\profile\palemoon.js"
 
-//@line 964 "d:\mozdev\UXP\application\palemoon\app\profile\palemoon.js"
+//@line 971 "d:\mozdev\UXP\application\palemoon\app\profile\palemoon.js"
 pref("browser.taskbar.previews.enable", false);
 pref("browser.taskbar.previews.max", 20);
 pref("browser.taskbar.previews.cachetime", 5);
@@ -904,9 +911,9 @@ pref("browser.taskbar.lists.recent.enabled", false);
 pref("browser.taskbar.lists.maxListItemCount", 7);
 pref("browser.taskbar.lists.tasks.enabled", true);
 pref("browser.taskbar.lists.refreshInSeconds", 120);
-//@line 974 "d:\mozdev\UXP\application\palemoon\app\profile\palemoon.js"
+//@line 981 "d:\mozdev\UXP\application\palemoon\app\profile\palemoon.js"
 
-//@line 976 "d:\mozdev\UXP\application\palemoon\app\profile\palemoon.js"
+//@line 983 "d:\mozdev\UXP\application\palemoon\app\profile\palemoon.js"
 // Info when outdated sync detected
 pref("services.sync.outdated.url", "http://www.palemoon.org/sync/update/");
 // The sync engines to use.
@@ -981,7 +988,7 @@ pref("services.sync.prefs.sync.security.tls.version.max", true);
 pref("services.sync.prefs.sync.signon.rememberSignons", true);
 pref("services.sync.prefs.sync.spellchecker.dictionary", true);
 pref("services.sync.prefs.sync.xpinstall.whitelist.required", true);
-//@line 1051 "d:\mozdev\UXP\application\palemoon\app\profile\palemoon.js"
+//@line 1058 "d:\mozdev\UXP\application\palemoon\app\profile\palemoon.js"
 
 
 
@@ -1007,6 +1014,9 @@ pref("browser.newtabpage.enabled", true);
 
 // XXX: Remove this when "enhanced" tiles are dead
 pref("browser.newtabpage.enhanced", false);
+
+// Disables capturing of page thumbnails
+pref("browser.pagethumbnails.capturing_disabled", false);
 
 // enables showing basic placeholders for missing thumbnails
 pref("browser.newtabpage.thumbnailPlaceholder", false);
@@ -1078,14 +1088,7 @@ pref("toolkit.pageThumbs.minWidth", 250);
 pref("toolkit.pageThumbs.minHeight", 180);
 
 // On GTK, we now default to showing the menubar only when alt is pressed:
-//@line 1150 "d:\mozdev\UXP\application\palemoon\app\profile\palemoon.js"
-
-// ****************** domain-specific UAs ******************
-
-// AMO needs "Firefox", obviously - pass on the OS (determined at build time)
-//@line 1161 "d:\mozdev\UXP\application\palemoon\app\profile\palemoon.js"
-pref("general.useragent.override.addons.mozilla.org","Mozilla/5.0 (Windows NT 6.1; WOW64; rv:27.0) Gecko/20100101 Firefox/27.0");
-//@line 1163 "d:\mozdev\UXP\application\palemoon\app\profile\palemoon.js"
+//@line 1160 "d:\mozdev\UXP\application\palemoon\app\profile\palemoon.js"
 
 // ****************** s4e prefs ******************
 pref("status4evar.addonbar.borderStyle", false);
