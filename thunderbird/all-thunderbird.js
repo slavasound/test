@@ -9,12 +9,12 @@
 
 pref("general.skins.selectedSkin", "classic/1.0");
 
-//@line 20 "/builds/worker/workspace/build/src/comm/mail/app/profile/all-thunderbird.js"
+//@line 19 "/builds/worker/workspace/build/src/comm/mail/app/profile/all-thunderbird.js"
 
 pref("mail.rights.version", 0);
 
 // Don't show the about:rights notification in debug or non-official builds.
-//@line 30 "/builds/worker/workspace/build/src/comm/mail/app/profile/all-thunderbird.js"
+//@line 29 "/builds/worker/workspace/build/src/comm/mail/app/profile/all-thunderbird.js"
 
 // The minimum delay in seconds for the timer to fire between the notification
 // of each consumer of the timer manager.
@@ -63,9 +63,6 @@ pref("app.update.certs.1.commonName", "aus5.mozilla.org");
 pref("app.update.certs.2.issuerName", "CN=thawte SSL CA - G2,O=\"thawte, Inc.\",C=US");
 pref("app.update.certs.2.commonName", "aus5.mozilla.org");
 
-// Whether or not app updates are enabled
-pref("app.update.enabled", true);
-
 // If set to true, the Update Service will automatically download updates when
 // app updates are enabled per the app.update.enabled preference and if the user
 // can apply updates.
@@ -94,7 +91,7 @@ pref("app.update.url.details", "https://www.thunderbird.net/%LOCALE%/%APP%/relea
 pref("app.update.idletime", 60);
 
 // Whether or not to attempt using the service for updates.
-//@line 112 "/builds/worker/workspace/build/src/comm/mail/app/profile/all-thunderbird.js"
+//@line 108 "/builds/worker/workspace/build/src/comm/mail/app/profile/all-thunderbird.js"
 
 // Release notes URL
 pref("app.releaseNotesURL", "https://live.thunderbird.net/%APP%/releasenotes?locale=%LOCALE%&version=%VERSION%&channel=%CHANNEL%&os=%OS%&buildid=%APPBUILDID%");
@@ -111,17 +108,16 @@ pref("javascript.options.showInConsole", true);
 
 // Controls enabling of the extension system logging (can reduce performance)
 pref("extensions.logging.enabled", false);
+pref("extensions.overlayloader.loglevel", "warn");
 
 // Strict compatibility makes add-ons incompatible by default.
-//@line 133 "/builds/worker/workspace/build/src/comm/mail/app/profile/all-thunderbird.js"
+//@line 130 "/builds/worker/workspace/build/src/comm/mail/app/profile/all-thunderbird.js"
 pref("extensions.strictCompatibility", true);
-//@line 135 "/builds/worker/workspace/build/src/comm/mail/app/profile/all-thunderbird.js"
-
-// Specifies a minimum maxVersion an addon needs to say it's compatible with
-// for it to be compatible by default.
-pref("extensions.minCompatibleAppVersion", "5.0");
+//@line 132 "/builds/worker/workspace/build/src/comm/mail/app/profile/all-thunderbird.js"
 
 pref("extensions.update.autoUpdateDefault", true);
+
+pref("extensions.systemAddon.update.enabled", true);  // See bug 1462160.
 
 pref("extensions.hotfix.id", "thunderbird-hotfix@mozilla.org");
 pref("extensions.hotfix.cert.checkAttributes", true);
@@ -154,13 +150,15 @@ pref("extensions.getAddons.recommended.url", "https://services.addons.thunderbir
 pref("extensions.getAddons.search.browseURL", "https://addons.thunderbird.net/%LOCALE%/%APP%/search/?q=%TERMS%");
 pref("extensions.getAddons.search.url", "https://services.addons.thunderbird.net/%LOCALE%/%APP%/api/%API_VERSION%/search/%TERMS%/all/%MAX_RESULTS%/%OS%/%VERSION%/%COMPATIBILITY_MODE%?src=thunderbird");
 pref("extensions.webservice.discoverURL", "https://services.addons.thunderbird.net/%LOCALE%/%APP%/discovery/pane/%VERSION%/%OS%");
-pref("extensions.getAddons.themes.browseURL", "https://addons.thunderbird.net/%LOCALE%/thunderbird/themes/?src=thunderbird");
 pref("extensions.getAddons.siteRegExp", "^https://.*addons\\.thunderbird\\.net");
 
 // Blocklist preferences
 pref("extensions.blocklist.url", "https://blocklists.settings.services.mozilla.com/v1/blocklist/3/%APP_ID%/%APP_VERSION%/%PRODUCT%/%BUILD_ID%/%BUILD_TARGET%/%LOCALE%/%CHANNEL%/%OS_VERSION%/%DISTRIBUTION%/%DISTRIBUTION_VERSION%/%PING_COUNT%/%TOTAL_PING_COUNT%/%DAYS_SINCE_LAST_PING%/");
 pref("extensions.blocklist.detailsURL", "https://blocked.cdn.mozilla.net/");
 pref("extensions.blocklist.itemURL", "https://blocked.cdn.mozilla.net/%blockID%.html");
+
+// Show new install UI with permission lists
+pref("extensions.webextPermissionPrompts", true);
 
 // 1 = allow "Man In The Middle" (local proxy, web filter, etc.) for certificate
 //     pinning checks.
@@ -183,13 +181,10 @@ pref("extensions.update.interval", 86400);  // Check for updates to Extensions a
 
 pref("extensions.dss.switchPending", false);    // Non-dynamic switch pending after next
 
-pref("extensions.{972ce4c6-7e08-4474-a285-3208198ce6fd}.name", "chrome://messenger/locale/messenger.properties");
-pref("extensions.{972ce4c6-7e08-4474-a285-3208198ce6fd}.description", "chrome://messenger/locale/messenger.properties");
-
 pref("extensions.webextensions.themes.icons.buttons", "getmsg,newmsg,address,reply,replyall,replylist,forwarding,delete,junk,print,stop,file,nextUnread,prevUnread,mark,tag,back,forward,compact,archive,chat,nextMsg,prevMsg,QFB,conversation,app_menu,newcard,newlist,editcard,newim,send,spelling,attach,security,save,quote,cut,copy,paste,buddy,join_chat,chat_accounts,calendar,tasks,synchronize,newevent,newtask,editevent,today,find,category,complete,priority,saveandclose,attendees,privacy,status,freebusy,timezones");
 pref("extensions.webextensions.themes.enabled", true);
 
-pref("lightweightThemes.selectedThemeID", "");
+pref("lightweightThemes.selectedThemeID", "default-theme@mozilla.org", sticky);
 
 pref("lightweightThemes.update.enabled", true);
 
@@ -197,9 +192,9 @@ pref("lightweightThemes.update.enabled", true);
 pref("permissions.manager.defaultsUrl", "resource://app/defaults/permissions");
 
 pref("general.smoothScroll", true);
-//@line 217 "/builds/worker/workspace/build/src/comm/mail/app/profile/all-thunderbird.js"
+//@line 211 "/builds/worker/workspace/build/src/comm/mail/app/profile/all-thunderbird.js"
 pref("general.autoScroll", false);
-//@line 221 "/builds/worker/workspace/build/src/comm/mail/app/profile/all-thunderbird.js"
+//@line 215 "/builds/worker/workspace/build/src/comm/mail/app/profile/all-thunderbird.js"
 
 pref("mail.shell.checkDefaultClient", true);
 pref("mail.spellcheck.inline", true);
@@ -222,14 +217,11 @@ pref("mail.last_msg_movecopy_was_move", true);
 //Set the font color for links to something lighter
 pref("browser.anchor_color", "#0B6CDA");
 
-//@line 246 "/builds/worker/workspace/build/src/comm/mail/app/profile/all-thunderbird.js"
+//@line 240 "/builds/worker/workspace/build/src/comm/mail/app/profile/all-thunderbird.js"
 pref("browser.preferences.instantApply", true);
-//@line 251 "/builds/worker/workspace/build/src/comm/mail/app/profile/all-thunderbird.js"
+//@line 245 "/builds/worker/workspace/build/src/comm/mail/app/profile/all-thunderbird.js"
 pref("browser.preferences.animateFadeIn", false);
-//@line 253 "/builds/worker/workspace/build/src/comm/mail/app/profile/all-thunderbird.js"
-
-// load the Preferences in a tab
-pref("mail.preferences.inContent", false);
+//@line 247 "/builds/worker/workspace/build/src/comm/mail/app/profile/all-thunderbird.js"
 
 pref("browser.download.show_plugins_in_list", false);
 pref("browser.download.hide_plugins_without_extensions", true);
@@ -248,6 +240,8 @@ pref("mailnews.headers.show_n_lines_before_more", 1);
 // We want to keep track of what items are appropriate in
 // XULStore.json. We use versioning to scrub out the things
 // that have become obsolete.
+// The value will always be set by startup code and must not be changed
+// here. A value of 0 means a new profile.
 pref("mail.ui-rdf.version", 0);
 
 /////////////////////////////////////////////////////////////////
@@ -360,6 +354,9 @@ pref("network.protocol-handler.warn-external.ftp", false);
 pref("network.hosts.smtp_server",           "mail");
 pref("network.hosts.pop_server",            "mail");
 
+// Temporary fix for bug 1496524.
+pref("csp.skip_about_page_has_csp_assert", true);
+
 pref("security.warn_entering_secure", false);
 pref("security.warn_entering_weak", false);
 pref("security.warn_leaving_secure", false);
@@ -397,9 +394,9 @@ pref("browser.download.manager.closeWhenDone", true);
 pref("browser.download.manager.focusWhenStarting", false);
 pref("browser.download.manager.flashCount", 0);
 pref("browser.download.manager.addToRecentDocs", true);
-//@line 424 "/builds/worker/workspace/build/src/comm/mail/app/profile/all-thunderbird.js"
+//@line 420 "/builds/worker/workspace/build/src/comm/mail/app/profile/all-thunderbird.js"
 pref("browser.helperApps.deleteTempFileOnExit", true);
-//@line 426 "/builds/worker/workspace/build/src/comm/mail/app/profile/all-thunderbird.js"
+//@line 422 "/builds/worker/workspace/build/src/comm/mail/app/profile/all-thunderbird.js"
 
 pref("spellchecker.dictionary", "");
 // Dictionary download preference
@@ -411,9 +408,9 @@ pref("spellchecker.dictionaries.download.url", "https://addons.thunderbird.net/%
 pref("profile.force.migration", "");
 
 // prefs to control the mail alert notification
-//@line 438 "/builds/worker/workspace/build/src/comm/mail/app/profile/all-thunderbird.js"
+//@line 434 "/builds/worker/workspace/build/src/comm/mail/app/profile/all-thunderbird.js"
 pref("alerts.totalOpenTime", 10000);
-//@line 440 "/builds/worker/workspace/build/src/comm/mail/app/profile/all-thunderbird.js"
+//@line 436 "/builds/worker/workspace/build/src/comm/mail/app/profile/all-thunderbird.js"
 
 // analyze urls in mail messages for scams
 pref("mail.phishing.detection.enabled", true);
@@ -421,6 +418,7 @@ pref("mail.phishing.detection.enabled", true);
 // of the local, static tests
 pref("mail.phishing.detection.ipaddresses", true);
 pref("mail.phishing.detection.mismatched_hosts", true);
+pref("mail.phishing.detection.disallow_form_actions", true);
 
 pref("browser.safebrowsing.reportPhishURL", "https://%LOCALE%.phish-report.mozilla.com/?hl=%LOCALE%");
 
@@ -452,23 +450,23 @@ pref("mail.tabs.closeWindowWithLastTab", true);
 pref("mail.tabs.closeButtons", 1);
 
 // Allow the tabs to be in the titlebar on supported systems
-//@line 479 "/builds/worker/workspace/build/src/comm/mail/app/profile/all-thunderbird.js"
+//@line 476 "/builds/worker/workspace/build/src/comm/mail/app/profile/all-thunderbird.js"
 pref("mail.tabs.drawInTitlebar", false);
-//@line 483 "/builds/worker/workspace/build/src/comm/mail/app/profile/all-thunderbird.js"
+//@line 480 "/builds/worker/workspace/build/src/comm/mail/app/profile/all-thunderbird.js"
 
 // The breakpad report server to link to in about:crashes
 pref("breakpad.reportURL", "https://crash-stats.mozilla.com/report/index/");
 
 // OS Integrated Search and Indexing
-//@line 497 "/builds/worker/workspace/build/src/comm/mail/app/profile/all-thunderbird.js"
+//@line 494 "/builds/worker/workspace/build/src/comm/mail/app/profile/all-thunderbird.js"
 
 // -- Windows Search/Spotlight logging options
-//@line 512 "/builds/worker/workspace/build/src/comm/mail/app/profile/all-thunderbird.js"
+//@line 509 "/builds/worker/workspace/build/src/comm/mail/app/profile/all-thunderbird.js"
 
 // Whether to use a panel that looks like an OS X sheet for customization
-//@line 517 "/builds/worker/workspace/build/src/comm/mail/app/profile/all-thunderbird.js"
+//@line 514 "/builds/worker/workspace/build/src/comm/mail/app/profile/all-thunderbird.js"
 pref("toolbar.customization.usesheet", false);
-//@line 519 "/builds/worker/workspace/build/src/comm/mail/app/profile/all-thunderbird.js"
+//@line 516 "/builds/worker/workspace/build/src/comm/mail/app/profile/all-thunderbird.js"
 
 // Number of recipient rows shown by default
 pref("mail.compose.addresswidget.numRowsShownDefault", 3);
@@ -530,13 +528,13 @@ pref("font.default.x-western", "sans-serif");
 pref("font.default.x-cyrillic", "sans-serif");
 pref("font.default.el", "sans-serif");
 
-//@line 609 "/builds/worker/workspace/build/src/comm/mail/app/profile/all-thunderbird.js"
+//@line 606 "/builds/worker/workspace/build/src/comm/mail/app/profile/all-thunderbird.js"
 
 // Since different versions of Windows need different settings, we'll handle
-// this in mailMigrator.js.
+// this in MailMigrator.jsm.
 
 // Linux, in other words.  Other OSes may wish to override.
-//@line 615 "/builds/worker/workspace/build/src/comm/mail/app/profile/all-thunderbird.js"
+//@line 612 "/builds/worker/workspace/build/src/comm/mail/app/profile/all-thunderbird.js"
 // The font.name-list fallback is defined in case font.name isn't
 // present -- e.g. in case a profile that's been used on Windows Vista or above
 // is used on Linux.
@@ -555,7 +553,7 @@ pref("font.name-list.monospace.x-cyrillic", "monospace");
 pref("font.name-list.serif.el", "serif");
 pref("font.name-list.sans-serif.el", "sans-serif");
 pref("font.name-list.monospace.el", "monospace");
-//@line 634 "/builds/worker/workspace/build/src/comm/mail/app/profile/all-thunderbird.js"
+//@line 631 "/builds/worker/workspace/build/src/comm/mail/app/profile/all-thunderbird.js"
 
 pref("mail.font.windows.version", 0);
 
@@ -629,13 +627,11 @@ pref("places.frecency.defaultVisitBonus", 0);
 pref("places.frecency.unvisitedBookmarkBonus", 140);
 pref("places.frecency.unvisitedTypedBonus", 200);
 
-pref("browser.urlbar.restrict.openpage", "%");
-
 // The default for this pref reflects whether the build is capable of IPC.
 // (Turning it on in a no-IPC build will have no effect.)
-//@line 720 "/builds/worker/workspace/build/src/comm/mail/app/profile/all-thunderbird.js"
+//@line 715 "/builds/worker/workspace/build/src/comm/mail/app/profile/all-thunderbird.js"
 pref("dom.ipc.plugins.enabled", true);
-//@line 722 "/builds/worker/workspace/build/src/comm/mail/app/profile/all-thunderbird.js"
+//@line 717 "/builds/worker/workspace/build/src/comm/mail/app/profile/all-thunderbird.js"
 
 // This pref governs whether we attempt to work around problems caused by
 // plugins using OS calls to manipulate the cursor while running out-of-
@@ -644,7 +640,7 @@ pref("dom.ipc.plugins.enabled", true);
 // in the browser process.  Eventually plugins will be required to use the
 // NPAPI to manipulate the cursor, and these workarounds will be removed.
 // See bug 621117.
-//@line 733 "/builds/worker/workspace/build/src/comm/mail/app/profile/all-thunderbird.js"
+//@line 728 "/builds/worker/workspace/build/src/comm/mail/app/profile/all-thunderbird.js"
 
 // plugin finder service url
 pref("pfs.datasource.url", "https://pfs.mozilla.org/plugins/PluginFinderService.
@@ -655,7 +651,7 @@ php?mimetype=%PLUGIN_MIMETYPE%&appID=%APP_ID%&appVersion=%APP_VERSION%&clientOS=
 // outdated.
 pref("plugins.hide_infobar_for_outdated_plugin", false);
 
-//@line 747 "/builds/worker/workspace/build/src/comm/mail/app/profile/all-thunderbird.js"
+//@line 742 "/builds/worker/workspace/build/src/comm/mail/app/profile/all-thunderbird.js"
 
 pref("plugins.update.url", "https://www.mozilla.org/%LOCALE%/plugincheck/");
 pref("plugins.update.notifyUser", false);
@@ -676,29 +672,16 @@ pref("plugin.state.flash", 2);
 pref("plugin.state.java", 0);
 
 // Windows taskbar support
-//@line 771 "/builds/worker/workspace/build/src/comm/mail/app/profile/all-thunderbird.js"
+//@line 766 "/builds/worker/workspace/build/src/comm/mail/app/profile/all-thunderbird.js"
 
 // Disable hardware accelerated layers
 pref("layers.acceleration.disabled", true);
-//@line 778 "/builds/worker/workspace/build/src/comm/mail/app/profile/all-thunderbird.js"
+//@line 773 "/builds/worker/workspace/build/src/comm/mail/app/profile/all-thunderbird.js"
 
 // Account provisioner.
 pref("mail.provider.providerList", "https://broker.thunderbird.net/provider/list");
 pref("mail.provider.suggestFromName", "https://broker.thunderbird.net/provider/suggest");
 pref("mail.provider.enabled", true);
-
-// Pointer to the default engine name.
-pref("browser.search.defaultenginename", "chrome://messenger-region/locale/region.properties");
-
-// Ordering of search engines in the engine list.
-pref("browser.search.order.1", "chrome://messenger-region/locale/region.properties");
-pref("browser.search.order.2", "chrome://messenger-region/locale/region.properties");
-pref("browser.search.order.3", "chrome://messenger-region/locale/region.properties");
-
-pref("browser.search.defaultenginename.US", "data:text/plain,browser.search.defaultenginename.US=Bing");
-pref("browser.search.order.US.1", "data:text/plain,browser.search.defaultenginename.US=Bing");
-pref("browser.search.order.US.2", "data:text/plain,browser.search.defaultenginename.US=Yahoo");
-pref("browser.search.order.US.3", "data:text/plain,browser.search.defaultenginename.US=");
 
 // Developer Tools related preferences
 pref("devtools.debugger.log", false);
@@ -755,20 +738,20 @@ pref("mail.main_menu.collapse_by_default", true);
 // instead of space in the file name.
 pref("mail.save_msg_filename_underscores_for_space", false);
 
-// calendar promotion status
-pref("mail.calendar-integration.opt-out", false);
-
-//@line 856 "/builds/worker/workspace/build/src/comm/mail/app/profile/all-thunderbird.js"
+//@line 835 "/builds/worker/workspace/build/src/comm/mail/app/profile/all-thunderbird.js"
 // This controls the strength of the Windows content process sandbox for testing
 // purposes. This will require a restart.
 // On windows these levels are:
 // See - security/sandbox/win/src/sandboxbroker/sandboxBroker.cpp
 // SetSecurityLevelForContentProcess() for what the different settings mean.
 pref("security.sandbox.content.level", 0);
-//@line 863 "/builds/worker/workspace/build/src/comm/mail/app/profile/all-thunderbird.js"
+//@line 842 "/builds/worker/workspace/build/src/comm/mail/app/profile/all-thunderbird.js"
 
 // Enable FIDO U2F
 pref("security.webauth.u2f", true);
 
 // Use OS date and time settings by default.
 pref("intl.regional_prefs.use_os_locales", true);
+
+// Multi-lingual preferences
+pref("intl.multilingual.enabled", false);
