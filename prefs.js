@@ -9,6 +9,7 @@
 // - modify it via the UI (e.g. via about:config in the browser); or
 // - set it within a user.js file in your profile.
 
+user_pref("app.update.download.attempts", 0);
 user_pref("app.update.lastUpdateTime.addon-background-update-timer", 0);
 user_pref("app.update.lastUpdateTime.background-update-timer", 0);
 user_pref("app.update.lastUpdateTime.blocklist-background-update-timer", 0);
@@ -33,7 +34,7 @@ user_pref("extensions.blocklist.pingCountVersion", -1);
 user_pref("extensions.databaseSchema", 27);
 user_pref("extensions.getAddons.databaseSchema", 5);
 user_pref("extensions.installedDistroAddon.{e2fda1a4-762b-4020-b5ad-a41df1933103}", true);
-user_pref("extensions.lastAppBuildId", "20181217101353");
+user_pref("extensions.lastAppBuildId", "20181129151909");
 user_pref("extensions.lastAppVersion", "64.0");
 user_pref("extensions.lastPlatformVersion", "64.0");
 user_pref("extensions.pendingOperations", false);
@@ -52,6 +53,7 @@ user_pref("mail.rights.version", 1);
 user_pref("mail.spam.version", 1);
 user_pref("mail.ui-rdf.version", 17);
 user_pref("mailnews.database.global.datastore.id", "d288afbb-a2a8-415e-ad6b-e22541a1302");
+user_pref("mailnews.message_display.disable_remote_image", false);
 user_pref("mailnews.quotingPrefs.version", 1);
 user_pref("mailnews.start_page_override.mstone", "64.0");
 user_pref("mailnews.tags.$label1.color", "#FF0000");
