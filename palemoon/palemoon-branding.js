@@ -64,7 +64,7 @@ pref("devtools.selfxss.count", 100);
 // Special-case AMO
 // We send the native UA slice now, since they no longer offer any compatible extensions for us.
 // This will result in an "only with Firefox" message which suits us fine, because it's the truth.
-pref("general.useragent.override.addons.mozilla.org","Mozilla/5.0 (Windows NT 6.1; WOW64; rv:4.1) Goanna/20170101 PaleMoon/28.3.0");
+pref("general.useragent.override.addons.mozilla.org","Mozilla/5.0 (Windows NT 6.1; WOW64; rv:4.1) Goanna/20170101 PaleMoon/28.3.1");
 // Required for domains that have proven unresponsive to requests from users
 pref("general.useragent.override.live.com","Mozilla/5.0 (Windows NT 6.1; WOW64; rv:52.9) Gecko/20100101 Firefox/52.9 (Pale Moon)");
 pref("general.useragent.override.msn.com","Mozilla/5.0 (Windows NT 6.1; WOW64; rv:52.9) Gecko/20100101 Firefox/52.9 (Pale Moon)");
@@ -73,11 +73,11 @@ pref("general.useragent.override.outlook.com","Mozilla/5.0 (Windows NT 6.1; WOW6
 pref("general.useragent.override.web.de","Mozilla/5.0 (Windows NT 6.1; WOW64; rv:52.9) Gecko/20100101 Firefox/52.9 (Pale Moon)");
 pref("general.useragent.override.aol.com","Mozilla/5.0 (Windows NT 6.1; WOW64; rv:52.9) Gecko/20100101 Firefox/52.9 (Pale Moon)");
 pref("general.useragent.override.calendar.yahoo.com","Mozilla/5.0 (Windows NT 6.1; WOW64; rv:52.9) Gecko/20100101 Firefox/52.9 (Pale Moon)");
-pref("general.useragent.override.google.com","Mozilla/5.0 (Windows NT 6.1; WOW64; rv:52.9) Gecko/20100101 Goanna/4.1 Firefox/52.9 PaleMoon/28.3.0");
-pref("general.useragent.override.googlevideos.com","Mozilla/5.0 (Windows NT 6.1; WOW64; rv:38.9) Gecko/20100101 Goanna/4.1 Firefox/38.9 PaleMoon/28.3.0");
-pref("general.useragent.override.gstatic.com","Mozilla/5.0 (Windows NT 6.1; WOW64; rv:31.9) Gecko/20100101 Goanna/4.1 Firefox/31.9 PaleMoon/28.3.0");
+pref("general.useragent.override.google.com","Mozilla/5.0 (Windows NT 6.1; WOW64; rv:52.9) Gecko/20100101 Goanna/4.1 Firefox/52.9 PaleMoon/28.3.1");
+pref("general.useragent.override.googlevideos.com","Mozilla/5.0 (Windows NT 6.1; WOW64; rv:38.9) Gecko/20100101 Goanna/4.1 Firefox/38.9 PaleMoon/28.3.1");
+pref("general.useragent.override.gstatic.com","Mozilla/5.0 (Windows NT 6.1; WOW64; rv:31.9) Gecko/20100101 Goanna/4.1 Firefox/31.9 PaleMoon/28.3.1");
 pref("general.useragent.override.yahoo.com","Mozilla/5.0 (Windows NT 6.1; WOW64; rv:99.9) Gecko/20100101 Firefox/99.9 (Pale Moon)");
-pref("general.useragent.override.youtube.com","Mozilla/5.0 (Windows NT 6.1; WOW64; rv:42.0) Gecko/20100101 Firefox/42.0 PaleMoon/28.3.0");
+pref("general.useragent.override.youtube.com","Mozilla/5.0 (Windows NT 6.1; WOW64; rv:42.0) Gecko/20100101 Firefox/42.0 PaleMoon/28.3.1");
 pref("general.useragent.override.gaming.youtube.com","Mozilla/5.0 (Windows NT 6.1; WOW64; rv:42.0) Gecko/20100101 Firefox/42.0");
 pref("general.useragent.override.dropbox.com","Mozilla/5.0 (Windows NT 6.1; WOW64; rv:99.9) Gecko/20100101 Firefox/99.9 (Pale Moon)");
 pref("general.useragent.override.players.brightcove.net","Mozilla/5.0 (Windows NT 6.1; Trident/7.0; rv:11.0) like Gecko");
@@ -89,14 +89,14 @@ pref("general.useragent.override.chase.com","Mozilla/5.0 (Windows NT 6.1; WOW64;
 // For Amazon Prime videos
 pref("general.useragent.override.www.amazon.com","Mozilla/5.0 (Windows NT 6.1; WOW64; rv:45.9) Gecko/20100101 Firefox/45.9 (Pale Moon)");
 // Soundcloud uses Firefox-exclusive combinations of code. Never pass Firefox slice.
-pref("general.useragent.override.soundcloud.com","Mozilla/5.0 (Windows NT 6.1; WOW64; rv:4.1) Goanna/20170101 PaleMoon/28.3.0");
+pref("general.useragent.override.soundcloud.com","Mozilla/5.0 (Windows NT 6.1; WOW64; rv:4.1) Goanna/20170101 PaleMoon/28.3.1");
 // Daily motion only likes strict Firefox UAs
 pref("general.useragent.override.dailymotion.com","Mozilla/5.0 (Windows NT 6.1; WOW64; rv:52.0) Gecko/20100101 Firefox/52.0");
 // The following requires native mode. Or it blocks.. "too old firefox", breakage, etc.
-pref("general.useragent.override.deviantart.com","Mozilla/5.0 (Windows NT 6.1; WOW64; rv:4.1) Goanna/20170101 PaleMoon/28.3.0");
-pref("general.useragent.override.deviantart.net","Mozilla/5.0 (Windows NT 6.1; WOW64; rv:4.1) Goanna/20170101 PaleMoon/28.3.0");
-pref("general.useragent.override.altibox.dk","Mozilla/5.0 (Windows NT 6.1; WOW64; rv:4.1) Goanna/20170101 PaleMoon/28.3.0");
-pref("general.useragent.override.altibox.no","Mozilla/5.0 (Windows NT 6.1; WOW64; rv:4.1) Goanna/20170101 PaleMoon/28.3.0");
+pref("general.useragent.override.deviantart.com","Mozilla/5.0 (Windows NT 6.1; WOW64; rv:4.1) Goanna/20170101 PaleMoon/28.3.1");
+pref("general.useragent.override.deviantart.net","Mozilla/5.0 (Windows NT 6.1; WOW64; rv:4.1) Goanna/20170101 PaleMoon/28.3.1");
+pref("general.useragent.override.altibox.dk","Mozilla/5.0 (Windows NT 6.1; WOW64; rv:4.1) Goanna/20170101 PaleMoon/28.3.1");
+pref("general.useragent.override.altibox.no","Mozilla/5.0 (Windows NT 6.1; WOW64; rv:4.1) Goanna/20170101 PaleMoon/28.3.1");
 // UA-Sniffing domains below have indicated no interest in supporting Pale Moon (BOO!)
 pref("general.useragent.override.humblebundle.com","Mozilla/5.0 (Windows NT 6.1; WOW64; rv:52.9) Gecko/20100101 Firefox/52.9 (Pale Moon)");
 pref("general.useragent.override.privat24.ua","Mozilla/5.0 (Windows NT 6.1; WOW64; rv:38.0) Gecko/20100101 Firefox/38.0");
@@ -107,7 +107,7 @@ pref("general.useragent.override.netflximg.net","Mozilla/5.0 (Windows NT 6.1; WO
 pref("general.useragent.override.web.whatsapp.com","Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2049.0 Safari/537.36");
 // The following domains do not like the Goanna slice
 pref("general.useragent.override.hitbox.tv","Mozilla/5.0 (Windows NT 6.1; WOW64; rv:52.9) Gecko/20100101 Firefox/52.9");
-pref("general.useragent.override.yuku.com","Mozilla/5.0 (Windows NT 6.1; WOW64; rv:52.9) Gecko/20100101 Firefox/52.9 PaleMoon/28.3.0");
+pref("general.useragent.override.yuku.com","Mozilla/5.0 (Windows NT 6.1; WOW64; rv:52.9) Gecko/20100101 Firefox/52.9 PaleMoon/28.3.1");
 // ============================================================================
 //@line 5 "d:\mozdev\UXP\application\palemoon\branding\official\pref\palemoon-branding.js"
 pref("startup.homepage_override_url","http://www.palemoon.org/releasenotes.shtml");

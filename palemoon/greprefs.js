@@ -344,14 +344,15 @@ pref("dom.requestIdleCallback.enabled", true);
 
 // Enable Intersection Observers
 // See WD https://www.w3.org/TR/intersection-observer/
-pref("dom.IntersectionObserver.enabled", true);
+// Disabled for now, see issue #935
+pref("dom.IntersectionObserver.enabled", false);
 
 // Whether the Gamepad API is enabled
 pref("dom.gamepad.enabled", true);
 pref("dom.gamepad.test.enabled", false);
-//@line 222 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 223 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("dom.gamepad.non_standard_events.enabled", false);
-//@line 226 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 227 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("dom.gamepad.extensions.enabled", false);
 
 // Whether the KeyboardEvent.code is enabled
@@ -462,9 +463,9 @@ pref("mathml.disabled",    false);
 pref("mathml.scale_stretchy_operators.enabled", true);
 
 // Enabled on nightly only until we fix mochitest failures.
-//@line 339 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 340 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("media.dormant-on-pause-timeout-ms", -1);
-//@line 341 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 342 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 // Media cache size in kilobytes
 pref("media.cache_size", 512000);
@@ -489,37 +490,37 @@ pref("media.play-stand-alone", true);
 pref("media.hardware-video-decoding.enabled", true);
 pref("media.hardware-video-decoding.force-enabled", false);
 
-//@line 366 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 367 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("media.mp4.enabled", true);
 // Specifies whether the PDMFactory can create a test decoder that
-//@line 369 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 370 "d:\mozdev\UXP\modules\libpref\init\all.js"
 // just outputs blank frames/audio instead of actually decoding. The blank
 // decoder works on all platforms.
 pref("media.use-blank-decoder", false);
-//@line 373 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 374 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("media.wmf.enabled", true);
 pref("media.wmf.decoder.thread-count", -1);
 pref("media.wmf.low-latency.enabled", false);
 pref("media.wmf.skip-blacklist", false);
-//@line 380 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 381 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("media.wmf.vp9.enabled", false);
-//@line 382 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 383 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("media.windows-media-foundation.allow-d3d11-dxva", true);
 pref("media.wmf.disable-d3d11-for-dlls", "igd11dxva64.dll: 20.19.15.4463, 20.19.15.4454, 20.19.15.4444, 20.19.15.4416, 20.19.15.4404, 20.19.15.4390, 20.19.15.4380, 20.19.15.4377, 20.19.15.4364, 20.19.15.4360, 20.19.15.4352, 20.19.15.4331, 20.19.15.4326, 20.19.15.4300; igd10iumd32.dll: 20.19.15.4444, 20.19.15.4424, 20.19.15.4409, 20.19.15.4390, 20.19.15.4380, 20.19.15.4360, 10.18.10.4358, 20.19.15.4331, 20.19.15.4312, 20.19.15.4300, 10.18.15.4281, 10.18.15.4279, 10.18.10.4276, 10.18.15.4268, 10.18.15.4256, 10.18.10.4252, 10.18.15.4248, 10.18.14.4112, 10.18.10.3958, 10.18.10.3496, 10.18.10.3431, 10.18.10.3412, 10.18.10.3355, 9.18.10.3234, 9.18.10.3071, 9.18.10.3055, 9.18.10.3006; igd10umd32.dll: 9.17.10.4229, 9.17.10.3040, 9.17.10.2857, 8.15.10.2274, 8.15.10.2272, 8.15.10.2246, 8.15.10.1840, 8.15.10.1808; igd10umd64.dll: 9.17.10.4229, 9.17.10.2857, 10.18.10.3496; isonyvideoprocessor.dll: 4.1.2247.8090, 4.1.2153.6200; tosqep.dll: 1.2.15.526, 1.1.12.201, 1.0.11.318, 1.0.11.215, 1.0.10.1224; tosqep64.dll: 1.1.12.201, 1.0.11.215; nvwgf2um.dll: 22.21.13.8253, 22.21.13.8233, 22.21.13.8205, 22.21.13.8189, 22.21.13.8178, 22.21.13.8165, 21.21.13.7892, 21.21.13.7878, 21.21.13.7866, 21.21.13.7849, 21.21.13.7654, 21.21.13.7653, 21.21.13.7633, 21.21.13.7619, 21.21.13.7563, 21.21.13.7306, 21.21.13.7290, 21.21.13.7270, 21.21.13.7254, 21.21.13.6939, 21.21.13.6926, 21.21.13.6909, 21.21.13.4201, 21.21.13.4200, 10.18.13.6881, 10.18.13.6839, 10.18.13.6510, 10.18.13.6472, 10.18.13.6143, 10.18.13.5946, 10.18.13.5923, 10.18.13.5921, 10.18.13.5891, 10.18.13.5887, 10.18.13.5582, 10.18.13.5445, 10.18.13.5382, 10.18.13.5362, 9.18.13.4788, 9.18.13.4752, 9.18.13.4725, 9.18.13.4709, 9.18.13.4195, 9.18.13.4192, 9.18.13.4144, 9.18.13.4052, 9.18.13.3788, 9.18.13.3523, 9.18.13.3235, 9.18.13.3165, 9.18.13.2723, 9.18.13.2702, 9.18.13.1422, 9.18.13.1407, 9.18.13.1106, 9.18.13.546; atidxx32.dll: 21.19.151.3, 21.19.142.257, 21.19.137.514, 21.19.137.1, 21.19.134.1, 21.19.128.7, 21.19.128.4, 20.19.0.32837, 20.19.0.32832, 8.17.10.682, 8.17.10.671, 8.17.10.661, 8.17.10.648, 8.17.10.644, 8.17.10.625, 8.17.10.605, 8.17.10.581, 8.17.10.569, 8.17.10.560, 8.17.10.545, 8.17.10.539, 8.17.10.531, 8.17.10.525, 8.17.10.520, 8.17.10.519, 8.17.10.514, 8.17.10.511, 8.17.10.494, 8.17.10.489, 8.17.10.483, 8.17.10.453, 8.17.10.451, 8.17.10.441, 8.17.10.436, 8.17.10.432, 8.17.10.425, 8.17.10.418, 8.17.10.414, 8.17.10.401, 8.17.10.395, 8.17.10.385, 8.17.10.378, 8.17.10.362, 8.17.10.355, 8.17.10.342, 8.17.10.331, 8.17.10.318, 8.17.10.310, 8.17.10.286, 8.17.10.269, 8.17.10.261, 8.17.10.247, 8.17.10.240, 8.15.10.212; atidxx64.dll: 21.19.151.3, 21.19.142.257, 21.19.137.514, 21.19.137.1, 21.19.134.1, 21.19.128.7, 21.19.128.4, 20.19.0.32832, 8.17.10.682, 8.17.10.661, 8.17.10.644, 8.17.10.625; nvumdshim.dll: 10.18.13.6822");
 pref("media.wmf.disable-d3d9-for-dlls", "igdumd64.dll: 8.15.10.2189, 8.15.10.2119, 8.15.10.2104, 8.15.10.2102, 8.771.1.0; atiumd64.dll: 7.14.10.833, 7.14.10.867, 7.14.10.885, 7.14.10.903, 7.14.10.911, 8.14.10.768, 9.14.10.1001, 9.14.10.1017, 9.14.10.1080, 9.14.10.1128, 9.14.10.1162, 9.14.10.1171, 9.14.10.1183, 9.14.10.1197, 9.14.10.945, 9.14.10.972, 9.14.10.984, 9.14.10.996");
-//@line 395 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 396 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("media.ffvpx.enabled", true);
-//@line 397 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 398 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("media.gmp.decoder.enabled", false);
 pref("media.gmp.decoder.aac", 0);
 pref("media.gmp.decoder.h264", 0);
-//@line 403 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 404 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("media.ogg.enabled", true);
 pref("media.opus.enabled", true);
 pref("media.wave.enabled", true);
 pref("media.webm.enabled", true);
 
-//@line 415 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 416 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 // GMP storage version number. At startup we check the version against
 // media.gmp.storage.version.observed, and if the versions don't match,
@@ -537,24 +538,24 @@ pref("media.decoder-doctor.verbose", false);
 pref("media.decoder-doctor.wmf-disabled-is-failure", false);
 
 // Whether to suspend decoding of videos in background tabs.
-//@line 435 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 436 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("media.suspend-bkgnd-video.enabled", false);
-//@line 437 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 438 "d:\mozdev\UXP\modules\libpref\init\all.js"
 // Delay, in ms, from time window goes to background to suspending
 // video decoders. Defaults to 10 seconds.
 pref("media.suspend-bkgnd-video.delay-ms", 10000);
 
-//@line 549 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 550 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 pref("dom.webaudio.enabled", true);
 
-//@line 553 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 554 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("media.getusermedia.screensharing.enabled", true);
-//@line 555 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 556 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
-//@line 557 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 558 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("media.getusermedia.screensharing.allowed_domains", "webex.com,*.webex.com,ciscospark.com,*.ciscospark.com,projectsquared.com,*.projectsquared.com,*.room.co,room.co,beta.talky.io,talky.io,*.clearslide.com,appear.in,*.appear.in,tokbox.com,*.tokbox.com,*.sso.francetelecom.fr,*.si.francetelecom.fr,*.sso.infra.ftgroup,*.multimedia-conference.orange-business.com,*.espacecollaboration.orange-business.com,free.gotomeeting.com,g2m.me,*.g2m.me,*.mypurecloud.com,*.mypurecloud.com.au,spreed.me,*.spreed.me,*.spreed.com,air.mozilla.org,*.circuit.com,*.yourcircuit.com,circuit.siemens.com,yourcircuit.siemens.com,circuitsandbox.net,*.unify.com,tandi.circuitsandbox.net,*.ericsson.net,*.cct.ericsson.net,*.opentok.com,*.conf.meetecho.com,meet.jit.si,*.meet.jit.si,web.stage.speakeasyapp.net,web.speakeasyapp.net,*.hipchat.me,*.beta-wspbx.com,*.wspbx.com,*.unifiedcloudit.com,*.smartboxuc.com,*.smartbox-uc.com,*.panterranetworks.com,pexipdemo.com,*.pexipdemo.com,pex.me,*.pex.me,*.rd.pexip.com,1click.io,*.1click.io,*.fuze.com,*.fuzemeeting.com,*.thinkingphones.com,gotomeeting.com,*.gotomeeting.com,gotowebinar.com,*.gotowebinar.com,gototraining.com,*.gototraining.com,citrix.com,*.citrix.com,expertcity.com,*.expertcity.com,citrixonline.com,*.citrixonline.com,g2m.me,*.g2m.me,gotomeet.me,*.gotomeet.me,gotomeet.at,*.gotomeet.at,miriadaxdes.miriadax.net,certificacion.miriadax.net,miriadax.net,*.wire.com,sylaps.com,*.sylaps.com,bluejeans.com,*.bluejeans.com,*.a.bluejeans.com,*.bbcollab.com");
-//@line 562 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 563 "d:\mozdev\UXP\modules\libpref\init\all.js"
 // OS/X 10.6 has screen/window sharing off by default due to various issues - Caveat emptor
 pref("media.getusermedia.screensharing.allow_on_old_platforms", false);
 
@@ -571,14 +572,14 @@ pref("media.mediasource.enabled", true);
 
 pref("media.mediasource.mp4.enabled", true);
 
-//@line 579 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 580 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("media.mediasource.webm.enabled", false);
-//@line 583 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 584 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("media.mediasource.webm.audio.enabled", true);
 
-//@line 586 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 587 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("media.av1.enabled", false);
-//@line 588 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 589 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 // Use new MediaFormatReader architecture for plain ogg.
 pref("media.flac.enabled", true);
@@ -588,12 +589,12 @@ pref("media.benchmark.vp9.threshold", 150);
 pref("media.benchmark.frames", 300);
 pref("media.benchmark.timeout", 1000);
 
-//@line 598 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 599 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("media.webspeech.recognition.enable", false);
 pref("media.webspeech.synth.enabled", false);
-//@line 602 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 603 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("media.encoder.webm.enabled", true);
-//@line 604 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 605 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 // Whether to autostart a media element with an |autoplay| attribute
 pref("media.autoplay.enabled", true);
@@ -673,9 +674,9 @@ pref("apz.peek_messages.enabled", true);
 // Whether to print the APZC tree for debugging
 pref("apz.printtree", false);
 
-//@line 686 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 687 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("apz.record_checkerboarding", false);
-//@line 688 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 689 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("apz.test.logging_enabled", false);
 pref("apz.touch_start_tolerance", "0.1");
 pref("apz.touch_move_tolerance", "0.03");
@@ -690,18 +691,18 @@ pref("apz.y_stationary_size_multiplier", "3.5");
 pref("apz.zoom_animation_duration_ms", 250);
 pref("apz.scale_repaint_delay_ms", 500);
 
-//@line 709 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 710 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
-//@line 711 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 712 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("apz.desktop.enabled", false);
-//@line 713 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 714 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
-//@line 721 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 722 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
-//@line 723 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 724 "d:\mozdev\UXP\modules\libpref\init\all.js"
 // Use containerless scrolling for now on desktop.
 pref("layout.scroll.root-frame-containers", false);
-//@line 726 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 727 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 // Whether to enable LayerScope tool and default listening port
 pref("gfx.layerscope.enabled", false);
@@ -728,7 +729,7 @@ pref("gfx.downloadable_fonts.disable_cache", false);
 
 pref("gfx.downloadable_fonts.woff2.enabled", true);
 
-//@line 756 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 757 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 // Do we fire a notification about missing fonts, so the front-end can decide
 // whether to try and do something about it (e.g. download additional fonts)?
@@ -736,10 +737,10 @@ pref("gfx.missing_fonts.notify", false);
 
 // prefs controlling the font (name/cmap) loader that runs shortly after startup
 pref("gfx.font_loader.families_per_slice", 3); // read in info 3 families at a time
-//@line 764 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 765 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("gfx.font_loader.delay", 120000);         // 2 minutes after startup
 pref("gfx.font_loader.interval", 1000);        // every 1 second until complete
-//@line 770 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 771 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 // whether to always search all font cmaps during system font fallback
 pref("gfx.font_rendering.fallback.always_use_cmaps", false);
@@ -752,19 +753,19 @@ pref("gfx.font_rendering.wordcache.maxentries", 10000);
 
 pref("gfx.font_rendering.graphite.enabled", true);
 
-//@line 783 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 784 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("gfx.font_rendering.directwrite.force-enabled", false);
 pref("gfx.font_rendering.directwrite.use_gdi_table_loading", true);
-//@line 786 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 787 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 pref("gfx.font_rendering.opentype_svg.enabled", true);
 
-//@line 790 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 791 "d:\mozdev\UXP\modules\libpref\init\all.js"
 // comma separated list of backends to use in order of preference
 // e.g., pref("gfx.canvas.azure.backends", "direct2d,skia,cairo");
 pref("gfx.canvas.azure.backends", "direct2d1.1,skia,cairo");
 pref("gfx.content.azure.backends", "direct2d1.1,cairo");
-//@line 806 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 807 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 pref("gfx.canvas.skiagl.dynamic-cache", true);
 
@@ -786,7 +787,7 @@ pref("accessibility.warn_on_browsewithcaret", true);
 
 pref("accessibility.browsewithcaret_shortcut.enabled", true);
 
-//@line 828 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 829 "d:\mozdev\UXP\modules\libpref\init\all.js"
 // Tab focus model bit field:
 // 1 focuses text controls, 2 focuses other form elements, 4 adds links.
 // Most users will want 1, 3, or 7.
@@ -794,14 +795,14 @@ pref("accessibility.browsewithcaret_shortcut.enabled", true);
 // unless accessibility.tabfocus is set by the user.
 pref("accessibility.tabfocus", 7);
 pref("accessibility.tabfocus_applies_to_xul", false);
-//@line 839 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 840 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 // We follow the "Click in the scrollbar to:" system preference on OS X and
 // "gtk-primary-button-warps-slider" property with GTK (since 2.24 / 3.6),
 // unless this preference is explicitly set.
-//@line 844 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 845 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("ui.scrollToClick", 0);
-//@line 846 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 847 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 // provide ability to turn on support for canvas focus rings
 pref("canvas.focusring.enabled", true);
@@ -832,7 +833,7 @@ pref("accessibility.ipc_architecture.enabled", true);
 
 pref("accessibility.AOM.enabled", false);
 
-//@line 877 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 878 "d:\mozdev\UXP\modules\libpref\init\all.js"
 // Some accessibility tools poke at windows in the plugin process during setup
 // which can cause hangs.  To hack around this set accessibility.delay_plugins
 // to true, you can also try increasing accessibility.delay_plugin_time if your
@@ -840,7 +841,7 @@ pref("accessibility.AOM.enabled", false);
 // See bug 781791.
 pref("accessibility.delay_plugins", false);
 pref("accessibility.delay_plugin_time", 10000);
-//@line 885 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 886 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 pref("focusmanager.testmode", false);
 
@@ -863,9 +864,9 @@ pref("accessibility.typeaheadfind.timeout", 4000);
 pref("accessibility.typeaheadfind.enabletimeout", true);
 pref("accessibility.typeaheadfind.soundURL", "beep");
 pref("accessibility.typeaheadfind.enablesound", true);
-//@line 910 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 911 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("accessibility.typeaheadfind.prefillwithselection", true);
-//@line 912 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 913 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("accessibility.typeaheadfind.matchesCountLimit", 1000);
 pref("findbar.highlightAll", false);
 pref("findbar.modalHighlight", false);
@@ -1084,9 +1085,9 @@ pref("print.print_edge_right", 0);
 pref("print.print_edge_bottom", 0);
 
 // Print via the parent process. This is only used when e10s is enabled.
-//@line 1131 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 1132 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("print.print_via_parent", true);
-//@line 1135 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 1136 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 // Pref used by the spellchecker extension to control the
 // maximum number of misspelled words that will be underlined
@@ -1180,7 +1181,7 @@ pref("dom.webapps.useCurrentProfile", false);
 pref("dom.cycle_collector.incremental", true);
 
 // Parsing perf prefs. For now just mimic what the old code did.
-//@line 1231 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 1232 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 // Disable popups from plugins by default
 //   0 = openAllowed
@@ -1193,15 +1194,15 @@ pref("privacy.donottrackheader.enabled",    false);
 // Enforce tracking protection in all modes
 pref("privacy.trackingprotection.enabled",  false);
 // Enforce tracking protection in Private Browsing mode
-//@line 1246 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 1247 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("privacy.trackingprotection.pbmode.enabled",  false);
-//@line 1248 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 1249 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 pref("dom.event.contextmenu.enabled",       true);
 pref("dom.event.clipboardevents.enabled",   true);
-//@line 1254 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 1255 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("dom.event.highrestimestamp.enabled",  false);
-//@line 1256 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 1257 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 pref("dom.webcomponents.enabled",           false);
 pref("dom.webcomponents.customelements.enabled", false);
@@ -1210,7 +1211,7 @@ pref("javascript.enabled",                  true);
 // Enable Array.prototype.values
 pref("javascript.options.array_prototype_values", true);
 pref("javascript.options.strict",           false);
-//@line 1267 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 1268 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("javascript.options.baselinejit",      true);
 pref("javascript.options.ion",              true);
 pref("javascript.options.asmjs",            true);
@@ -1218,9 +1219,9 @@ pref("javascript.options.wasm",             false);
 pref("javascript.options.wasm_baselinejit", false);
 pref("javascript.options.native_regexp",    true);
 pref("javascript.options.parallel_parsing", true);
-//@line 1277 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 1278 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("javascript.options.asyncstack",       false);
-//@line 1279 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 1280 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("javascript.options.throw_on_asmjs_validation_failure", false);
 pref("javascript.options.ion.offthread_compilation", true);
 // This preference instructs the JS engine to discard the
@@ -1243,9 +1244,9 @@ pref("javascript.options.mem.log", false);
 pref("javascript.options.mem.notify", false);
 pref("javascript.options.gc_on_memory_pressure", true);
 pref("javascript.options.compact_on_user_inactive", true);
-//@line 1304 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 1305 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("javascript.options.compact_on_user_inactive_delay", 300000); // ms
-//@line 1306 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 1307 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 pref("javascript.options.mem.gc_high_frequency_time_limit_ms", 1000);
 pref("javascript.options.mem.gc_high_frequency_low_limit_mb", 100);
@@ -1262,10 +1263,10 @@ pref("javascript.options.mem.gc_max_empty_chunk_count", 30);
 
 pref("javascript.options.showInConsole", false);
 
-//@line 1323 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 1324 "d:\mozdev\UXP\modules\libpref\init\all.js"
 // Disabled in Beta and Release for now, see bug 1225406
 pref("javascript.options.shared_memory", false);
-//@line 1328 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 1329 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 pref("javascript.options.throw_on_debuggee_would_run", false);
 pref("javascript.options.dump_stack_on_debuggee_would_run", false);
@@ -1300,9 +1301,9 @@ pref("network.allow-experiments", true);
 pref("network.notify.changed", true);
 
 // Allow network detection of IPv6 related changes (bug 1245059)
-//@line 1363 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 1364 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("network.notify.IPv6", false);
-//@line 1367 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 1368 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 // Transmit UDP busy-work to the LAN when anticipating low latency
 // network reads and on wifi to mitigate 802.11 Power Save Polling delays
@@ -1325,7 +1326,7 @@ pref("network.protocol-handler.external.data", false);
 pref("network.protocol-handler.external.ms-help", false);
 pref("network.protocol-handler.external.shell", false);
 pref("network.protocol-handler.external.vnd.ms.radio", false);
-//@line 1392 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 1393 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("network.protocol-handler.external.disk", false);
 pref("network.protocol-handler.external.disks", false);
 pref("network.protocol-handler.external.afp", false);
@@ -1503,9 +1504,9 @@ pref("network.http.fast-fallback-to-IPv4", true);
 
 // The maximum amount of time the cache session lock can be held
 // before a new transaction bypasses the cache. In milliseconds.
-//@line 1570 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 1571 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("network.http.bypass-cachelock-threshold", 200000);
-//@line 1574 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 1575 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 // Try and use SPDY when using SSL
 pref("network.http.spdy.enabled", true);
@@ -1627,10 +1628,10 @@ pref("dom.server-events.default-reconnection-time", 5000); // in milliseconds
 // by the jar channel.
 pref("network.jar.open-unsafe-types", false);
 // If true, loading remote JAR files using the jar: protocol will be prevented.
-//@line 1696 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 1697 "d:\mozdev\UXP\modules\libpref\init\all.js"
 // Keep allowing remote JAR files for IBM iNotes (see bug 1255139) for now.
 pref("network.jar.block-remote-files", false);
-//@line 1701 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 1702 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 // This preference, if true, causes all UTF-8 domain names to be normalized to
 // punycode.  The intention is to allow UTF-8 domain names as input, but never
@@ -1880,12 +1881,12 @@ pref("network.negotiate-auth.gsslib", "");
 // Specify if the gss lib comes standard with the OS
 pref("network.negotiate-auth.using-native-gsslib", true);
 
-//@line 1951 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 1952 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 // Default to using the SSPI intead of GSSAPI on windows
 pref("network.auth.use-sspi", true);
 
-//@line 1956 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 1957 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 // Controls which NTLM authentication implementation we default to. True forces
 // the use of our generic (internal) NTLM authentication implementation vs. any
@@ -1952,7 +1953,7 @@ pref("network.proxy.no_proxies_on",         "localhost, 127.0.0.1");
 pref("network.proxy.failover_timeout",      1800); // 30 minutes
 pref("network.online",                      true); //online/offline
 pref("network.cookie.cookieBehavior",       0); // 0-Accept, 1-dontAcceptForeign, 2-dontAcceptAny, 3-limitForeign
-//@line 2025 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 2026 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("network.cookie.thirdparty.sessionOnly", false);
 pref("network.cookie.leave-secure-alone",   true);
 pref("network.cookie.lifetimePolicy",       0); // 0-accept, 1-dontUse 2-acceptForSession, 3-acceptForNDays
@@ -1998,9 +1999,9 @@ pref("intl.fallbackCharsetList.ISO-8859-1", "windows-1252");
 pref("font.language.group",                 "chrome://global/locale/intl.properties");
 
 // Android-specific pref to use key-events-only mode for IME-unaware webapps.
-//@line 2073 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 2074 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("intl.ime.hack.on_ime_unaware_apps.fire_key_events_for_composition", false);
-//@line 2075 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 2076 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 // If you use legacy Chinese IME which puts an ideographic space to composition
 // string as placeholder, this pref might be useful.  If this is true and when
@@ -2171,14 +2172,14 @@ pref("clipboard.autocopy", false);
 // Clipboard only supports text/plain
 pref("clipboard.plainTextOnly", false);
 
-//@line 2246 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 2247 "d:\mozdev\UXP\modules\libpref\init\all.js"
 // Mouse 4th/5th button handling
 // Setting these to false allows you to disable the 4th and/or 5th button of
 // your mouse. The 4th button is typically mapped to "Back" and the 5th
 // button is typically mapped to "Forward".
 pref("mouse.button4.enabled", true);
 pref("mouse.button5.enabled", true);
-//@line 2253 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 2254 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 // mouse wheel scroll transaction period of time (in milliseconds)
 pref("mousewheel.transaction.timeout", 1500);
@@ -2426,14 +2427,14 @@ pref("layout.css.DOMQuad.enabled", true);
 pref("layout.css.DOMMatrix.enabled", true);
 
 // Is support for GeometryUtils.getBoxQuads enabled?
-//@line 2501 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 2502 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("layout.css.getBoxQuads.enabled", false);
-//@line 2505 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 2506 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 // Is support for GeometryUtils.convert*FromNode enabled?
-//@line 2508 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 2509 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("layout.css.convertFromNode.enabled", false);
-//@line 2512 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 2513 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 // Is support for CSS "text-align: unsafe X" enabled?
 pref("layout.css.text-align-unsafe-value.enabled", false);
@@ -2443,9 +2444,9 @@ pref("layout.css.text-justify.enabled", true);
 
 // Is support for CSS "float: inline-{start,end}" and
 // "clear: inline-{start,end}" enabled?
-//@line 2524 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 2525 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("layout.css.float-logical-values.enabled", false);
-//@line 2526 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 2527 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 // Is support for the CSS4 image-orientation property enabled?
 pref("layout.css.image-orientation.enabled", true);
@@ -2473,7 +2474,7 @@ pref("layout.css.prefixes.device-pixel-ratio-webkit", false);
 // Is the CSS Unprefixing Service enabled? (This service emulates support
 // for certain vendor-prefixed properties & values, for sites on a "fixlist".)
 pref("layout.css.unprefixing-service.enabled", true);
-//@line 2559 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 2560 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 // Is support for the :scope selector enabled?
 pref("layout.css.scope-pseudo.enabled", true);
@@ -2494,9 +2495,9 @@ pref("layout.css.object-fit-and-position.enabled", true);
 
 // Is -moz-osx-font-smoothing enabled?
 // Only supported in OSX builds
-//@line 2582 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 2583 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("layout.css.osx-font-smoothing.enabled", false);
-//@line 2584 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 2585 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 // Is support for the CSS-wide "unset" value enabled?
 pref("layout.css.unset-value.enabled", true);
@@ -2560,9 +2561,9 @@ pref("layout.css.shape-outside.enabled", false);
 pref("layout.css.font-loading-api.enabled", true);
 
 // Should stray control characters be rendered visibly?
-//@line 2648 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 2649 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("layout.css.control-characters.visible", false);
-//@line 2652 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 2653 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 // pref for which side vertical scrollbars should be on
 // 0 = end-side in UI direction
@@ -2618,9 +2619,9 @@ pref("layout.idle_period.time_limit", 1);
 // Before enabling this by default, make sure also CSSPseudoElement interface
 // has been spec'ed properly, or we should add a separate pref for
 // CSSPseudoElement interface. See Bug 1174575 for further details.
-//@line 2708 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 2709 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("dom.animations-api.core.enabled", false);
-//@line 2712 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 2713 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 // Is support for the Element.animate() function (a subset of the Web Animations
 // API) enabled?
@@ -2684,7 +2685,7 @@ pref("hangmonitor.timeout", 0);
 pref("plugins.load_appdir_plugins", false);
 // If true, plugins will be click to play
 pref("plugins.click_to_play", false);
-//@line 2779 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 2780 "d:\mozdev\UXP\modules\libpref\init\all.js"
 // The default value for nsIPluginTag.enabledState (STATE_ENABLED = 2)
 pref("plugin.default.state", 2);
 
@@ -2717,7 +2718,7 @@ pref("plugins.favorfallback.rules", "");
 // Set IPC timeouts for plugins and tabs, except in leak-checking and
 // dynamic analysis builds.  (NS_FREE_PERMANENT_DATA is C++ only, so
 // approximate its definition here.)
-//@line 2812 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 2813 "d:\mozdev\UXP\modules\libpref\init\all.js"
 // How long a plugin is allowed to process a synchronous IPC message
 // before we consider it "hung".
 pref("dom.ipc.plugins.timeoutSecs", 45);
@@ -2731,18 +2732,18 @@ pref("dom.ipc.plugins.contentTimeoutSecs", 10);
 // How long a plugin launch is allowed to take before
 // we consider it failed.
 pref("dom.ipc.plugins.processLaunchTimeoutSecs", 45);
-//@line 2826 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 2827 "d:\mozdev\UXP\modules\libpref\init\all.js"
 // How long a plugin is allowed to process a synchronous IPC message
 // before we display the plugin hang UI
 pref("dom.ipc.plugins.hangUITimeoutSecs", 11);
 // Minimum time that the plugin hang UI will be displayed
 pref("dom.ipc.plugins.hangUIMinDisplaySecs", 10);
-//@line 2832 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 2833 "d:\mozdev\UXP\modules\libpref\init\all.js"
 // How long a content process can take before closing its IPC channel
 // after shutdown is initiated.  If the process exceeds the timeout,
 // we fear the worst and kill it.
 pref("dom.ipc.tabs.shutdownTimeoutSecs", 5);
-//@line 2848 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 2849 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 pref("dom.ipc.plugins.flash.disable-protected-mode", false);
 
@@ -2777,9 +2778,9 @@ pref("svg.marker-improvements.enabled", true);
 // See https://svgwg.org/svg2-draft/single-page.html#types-SVGBoundingBoxOptions
 pref("svg.new-getBBox.enabled", false);
 
-//@line 2883 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 2884 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("svg.transform-box.enabled", false);
-//@line 2887 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 2888 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 // Default font types and sizes by locale
 pref("font.default.ar", "sans-serif");
@@ -3057,7 +3058,7 @@ pref("ui.mouse.radius.visitedWeight", 120);
 // When false, the prefs will be used for all mouse events.
 pref("ui.mouse.radius.inputSource.touchOnly", true);
 
-//@line 3165 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 3166 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 // Be as uniform as possible, use Twemoji everywhere. 
 // Optional: prefix with `Segoe UI Emoji` to use Win8+ Segoe UI font emoji where available.
@@ -3161,7 +3162,7 @@ pref("font.name.monospace.x-tamil", "Latha");
 pref("font.name-list.serif.x-tamil", "Latha");
 pref("font.name-list.monospace.x-tamil", "Latha");
 
-//@line 3269 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 3270 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 pref("font.name.serif.x-armn", "Sylfaen");
 pref("font.name.sans-serif.x-armn", "Arial AMU");
@@ -3343,7 +3344,7 @@ pref("plugin.mousewheel.enabled", true);
 // Switch the keyboard layout per window
 pref("intl.keyboard.per_window_layout", false);
 
-//@line 3451 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 3452 "d:\mozdev\UXP\modules\libpref\init\all.js"
 // Enable/Disable TSF support on Vista or later.
 pref("intl.tsf.enable", true);
 
@@ -3398,7 +3399,7 @@ pref("intl.tsf.hack.ms_japanese_ime.do_not_return_no_layout_error_at_caret", tru
 pref("intl.tsf.hack.ms_simplified_chinese.query_insert_result", true);
 // For Microsoft ChangJie and Microsoft Quick
 pref("intl.tsf.hack.ms_traditional_chinese.query_insert_result", true);
-//@line 3506 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 3507 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 // If composition_font is set, Gecko sets the font to IME.  IME may use
 // the fonts on their window like candidate window.  If they are empty,
@@ -3480,19 +3481,19 @@ pref("ui.osk.require_win10", false);
 // or appearing when it is not expected.
 pref("ui.osk.debug.keyboardDisplayReason", "");
 
-//@line 3589 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 3590 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
-//@line 3910 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 3911 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
-//@line 3971 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 3972 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
-//@line 4179 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 4180 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
-//@line 4200 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 4201 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
-//@line 4285 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 4286 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
-//@line 4305 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 4306 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 // Login Manager prefs
 pref("signon.rememberSignons",              true);
@@ -3609,11 +3610,11 @@ pref("canvas.image.cache.limit", 0);
 pref("canvas.poisondata", false);
 
 // WebGL prefs
-//@line 4425 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 4426 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("gl.msaa-level", 2);
-//@line 4427 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 4428 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("gl.require-hardware", false);
-//@line 4431 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 4432 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("gl.ignore-dx-interop2-blacklist", false);
 
 pref("webgl.force-enabled", false);
@@ -3640,21 +3641,21 @@ pref("webgl.webgl2-compat-mode", false);
 
 pref("webgl.enable-webgl2", true);
 
-//@line 4458 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 4459 "d:\mozdev\UXP\modules\libpref\init\all.js"
 // Keep this disabled on Release and Beta for now. (see bug 1171228)
 pref("webgl.enable-debug-renderer-info", false);
-//@line 4463 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 4464 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 pref("webgl.renderer-string-override", "");
 pref("webgl.vendor-string-override", "");
 
-//@line 4468 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 4469 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("webgl.angle.try-d3d11", true);
 pref("webgl.angle.force-d3d11", false);
 pref("webgl.angle.force-warp", false);
 pref("webgl.dxgl.enabled", true);
 pref("webgl.dxgl.needs-finish", false);
-//@line 4474 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 4475 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 pref("gfx.offscreencanvas.enabled", false);
 
@@ -3675,12 +3676,12 @@ pref("network.tcp.keepalive.enabled", true);
 pref("network.tcp.keepalive.idle_time", 600); // seconds; 10 mins
 // Default timeout for retransmission of unack'd keepalive probes.
 // Win and Linux only; not configurable on Mac.
-//@line 4495 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 4496 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("network.tcp.keepalive.retry_interval", 1); // seconds
-//@line 4497 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 4498 "d:\mozdev\UXP\modules\libpref\init\all.js"
 // Default maximum probe retransmissions.
 // Linux only; not configurable on Win and Mac; fixed at 10 and 8 respectively.
-//@line 4502 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 4503 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 // Whether to disable acceleration for all widgets.
 pref("layers.acceleration.disabled", false);
@@ -3688,23 +3689,23 @@ pref("layers.acceleration.disabled", false);
 // and output the result to stderr.
 pref("layers.bench.enabled", false);
 
-//@line 4512 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 4513 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 // Whether to force acceleration on, ignoring blacklists.
-//@line 4522 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 4523 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("layers.acceleration.force-enabled", false);
-//@line 4524 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 4525 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 pref("layers.acceleration.draw-fps", false);
 
 // Enable DEAA antialiasing for transformed layers in the compositor
-//@line 4529 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 4530 "d:\mozdev\UXP\modules\libpref\init\all.js"
 // Desktop prefs
 pref("layers.deaa.enabled", true);
-//@line 4535 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 4536 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 pref("layers.dump", false);
-//@line 4544 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 4545 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("layers.draw-borders", false);
 pref("layers.draw-tile-borders", false);
 pref("layers.draw-bigimage-borders", false);
@@ -3731,9 +3732,9 @@ pref("layers.tiles.adjust", true);
 // 0  -> full-tilt mode: Recomposite even if not transaction occured.
 pref("layers.offmainthreadcomposition.frame-rate", -1);
 
-//@line 4576 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 4577 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
-//@line 4580 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 4581 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 // Whether to animate simple opacity and transforms on the compositor
 pref("layers.offmainthreadcomposition.async-animations", true);
@@ -3751,11 +3752,11 @@ pref("gfx.content.use-native-pushlayer", false);
 
 pref("gfx.content.always-paint", false);
 
-//@line 4600 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 4601 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
-//@line 4607 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 4608 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
-//@line 4609 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 4610 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("gfx.content.use-native-pushlayer", true);
 
 // Whether to disable the automatic detection and use of direct2d.
@@ -3769,16 +3770,16 @@ pref("layers.prefer-opengl", false);
 pref("layers.prefer-d3d9", false);
 // Enable fallback if d3d11 can't be used. See bug #1262187
 pref("layers.allow-d3d9-fallback", true);
-//@line 4623 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 4624 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 // Copy-on-write canvas
 pref("layers.shared-buffer-provider.enabled", true);
 
-//@line 4628 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 4629 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("layers.shared-buffer-provider.enabled", false);
-//@line 4630 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 4631 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
-//@line 4635 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 4636 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 // Force all possible layers to be always active layers
 pref("layers.force-active", false);
@@ -3836,9 +3837,9 @@ pref("notification.feature.enabled", false);
 pref("dom.webnotifications.enabled", true);
 pref("dom.webnotifications.serviceworker.enabled", true);
 pref("dom.webnotifications.requireinteraction.count", 3);
-//@line 4695 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 4696 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("dom.webnotifications.requireinteraction.enabled", false);
-//@line 4697 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 4698 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 // Alert animation effect, name is disableSlidingEffect for backwards-compat.
 pref("alerts.disableSlidingEffect", false);
@@ -3939,9 +3940,9 @@ pref("dom.mozPermissionSettings.enabled", false);
 // W3C touch events
 // 0 - disabled, 1 - enabled, 2 - autodetect
 // Autodetection is currently only supported on Windows and GTK3
-//@line 4800 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 4801 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("dom.w3c_touch_events.enabled", 2);
-//@line 4802 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 4803 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 // W3C draft pointer events
 pref("dom.w3c_pointer_events.enabled", false);
@@ -3973,11 +3974,11 @@ pref("layout.css.expensive-style-struct-assertions.enabled", false);
 // enable JS dump() function.
 pref("browser.dom.window.dump.enabled", false);
 
-//@line 4837 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 4838 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("dom.netinfo.enabled", false);
-//@line 4839 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 4840 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
-//@line 4841 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 4842 "d:\mozdev\UXP\modules\libpref\init\all.js"
 // On 32-bit Windows, fire a low-memory notification if we have less than this
 // many mb of virtual address space available.
 pref("memory.low_virtual_memory_threshold_mb", 128);
@@ -3994,7 +3995,7 @@ pref("memory.low_physical_memory_threshold_mb", 0);
 // low available physical memory or low commit space more than once every
 // low_memory_notification_interval_ms.
 pref("memory.low_memory_notification_interval_ms", 10000);
-//@line 4858 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 4859 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 // How long must we wait before declaring that a window is a "ghost" (i.e., a
 // likely leak)?  This should be longer than it usually takes for an eligible
@@ -4005,7 +4006,7 @@ pref("memory.ghost_window_timeout_seconds", 60);
 pref("memory.free_dirty_pages", false);
 
 // Disable the Linux-specific, system-wide memory reporter.
-//@line 4871 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 4872 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 // Don't dump memory reports on OOM, by default.
 pref("memory.dump_reports_on_oom", false);
@@ -4100,9 +4101,9 @@ pref("captivedetect.maxWaitingTime", 5000);
 pref("captivedetect.pollingTime", 3000);
 pref("captivedetect.maxRetryCount", 5);
 
-//@line 4966 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 4967 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("dom.forms.inputmode", false);
-//@line 4970 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 4971 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 // InputMethods for soft keyboards in B2G
 pref("dom.mozInputMethod.enabled", false);
@@ -4112,7 +4113,7 @@ pref("dom.flyweb.enabled", false);
 // Enable mapped array buffer by default.
 pref("dom.mapped_arraybuffer.enabled", true);
 
-//@line 5088 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 5089 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 // Turn off Spatial navigation by default.
 pref("snav.enabled", false);
@@ -4213,7 +4214,7 @@ pref("dom.presentation.discoverable.encrypted", true);
 pref("dom.presentation.discoverable.retry_ms", 5000);
 pref("dom.presentation.session_transport.data_channel.enable", false);
 
-//@line 5196 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 5197 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 // Enable meta-viewport support in remote APZ-enabled frames.
 pref("dom.meta-viewport.enabled", false);
@@ -4236,9 +4237,9 @@ pref("dom.mozSettings.SettingsService.verbose.enabled", false);
 pref("dom.mozSettings.allowForceReadOnly", false);
 
 // The interval at which to check for slow running addons
-//@line 5221 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 5222 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("browser.addon-watch.interval", -1);
-//@line 5223 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 5224 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("browser.addon-watch.ignore", "[\"mochikit@mozilla.org\",\"special-powers@mozilla.org\",\"fxdevtools-adapters@mozilla.org\",\"fx-devtools\"]");
 
 // Search service settings
@@ -4253,10 +4254,10 @@ pref("browser.search.geoSpecificDefaults", false);
 pref("browser.search.geoip.url", "https://location.services.mozilla.com/v1/country?key=%MOZILLA_API_KEY%");
 pref("browser.search.geoip.timeout", 3000);
 
-//@line 5238 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 5239 "d:\mozdev\UXP\modules\libpref\init\all.js"
 // {moz:official} expands to "official"
 pref("browser.search.official", true);
-//@line 5241 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 5242 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 // GMPInstallManager prefs
 
@@ -4337,9 +4338,9 @@ pref("reader.has_used_toolbar", false);
 // Whether to use a vertical or horizontal toolbar.
 pref("reader.toolbar.vertical", true);
 
-//@line 5322 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 5323 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("narrate.enabled", true);
-//@line 5326 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 5327 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 pref("narrate.test", false);
 pref("narrate.rate", 0);
@@ -4353,9 +4354,9 @@ pref("dom.audiochannel.mutedByDefault", false);
 pref("dom.details_element.enabled", true);
 
 // Secure Element API
-//@line 5340 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 5341 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("dom.secureelement.enabled", false);
-//@line 5342 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 5343 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 // Allow control characters appear in composition string.
 // When this is false, control characters except
@@ -4384,9 +4385,9 @@ pref("webextensions.webRequest.requestBodyMaxRawBytes", 16777216);
 
 // This functionality is still experimental
 pref("webextensions.storage.sync.enabled", false);
-//@line 5371 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 5372 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("webextensions.storage.sync.serverURL", "https://webextensions.settings.services.mozilla.com/v1");
-//@line 5375 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 5376 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 // Allow customization of the fallback directory for file uploads
 pref("dom.input.fallbackUploadDir", "");
@@ -4410,35 +4411,35 @@ pref("dom.audiochannel.audioCompeting", false);
 pref("dom.audiochannel.audioCompeting.allAgents", false);
 
 // Disable Node.rootNode in release builds.
-//@line 5399 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 5400 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("dom.node.rootNode.enabled", false);
-//@line 5403 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 5404 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 // Default media volume
 pref("media.default_volume", "1.0");
 
 // Once bug 1276272 is resolved, we will trun this preference to default ON in
 // non-release channels.
-//@line 5410 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 5411 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("media.seekToNextFrame.enabled", false);
-//@line 5414 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 5415 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 // return the maximum number of cores that navigator.hardwareCurrency returns
 pref("dom.maxHardwareConcurrency", 16);
 
 // Shutdown the osfile worker if its no longer needed.
-//@line 5422 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 5423 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
-//@line 5424 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 5425 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("dom.webkitBlink.dirPicker.enabled", true);
 pref("dom.webkitBlink.filesystem.enabled", true);
-//@line 5427 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 5428 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
-//@line 5431 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 5432 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("media.block-autoplay-until-in-foreground", false);
-//@line 5433 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 5434 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
-//@line 5438 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 5439 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 // Block toplevel data: URI navigations
 // If true, all toplevel data: URI navigations will be blocked.
@@ -4447,9 +4448,9 @@ pref("media.block-autoplay-until-in-foreground", false);
 pref("security.data_uri.block_toplevel_data_uri_navigations", true);
 
 // Disable Storage api in release builds.
-//@line 5449 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 5450 "d:\mozdev\UXP\modules\libpref\init\all.js"
 pref("dom.storageManager.enabled", false);
-//@line 5451 "d:\mozdev\UXP\modules\libpref\init\all.js"
+//@line 5452 "d:\mozdev\UXP\modules\libpref\init\all.js"
 
 // When a user cancels this number of authentication dialogs coming from
 // a single web page in a row, all following authentication dialogs will
