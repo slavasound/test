@@ -46,9 +46,9 @@ pref("services.sync.log.appender.console", "Fatal");
 pref("services.sync.log.appender.dump", "Error");
 pref("services.sync.log.appender.file.level", "Trace");
 pref("services.sync.log.appender.file.logOnError", true);
-//@line 52 "z:\build\build\src\services\sync\services-sync.js"
+//@line 52 "/builds/worker/workspace/build/src/services/sync/services-sync.js"
 pref("services.sync.log.appender.file.logOnSuccess", false);
-//@line 54 "z:\build\build\src\services\sync\services-sync.js"
+//@line 54 "/builds/worker/workspace/build/src/services/sync/services-sync.js"
 pref("services.sync.log.appender.file.maxErrorAge", 864000); // 10 days
 
 // The default log level for all "Sync.*" logs. Adjusting this pref will
@@ -69,9 +69,9 @@ pref("services.sync.fxa.privacyURL", "https://accounts.firefox.com/legal/privacy
 pref("services.sync.telemetry.submissionInterval", 43200); // 12 hours in seconds
 pref("services.sync.telemetry.maxPayloadCount", 500);
 
-//@line 80 "z:\build\build\src\services\sync\services-sync.js"
+//@line 80 "/builds/worker/workspace/build/src/services/sync/services-sync.js"
 
-//@line 86 "z:\build\build\src\services\sync\services-sync.js"
+//@line 86 "/builds/worker/workspace/build/src/services/sync/services-sync.js"
 
 // We consider validation this frequently. After considering validation, even
 // if we don't end up validating, we won't try again unless this much time has passed.

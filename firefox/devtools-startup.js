@@ -9,9 +9,9 @@
 pref("devtools.jsonview.enabled", true);
 
 // Default theme ("dark" or "light")
-//@line 15 "z:\build\build\src\devtools\startup\preferences\devtools-startup.js"
+//@line 15 "/builds/worker/workspace/build/src/devtools/startup/preferences/devtools-startup.js"
 pref("devtools.theme", "light", sticky);
-//@line 17 "z:\build\build\src\devtools\startup\preferences\devtools-startup.js"
+//@line 17 "/builds/worker/workspace/build/src/devtools/startup/preferences/devtools-startup.js"
 
 // Pref to drive the devtools onboarding flow experiment. States:
 // - off: forces devtools.enabled to true

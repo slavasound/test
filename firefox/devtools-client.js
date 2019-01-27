@@ -46,23 +46,20 @@ pref("devtools.inspector.show_pseudo_elements", false);
 pref("devtools.inspector.imagePreviewTooltipSize", 300);
 // Enable user agent style inspection in rule-view
 pref("devtools.inspector.showUserAgentStyles", false);
-// Show all native anonymous content (like controls in <video> tags)
+// Show all native anonymous content
 pref("devtools.inspector.showAllAnonymousContent", false);
+// Show user agent shadow roots
+pref("devtools.inspector.showUserAgentShadowRoots", false);
 // Enable the CSS shapes highlighter
 pref("devtools.inspector.shapesHighlighter.enabled", true);
-// Enable the Font Editor
-pref("devtools.inspector.fonteditor.enabled", true);
 // Enable the font highlight-on-hover feature
 pref("devtools.inspector.fonthighlighter.enabled", true);
 // Enable tracking of style changes and the Changes panel in the Inspector
-pref("devtools.inspector.changes.enabled", false);
+pref("devtools.inspector.changes.enabled", true);
 
 // Flexbox preferences
-// Enable the Flexbox highlighter and inspector panel in Nightly and DevEdition
-//@line 66 "z:\build\build\src\devtools\client\preferences\devtools-client.js"
-pref("devtools.inspector.flexboxHighlighter.enabled", false);
-pref("devtools.flexboxinspector.enabled", false);
-//@line 69 "z:\build\build\src\devtools\client\preferences\devtools-client.js"
+pref("devtools.inspector.flexboxHighlighter.enabled", true);
+pref("devtools.flexboxinspector.enabled", true);
 
 // Grid highlighter preferences
 pref("devtools.gridinspector.gridOutlineMaxColumns", 50);
@@ -113,7 +110,7 @@ pref("devtools.performance.memory.max-log-length", 125000);
 pref("devtools.performance.timeline.hidden-markers",
   "[\"Composite\",\"CompositeForwardTransaction\"]");
 pref("devtools.performance.profiler.buffer-size", 10000000);
-pref("devtools.performance.profiler.sample-frequency-khz", 1);
+pref("devtools.performance.profiler.sample-frequency-hz", 1000);
 pref("devtools.performance.ui.invert-call-tree", true);
 pref("devtools.performance.ui.invert-flame-graph", false);
 pref("devtools.performance.ui.flatten-tree-recursion", true);
@@ -131,9 +128,9 @@ pref("devtools.performance.ui.show-triggers-for-gc-types",
 pref("devtools.performance.ui.enable-memory-flame", false);
 
 // Enable experimental options in the UI only in Nightly
-//@line 140 "z:\build\build\src\devtools\client\preferences\devtools-client.js"
+//@line 134 "/builds/worker/workspace/build/src/devtools/client/preferences/devtools-client.js"
 pref("devtools.performance.ui.experimental", false);
-//@line 142 "z:\build\build\src\devtools\client\preferences\devtools-client.js"
+//@line 136 "/builds/worker/workspace/build/src/devtools/client/preferences/devtools-client.js"
 
 // Preferences for the new performance panel
 // This pref configures the base URL for the perf.html instance to use. This is
@@ -159,7 +156,7 @@ pref("devtools.netmonitor.panes-network-details-width", 550);
 pref("devtools.netmonitor.panes-network-details-height", 450);
 pref("devtools.netmonitor.filters", "[\"all\"]");
 pref("devtools.netmonitor.visibleColumns",
-  "[\"status\",\"method\",\"file\",\"domain\",\"cause\",\"type\",\"transferred\",\"contentSize\",\"waterfall\"]"
+  "[\"status\",\"method\",\"domain\",\"file\",\"cause\",\"type\",\"transferred\",\"contentSize\",\"waterfall\"]"
 );
 
 // Save request/response bodies yes/no.
@@ -269,17 +266,15 @@ pref("devtools.netmonitor.persistlog", false);
 pref("devtools.webconsole.timestampMessages", false);
 
 // Enable the webconsole sidebar toggle in Nightly builds.
-//@line 280 "z:\build\build\src\devtools\client\preferences\devtools-client.js"
+//@line 274 "/builds/worker/workspace/build/src/devtools/client/preferences/devtools-client.js"
 pref("devtools.webconsole.sidebarToggle", false);
-//@line 282 "z:\build\build\src\devtools\client\preferences\devtools-client.js"
+//@line 276 "/builds/worker/workspace/build/src/devtools/client/preferences/devtools-client.js"
 
 // Enable CodeMirror in the JsTerm
 pref("devtools.webconsole.jsterm.codeMirror", true);
 
-// Enable console input reverse-search in Nightly builds
-//@line 290 "z:\build\build\src\devtools\client\preferences\devtools-client.js"
-pref("devtools.webconsole.jsterm.reverse-search", false);
-//@line 292 "z:\build\build\src\devtools\client\preferences\devtools-client.js"
+// Enable console input reverse-search everywhere
+pref("devtools.webconsole.jsterm.reverse-search", true);
 
 // Disable the new performance recording panel by default
 pref("devtools.performance.new-panel-enabled", false);
@@ -325,16 +320,21 @@ pref("devtools.responsive.touchSimulation.enabled", false);
 pref("devtools.responsive.userAgent", "");
 
 // Whether to show the settings onboarding tooltip only in release or beta builds.
-//@line 338 "z:\build\build\src\devtools\client\preferences\devtools-client.js"
+//@line 328 "/builds/worker/workspace/build/src/devtools/client/preferences/devtools-client.js"
 pref("devtools.responsive.show-setting-tooltip", true);
-//@line 342 "z:\build\build\src\devtools\client\preferences\devtools-client.js"
+//@line 332 "/builds/worker/workspace/build/src/devtools/client/preferences/devtools-client.js"
 // Show the custom user agent input in Nightly builds.
-//@line 346 "z:\build\build\src\devtools\client\preferences\devtools-client.js"
+//@line 336 "/builds/worker/workspace/build/src/devtools/client/preferences/devtools-client.js"
 pref("devtools.responsive.showUserAgentInput", false);
-//@line 348 "z:\build\build\src\devtools\client\preferences\devtools-client.js"
+//@line 338 "/builds/worker/workspace/build/src/devtools/client/preferences/devtools-client.js"
 
 // Enable new about:debugging.
 pref("devtools.aboutdebugging.new-enabled", false);
+// Enable the network location feature.
+pref("devtools.aboutdebugging.network", false);
+// Enable the wifi feature.
+pref("devtools.aboutdebugging.wifi", false);
+// Stringified array of network locations that users can connect to.
 pref("devtools.aboutdebugging.network-locations", "[]");
 // Debug target pane collapse/expand settings.
 pref("devtools.aboutdebugging.collapsibilities.installedExtension", false);
@@ -345,9 +345,9 @@ pref("devtools.aboutdebugging.collapsibilities.tab", false);
 pref("devtools.aboutdebugging.collapsibilities.temporaryExtension", false);
 
 // about:debugging: only show system add-ons in local builds by default.
-//@line 362 "z:\build\build\src\devtools\client\preferences\devtools-client.js"
+//@line 357 "/builds/worker/workspace/build/src/devtools/client/preferences/devtools-client.js"
   pref("devtools.aboutdebugging.showSystemAddons", false);
-//@line 366 "z:\build\build\src\devtools\client\preferences\devtools-client.js"
+//@line 361 "/builds/worker/workspace/build/src/devtools/client/preferences/devtools-client.js"
 
 // Map top-level await expressions in the console
 pref("devtools.debugger.features.map-await-expression", true);
