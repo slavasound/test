@@ -1,0 +1,78 @@
+/// new
+pref("dom.performance.time_to_contentful_paint.enabled", false);
+pref("dom.keyboardevent.keypress.hack.dispatch_non_printable_keys", "");
+pref("dom.keyboardevent.keypress.hack.use_legacy_keycode_and_charcode", "");
+pref("media.navigator.mediadatadecoder_vpx_enabled", false);
+pref("media.getusermedia.use_aec_mobile", false);
+pref("media.av1.use-dav1d", false);
+pref("apz.relative-update.enabled", true);
+pref("gfx.webrender.debug.texture-cache.clear-evicted", true);
+pref("gfx.webrender.debug.slow-frame-indicator", false);
+pref("gfx.webrender.picture-caching", false);
+pref("toolkit.tabbox.switchByScrolling", false);
+pref("dom.sidebar.enabled", true);
+pref("dom.payments.request.supportedRegions", "US,CA");
+pref("network.connectivity-service.enabled", true);
+pref("network.connectivity-service.DNSv4.domain", "mozilla.org");
+pref("network.connectivity-service.DNSv6.domain", "mozilla.org");
+pref("network.connectivity-service.IPv4.url", "http://detectportal.firefox.com/success.txt?ipv4");
+pref("network.connectivity-service.IPv6.url", "http://detectportal.firefox.com/success.txt?ipv6");
+pref("network.trr.custom_uri", "");
+pref("devtools.console.stdout.chrome", false, sticky);
+pref("devtools.console.stdout.content", false, sticky);
+pref("devtools.recordreplay.timeline.enabled", false);
+pref("devtools.recordreplay.allowRepaintFailures", true);
+pref("devtools.console.stdout.chrome", true);
+pref("browser.urlbar.autocomplete.enabled", true);
+pref("browser.tabs.remote.separateFileUriProcess", false);
+pref("browser.tabs.remote.allowLinkedWebInFileUriProcess", true);
+pref("browser.tabs.remote.separatePrivilegedContentProcess", false);
+pref("devtools.recordreplay.includeSystemScripts", false);
+pref("dom.storage.shadow_writes", true);
+pref("dom.storage.snapshot_prefill", 16384);
+pref("dom.storage.snapshot_reusing", true);
+pref("dom.storage.next_gen", false);
+pref("privacy.restrict3rdpartystorage.partitionedHosts", "accounts.google.com/o/oauth2/");
+pref("privacy.restrict3rdpartystorage.userInteractionRequiredForHosts", "");
+pref("privacy.popups.maxReported", 100);
+pref("javascript.options.bigint", false);
+pref("dom.ipc.tabs.createKillHardCrashReports", false);
+pref("network.http.spdy.websockets", true);
+pref("network.IDN.extra_allowed_chars", "");
+pref("network.IDN.extra_blocked_chars", "");
+pref("security.strict_security_checks.enabled", false);
+pref("network.http.spdy.enable-hpack-dump", false);
+pref("image.animated.decode-on-demand.recycle", true);
+
+// change
+pref("dom.keyboardevent.keypress.dispatch_non_printable_keys_only_system_group_in_content", true); // prev false
+pref("dom.keyboardevent.dispatch_during_composition", true); // prev false
+pref("media.getusermedia.agc", 1); // prev 3
+pref("dom.ua_widget.enabled", true); //prev false
+pref("network.http.send_window_size", 0); // prev 1024
+pref("javascript.options.streams", true); // prev false
+pref("network.http.accept.default", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8"); // prev text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+pref("image.animated.generate-full-frames", true); //prev false
+pref("image.http.accept", "image/webp,*/*"); // prev */*
+pref("extensions.webcompat-reporter.enabled", true); // prev false
+pref("urlclassifier.disallow_completions", "test-malware-simple,test-harmful-simple,test-phish-simple,test-unwanted-simple,test-track-simple,test-trackwhite-simple,test-block-simple,goog-downloadwhite-digest256,base-track-digest256,mozstd-trackwhite-digest256,content-track-digest256,mozplugin-block-digest256,mozplugin2-block-digest256,block-flash-digest256,except-flash-digest256,allow-flashallow-digest256,except-flashallow-digest256,block-flashsubdoc-digest256,except-flashsubdoc-digest256,except-flashinfobar-digest256,goog-passwordwhite-proto,ads-track-digest256,social-track-digest256,analytics-track-digest256"); // prev test-malware-simple,test-harmful-simple,test-phish-simple,test-unwanted-simple,test-track-simple,test-trackwhite-simple,test-block-simple,goog-downloadwhite-digest256,base-track-digest256,mozstd-trackwhite-digest256,content-track-digest256,mozplugin-block-digest256,mozplugin2-block-digest256,block-flash-digest256,except-flash-digest256,allow-flashallow-digest256,except-flashallow-digest256,block-flashsubdoc-digest256,except-flashsubdoc-digest256,except-flashinfobar-digest256,goog-passwordwhite-proto,ads-track-digest256,social-track-digest256,analytics-track-digest256,fastblock1-track-digest256,fastblock1-trackwhite-digest256,fastblock2-track-digest256,fastblock2-trackwhite-digest256,fastblock3-track-digest256
+ pref("browser.safebrowsing.provider.mozilla.lists", "base-track-digest256,mozstd-trackwhite-digest256,content-track-digest256,mozplugin-block-digest256,mozplugin2-block-digest256,block-flash-digest256,except-flash-digest256,allow-flashallow-digest256,except-flashallow-digest256,block-flashsubdoc-digest256,except-flashsubdoc-digest256,except-flashinfobar-digest256,ads-track-digest256,social-track-digest256,analytics-track-digest256");  // prev base-track-digest256,mozstd-trackwhite-digest256,content-track-digest256,mozplugin-block-digest256,mozplugin2-block-digest256,block-flash-digest256,except-flash-digest256,allow-flashallow-digest256,except-flashallow-digest256,block-flashsubdoc-digest256,except-flashsubdoc-digest256,except-flashinfobar-digest256,ads-track-digest256,social-track-digest256,analytics-track-digest256,fastblock1-track-digest256,fastblock1-trackwhite-digest256,fastblock2-track-digest256,fastblock2-trackwhite-digest256,fastblock3-track-digest256
+
+///remve
+pref("media.navigator.mediadatadecoder_enabled", false);
+pref("canvas.customfocusring.enabled", false);
+pref("devtools.debugger.forbid-certified-apps", true);
+pref("dom.webcomponents.shadowdom.enabled", true);
+pref("dom.webcomponents.customelements.enabled", true);
+pref("browser.fixup.hide_user_pass", true);
+pref("layout.css.text-align-unsafe-value.enabled", false);
+pref("layout.css.shape-outside.enabled", true);
+pref("browser.urlbar.autocomplete.enabled", true);
+pref("network.IDN.blacklist_chars", "\u0020\u00A0\u00BC\u00BD\u00BE\u01C3\u02D0\u0337\u0338\u0589\u058A\u05C3\u05F4\u0609\u060A\u066A\u06D4\u0701\u0702\u0703\u0704\u115F\u1160\u1735\u2000\u2001\u2002\u2003\u2004\u2005\u2006\u2007\u2008\u2009\u200A\u200B\u200E\u200F\u2010\u2019\u2024\u2027\u2028\u2029\u202A\u202B\u202C\u202D\u202E\u202F\u2039\u203A\u2041\u2044\u2052\u205F\u2153\u2154\u2155\u2156\u2157\u2158\u2159\u215A\u215B\u215C\u215D\u215E\u215F\u2215\u2236\u23AE\u2571\u29F6\u29F8\u2AFB\u2AFD\u2FF0\u2FF1\u2FF2\u2FF3\u2FF4\u2FF5\u2FF6\u2FF7\u2FF8\u2FF9\u2FFA\u2FFB\u3000\u3002\u3014\u3015\u3033\u30A0\u3164\u321D\u321E\u33AE\u33AF\u33C6\u33DF\uA789\uFE14\uFE15\uFE3F\uFE5D\uFE5E\uFEFF\uFF0E\uFF0F\uFF61\uFFA0\uFFF9\uFFFA\uFFFB\uFFFC\uFFFD");
+pref("browser.urlbar.usepreloadedtopurls.enabled", false);
+pref("browser.urlbar.usepreloadedtopurls.expire_days", 14);
+pref("io.activity.intervalMilliseconds", 0);
+pref("dom.browserElement.maxScreenshotDelayMS", 2000);
+pref("dom.vr.process.enabled", false);
+pref("browser.fastblock.timeout", 5000);
+pref("browser.fastblock.limit", 20000);
