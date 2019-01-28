@@ -1,0 +1,34 @@
+
+
+/* compacttheme.css is loaded in browser.xul after browser.css when it is
+   preffed on.  The bulk of the styling is here in the shared file, but
+   there are overrides for each platform in their compacttheme.css files. */
+
+:root:-moz-lwtheme {
+  --toolbar-color: var(--lwt-text-color);
+  --toolbar-non-lwt-bgcolor: var(--toolbar-bgcolor);
+  --toolbar-non-lwt-textcolor: var(--lwt-text-color);
+  --toolbar-non-lwt-bgimage: none;
+
+  --toolbarbutton-icon-fill-opacity: .7;
+}
+
+:root:-moz-lwtheme-brighttext {
+  /* !important to override LightweightThemeManager.addBuiltInTheme in
+     nsBrowserGlue.js */
+  --autocomplete-popup-background: #2A2A2E !important;
+  --autocomplete-popup-highlight-background: #0060DF;
+}
+
+
+/* The menubar and tabs toolbar should match the devedition theme */
+#TabsToolbar,
+#toolbar-menubar {
+  -moz-appearance: none !important;
+}
+
+#main-menubar > menu:not([open]) {
+  color: inherit;
+}
+
+

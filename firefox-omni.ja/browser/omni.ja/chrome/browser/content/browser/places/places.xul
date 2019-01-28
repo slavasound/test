@@ -1,0 +1,799 @@
+<?xml version="1.0"?>
+
+
+<?xml-stylesheet href="chrome://browser/content/places/places.css"?>
+
+<?xml-stylesheet href="chrome://global/skin/"?>
+<?xml-stylesheet href="chrome://browser/skin/places/tree-icons.css"?>
+<?xml-stylesheet href="chrome://browser/skin/places/organizer.css"?>
+<?xml-stylesheet href="chrome://browser/skin/places/editBookmark.css"?>
+
+<?xml-stylesheet href="chrome://browser/content/downloads/downloads.css"?>
+<?xml-stylesheet href="chrome://browser/skin/downloads/allDownloadsView.css"?>
+
+<!DOCTYPE window [
+<!ENTITY % placesDTD SYSTEM "chrome://browser/locale/places/places.dtd">
+%placesDTD;
+<!ENTITY % downloadsDTD SYSTEM "chrome://browser/locale/downloads/downloads.dtd">
+%downloadsDTD;
+<!ENTITY % editMenuOverlayDTD SYSTEM "chrome://global/locale/editMenuOverlay.dtd">
+%editMenuOverlayDTD;
+<!ENTITY % browserDTD SYSTEM "chrome://browser/locale/browser.dtd">
+%browserDTD;
+<!ENTITY % editBookmarkOverlayDTD SYSTEM "chrome://browser/locale/places/editBookmarkOverlay.dtd">
+%editBookmarkOverlayDTD;
+]>
+
+<window id="places"
+        title="&places.library.title;"
+        windowtype="Places:Organizer"
+        xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+        xmlns:html="http://www.w3.org/1999/xhtml"
+        onload="PlacesOrganizer.init();"
+        onunload="PlacesOrganizer.destroy();"
+        width="&places.library.width;" height="&places.library.height;"
+        screenX="10" screenY="10"
+        toggletoolbar="true"
+        persist="width height screenX screenY sizemode">
+
+  <script type="application/javascript"
+          src="chrome://browser/content/places/places.js"/>
+  <!-- On Mac, this is included via macWindow.inc.xul -> global-scripts.inc -> browser.js -> defineLazyScriptGetter -->
+  <script type="application/javascript"
+          src="chrome://browser/content/places/editBookmark.js"/>
+  <!-- On Mac, thes are included via macWindow.inc.xul -> global-scripts.inc -->
+  <script type="application/javascript"
+          src="chrome://global/content/globalOverlay.js"/>
+  <script type="application/javascript"
+          src="chrome://browser/content/utilityOverlay.js"/>
+
+  <stringbundleset id="placesStringSet">
+    <stringbundle id="brandStrings" src="chrome://branding/locale/brand.properties"/>
+  </stringbundleset>
+
+<script type="application/javascript" src="chrome://global/content/editMenuOverlay.js"
+/>
+<commandset id="editMenuCommands">
+  <commandset id="editMenuCommandSetAll" commandupdater="true" events="focus,select"
+              oncommandupdate="goUpdateGlobalEditMenuItems()"/>
+  <commandset id="editMenuCommandSetUndo" commandupdater="true" events="undo"
+              oncommandupdate="goUpdateUndoEditMenuItems()"/>
+  <commandset id="editMenuCommandSetPaste" commandupdater="true" events="clipboard"
+              oncommandupdate="goUpdatePasteMenuItems()"/>
+  <command id="cmd_undo" oncommand="goDoCommand('cmd_undo')"/>
+  <command id="cmd_redo" oncommand="goDoCommand('cmd_redo')"/>
+  <command id="cmd_cut" oncommand="goDoCommand('cmd_cut')"/>
+  <command id="cmd_copy" oncommand="goDoCommand('cmd_copy')"/>
+  <command id="cmd_paste" oncommand="goDoCommand('cmd_paste')"/>
+  <command id="cmd_delete" oncommand="goDoCommand('cmd_delete')"/>
+  <command id="cmd_selectAll" oncommand="goDoCommand('cmd_selectAll')"/>
+  <command id="cmd_switchTextDirection" oncommand="goDoCommand('cmd_switchTextDirection');"/>
+</commandset>
+<commandset id="placesCommands"
+            commandupdater="true"
+            events="focus,sort,places"
+            oncommandupdate="PlacesUIUtils.updateCommands(window);">
+  <command id="Browser:ShowAllBookmarks"
+           oncommand="PlacesCommandHook.showPlacesOrganizer('UnfiledBookmarks');"/>
+  <command id="Browser:ShowAllHistory"
+           oncommand="PlacesCommandHook.showPlacesOrganizer('History');"/>
+
+  <command id="placesCmd_open"
+           oncommand="PlacesUIUtils.doCommand(window, 'placesCmd_open');"/>
+  <command id="placesCmd_open:window"
+           oncommand="PlacesUIUtils.doCommand(window, 'placesCmd_open:window');"/>
+  <command id="placesCmd_open:privatewindow"
+           oncommand="PlacesUIUtils.doCommand(window, 'placesCmd_open:privatewindow');"/>
+  <command id="placesCmd_open:tab"
+           oncommand="PlacesUIUtils.doCommand(window, 'placesCmd_open:tab');"/>
+
+  <command id="placesCmd_new:bookmark"
+           oncommand="PlacesUIUtils.doCommand(window, 'placesCmd_new:bookmark');"/>
+  <command id="placesCmd_new:folder"
+           oncommand="PlacesUIUtils.doCommand(window, 'placesCmd_new:folder');"/>
+  <command id="placesCmd_new:separator"
+           oncommand="PlacesUIUtils.doCommand(window, 'placesCmd_new:separator');"/>
+  <command id="placesCmd_show:info"
+           oncommand="PlacesUIUtils.doCommand(window, 'placesCmd_show:info');"/>
+  <command id="placesCmd_rename"
+           oncommand="PlacesUIUtils.doCommand(window, 'placesCmd_show:info');"
+           observes="placesCmd_show:info"/>
+  <command id="placesCmd_reload"
+           oncommand="PlacesUIUtils.doCommand(window, 'placesCmd_reload');"/>
+  <command id="placesCmd_sortBy:name"
+           oncommand="PlacesUIUtils.doCommand(window, 'placesCmd_sortBy:name');"/>
+  <command id="placesCmd_deleteDataHost"
+           oncommand="PlacesUIUtils.doCommand(window, 'placesCmd_deleteDataHost');"/>
+  <command id="placesCmd_createBookmark"
+           oncommand="PlacesUIUtils.doCommand(window, 'placesCmd_createBookmark');"/>
+
+  <!-- Special versions of cut/copy/paste/delete which check for an open context menu. -->
+  <command id="placesCmd_cut"
+           oncommand="PlacesUIUtils.doCommand(window, 'placesCmd_cut');"/>
+  <command id="placesCmd_copy"
+           oncommand="PlacesUIUtils.doCommand(window, 'placesCmd_copy');"/>
+  <command id="placesCmd_paste"
+           oncommand="PlacesUIUtils.doCommand(window, 'placesCmd_paste');"/>
+  <command id="placesCmd_delete"
+           oncommand="PlacesUIUtils.doCommand(window, 'placesCmd_delete');"/>
+</commandset>
+
+  <!-- This must be included after macWindow.inc.xul to override DownloadsView -->
+  <script type="application/javascript"
+          src="chrome://browser/content/downloads/allDownloadsView.js"/>
+  <script type="application/javascript"
+          src="chrome://global/content/contentAreaUtils.js"/>
+
+  <commandset id="organizerCommandSet">
+    <command id="OrganizerCommand_find:all"
+             oncommand="PlacesSearchBox.findAll();"/>
+    <command id="OrganizerCommand_export"
+             oncommand="PlacesOrganizer.exportBookmarks();"/>
+    <command id="OrganizerCommand_import"
+             oncommand="PlacesOrganizer.importFromFile();"/>
+    <command id="OrganizerCommand_browserImport"
+             oncommand="PlacesOrganizer.importFromBrowser();"/>
+    <command id="OrganizerCommand_backup"
+             oncommand="PlacesOrganizer.backupBookmarks();"/>
+    <command id="OrganizerCommand_restoreFromFile"
+             oncommand="PlacesOrganizer.onRestoreBookmarksFromFile();"/>
+    <command id="OrganizerCommand_search:save"
+             oncommand="PlacesOrganizer.saveSearch();"/>
+    <command id="OrganizerCommand_search:moreCriteria"
+             oncommand="PlacesQueryBuilder.addRow();"/>
+    <command id="OrganizerCommand:Back"
+             oncommand="PlacesOrganizer.back();"/>
+    <command id="OrganizerCommand:Forward"
+             oncommand="PlacesOrganizer.forward();"/>
+  </commandset>
+<commandset id="downloadCommands"
+            commandupdater="true"
+            events="focus,select,contextmenu"
+            oncommandupdate="goUpdateDownloadCommands();">
+  <command id="downloadsCmd_pauseResume"
+           oncommand="goDoCommand('downloadsCmd_pauseResume')"/>
+  <command id="downloadsCmd_cancel"
+           oncommand="goDoCommand('downloadsCmd_cancel')"/>
+  <command id="downloadsCmd_unblock"
+           oncommand="goDoCommand('downloadsCmd_unblock')"/>
+  <command id="downloadsCmd_chooseUnblock"
+           oncommand="goDoCommand('downloadsCmd_chooseUnblock')"/>
+  <command id="downloadsCmd_chooseOpen"
+           oncommand="goDoCommand('downloadsCmd_chooseOpen')"/>
+  <command id="downloadsCmd_confirmBlock"
+           oncommand="goDoCommand('downloadsCmd_confirmBlock')"/>
+  <command id="downloadsCmd_open"
+           oncommand="goDoCommand('downloadsCmd_open')"/>
+  <command id="downloadsCmd_show"
+           oncommand="goDoCommand('downloadsCmd_show')"/>
+  <command id="downloadsCmd_retry"
+           oncommand="goDoCommand('downloadsCmd_retry')"/>
+  <command id="downloadsCmd_openReferrer"
+           oncommand="goDoCommand('downloadsCmd_openReferrer')"/>
+  <command id="downloadsCmd_clearDownloads"
+           oncommand="goDoCommand('downloadsCmd_clearDownloads')"/>
+</commandset>
+
+<stringbundleset id="downloadsStrings"
+  string-download-cancel="&cmd.cancel.label;"
+  string-download-cancel-description="&cancelDownload.label;"
+  string-download-open-file-description="&openFile.label;"
+  string-download-open-or-remove-file="&cmd.chooseOpen.label;"
+  string-download-remove-file="&cmd.removeFile.label;"
+  string-download-remove-file-or-allow="&cmd.chooseUnblock.label;"
+  string-download-retry="&cmd.retry.label;"
+  string-download-retry-description="&retryDownload.label;"
+  string-download-show="&cmd.show.label;"
+  string-download-show-description="&cmd.show.label;"
+  string-download-show-more-information-description="&showMoreInformation.label;"
+/>
+
+  <keyset id="placesOrganizerKeyset">
+    <!-- Instantiation Keys -->
+    <key id="placesKey_close" key="&cmd.close.key;" modifiers="accel"
+         oncommand="close();"/>
+
+    <!-- Command Keys -->
+    <key id="placesKey_find:all"
+         command="OrganizerCommand_find:all"
+         key="&cmd.find.key;"
+         modifiers="accel"/>
+
+    <!-- Back/Forward Keys Support -->
+    <key id="placesKey_goBackKb"
+         keycode="VK_LEFT"
+         command="OrganizerCommand:Back"
+         modifiers="alt"/>
+    <key id="placesKey_goForwardKb"
+         keycode="VK_RIGHT"
+         command="OrganizerCommand:Forward"
+         modifiers="alt"/>
+    <key id="placesKey_goBackKb2"
+         key="&goBackCmd.commandKey;"
+         command="OrganizerCommand:Back"
+         modifiers="accel"/>
+    <key id="placesKey_goForwardKb2"
+         key="&goForwardCmd.commandKey;"
+         command="OrganizerCommand:Forward"
+         modifiers="accel"/>
+  </keyset>
+
+  <!-- These key nodes are here only for show. The real bindings come from
+       XBL, in platformHTMLBindings.xml. See bugs 57078 and 71779. -->
+
+  <keyset id="editMenuKeys">
+    <key id="key_undo" key="&undoCmd.key;" modifiers="accel" command="cmd_undo"/>
+    <key id="key_redo" key="&undoCmd.key;" modifiers="accel,shift" command="cmd_redo"/>
+    <key id="key_cut" key="&cutCmd.key;" modifiers="accel" command="cmd_cut"/>
+    <key id="key_copy" key="&copyCmd.key;" modifiers="accel" command="cmd_copy"/>
+    <key id="key_paste" key="&pasteCmd.key;" modifiers="accel" command="cmd_paste"/>
+    <key id="key_delete" keycode="VK_DELETE" command="cmd_delete"/>
+    <key id="key_selectAll" key="&selectAllCmd.key;" modifiers="accel" command="cmd_selectAll"/>
+    <key id="key_find" key="&findCmd.key;" modifiers="accel" command="cmd_find"/>
+    <key id="key_findAgain" key="&findAgainCmd.key;" modifiers="accel" command="cmd_findAgain"/>
+    <key id="key_findPrevious" key="&findAgainCmd.key;" modifiers="shift,accel" command="cmd_findPrevious"/>
+    <key id="key_findAgain2" keycode="&findAgainCmd.key2;" command="cmd_findAgain"/>
+    <key id="key_findPrevious2" keycode="&findAgainCmd.key2;" modifiers="shift" command="cmd_findPrevious"/>
+  </keyset>
+
+  <popupset id="placesPopupset">
+<menupopup id="placesContext"
+           onpopupshowing="this._view = PlacesUIUtils.getViewForNode(document.popupNode);
+                           if (!PlacesUIUtils.openInTabClosesMenu) {
+                             document.getElementById ('placesContext_open:newtab')
+                             .setAttribute('closemenu', 'single');
+                           }
+                           return this._view.buildContextMenu(this);"
+           onpopuphiding="this._view.destroyContextMenu();">
+  <menuitem id="placesContext_open"
+            command="placesCmd_open"
+            label="&cmd.open.label;"
+            accesskey="&cmd.open.accesskey;"
+            default="true"
+            selectiontype="single"
+            selection="link"/>
+  <menuitem id="placesContext_open:newtab"
+            command="placesCmd_open:tab"
+            label="&cmd.open_tab.label;"
+            accesskey="&cmd.open_tab.accesskey;"
+            selectiontype="single"
+            selection="link"/>
+  <menuitem id="placesContext_openContainer:tabs"
+            oncommand="var view = PlacesUIUtils.getViewForNode(document.popupNode);
+                       view.controller.openSelectionInTabs(event);"
+            onclick="checkForMiddleClick(this, event);"
+            label="&cmd.open_all_in_tabs.label;"
+            accesskey="&cmd.open_all_in_tabs.accesskey;"
+            selectiontype="single|none"
+            selection="folder|host|query"/>
+  <menuitem id="placesContext_openLinks:tabs"
+            oncommand="var view = PlacesUIUtils.getViewForNode(document.popupNode);
+                       view.controller.openSelectionInTabs(event);"
+            onclick="checkForMiddleClick(this, event);"
+            label="&cmd.open_all_in_tabs.label;"
+            accesskey="&cmd.open_all_in_tabs.accesskey;"
+            selectiontype="multiple"
+            selection="link"/>
+  <menuitem id="placesContext_open:newwindow"
+            command="placesCmd_open:window"
+            label="&cmd.open_window.label;"
+            accesskey="&cmd.open_window.accesskey;"
+            selectiontype="single"
+            selection="link"/>
+  <menuitem id="placesContext_open:newprivatewindow"
+            command="placesCmd_open:privatewindow"
+            label="&cmd.open_private_window.label;"
+            accesskey="&cmd.open_private_window.accesskey;"
+            selectiontype="single"
+            selection="link"
+            hideifprivatebrowsing="true"/>
+  <menuseparator id="placesContext_openSeparator"/>
+  <menuitem id="placesContext_new:bookmark"
+            command="placesCmd_new:bookmark"
+            label="&cmd.new_bookmark.label;"
+            accesskey="&cmd.new_bookmark.accesskey;"
+            selectiontype="any"
+            hideifnoinsertionpoint="true"/>
+  <menuitem id="placesContext_new:folder"
+            command="placesCmd_new:folder"
+            label="&cmd.new_folder.label;"
+            accesskey="&cmd.context_new_folder.accesskey;"
+            selectiontype="any"
+            hideifnoinsertionpoint="true"/>
+  <menuitem id="placesContext_new:separator"
+            command="placesCmd_new:separator"
+            label="&cmd.new_separator.label;"
+            accesskey="&cmd.new_separator.accesskey;"
+            closemenu="single"
+            selectiontype="any"
+            hideifnoinsertionpoint="true"/>
+  <menuseparator id="placesContext_newSeparator"/>
+  <menuitem id="placesContext_createBookmark"
+            command="placesCmd_createBookmark"
+            selection="link"
+            forcehideselection="bookmark|tagChild"/>
+  <menuitem id="placesContext_cut"
+            command="placesCmd_cut"
+            label="&cutCmd.label;"
+            accesskey="&cutCmd.accesskey;"
+            closemenu="single"
+            selection="bookmark|folder|separator|query"
+            forcehideselection="tagChild|livemarkChild"/>
+  <menuitem id="placesContext_copy"
+            command="placesCmd_copy"
+            label="&copyCmd.label;"
+            closemenu="single"
+            accesskey="&copyCmd.accesskey;"
+            selection="any"/>
+  <menuitem id="placesContext_paste"
+            command="placesCmd_paste"
+            label="&pasteCmd.label;"
+            closemenu="single"
+            accesskey="&pasteCmd.accesskey;"
+            selectiontype="any"
+            hideifnoinsertionpoint="true"/>
+  <menuseparator id="placesContext_editSeparator"/>
+  <menuitem id="placesContext_delete"
+            command="placesCmd_delete"
+            label="&deleteCmd.label;"
+            accesskey="&deleteCmd.accesskey;"
+            closemenu="single"
+            selection="bookmark|tagChild|folder|query|dynamiccontainer|separator|host"/>
+  <menuitem id="placesContext_delete_history"
+            command="placesCmd_delete"
+            closemenu="single"
+            selection="link"
+            forcehideselection="bookmark"/>
+  <menuitem id="placesContext_deleteHost"
+            command="placesCmd_deleteDataHost"
+            label="&cmd.deleteDomainData.label;"
+            accesskey="&cmd.deleteDomainData.accesskey;"
+            closemenu="single"
+            selection="link|host"
+            selectiontype="single"
+            forcehideselection="bookmark"/>
+  <menuseparator id="placesContext_deleteSeparator"/>
+  <menuitem id="placesContext_sortBy:name"
+            command="placesCmd_sortBy:name"
+            label="&cmd.sortby_name.label;"
+            accesskey="&cmd.context_sortby_name.accesskey;"
+            closemenu="single"
+            selection="folder"/>
+  <menuitem id="placesContext_reload"
+            command="placesCmd_reload"
+            label="&cmd.reloadLivebookmark.label;"
+            accesskey="&cmd.reloadLivebookmark.accesskey;"
+            closemenu="single"
+            selection="livemark"/>
+  <menuseparator id="placesContext_sortSeparator"/>
+  <menuitem id="placesContext_show:info"
+            command="placesCmd_show:info"
+            label="&cmd.properties.label;"
+            accesskey="&cmd.properties.accesskey;"
+            selection="bookmark|folder|query"
+            forcehideselection="livemarkChild"/>
+</menupopup>
+    <menupopup id="placesColumnsContext"
+               onpopupshowing="ViewMenu.fillWithColumns(event, null, null, 'checkbox', null);"
+               oncommand="ViewMenu.showHideColumn(event.target); event.stopPropagation();"/>
+<menupopup id="downloadsContextMenu" class="download-state">
+  <menuitem command="downloadsCmd_pauseResume"
+            class="downloadPauseMenuItem"
+            label="&cmd.pause.label;"
+            accesskey="&cmd.pause.accesskey;"/>
+  <menuitem command="downloadsCmd_pauseResume"
+            class="downloadResumeMenuItem"
+            label="&cmd.resume.label;"
+            accesskey="&cmd.resume.accesskey;"/>
+  <menuitem command="downloadsCmd_unblock"
+            class="downloadUnblockMenuItem"
+            label="&cmd.unblock2.label;"
+            accesskey="&cmd.unblock2.accesskey;"/>
+  <menuitem command="downloadsCmd_show"
+            class="downloadShowMenuItem"
+            label="&cmd.show.label;"
+            accesskey="&cmd.show.accesskey;"
+            />
+
+  <menuseparator class="downloadCommandsSeparator"/>
+
+  <menuitem command="downloadsCmd_openReferrer"
+            label="&cmd.goToDownloadPage.label;"
+            accesskey="&cmd.goToDownloadPage.accesskey;"/>
+  <menuitem command="cmd_copy"
+            label="&cmd.copyDownloadLink.label;"
+            accesskey="&cmd.copyDownloadLink.accesskey;"/>
+
+  <menuseparator/>
+
+  <menuitem command="cmd_delete"
+            class="downloadRemoveFromHistoryMenuItem"
+            label="&cmd.removeFromHistory.label;"
+            accesskey="&cmd.removeFromHistory.accesskey;"/>
+  <menuitem command="downloadsCmd_clearDownloads"
+            label="&cmd.clearDownloads.label;"
+            accesskey="&cmd.clearDownloads.accesskey;"/>
+</menupopup>
+  </popupset>
+
+  <toolbox id="placesToolbox">
+    <toolbar class="chromeclass-toolbar" id="placesToolbar" align="center">
+      <toolbarbutton id="back-button"
+                     command="OrganizerCommand:Back"
+                     tooltiptext="&backButton.tooltip;"
+                     disabled="true"/>
+
+      <toolbarbutton id="forward-button"
+                     command="OrganizerCommand:Forward"
+                     tooltiptext="&forwardButton.tooltip;"
+                     disabled="true"/>
+
+      <menubar id="placesMenu">
+        <menu accesskey="&organize.accesskey;" class="menu-iconic"
+              id="organizeButton" label="&organize.label;"
+              tooltiptext="&organize.tooltip;">
+          <menupopup id="organizeButtonPopup">
+            <menuitem id="newbookmark"
+                      command="placesCmd_new:bookmark"
+                      label="&cmd.new_bookmark.label;"
+                      accesskey="&cmd.new_bookmark.accesskey;"/>
+            <menuitem id="newfolder"
+                      command="placesCmd_new:folder"
+                      label="&cmd.new_folder.label;"
+                      accesskey="&cmd.new_folder.accesskey;"/>
+            <menuitem id="newseparator"
+                      command="placesCmd_new:separator"
+                      label="&cmd.new_separator.label;"
+                      accesskey="&cmd.new_separator.accesskey;"/>
+
+            <menuseparator id="orgUndoSeparator"/>
+
+            <menuitem id="orgUndo"
+                      command="cmd_undo"
+                      label="&undoCmd.label;"
+                      key="key_undo"
+                      accesskey="&undoCmd.accesskey;"/>
+            <menuitem id="orgRedo"
+                      command="cmd_redo"
+                      label="&redoCmd.label;"
+                      key="key_redo"
+                      accesskey="&redoCmd.accesskey;"/>
+
+            <menuseparator id="orgCutSeparator"/>
+
+            <menuitem id="orgCut"
+                      command="cmd_cut"
+                      label="&cutCmd.label;"
+                      key="key_cut"
+                      accesskey="&cutCmd.accesskey;"
+                      selection="separator|link|folder|mixed"/>
+            <menuitem id="orgCopy"
+                      command="cmd_copy"
+                      label="&copyCmd.label;"
+                      key="key_copy"
+                      accesskey="&copyCmd.accesskey;"
+                      selection="separator|link|folder|mixed"/>
+            <menuitem id="orgPaste"
+                      command="cmd_paste"
+                      label="&pasteCmd.label;"
+                      key="key_paste"
+                      accesskey="&pasteCmd.accesskey;"
+                      selection="mutable"/>
+            <menuitem id="orgDelete"
+                      command="cmd_delete"
+                      label="&deleteCmd.label;"
+                      key="key_delete"
+                      accesskey="&deleteCmd.accesskey;"/>
+
+            <menuseparator id="selectAllSeparator"/>
+
+            <menuitem id="orgSelectAll"
+                      command="cmd_selectAll"
+                      label="&selectAllCmd.label;"
+                      key="key_selectAll"
+                      accesskey="&selectAllCmd.accesskey;"/>
+
+            <menuseparator id="orgCloseSeparator"/>
+
+            <menuitem id="orgClose"
+                      key="placesKey_close"
+                      label="&file.close.label;"
+                      accesskey="&file.close.accesskey;"
+                      oncommand="close();"/>
+          </menupopup>
+        </menu>
+        <menu accesskey="&views.accesskey;" class="menu-iconic"
+              id="viewMenu" label="&views.label;"
+              tooltiptext="&views.tooltip;">
+          <menupopup id="viewMenuPopup">
+
+            <menu id="viewColumns"
+                  label="&view.columns.label;" accesskey="&view.columns.accesskey;">
+              <menupopup onpopupshowing="ViewMenu.fillWithColumns(event, null, null, 'checkbox', null);"
+                         oncommand="ViewMenu.showHideColumn(event.target); event.stopPropagation();"/>
+            </menu>
+
+            <menu id="viewSort" label="&view.sort.label;"
+                  accesskey="&view.sort.accesskey;">
+              <menupopup onpopupshowing="ViewMenu.populateSortMenu(event);"
+                         oncommand="ViewMenu.setSortColumn(event.target.column, null);">
+                <menuitem id="viewUnsorted" type="radio" name="columns"
+                          label="&view.unsorted.label;" accesskey="&view.unsorted.accesskey;"
+                          oncommand="ViewMenu.setSortColumn(null, null);"/>
+                <menuseparator id="directionSeparator"/>
+                <menuitem id="viewSortAscending" type="radio" name="direction"
+                          label="&view.sortAscending.label;" accesskey="&view.sortAscending.accesskey;"
+                          oncommand="ViewMenu.setSortColumn(null, 'ascending'); event.stopPropagation();"/>
+                <menuitem id="viewSortDescending" type="radio" name="direction"
+                          label="&view.sortDescending.label;" accesskey="&view.sortDescending.accesskey;"
+                          oncommand="ViewMenu.setSortColumn(null, 'descending'); event.stopPropagation();"/>
+              </menupopup>
+            </menu>
+          </menupopup>
+        </menu>
+        <menu accesskey="&maintenance.accesskey;" class="menu-iconic"
+              id="maintenanceButton" label="&maintenance.label;"
+              tooltiptext="&maintenance.tooltip;">
+          <menupopup id="maintenanceButtonPopup">
+            <menuitem id="backupBookmarks"
+                      command="OrganizerCommand_backup"
+                      label="&cmd.backup.label;"
+                      accesskey="&cmd.backup.accesskey;"/>
+            <menu id="fileRestoreMenu" label="&cmd.restore2.label;"
+                      accesskey="&cmd.restore2.accesskey;">
+              <menupopup id="fileRestorePopup" onpopupshowing="PlacesOrganizer.populateRestoreMenu();">
+                <menuitem id="restoreFromFile"
+                          command="OrganizerCommand_restoreFromFile"
+                          label="&cmd.restoreFromFile.label;"
+                          accesskey="&cmd.restoreFromFile.accesskey;"/>
+              </menupopup>
+            </menu>
+            <menuseparator/>
+            <menuitem id="fileImport"
+                      command="OrganizerCommand_import"
+                      label="&importBookmarksFromHTML.label;"
+                      accesskey="&importBookmarksFromHTML.accesskey;"/>
+            <menuitem id="fileExport"
+                      command="OrganizerCommand_export"
+                      label="&exportBookmarksToHTML.label;"
+                      accesskey="&exportBookmarksToHTML.accesskey;"/>
+            <menuseparator/>
+            <menuitem id="browserImport"
+                      command="OrganizerCommand_browserImport"
+                      label="&importOtherBrowser.label;"
+                      accesskey="&importOtherBrowser.accesskey;"/>
+          </menupopup>
+        </menu>
+      </menubar>
+
+      <spacer id="libraryToolbarSpacer" flex="1"/>
+
+      <textbox id="searchFilter"
+               flex="1"
+               type="search"
+               aria-controls="placeContent"
+               oncommand="PlacesSearchBox.search(this.value);"
+               collection="bookmarks">
+      </textbox>
+      <toolbarbutton id="clearDownloadsButton"
+                     insertbefore="libraryToolbarSpacer"
+                     label="&clearDownloadsButton.label;"
+                     command="downloadsCmd_clearDownloads"
+                     tooltiptext="&clearDownloadsButton.tooltip;"/>
+    </toolbar>
+  </toolbox>
+
+  <hbox flex="1" id="placesView">
+    <tree id="placesList"
+          class="plain placesTree"
+          type="places"
+          hidecolumnpicker="true" context="placesContext"
+          onselect="PlacesOrganizer.onPlaceSelected(true);"
+          onclick="PlacesOrganizer.onPlacesListClick(event);"
+          onfocus="PlacesOrganizer.updateDetailsPane(event);"
+          seltype="single"
+          persist="width"
+          width="200"
+          minwidth="100"
+          maxwidth="400">
+      <treecols>
+        <treecol anonid="title" flex="1" primary="true" hideheader="true"/>
+      </treecols>
+      <treechildren flex="1"/>
+    </tree>
+    <splitter collapse="none" persist="state"></splitter>
+    <vbox id="contentView" flex="4">
+      <deck id="placesViewsDeck"
+            selectedIndex="0"
+            flex="1">
+        <tree id="placeContent"
+              class="plain placesTree"
+              context="placesContext"
+              hidecolumnpicker="true"
+              flex="1"
+              type="places"
+              flatList="true"
+              selectfirstnode="true"
+              enableColumnDrag="true"
+              onfocus="PlacesOrganizer.updateDetailsPane(event)"
+              onselect="PlacesOrganizer.updateDetailsPane(event)"
+              onkeypress="ContentTree.onKeyPress(event);"
+              onopenflatcontainer="PlacesOrganizer.openFlatContainer(aContainer);">
+          <treecols id="placeContentColumns" context="placesColumnsContext">
+            <treecol label="&col.name.label;" id="placesContentTitle" anonid="title" flex="5" primary="true" ordinal="1"
+                      persist="width hidden ordinal sortActive sortDirection"/>
+            <splitter class="tree-splitter"/>
+            <treecol label="&col.tags.label;" id="placesContentTags" anonid="tags" flex="2"
+                      persist="width hidden ordinal sortActive sortDirection"/>
+            <splitter class="tree-splitter"/>
+            <treecol label="&col.url.label;" id="placesContentUrl" anonid="url" flex="5"
+                      persist="width hidden ordinal sortActive sortDirection"/>
+            <splitter class="tree-splitter"/>
+            <treecol label="&col.mostrecentvisit.label;" id="placesContentDate" anonid="date" flex="1" hidden="true"
+                      persist="width hidden ordinal sortActive sortDirection"/>
+            <splitter class="tree-splitter"/>
+            <treecol label="&col.visitcount.label;" id="placesContentVisitCount" anonid="visitCount" flex="1" hidden="true"
+                      persist="width hidden ordinal sortActive sortDirection"/>
+            <splitter class="tree-splitter"/>
+            <treecol label="&col.dateadded.label;" id="placesContentDateAdded" anonid="dateAdded" flex="1" hidden="true"
+                      persist="width hidden ordinal sortActive sortDirection"/>
+            <splitter class="tree-splitter"/>
+            <treecol label="&col.lastmodified.label;" id="placesContentLastModified" anonid="lastModified" flex="1" hidden="true"
+                      persist="width hidden ordinal sortActive sortDirection"/>
+          </treecols>
+          <treechildren flex="1" onclick="ContentTree.onClick(event);"/>
+        </tree>
+<richlistbox flex="1"
+             seltype="multiple"
+             id="downloadsRichListBox" context="downloadsContextMenu"
+             onscroll="return this._placesView.onScroll();"
+             onkeypress="return this._placesView.onKeyPress(event);"
+             ondblclick="return this._placesView.onDoubleClick(event);"
+             oncontextmenu="return this._placesView.onContextMenu(event);"
+             ondragstart="this._placesView.onDragStart(event);"
+             ondragover="this._placesView.onDragOver(event);"
+             ondrop="this._placesView.onDrop(event);"
+             onfocus="goUpdateDownloadCommands();"
+             onselect="this._placesView.onSelect();"
+             onblur="goUpdateDownloadCommands();"/>      </deck>
+      <deck id="detailsDeck" style="height: 11em;">
+        <vbox id="itemsCountBox" align="center">
+          <spacer flex="3"/>
+          <label id="itemsCountText"/>
+          <spacer flex="1"/>
+          <description id="selectItemDescription">
+              &detailsPane.selectAnItemText.description;
+          </description>
+          <spacer flex="3"/>
+        </vbox>
+        <vbox id="infoBox">
+<vbox id="editBookmarkPanelContent" flex="1">
+  <hbox id="editBMPanel_selectionCount" pack="center">
+    <label id="editBMPanel_itemsCountText"/>
+  </hbox>
+
+  <vbox id="editBookmarkPanelRows">
+    <vbox id="editBMPanel_nameRow"
+          collapsed="true">
+      <label value="&editBookmarkOverlay.name.label;"
+             accesskey="&editBookmarkOverlay.name.accesskey;"
+             control="editBMPanel_namePicker"/>
+      <textbox id="editBMPanel_namePicker"
+               onchange="gEditItemOverlay.onNamePickerChange().catch(Components.utils.reportError);"/>
+    </vbox>
+
+    <vbox id="editBMPanel_locationRow"
+          collapsed="true">
+      <label value="&editBookmarkOverlay.location.label;"
+             accesskey="&editBookmarkOverlay.location.accesskey;"
+             control="editBMPanel_locationField"/>
+      <textbox id="editBMPanel_locationField"
+               class="uri-element"
+               onchange="gEditItemOverlay.onLocationFieldChange();"/>
+    </vbox>
+
+    <vbox id="editBMPanel_folderRow"
+          collapsed="true">
+      <label value="&editBookmarkOverlay.folder.label;"
+             control="editBMPanel_folderMenuList"/>
+      <hbox flex="1" align="center">
+        <menulist id="editBMPanel_folderMenuList"
+                  class="folder-icon"
+                  flex="1"
+                  oncommand="gEditItemOverlay.onFolderMenuListCommand(event).catch(Components.utils.reportError);">
+          <menupopup>
+            <!-- Static item for special folders -->
+            <menuitem id="editBMPanel_toolbarFolderItem"
+                      class="menuitem-iconic folder-icon"/>
+            <menuitem id="editBMPanel_bmRootItem"
+                      class="menuitem-iconic folder-icon"/>
+            <menuitem id="editBMPanel_unfiledRootItem"
+                      class="menuitem-iconic folder-icon"/>
+            <menuseparator id="editBMPanel_chooseFolderSeparator"/>
+            <menuitem id="editBMPanel_chooseFolderMenuItem"
+                      label="&editBookmarkOverlay.choose.label;"
+                      class="menuitem-iconic folder-icon"/>
+            <menuseparator id="editBMPanel_foldersSeparator" hidden="true"/>
+          </menupopup>
+        </menulist>
+        <button id="editBMPanel_foldersExpander"
+                class="expander-down"
+                tooltiptext="&editBookmarkOverlay.foldersExpanderDown.tooltip;"
+                tooltiptextdown="&editBookmarkOverlay.foldersExpanderDown.tooltip;"
+                tooltiptextup="&editBookmarkOverlay.expanderUp.tooltip;"
+                oncommand="gEditItemOverlay.toggleFolderTreeVisibility();"/>
+      </hbox>
+    </vbox>
+
+    <vbox id="editBMPanel_folderTreeRow"
+          collapsed="true">
+      <tree id="editBMPanel_folderTree"
+            flex="1"
+            class="placesTree"
+            type="places"
+            height="150"
+            minheight="150"
+            editable="true"
+            onselect="gEditItemOverlay.onFolderTreeSelect();"
+            disableUserActions="true"
+            hidecolumnpicker="true">
+        <treecols>
+          <treecol anonid="title" flex="1" primary="true" hideheader="true"/>
+        </treecols>
+        <treechildren flex="1"/>
+      </tree>
+
+      <hbox id="editBMPanel_newFolderBox">
+        <button label="&editBookmarkOverlay.newFolderButton.label;"
+                id="editBMPanel_newFolderButton"
+                accesskey="&editBookmarkOverlay.newFolderButton.accesskey;"
+                oncommand="gEditItemOverlay.newFolder().catch(Components.utils.reportError);"/>
+      </hbox>
+    </vbox>
+
+    <vbox id="editBMPanel_tagsRow"
+          collapsed="true">
+      <label value="&editBookmarkOverlay.tags.label;"
+             accesskey="&editBookmarkOverlay.tags.accesskey;"
+             control="editBMPanel_tagsField"/>
+      <hbox flex="1" align="center">
+        <textbox id="editBMPanel_tagsField"
+                 type="autocomplete"
+                 flex="1"
+                 autocompletesearch="places-tag-autocomplete"
+                 autocompletepopup="PopupAutoComplete"
+                 completedefaultindex="true"
+                 tabscrolling="true"
+                 placeholder="&editBookmarkOverlay.tagsEmptyDesc.label;"
+                 onchange="gEditItemOverlay.onTagsFieldChange();"/>
+        <button id="editBMPanel_tagsSelectorExpander"
+                class="expander-down"
+                tooltiptext="&editBookmarkOverlay.tagsExpanderDown.tooltip;"
+                tooltiptextdown="&editBookmarkOverlay.tagsExpanderDown.tooltip;"
+                tooltiptextup="&editBookmarkOverlay.expanderUp.tooltip;"
+                oncommand="gEditItemOverlay.toggleTagsSelector().catch(Cu.reportError);"/>
+      </hbox>
+    </vbox>
+
+    <vbox id="editBMPanel_tagsSelectorRow"
+          collapsed="true">
+      <richlistbox id="editBMPanel_tagsSelector"
+                   styled="true"
+                   height="150"/>
+    </vbox>
+
+    <vbox id="editBMPanel_keywordRow"
+          collapsed="true">
+      <label value="&editBookmarkOverlay.keyword.label;"
+             accesskey="&editBookmarkOverlay.keyword.accesskey;"
+             control="editBMPanel_keywordField"/>
+      <textbox id="editBMPanel_keywordField"
+               onchange="gEditItemOverlay.onKeywordFieldChange();"/>
+    </vbox>
+  </vbox>
+</vbox>
+        </vbox>
+      </deck>
+    </vbox>
+  </hbox>
+</window>

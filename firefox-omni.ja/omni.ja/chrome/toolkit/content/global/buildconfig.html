@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src chrome:" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width; user-scalable=false;">
+  <title>about:buildconfig</title>
+  <link rel="stylesheet" href="chrome://global/skin/about.css" type="text/css">
+  <link rel="stylesheet" href="chrome://global/content/buildconfig.css" type="text/css">
+</head>
+<body class="aboutPageWideContainer">
+<h1>about:buildconfig</h1>
+<h2>Source</h2>
+<p>Built from <a href="https://hg.mozilla.org/releases/mozilla-release/rev/c58ea2229c337e9981ab9d3650b04fd3d249b141">https://hg.mozilla.org/releases/mozilla-release/rev/c58ea2229c337e9981ab9d3650b04fd3d249b141</a></p>
+<h2>Build platform</h2>
+<table>
+  <tbody>
+    <tr>
+      <th>target</th>
+    </tr>
+    <tr>
+      <td>x86_64-pc-linux-gnu</td>
+    </tr>
+  </tbody>
+</table>
+<h2>Build tools</h2>
+<table>
+  <tbody>
+    <tr>
+      <th>Compiler</th>
+      <th>Version</th>
+      <th>Compiler flags</th>
+    </tr>
+    <tr>
+      <td>/builds/worker/workspace/build/src/clang/bin/clang -std=gnu99</td>
+      <td>6.0.1</td>
+      <td>-U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fno-strict-aliasing -ffunction-sections -fdata-sections -fno-math-errno -pthread -pipe</td>
+    </tr>
+    <tr>
+      <td>/builds/worker/workspace/build/src/clang/bin/clang++</td>
+      <td>6.0.1</td>
+      <td>-Qunused-arguments -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -Qunused-arguments -Wall -Wempty-body -Wignored-qualifiers -Woverloaded-virtual -Wpointer-arith -Wshadow-field-in-constructor-modified -Wsign-compare -Wtype-limits -Wunreachable-code -Wunreachable-code-return -Wwrite-strings -Wno-invalid-offsetof -Wclass-varargs -Wfloat-overflow-conversion -Wfloat-zero-conversion -Wloop-analysis -Wc++1z-compat -Wc++2a-compat -Wcomma -Wimplicit-fallthrough -Werror=non-literal-null-conversion -Wstring-conversion -Wtautological-overlap-compare -Wtautological-unsigned-enum-zero-compare -Wtautological-unsigned-zero-compare -Wno-inline-new-delete -Wno-error=deprecated-declarations -Wno-error=array-bounds -Wformat -Wformat-security -Wno-gnu-zero-variadic-macro-arguments -Wno-unknown-warning-option -Wno-return-type-c-linkage -D_GLIBCXX_USE_CXX11_ABI=0 -fno-sized-deallocation -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fno-exceptions -fno-strict-aliasing -fno-rtti -ffunction-sections -fdata-sections -fno-exceptions -fno-math-errno -pthread -pipe -g -O3 -fomit-frame-pointer -funwind-tables</td>
+    </tr>
+  </tbody>
+</table>
+<h2>Configure options</h2>
+<p>MOZ_AUTOMATION=1 --enable-update-channel=release MOZILLA_OFFICIAL=1 MOZ_PGO=1 CC=/builds/worker/workspace/build/src/clang/bin/clang CXX=/builds/worker/workspace/build/src/clang/bin/clang++ LLVM_PROFDATA=/builds/worker/workspace/build/src/clang/bin/llvm-profdata --enable-lto ENABLE_CLANG_PLUGIN=1 MOZ_STDCXX_COMPAT=1 LLVM_CONFIG=/builds/worker/workspace/build/src/clang/bin/llvm-config MOZ_NO_PIE_COMPAT=1 RUSTC=/builds/worker/workspace/build/src/rustc/bin/rustc CARGO=/builds/worker/workspace/build/src/rustc/bin/cargo RUSTDOC=/builds/worker/workspace/build/src/rustc/bin/rustdoc CBINDGEN=/builds/worker/workspace/build/src/cbindgen/cbindgen RUSTFMT=/builds/worker/workspace/build/src/rustc/bin/rustfmt --enable-js-shell NODEJS=/builds/worker/workspace/build/src/node/bin/node --with-mozilla-api-keyfile=/builds/mozilla-desktop-geoloc-api.key --with-google-api-keyfile=/builds/gapi.data --enable-rust-simd --enable-verify-mar MAKE=/usr/bin/make --enable-crashreporter --enable-official-branding</p>
+</body>
+</html>

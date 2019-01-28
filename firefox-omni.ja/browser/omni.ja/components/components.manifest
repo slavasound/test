@@ -1,0 +1,65 @@
+component {792a7e82-06a0-437c-af63-b2d12e808acc} WebContentConverter.js
+contract @mozilla.org/embeddor.implemented/web-content-handler-registrar;1 {792a7e82-06a0-437c-af63-b2d12e808acc}
+component {5d0ce354-df01-421a-83fb-7ead0990c24e} nsBrowserContentHandler.js application={ec8030f7-c20a-464f-9b0e-13a3a9e97384}
+contract @mozilla.org/browser/clh;1 {5d0ce354-df01-421a-83fb-7ead0990c24e} application={ec8030f7-c20a-464f-9b0e-13a3a9e97384}
+component {47cd0651-b1be-4a0f-b5c4-10e5a573ef71} nsBrowserContentHandler.js application={ec8030f7-c20a-464f-9b0e-13a3a9e97384}
+contract @mozilla.org/browser/final-clh;1 {47cd0651-b1be-4a0f-b5c4-10e5a573ef71} application={ec8030f7-c20a-464f-9b0e-13a3a9e97384}
+contract @mozilla.org/uriloader/content-handler;1?type=text/html {5d0ce354-df01-421a-83fb-7ead0990c24e} application={ec8030f7-c20a-464f-9b0e-13a3a9e97384}
+contract @mozilla.org/uriloader/content-handler;1?type=application/vnd.mozilla.xul+xml {5d0ce354-df01-421a-83fb-7ead0990c24e} application={ec8030f7-c20a-464f-9b0e-13a3a9e97384}
+contract @mozilla.org/uriloader/content-handler;1?type=image/svg+xml {5d0ce354-df01-421a-83fb-7ead0990c24e} application={ec8030f7-c20a-464f-9b0e-13a3a9e97384}
+contract @mozilla.org/uriloader/content-handler;1?type=text/rdf {5d0ce354-df01-421a-83fb-7ead0990c24e} application={ec8030f7-c20a-464f-9b0e-13a3a9e97384}
+contract @mozilla.org/uriloader/content-handler;1?type=text/xml {5d0ce354-df01-421a-83fb-7ead0990c24e} application={ec8030f7-c20a-464f-9b0e-13a3a9e97384}
+contract @mozilla.org/uriloader/content-handler;1?type=application/xhtml+xml {5d0ce354-df01-421a-83fb-7ead0990c24e} application={ec8030f7-c20a-464f-9b0e-13a3a9e97384}
+contract @mozilla.org/uriloader/content-handler;1?type=text/css {5d0ce354-df01-421a-83fb-7ead0990c24e} application={ec8030f7-c20a-464f-9b0e-13a3a9e97384}
+contract @mozilla.org/uriloader/content-handler;1?type=text/plain {5d0ce354-df01-421a-83fb-7ead0990c24e} application={ec8030f7-c20a-464f-9b0e-13a3a9e97384}
+contract @mozilla.org/uriloader/content-handler;1?type=image/gif {5d0ce354-df01-421a-83fb-7ead0990c24e} application={ec8030f7-c20a-464f-9b0e-13a3a9e97384}
+contract @mozilla.org/uriloader/content-handler;1?type=image/jpeg {5d0ce354-df01-421a-83fb-7ead0990c24e} application={ec8030f7-c20a-464f-9b0e-13a3a9e97384}
+contract @mozilla.org/uriloader/content-handler;1?type=image/jpg {5d0ce354-df01-421a-83fb-7ead0990c24e} application={ec8030f7-c20a-464f-9b0e-13a3a9e97384}
+contract @mozilla.org/uriloader/content-handler;1?type=image/png {5d0ce354-df01-421a-83fb-7ead0990c24e} application={ec8030f7-c20a-464f-9b0e-13a3a9e97384}
+contract @mozilla.org/uriloader/content-handler;1?type=image/bmp {5d0ce354-df01-421a-83fb-7ead0990c24e} application={ec8030f7-c20a-464f-9b0e-13a3a9e97384}
+contract @mozilla.org/uriloader/content-handler;1?type=image/x-icon {5d0ce354-df01-421a-83fb-7ead0990c24e} application={ec8030f7-c20a-464f-9b0e-13a3a9e97384}
+contract @mozilla.org/uriloader/content-handler;1?type=image/vnd.microsoft.icon {5d0ce354-df01-421a-83fb-7ead0990c24e} application={ec8030f7-c20a-464f-9b0e-13a3a9e97384}
+contract @mozilla.org/uriloader/content-handler;1?type=application/http-index-format {5d0ce354-df01-421a-83fb-7ead0990c24e} application={ec8030f7-c20a-464f-9b0e-13a3a9e97384}
+category command-line-handler m-browser @mozilla.org/browser/clh;1 application={ec8030f7-c20a-464f-9b0e-13a3a9e97384}
+category command-line-handler x-default @mozilla.org/browser/final-clh;1 application={ec8030f7-c20a-464f-9b0e-13a3a9e97384}
+category command-line-validator b-browser @mozilla.org/browser/clh;1 application={ec8030f7-c20a-464f-9b0e-13a3a9e97384}
+component {eab9012e-5f74-4cbc-b2b5-a590235513cc} nsBrowserGlue.js
+contract @mozilla.org/browser/browserglue;1 {eab9012e-5f74-4cbc-b2b5-a590235513cc}
+category app-startup nsBrowserGlue service,@mozilla.org/browser/browserglue;1 application={ec8030f7-c20a-464f-9b0e-13a3a9e97384} application={aa3c5121-dab2-40e2-81ca-7ea25febc110}
+component {d8903bf6-68d5-4e97-bcd1-e4d3012f721a} nsBrowserGlue.js
+contract @mozilla.org/content-permission/prompt;1 {d8903bf6-68d5-4e97-bcd1-e4d3012f721a}
+component {9e9a9283-0ce9-4e4a-8f1c-ba129a032c32} devtools-startup.js
+contract @mozilla.org/devtools/startup-clh;1 {9e9a9283-0ce9-4e4a-8f1c-ba129a032c32}
+category command-line-handler m-devtools @mozilla.org/devtools/startup-clh;1
+component {1060afaf-dc9e-43da-8646-23a2faf48493} aboutdebugging-registration.js
+contract @mozilla.org/network/protocol/about;1?what=debugging {1060afaf-dc9e-43da-8646-23a2faf48493}
+component {3a16d383-92bd-4c24-ac10-0e2bd66883ab} aboutdevtools-registration.js
+contract @mozilla.org/network/protocol/about;1?what=devtools {3a16d383-92bd-4c24-ac10-0e2bd66883ab}
+component {11342911-3135-45a8-8d71-737a2b0ad469} aboutdevtoolstoolbox-registration.js
+contract @mozilla.org/network/protocol/about;1?what=devtools-toolbox {11342911-3135-45a8-8d71-737a2b0ad469}
+component {dfcd2adc-7867-4d3a-ba70-17501f208142} aboutNewTabService.js
+contract @mozilla.org/browser/aboutnewtab-service;1 {dfcd2adc-7867-4d3a-ba70-17501f208142}
+component {ea4e1414-779b-458b-9d1f-d18e8efbc145} EnterprisePolicies.js process=main
+contract @mozilla.org/browser/enterprisepolicies;1 {ea4e1414-779b-458b-9d1f-d18e8efbc145} process=main
+component {dc6358f8-d167-4566-bf5b-4350b5e6a7a2} EnterprisePoliciesContent.js process=content
+contract @mozilla.org/browser/enterprisepolicies;1 {dc6358f8-d167-4566-bf5b-4350b5e6a7a2} process=content
+component {6F8BB968-C14F-4D6F-9733-6C6737B35DCE} ProfileMigrator.js
+contract @mozilla.org/toolkit/profile-migrator;1 {6F8BB968-C14F-4D6F-9733-6C6737B35DCE}
+component {47f75963-840b-4950-a1f0-d9c1864f8b8e} ChromeProfileMigrator.js
+contract @mozilla.org/profile/migrator;1?app=browser&type=chrome-beta {47f75963-840b-4950-a1f0-d9c1864f8b8e}
+component {7370a02a-4886-42c3-a4ec-d48c726ec30a} ChromeProfileMigrator.js
+contract @mozilla.org/profile/migrator;1?app=browser&type=chrome-dev {7370a02a-4886-42c3-a4ec-d48c726ec30a}
+component {4cec1de4-1671-4fc3-a53e-6c539dc77a26} ChromeProfileMigrator.js
+contract @mozilla.org/profile/migrator;1?app=browser&type=chrome {4cec1de4-1671-4fc3-a53e-6c539dc77a26}
+component {8cece922-9720-42de-b7db-7cef88cb07ca} ChromeProfileMigrator.js
+contract @mozilla.org/profile/migrator;1?app=browser&type=chromium {8cece922-9720-42de-b7db-7cef88cb07ca}
+component {91185366-ba97-4438-acba-48deaca63386} FirefoxProfileMigrator.js
+contract @mozilla.org/profile/migrator;1?app=browser&type=firefox {91185366-ba97-4438-acba-48deaca63386}
+category webextension-modules browser chrome://browser/content/ext-browser.json
+category webextension-scripts c-browser chrome://browser/content/parent/ext-browser.js
+category webextension-scripts-content browser chrome://browser/content/child/ext-browser-content-only.js
+category webextension-scripts-devtools browser chrome://browser/content/child/ext-browser.js
+category webextension-scripts-addon browser chrome://browser/content/child/ext-browser.js
+component {d0c5195d-e798-49d4-b1d3-9324328b2291} pdfjs.js
+contract @mozilla.org/streamconv;1?from=application/pdf&to=*/* {d0c5195d-e798-49d4-b1d3-9324328b2291}
+contract @mozilla.org/streamconv;1?from=application/pdf&to=text/html {d0c5195d-e798-49d4-b1d3-9324328b2291}
