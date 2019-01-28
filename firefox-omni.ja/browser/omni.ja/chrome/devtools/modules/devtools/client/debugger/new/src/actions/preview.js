@@ -26,32 +26,26 @@ var _pause = require("./pause/index");
 /* This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
+
 function findExpressionMatch(state, codeMirror, tokenPos) {
   const source = (0, _selectors.getSelectedSource)(state);
-
   if (!source) {
     return;
   }
 
   const symbols = (0, _selectors.getSymbols)(state, source);
-  let match;
 
+  let match;
   if (!symbols || symbols.loading) {
     match = (0, _getExpression.getExpressionFromCoords)(codeMirror, tokenPos);
   } else {
     match = (0, _ast.findBestMatchExpression)(symbols, tokenPos);
   }
-
   return match;
 }
 
 function updatePreview(target, tokenPos, codeMirror) {
-  return ({
-    dispatch,
-    getState,
-    client,
-    sourceMaps
-  }) => {
+  return ({ dispatch, getState, client, sourceMaps }) => {
     const cursorPos = target.getBoundingClientRect();
 
     if (!(0, _selectors.isSelectedFrameVisible)(getState()) || !(0, _selectors.isLineInScope)(getState(), tokenPos.line)) {
@@ -59,15 +53,11 @@ function updatePreview(target, tokenPos, codeMirror) {
     }
 
     const match = findExpressionMatch(getState(), codeMirror, tokenPos);
-
     if (!match) {
       return;
     }
 
-    const {
-      expression,
-      location
-    } = match;
+    const { expression, location } = match;
 
     if ((0, _preview.isConsole)(expression)) {
       return;
@@ -78,17 +68,11 @@ function updatePreview(target, tokenPos, codeMirror) {
 }
 
 function setPreview(expression, location, tokenPos, cursorPos) {
-  return async ({
-    dispatch,
-    getState,
-    client,
-    sourceMaps
-  }) => {
+  return async ({ dispatch, getState, client, sourceMaps }) => {
     await dispatch({
       type: "SET_PREVIEW",
       [_promise.PROMISE]: async function () {
         const source = (0, _selectors.getSelectedSource)(getState());
-
         if (!source) {
           return;
         }
@@ -97,7 +81,6 @@ function setPreview(expression, location, tokenPos, cursorPos) {
 
         if (location && (0, _source.isOriginal)(source)) {
           const mapResult = await dispatch((0, _expressions.getMappedExpression)(expression));
-
           if (mapResult) {
             expression = mapResult.expression;
           }
@@ -107,15 +90,14 @@ function setPreview(expression, location, tokenPos, cursorPos) {
           return;
         }
 
-        const {
-          result
-        } = await client.evaluateInFrame(expression, selectedFrame.id);
+        const { result } = await client.evaluateInFrame(expression, selectedFrame.id);
 
         if (result === undefined) {
           return;
         }
 
         const extra = await dispatch((0, _pause.getExtra)(expression, result));
+
         return {
           expression,
           result,
@@ -130,13 +112,8 @@ function setPreview(expression, location, tokenPos, cursorPos) {
 }
 
 function clearPreview() {
-  return ({
-    dispatch,
-    getState,
-    client
-  }) => {
+  return ({ dispatch, getState, client }) => {
     const currentSelection = (0, _selectors.getPreview)(getState());
-
     if (!currentSelection) {
       return;
     }

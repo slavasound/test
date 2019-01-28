@@ -11,10 +11,6 @@ var _expressions = require("../expressions");
 
 var _pause = require("../../utils/pause/index");
 
-/* This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
-
 /**
  * Debugger has just resumed
  *
@@ -22,20 +18,17 @@ var _pause = require("../../utils/pause/index");
  * @static
  */
 function resumed() {
-  return async ({
-    dispatch,
-    client,
-    getState
-  }) => {
+  return async ({ dispatch, client, getState }) => {
     const why = (0, _selectors.getPauseReason)(getState());
     const wasPausedInEval = (0, _pause.inDebuggerEval)(why);
     const wasStepping = (0, _selectors.isStepping)(getState());
-    dispatch({
-      type: "RESUME"
-    });
+
+    dispatch({ type: "RESUME" });
 
     if (!wasStepping && !wasPausedInEval) {
       await dispatch((0, _expressions.evaluateExpressions)());
     }
   };
-}
+} /* This Source Code Form is subject to the terms of the Mozilla Public
+   * License, v. 2.0. If a copy of the MPL was not distributed with this
+   * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */

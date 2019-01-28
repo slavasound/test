@@ -28,10 +28,6 @@ var _wasm = require("../utils/wasm");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/* This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
-
 /**
  * Redux actions for the navigation state
  * @module actions/navigation
@@ -41,13 +37,12 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * @memberof actions/navigation
  * @static
  */
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
+
 function willNavigate(event) {
-  return async function ({
-    dispatch,
-    getState,
-    client,
-    sourceMaps
-  }) {
+  return async function ({ dispatch, getState, client, sourceMaps }) {
     await sourceMaps.clearSourceMaps();
     (0, _wasm.clearWasmStates)();
     (0, _editor.clearDocuments)();
@@ -69,31 +64,19 @@ function navigate(url) {
 }
 
 function connect(url, canRewind) {
-  return async function ({
-    dispatch
-  }) {
+  return async function ({ dispatch }) {
     await dispatch((0, _debuggee.updateWorkers)());
-    dispatch({
-      type: "CONNECT",
-      url,
-      canRewind
-    });
+    dispatch({ type: "CONNECT", url, canRewind });
   };
 }
+
 /**
  * @memberof actions/navigation
  * @static
  */
-
-
 function navigated() {
-  return async function ({
-    dispatch,
-    getState,
-    client
-  }) {
+  return async function ({ dispatch, getState, client }) {
     await (0, _utils.waitForMs)(100);
-
     if (Object.keys((0, _sources.getSources)(getState())).length == 0) {
       const sources = await client.fetchSources();
       dispatch((0, _sources2.newSources)(sources));

@@ -35,14 +35,16 @@ var _devtoolsServices = require("Services");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /* -*- indent-tabs-mode: nil; js-indent-level: 2; js-indent-level: 2 -*- */
-
 /* This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
-const isMacOS = _devtoolsServices.appinfo.OS === "Darwin"; // NOTE: the "resume" command will call either the resume or breakOnNext action
-// depending on whether or not the debugger is paused or running
 
+const isMacOS = _devtoolsServices.appinfo.OS === "Darwin";
+
+// NOTE: the "resume" command will call either the resume or breakOnNext action
+// depending on whether or not the debugger is paused or running
 const COMMANDS = ["resume", "stepOver", "stepIn", "stepOut"];
+
 const KEYS = {
   WINNT: {
     resume: "F8",
@@ -76,13 +78,11 @@ function getKeyForOS(os, action) {
 
 function formatKey(action) {
   const key = getKey(`${action}Display`) || getKey(action);
-
   if (isMacOS) {
-    const winKey = getKeyForOS("WINNT", `${action}Display`) || getKeyForOS("WINNT", action); // display both Windows type and Mac specific keys
-
+    const winKey = getKeyForOS("WINNT", `${action}Display`) || getKeyForOS("WINNT", action);
+    // display both Windows type and Mac specific keys
     return (0, _text.formatKeyShortcut)([key, winKey].join(" "));
   }
-
   return (0, _text.formatKeyShortcut)(key);
 }
 
@@ -90,7 +90,6 @@ class CommandBar extends _react.Component {
   componentWillUnmount() {
     const shortcuts = this.context.shortcuts;
     COMMANDS.forEach(action => shortcuts.off(getKey(action)));
-
     if (isMacOS) {
       COMMANDS.forEach(action => shortcuts.off(getKeyForOS("WINNT", action)));
     }
@@ -98,6 +97,7 @@ class CommandBar extends _react.Component {
 
   componentDidMount() {
     const shortcuts = this.context.shortcuts;
+
     COMMANDS.forEach(action => shortcuts.on(getKey(action), (_, e) => this.handleEvent(e, action)));
 
     if (isMacOS) {
@@ -110,7 +110,6 @@ class CommandBar extends _react.Component {
   handleEvent(e, action) {
     e.preventDefault();
     e.stopPropagation();
-
     if (action === "resume") {
       this.props.isPaused ? this.props.resume() : this.props.breakOnNext();
     } else {
@@ -119,10 +118,7 @@ class CommandBar extends _react.Component {
   }
 
   renderStepButtons() {
-    const {
-      isPaused,
-      canRewind
-    } = this.props;
+    const { isPaused, canRewind } = this.props;
     const className = isPaused ? "active" : "disabled";
     const isDisabled = !isPaused;
 
@@ -138,18 +134,12 @@ class CommandBar extends _react.Component {
   }
 
   renderPauseButton() {
-    const {
-      isPaused,
-      breakOnNext,
-      isWaitingOnBreak,
-      canRewind
-    } = this.props;
+    const { isPaused, breakOnNext, isWaitingOnBreak, canRewind } = this.props;
 
     if (isPaused) {
       if (canRewind) {
         return null;
       }
-
       return (0, _CommandBarButton.debugBtn)(() => this.resume(), "resume", "active", L10N.getFormatStr("resumeButtonTooltip", formatKey("resume")));
     }
 
@@ -165,56 +155,52 @@ class CommandBar extends _react.Component {
   }
 
   renderTimeTravelButtons() {
-    const {
-      isPaused,
-      canRewind
-    } = this.props;
+    const { isPaused, canRewind } = this.props;
 
     if (!canRewind || !isPaused) {
       return null;
     }
 
     const isDisabled = !isPaused;
-    return [(0, _CommandBarButton.debugBtn)(this.props.rewind, "rewind", "active", "Rewind Execution"), (0, _CommandBarButton.debugBtn)(this.props.resume, "resume", "active", L10N.getFormatStr("resumeButtonTooltip", formatKey("resume"))), _react2.default.createElement("div", {
-      key: "divider-1",
-      className: "divider"
-    }), (0, _CommandBarButton.debugBtn)(this.props.reverseStepOver, "reverseStepOver", "active", "Reverse step over"), (0, _CommandBarButton.debugBtn)(this.props.stepOver, "stepOver", "active", L10N.getFormatStr("stepOverTooltip", formatKey("stepOver")), isDisabled), _react2.default.createElement("div", {
-      key: "divider-2",
-      className: "divider"
-    }), (0, _CommandBarButton.debugBtn)(this.props.stepOut, "stepOut", "active", L10N.getFormatStr("stepOutTooltip", formatKey("stepOut")), isDisabled), (0, _CommandBarButton.debugBtn)(this.props.stepIn, "stepIn", "active", L10N.getFormatStr("stepInTooltip", formatKey("stepIn")), isDisabled)];
+
+    return [(0, _CommandBarButton.debugBtn)(this.props.rewind, "rewind", "active", "Rewind Execution"), (0, _CommandBarButton.debugBtn)(this.props.resume, "resume", "active", L10N.getFormatStr("resumeButtonTooltip", formatKey("resume"))), _react2.default.createElement("div", { key: "divider-1", className: "divider" }), (0, _CommandBarButton.debugBtn)(this.props.reverseStepOver, "reverseStepOver", "active", "Reverse step over"), (0, _CommandBarButton.debugBtn)(this.props.stepOver, "stepOver", "active", L10N.getFormatStr("stepOverTooltip", formatKey("stepOver")), isDisabled), _react2.default.createElement("div", { key: "divider-2", className: "divider" }), (0, _CommandBarButton.debugBtn)(this.props.stepOut, "stepOut", "active", L10N.getFormatStr("stepOutTooltip", formatKey("stepOut")), isDisabled), (0, _CommandBarButton.debugBtn)(this.props.stepIn, "stepIn", "active", L10N.getFormatStr("stepInTooltip", formatKey("stepIn")), isDisabled)];
   }
 
   renderSkipPausingButton() {
-    const {
-      skipPausing,
-      toggleSkipPausing
-    } = this.props;
+    const { skipPausing, toggleSkipPausing } = this.props;
 
     if (!_prefs.features.skipPausing) {
       return null;
     }
 
-    return _react2.default.createElement("button", {
-      className: (0, _classnames2.default)("command-bar-button", "command-bar-skip-pausing", {
-        active: skipPausing
-      }),
-      title: L10N.getStr("skipPausingTooltip"),
-      onClick: toggleSkipPausing
-    }, _react2.default.createElement("img", {
-      className: "skipPausing"
-    }));
+    return _react2.default.createElement(
+      "button",
+      {
+        className: (0, _classnames2.default)("command-bar-button", "command-bar-skip-pausing", {
+          active: skipPausing
+        }),
+        title: L10N.getStr("skipPausingTooltip"),
+        onClick: toggleSkipPausing
+      },
+      _react2.default.createElement("img", { className: "skipPausing" })
+    );
   }
 
   render() {
-    return _react2.default.createElement("div", {
-      className: (0, _classnames2.default)("command-bar", {
-        vertical: !this.props.horizontal
-      })
-    }, this.renderPauseButton(), this.renderStepButtons(), this.renderTimeTravelButtons(), _react2.default.createElement("div", {
-      className: "filler"
-    }), this.renderSkipPausingButton());
+    return _react2.default.createElement(
+      "div",
+      {
+        className: (0, _classnames2.default)("command-bar", {
+          vertical: !this.props.horizontal
+        })
+      },
+      this.renderPauseButton(),
+      this.renderStepButtons(),
+      this.renderTimeTravelButtons(),
+      _react2.default.createElement("div", { className: "filler" }),
+      this.renderSkipPausingButton()
+    );
   }
-
 }
 
 CommandBar.contextTypes = {

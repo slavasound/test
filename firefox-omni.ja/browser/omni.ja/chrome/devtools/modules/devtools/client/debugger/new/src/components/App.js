@@ -4,15 +4,19 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _propTypes = require("devtools/client/shared/vendor/react-prop-types");
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
 var _react = require("devtools/client/shared/vendor/react");
 
 var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = require("devtools/client/shared/vendor/react-redux");
+
+var _propTypes = require("devtools/client/shared/vendor/react-prop-types");
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _classnames = require("devtools/client/debugger/new/dist/vendors").vendored["classnames"];
+
+var _classnames2 = _interopRequireDefault(_classnames);
 
 var _prefs = require("../utils/prefs");
 
@@ -68,27 +72,27 @@ var _QuickOpenModal2 = _interopRequireDefault(_QuickOpenModal);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/* This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
-const shortcuts = new _devtoolsModules.KeyShortcuts({
-  window
-});
-const {
-  appinfo
-} = _devtoolsServices2.default;
+const shortcuts = new _devtoolsModules.KeyShortcuts({ window }); /* This Source Code Form is subject to the terms of the Mozilla Public
+                                                                  * License, v. 2.0. If a copy of the MPL was not distributed with this
+                                                                  * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
+
+const { appinfo } = _devtoolsServices2.default;
+
 const isMacOS = appinfo.OS === "Darwin";
+
 const horizontalLayoutBreakpoint = window.matchMedia("(min-width: 800px)");
 const verticalLayoutBreakpoint = window.matchMedia("(min-width: 10px) and (max-width: 800px)");
 
+// $FlowIgnore
+
+
 class App extends _react.Component {
+
   constructor(props) {
     super(props);
 
     this.getChildContext = () => {
-      return {
-        shortcuts
-      };
+      return { shortcuts, l10n: L10N };
     };
 
     this.onEscape = (_, e) => {
@@ -115,11 +119,8 @@ class App extends _react.Component {
     };
 
     this.toggleQuickOpenModal = (_, e, query) => {
-      const {
-        quickOpenEnabled,
-        openQuickOpen,
-        closeQuickOpen
-      } = this.props;
+      const { quickOpenEnabled, openQuickOpen, closeQuickOpen } = this.props;
+
       e.preventDefault();
       e.stopPropagation();
 
@@ -132,7 +133,6 @@ class App extends _react.Component {
         openQuickOpen(query);
         return;
       }
-
       openQuickOpen();
       return;
     };
@@ -142,65 +142,65 @@ class App extends _react.Component {
     };
 
     this.renderEditorPane = () => {
-      const {
-        startPanelCollapsed,
-        endPanelCollapsed
-      } = this.props;
-      const {
-        endPanelSize,
-        startPanelSize
-      } = this.state;
+      const { startPanelCollapsed, endPanelCollapsed } = this.props;
+      const { endPanelSize, startPanelSize } = this.state;
       const horizontal = this.isHorizontal();
-      return _react2.default.createElement("div", {
-        className: "editor-pane"
-      }, _react2.default.createElement("div", {
-        className: "editor-container"
-      }, _react2.default.createElement(_Tabs2.default, {
-        startPanelCollapsed: startPanelCollapsed,
-        endPanelCollapsed: endPanelCollapsed,
-        horizontal: horizontal,
-        startPanelSize: startPanelSize,
-        endPanelSize: endPanelSize
-      }), _react2.default.createElement(_Editor2.default, {
-        horizontal: horizontal,
-        startPanelSize: startPanelSize,
-        endPanelSize: endPanelSize
-      }), !this.props.selectedSource ? _react2.default.createElement(_WelcomeBox2.default, {
-        horizontal: horizontal,
-        toggleShortcutsModal: () => this.toggleShortcutsModal()
-      }) : null, _react2.default.createElement(_ProjectSearch2.default, null)));
+
+      return _react2.default.createElement(
+        "div",
+        { className: "editor-pane" },
+        _react2.default.createElement(
+          "div",
+          { className: "editor-container" },
+          _react2.default.createElement(_Tabs2.default, {
+            startPanelCollapsed: startPanelCollapsed,
+            endPanelCollapsed: endPanelCollapsed,
+            horizontal: horizontal,
+            startPanelSize: startPanelSize,
+            endPanelSize: endPanelSize
+          }),
+          _react2.default.createElement(_Editor2.default, {
+            horizontal: horizontal,
+            startPanelSize: startPanelSize,
+            endPanelSize: endPanelSize
+          }),
+          !this.props.selectedSource ? _react2.default.createElement(_WelcomeBox2.default, {
+            horizontal: horizontal,
+            toggleShortcutsModal: () => this.toggleShortcutsModal()
+          }) : null,
+          _react2.default.createElement(_ProjectSearch2.default, null)
+        )
+      );
     };
 
     this.renderLayout = () => {
-      const {
-        startPanelCollapsed,
-        endPanelCollapsed
-      } = this.props;
+      const { startPanelCollapsed, endPanelCollapsed } = this.props;
       const horizontal = this.isHorizontal();
+
       const maxSize = horizontal ? "70%" : "95%";
-      const primaryInitialSize = horizontal ? "250px" : "150px";
+
       return _react2.default.createElement(_devtoolsSplitter2.default, {
-        style: {
-          width: "100vw"
-        },
-        initialHeight: 400,
-        initialWidth: 300,
+        style: { width: "100vw" },
+        initialSize: _prefs.prefs.endPanelSize,
         minSize: 30,
         maxSize: maxSize,
         splitterSize: 1,
         vert: horizontal,
+        onResizeEnd: num => {
+          _prefs.prefs.endPanelSize = num;
+          this.triggerEditorPaneResize();
+        },
         startPanel: _react2.default.createElement(_devtoolsSplitter2.default, {
-          style: {
-            width: "100vw"
-          },
-          initialSize: primaryInitialSize,
+          style: { width: "100vw" },
+          initialSize: _prefs.prefs.startPanelSize,
           minSize: 30,
           maxSize: "85%",
           splitterSize: 1,
+          onResizeEnd: num => {
+            _prefs.prefs.startPanelSize = num;
+          },
           startPanelCollapsed: startPanelCollapsed,
-          startPanel: _react2.default.createElement(_PrimaryPanes2.default, {
-            horizontal: horizontal
-          }),
+          startPanel: _react2.default.createElement(_PrimaryPanes2.default, { horizontal: horizontal }),
           endPanel: this.renderEditorPane()
         }),
         endPanelControl: true,
@@ -223,10 +223,14 @@ class App extends _react.Component {
     horizontalLayoutBreakpoint.addListener(this.onLayoutChange);
     verticalLayoutBreakpoint.addListener(this.onLayoutChange);
     this.setOrientation();
+
     shortcuts.on(L10N.getStr("symbolSearch.search.key2"), (_, e) => this.toggleQuickOpenModal(_, e, "@"));
+
     const searchKeys = [L10N.getStr("sources.search.key2"), L10N.getStr("sources.search.alt.key")];
     searchKeys.forEach(key => shortcuts.on(key, this.toggleQuickOpenModal));
+
     shortcuts.on(L10N.getStr("gotoLineModal.key2"), (_, e) => this.toggleQuickOpenModal(_, e, ":"));
+
     shortcuts.on("Escape", this.onEscape);
     shortcuts.on("Cmd+/", this.onCommandSlash);
   }
@@ -235,9 +239,12 @@ class App extends _react.Component {
     horizontalLayoutBreakpoint.removeListener(this.onLayoutChange);
     verticalLayoutBreakpoint.removeListener(this.onLayoutChange);
     shortcuts.off(L10N.getStr("symbolSearch.search.key2"), this.toggleQuickOpenModal);
+
     const searchKeys = [L10N.getStr("sources.search.key2"), L10N.getStr("sources.search.alt.key")];
     searchKeys.forEach(key => shortcuts.off(key, this.toggleQuickOpenModal));
+
     shortcuts.off(L10N.getStr("gotoLineModal.key2"), this.toggleQuickOpenModal);
+
     shortcuts.off("Escape", this.onEscape);
   }
 
@@ -262,6 +269,15 @@ class App extends _react.Component {
     }));
   }
 
+  // Important so that the tabs chevron updates appropriately when
+  // the user resizes the left or right columns
+  triggerEditorPaneResize() {
+    const editorPane = window.document.querySelector(".editor-pane");
+    if (editorPane) {
+      editorPane.dispatchEvent(new Event("resizeend"));
+    }
+  }
+
   renderShortcutsModal() {
     const additionalClass = isMacOS ? "mac" : "";
 
@@ -277,24 +293,31 @@ class App extends _react.Component {
   }
 
   render() {
-    const {
-      quickOpenEnabled
-    } = this.props;
-    return _react2.default.createElement("div", {
-      className: "debugger"
-    }, _react2.default.createElement(_A11yIntention2.default, null, this.renderLayout(), quickOpenEnabled === true && _react2.default.createElement(_QuickOpenModal2.default, {
-      shortcutsModalEnabled: this.state.shortcutsModalEnabled,
-      toggleShortcutsModal: () => this.toggleShortcutsModal()
-    }), this.renderShortcutsModal()));
+    const { quickOpenEnabled, canRewind } = this.props;
+    return _react2.default.createElement(
+      "div",
+      { className: (0, _classnames2.default)("debugger", { "can-rewind": canRewind }) },
+      _react2.default.createElement(
+        _A11yIntention2.default,
+        null,
+        this.renderLayout(),
+        quickOpenEnabled === true && _react2.default.createElement(_QuickOpenModal2.default, {
+          shortcutsModalEnabled: this.state.shortcutsModalEnabled,
+          toggleShortcutsModal: () => this.toggleShortcutsModal()
+        }),
+        this.renderShortcutsModal()
+      )
+    );
   }
-
 }
 
 App.childContextTypes = {
-  shortcuts: _propTypes2.default.object
+  shortcuts: _propTypes2.default.object,
+  l10n: _propTypes2.default.object
 };
 
 const mapStateToProps = state => ({
+  canRewind: (0, _selectors.getCanRewind)(state),
   selectedSource: (0, _selectors.getSelectedSource)(state),
   startPanelCollapsed: (0, _selectors.getPaneCollapse)(state, "start"),
   endPanelCollapsed: (0, _selectors.getPaneCollapse)(state, "end"),

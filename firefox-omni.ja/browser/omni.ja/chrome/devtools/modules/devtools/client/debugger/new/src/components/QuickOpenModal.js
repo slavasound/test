@@ -5,6 +5,10 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.QuickOpenModal = undefined;
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; /* This Source Code Form is subject to the terms of the Mozilla Public
+                                                                                                                                                                                                                                                                   * License, v. 2.0. If a copy of the MPL was not distributed with this
+                                                                                                                                                                                                                                                                   * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
+
 var _react = require("devtools/client/shared/vendor/react");
 
 var _react2 = _interopRequireDefault(_react);
@@ -41,8 +45,6 @@ var _ResultList2 = _interopRequireDefault(_ResultList);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
-
 function filter(values, query) {
   return _fuzzaldrinPlus2.default.filter(values, query, {
     key: "value",
@@ -63,69 +65,49 @@ class QuickOpenModal extends _react.Component {
     };
 
     this.searchSources = query => {
-      const {
-        sources
-      } = this.props;
+      const { sources } = this.props;
       const results = query == "" ? sources : filter(sources, this.dropGoto(query));
-      return this.setState({
-        results
-      });
+      return this.setState({ results });
     };
 
     this.searchSymbols = query => {
       const {
-        symbols: {
-          functions,
-          variables
-        }
+        symbols: { functions, identifiers }
       } = this.props;
-      let results = functions;
 
+      let results = functions;
       if (this.isVariableQuery()) {
-        results = variables;
+        results = identifiers;
       } else {
         results = results.filter(result => result.title !== "anonymous");
       }
 
       if (query === "@" || query === "#") {
-        return this.setState({
-          results
-        });
+        return this.setState({ results });
       }
 
-      this.setState({
-        results: filter(results, query.slice(1))
-      });
+      this.setState({ results: filter(results, query.slice(1)) });
     };
 
     this.searchShortcuts = query => {
       const results = (0, _quickOpen.formatShortcutResults)();
-
       if (query == "?") {
-        this.setState({
-          results
-        });
+        this.setState({ results });
       } else {
-        this.setState({
-          results: filter(results, query.slice(1))
-        });
+        this.setState({ results: filter(results, query.slice(1)) });
       }
     };
 
     this.showTopSources = () => {
-      const {
-        tabs,
-        sources
-      } = this.props;
-
+      const { tabs, sources } = this.props;
       if (tabs.length > 0) {
+        const tabUrls = tabs.map(tab => tab.url);
+
         this.setState({
-          results: sources.filter(source => tabs.includes(source.url))
+          results: sources.filter(source => tabUrls.includes(source.url))
         });
       } else {
-        this.setState({
-          results: sources.slice(0, 100)
-        });
+        this.setState({ results: sources.slice(0, 100) });
       }
     };
 
@@ -166,9 +148,7 @@ class QuickOpenModal extends _react.Component {
 
       if (this.isGotoSourceQuery()) {
         const location = (0, _quickOpen.parseLineColumn)(this.props.query);
-        return this.gotoLocation({ ...location,
-          sourceId: item.id
-        });
+        return this.gotoLocation({ ...location, sourceId: item.id });
       }
 
       if (this.isSymbolSearch()) {
@@ -177,10 +157,7 @@ class QuickOpenModal extends _react.Component {
         });
       }
 
-      this.gotoLocation({
-        sourceId: item.id,
-        line: 0
-      });
+      this.gotoLocation({ sourceId: item.id, line: 0 });
     };
 
     this.onSelectResultItem = item => {
@@ -189,7 +166,6 @@ class QuickOpenModal extends _react.Component {
         selectedSource,
         highlightLineRange
       } = this.props;
-
       if (!this.isSymbolSearch() || selectedSource == null) {
         return;
       }
@@ -203,10 +179,8 @@ class QuickOpenModal extends _react.Component {
       }
 
       if (this.isFunctionQuery()) {
-        return highlightLineRange({ ...(item.location != null ? {
-            start: item.location.start.line,
-            end: item.location.end.line
-          } : {}),
+        return highlightLineRange({
+          ...(item.location != null ? { start: item.location.start.line, end: item.location.end.line } : {}),
           sourceId: selectedSource.id
         });
       }
@@ -214,16 +188,12 @@ class QuickOpenModal extends _react.Component {
 
     this.traverseResults = e => {
       const direction = e.key === "ArrowUp" ? -1 : 1;
-      const {
-        selectedIndex,
-        results
-      } = this.state;
+      const { selectedIndex, results } = this.state;
       const resultCount = this.getResultCount();
       const index = selectedIndex + direction;
       const nextIndex = (index + resultCount) % resultCount;
-      this.setState({
-        selectedIndex: nextIndex
-      });
+
+      this.setState({ selectedIndex: nextIndex });
 
       if (results != null) {
         this.onSelectResultItem(results[nextIndex]);
@@ -231,12 +201,8 @@ class QuickOpenModal extends _react.Component {
     };
 
     this.gotoLocation = location => {
-      const {
-        selectSpecificLocation,
-        selectedSource
-      } = this.props;
+      const { selectSpecificLocation, selectedSource } = this.props;
       const selectedSourceId = selectedSource ? selectedSource.id : "";
-
       if (location != null) {
         const sourceId = location.sourceId ? location.sourceId : selectedSourceId;
         selectSpecificLocation({
@@ -249,13 +215,9 @@ class QuickOpenModal extends _react.Component {
     };
 
     this.onChange = e => {
-      const {
-        selectedSource,
-        setQuickOpenQuery
-      } = this.props;
+      const { selectedSource, setQuickOpenQuery } = this.props;
       setQuickOpenQuery(e.target.value);
       const noSource = !selectedSource || !selectedSource.text;
-
       if (this.isSymbolSearch() && noSource || this.isGotoQuery()) {
         return;
       }
@@ -264,14 +226,8 @@ class QuickOpenModal extends _react.Component {
     };
 
     this.onKeyDown = e => {
-      const {
-        enabled,
-        query
-      } = this.props;
-      const {
-        results,
-        selectedIndex
-      } = this.state;
+      const { enabled, query } = this.props;
+      const { results, selectedIndex } = this.state;
 
       if (!this.isGotoQuery() && (!enabled || !results)) {
         return;
@@ -321,35 +277,28 @@ class QuickOpenModal extends _react.Component {
 
     this.highlightMatching = (query, results) => {
       let newQuery = query;
-
       if (newQuery === "") {
         return results;
       }
-
       newQuery = query.replace(/[@:#?]/gi, " ");
+
       return results.map(result => {
         if (typeof result.title == "string") {
-          return { ...result,
+          return {
+            ...result,
             title: this.renderHighlight(result.title, (0, _path.basename)(newQuery), "title")
           };
         }
-
         return result;
       });
     };
 
-    this.state = {
-      results: null,
-      selectedIndex: 0
-    };
+    this.state = { results: null, selectedIndex: 0 };
   }
 
   componentDidMount() {
-    const {
-      query,
-      shortcutsModalEnabled,
-      toggleShortcutsModal
-    } = this.props;
+    const { query, shortcutsModalEnabled, toggleShortcutsModal } = this.props;
+
     this.updateResults(query);
 
     if (shortcutsModalEnabled) {
@@ -370,6 +319,9 @@ class QuickOpenModal extends _react.Component {
     }
   }
 
+  // Query helpers
+
+
   /* eslint-disable react/no-danger */
   renderHighlight(candidateString, query, name) {
     const options = {
@@ -378,94 +330,73 @@ class QuickOpenModal extends _react.Component {
         tagClose: "</mark>"
       }
     };
-
     const html = _fuzzaldrinPlus2.default.wrap(candidateString, query, options);
-
-    return _react2.default.createElement("div", {
-      dangerouslySetInnerHTML: {
-        __html: html
-      }
-    });
+    return _react2.default.createElement("div", { dangerouslySetInnerHTML: { __html: html } });
   }
 
   shouldShowErrorEmoji() {
-    const {
-      query
-    } = this.props;
-
+    const { query } = this.props;
     if (this.isGotoQuery()) {
       return !/^:\d*$/.test(query);
     }
-
     return !this.getResultCount() && !!query;
   }
 
   getSummaryMessage() {
     let summaryMsg = "";
-
     if (this.isGotoQuery()) {
       summaryMsg = L10N.getStr("shortcuts.gotoLine");
     } else if ((this.isFunctionQuery() || this.isVariableQuery()) && this.props.symbolsLoading) {
       summaryMsg = L10N.getStr("loadingText");
     }
-
     return summaryMsg;
   }
 
   render() {
-    const {
-      enabled,
-      query
-    } = this.props;
-    const {
-      selectedIndex,
-      results
-    } = this.state;
+    const { enabled, query } = this.props;
+    const { selectedIndex, results } = this.state;
 
     if (!enabled) {
       return null;
     }
-
     const newResults = results && results.slice(0, 100);
     const items = this.highlightMatching(query, newResults || []);
     const expanded = !!items && items.length > 0;
-    return _react2.default.createElement(_Modal2.default, {
-      "in": enabled,
-      handleClose: this.closeModal
-    }, _react2.default.createElement(_SearchInput2.default, _extends({
-      query: query,
-      hasPrefix: true,
-      count: this.getResultCount(),
-      placeholder: L10N.getStr("sourceSearch.search2"),
-      summaryMsg: this.getSummaryMessage(),
-      showErrorEmoji: this.shouldShowErrorEmoji(),
-      onChange: this.onChange,
-      onKeyDown: this.onKeyDown,
-      handleClose: this.closeModal,
-      expanded: expanded,
-      showClose: false,
-      selectedItemId: expanded && items[selectedIndex] ? items[selectedIndex].id : ""
-    }, this.isSourceSearch() ? {
-      size: "big"
-    } : {})), newResults && _react2.default.createElement(_ResultList2.default, _extends({
-      key: "results",
-      items: items,
-      selected: selectedIndex,
-      selectItem: this.selectResultItem,
-      ref: "resultList",
-      expanded: expanded
-    }, this.isSourceSearch() ? {
-      size: "big"
-    } : {})));
-  }
 
+    return _react2.default.createElement(
+      _Modal2.default,
+      { "in": enabled, handleClose: this.closeModal },
+      _react2.default.createElement(_SearchInput2.default, _extends({
+        query: query,
+        hasPrefix: true,
+        count: this.getResultCount(),
+        placeholder: L10N.getStr("sourceSearch.search2"),
+        summaryMsg: this.getSummaryMessage(),
+        showErrorEmoji: this.shouldShowErrorEmoji(),
+        onChange: this.onChange,
+        onKeyDown: this.onKeyDown,
+        handleClose: this.closeModal,
+        expanded: expanded,
+        showClose: false,
+        selectedItemId: expanded && items[selectedIndex] ? items[selectedIndex].id : ""
+      }, this.isSourceSearch() ? { size: "big" } : {})),
+      newResults && _react2.default.createElement(_ResultList2.default, _extends({
+        key: "results",
+        items: items,
+        selected: selectedIndex,
+        selectItem: this.selectResultItem,
+        ref: "resultList",
+        expanded: expanded
+      }, this.isSourceSearch() ? { size: "big" } : {}))
+    );
+  }
 }
 
-exports.QuickOpenModal = QuickOpenModal;
-/* istanbul ignore next: ignoring testing of redux connection stuff */
+exports.QuickOpenModal = QuickOpenModal; /* istanbul ignore next: ignoring testing of redux connection stuff */
 
 function mapStateToProps(state) {
   const selectedSource = (0, _selectors.getSelectedSource)(state);
+
   return {
     enabled: (0, _selectors.getQuickOpenEnabled)(state),
     sources: (0, _quickOpen.formatSources)((0, _selectors.getRelativeSources)(state), (0, _selectors.getTabs)(state)),
@@ -477,9 +408,8 @@ function mapStateToProps(state) {
     tabs: (0, _selectors.getTabs)(state)
   };
 }
+
 /* istanbul ignore next: ignoring testing of redux connection stuff */
-
-
 exports.default = (0, _reactRedux.connect)(mapStateToProps, {
   shortcutsModalEnabled: _actions2.default.shortcutsModalEnabled,
   selectSpecificLocation: _actions2.default.selectSpecificLocation,

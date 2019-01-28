@@ -12,6 +12,7 @@ var _indentation = require("./indentation");
 /* This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
+
 function findFunctionText(line, source, symbols) {
   const func = (0, _ast.findClosestFunction)(symbols, {
     sourceId: source.id,
@@ -24,10 +25,7 @@ function findFunctionText(line, source, symbols) {
   }
 
   const {
-    location: {
-      start,
-      end
-    }
+    location: { start, end }
   } = func;
   const lines = source.text.split("\n");
   const firstLine = lines[start.line - 1].slice(start.column);
@@ -35,5 +33,6 @@ function findFunctionText(line, source, symbols) {
   const middle = lines.slice(start.line, end.line - 1);
   const functionText = [firstLine, ...middle, lastLine].join("\n");
   const indentedFunctionText = (0, _indentation.correctIndentation)(functionText);
+
   return indentedFunctionText;
 }

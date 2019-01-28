@@ -16,11 +16,10 @@ var _frames = require("../../pause/frames/index");
 /* This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
+
 const {
   utils: {
-    node: {
-      NODE_TYPES
-    }
+    node: { NODE_TYPES }
   }
 } = _devtoolsReps.objectInspector;
 
@@ -30,26 +29,26 @@ function getScopeTitle(type, scope) {
   }
 
   if (type === "function" && scope.function) {
-    return scope.function.displayName ? (0, _frames.simplifyDisplayName)(scope.function.displayName) : L10N.getStr("anonymous");
+    return scope.function.displayName ? (0, _frames.simplifyDisplayName)(scope.function.displayName) : L10N.getStr("anonymousFunction");
   }
-
   return L10N.getStr("scopes.block");
 }
 
 function getScope(scope, selectedFrame, frameScopes, why, scopeIndex) {
-  const {
-    type,
-    actor
-  } = scope;
-  const isLocalScope = scope.actor === frameScopes.actor;
-  const key = `${actor}-${scopeIndex}`;
+  const { type, actor } = scope;
 
+  const isLocalScope = scope.actor === frameScopes.actor;
+
+  const key = `${actor}-${scopeIndex}`;
   if (type === "function" || type === "block") {
     const bindings = scope.bindings;
-    let vars = (0, _getVariables.getBindingVariables)(bindings, key); // show exception, return, and this variables in innermost scope
 
+    let vars = (0, _getVariables.getBindingVariables)(bindings, key);
+
+    // show exception, return, and this variables in innermost scope
     if (isLocalScope) {
       vars = vars.concat((0, _utils.getFramePopVariables)(why, key));
+
       let thisDesc_ = selectedFrame.this;
 
       if (bindings && "this" in bindings) {
@@ -67,7 +66,7 @@ function getScope(scope, selectedFrame, frameScopes, why, scopeIndex) {
     }
 
     if (vars && vars.length) {
-      const title = getScopeTitle(type, scope);
+      const title = getScopeTitle(type, scope) || "";
       vars.sort((a, b) => a.name.localeCompare(b.name));
       return {
         name: title,
@@ -77,21 +76,16 @@ function getScope(scope, selectedFrame, frameScopes, why, scopeIndex) {
       };
     }
   } else if (type === "object" && scope.object) {
-    let value = scope.object; // If this is the global window scope, mark it as such so that it will
+    let value = scope.object;
+    // If this is the global window scope, mark it as such so that it will
     // preview Window: Global instead of Window: Window
-
     if (value.class === "Window") {
-      value = { ...scope.object,
-        displayClass: "Global"
-      };
+      value = { ...scope.object, displayClass: "Global" };
     }
-
     return {
       name: scope.object.class,
       path: key,
-      contents: {
-        value
-      }
+      contents: { value }
     };
   }
 

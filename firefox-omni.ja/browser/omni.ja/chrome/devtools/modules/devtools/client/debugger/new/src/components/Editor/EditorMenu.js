@@ -30,9 +30,6 @@ var _actions2 = _interopRequireDefault(_actions);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/* This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
 function getMenuItems(event, {
   addExpression,
   editor,
@@ -54,16 +51,15 @@ function getMenuItems(event, {
   const isPrettyPrinted = (0, _source.isPretty)(selectedSource);
   const isPrettified = isPrettyPrinted || hasPrettyPrint;
   const isMapped = isOriginal || hasSourceMap;
-  const {
-    line
-  } = editor.codeMirror.coordsChar({
+  const { line } = editor.codeMirror.coordsChar({
     left: event.clientX,
     top: event.clientY
   });
   const selectionText = editor.codeMirror.getSelection().trim();
   const sourceLocation = (0, _editor.getSourceLocationFromMouseEvent)(editor, selectedLocation, event);
-  const isTextSelected = editor.codeMirror.somethingSelected(); // localizations
+  const isTextSelected = editor.codeMirror.somethingSelected();
 
+  // localizations
   const blackboxKey = L10N.getStr("sourceFooter.blackbox.accesskey");
   const blackboxLabel = L10N.getStr("sourceFooter.blackbox");
   const unblackboxLabel = L10N.getStr("sourceFooter.unblackbox");
@@ -82,7 +78,9 @@ function getMenuItems(event, {
   const revealInTreeKey = L10N.getStr("sourceTabs.revealInTree.accesskey");
   const revealInTreeLabel = L10N.getStr("sourceTabs.revealInTree");
   const watchExpressionKey = L10N.getStr("expressions.accesskey");
-  const watchExpressionLabel = L10N.getStr("expressions.label"); // menu items
+  const watchExpressionLabel = L10N.getStr("expressions.label");
+
+  // menu items
 
   const copyToClipboardItem = {
     id: "node-menu-copy-to-clipboard",
@@ -91,6 +89,7 @@ function getMenuItems(event, {
     disabled: false,
     click: () => (0, _clipboard.copyToTheClipboard)(selectedSource.text)
   };
+
   const copySourceItem = {
     id: "node-menu-copy-source",
     label: copySourceLabel,
@@ -98,15 +97,18 @@ function getMenuItems(event, {
     disabled: selectionText.length === 0,
     click: () => (0, _clipboard.copyToTheClipboard)(selectionText)
   };
+
   const copySourceUri2Item = {
     id: "node-menu-copy-source-url",
     label: copySourceUri2Label,
     accesskey: copySourceUri2Key,
-    disabled: false,
+    disabled: !selectedSource.url,
     click: () => (0, _clipboard.copyToTheClipboard)((0, _source.getRawSourceURL)(selectedSource.url))
   };
+
   const sourceId = selectedSource.id;
   const sourceLine = (0, _editor.toSourceLine)(sourceId, line);
+
   const functionText = getFunctionText(sourceLine);
   const copyFunctionItem = {
     id: "node-menu-copy-function",
@@ -115,10 +117,7 @@ function getMenuItems(event, {
     disabled: !functionText,
     click: () => {
       const {
-        location: {
-          start,
-          end
-        }
+        location: { start, end }
       } = getFunctionLocation(sourceLine);
       flashLineRange({
         start: start.line,
@@ -128,6 +127,7 @@ function getMenuItems(event, {
       return (0, _clipboard.copyToTheClipboard)(functionText);
     }
   };
+
   const jumpToMappedLocationItem = {
     id: "node-menu-jump",
     label: jumpToMappedLocLabel,
@@ -135,45 +135,52 @@ function getMenuItems(event, {
     disabled: !isMapped && !isPrettified,
     click: () => jumpToMappedLocation(sourceLocation)
   };
+
   const showSourceMenuItem = {
     id: "node-menu-show-source",
     label: revealInTreeLabel,
     accesskey: revealInTreeKey,
-    disabled: false,
+    disabled: !selectedSource.url,
     click: () => showSource(sourceId)
   };
+
   const blackBoxMenuItem = {
     id: "node-menu-blackbox",
     label: toggleBlackBoxLabel,
     accesskey: blackboxKey,
-    disabled: isOriginal || isPrettyPrinted || hasSourceMap,
+    disabled: !(0, _source.shouldBlackbox)(selectedSource),
     click: () => toggleBlackBox(selectedSource)
   };
+
   const watchExpressionItem = {
     id: "node-menu-add-watch-expression",
     label: watchExpressionLabel,
     accesskey: watchExpressionKey,
     click: () => addExpression(editor.codeMirror.getSelection())
   };
+
   const evaluateInConsoleItem = {
     id: "node-menu-evaluate-in-console",
     label: evaluateInConsoleLabel,
     click: () => evaluateInConsole(selectionText)
-  }; // construct menu
+  };
 
-  const menuItems = [copyToClipboardItem, copySourceItem, copySourceUri2Item, copyFunctionItem, {
-    type: "separator"
-  }, jumpToMappedLocationItem, showSourceMenuItem, blackBoxMenuItem]; // conditionally added items
+  // construct menu
+  const menuItems = [copyToClipboardItem, copySourceItem, copySourceUri2Item, copyFunctionItem, { type: "separator" }, jumpToMappedLocationItem, showSourceMenuItem, blackBoxMenuItem];
+
+  // conditionally added items
   // TODO: Find a new way to only add this for mapped sources?
-
   if (isTextSelected) {
     menuItems.push(watchExpressionItem, evaluateInConsoleItem);
   }
 
   return menuItems;
-}
+} /* This Source Code Form is subject to the terms of the Mozilla Public
+   * License, v. 2.0. If a copy of the MPL was not distributed with this
+   * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
 
 class EditorMenu extends _react.Component {
+
   constructor() {
     super();
   }
@@ -189,25 +196,20 @@ class EditorMenu extends _react.Component {
   }
 
   showMenu(nextProps) {
-    const {
-      contextMenu,
-      ...options
-    } = nextProps;
-    const {
-      event
-    } = contextMenu;
+    const { contextMenu, ...options } = nextProps;
+    const { event } = contextMenu;
     (0, _devtoolsContextmenu.showMenu)(event, getMenuItems(event, options));
   }
 
   render() {
     return null;
   }
-
 }
 
 const mapStateToProps = state => {
   const selectedSource = (0, _selectors.getSelectedSource)(state);
   const symbols = (0, _selectors.getSymbols)(state, selectedSource);
+
   return {
     selectedLocation: (0, _selectors.getSelectedLocation)(state),
     selectedSource,
@@ -230,6 +232,7 @@ const {
   showSource,
   toggleBlackBox
 } = _actions2.default;
+
 const mapDispatchToProps = {
   addExpression,
   evaluateInConsole,
@@ -239,4 +242,5 @@ const mapDispatchToProps = {
   showSource,
   toggleBlackBox
 };
+
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(EditorMenu);

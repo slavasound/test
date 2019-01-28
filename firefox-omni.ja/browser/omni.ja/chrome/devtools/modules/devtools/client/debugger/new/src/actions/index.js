@@ -12,10 +12,6 @@ var _expressions = require("./expressions");
 
 var expressions = _interopRequireWildcard(_expressions);
 
-var _eventListeners = require("./event-listeners");
-
-var eventListeners = _interopRequireWildcard(_eventListeners);
-
 var _pause = require("./pause/index");
 
 var pause = _interopRequireWildcard(_pause);
@@ -35,10 +31,6 @@ var fileSearch = _interopRequireWildcard(_fileSearch);
 var _ast = require("./ast");
 
 var ast = _interopRequireWildcard(_ast);
-
-var _coverage = require("./coverage");
-
-var coverage = _interopRequireWildcard(_coverage);
 
 var _projectTextSearch = require("./project-text-search");
 
@@ -72,26 +64,24 @@ var _preview = require("./preview");
 
 var preview = _interopRequireWildcard(_preview);
 
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-/* This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
-exports.default = { ...navigation,
+exports.default = {
+  ...navigation,
   ...breakpoints,
   ...expressions,
-  ...eventListeners,
   ...sources,
   ...tabs,
   ...pause,
   ...ui,
   ...fileSearch,
   ...ast,
-  ...coverage,
   ...projectTextSearch,
   ...quickOpen,
   ...sourceTree,
   ...debuggee,
   ...toolbox,
   ...preview
-};
+}; /* This Source Code Form is subject to the terms of the Mozilla Public
+    * License, v. 2.0. If a copy of the MPL was not distributed with this
+    * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */

@@ -27,6 +27,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 /* This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
+
 const transitionTimeout = exports.transitionTimeout = 175;
 
 class Modal extends _react2.default.Component {
@@ -39,21 +40,21 @@ class Modal extends _react2.default.Component {
   }
 
   render() {
-    const {
-      additionalClass,
-      children,
-      handleClose,
-      status
-    } = this.props;
-    return _react2.default.createElement("div", {
-      className: "modal-wrapper",
-      onClick: handleClose
-    }, _react2.default.createElement("div", {
-      className: (0, _classnames2.default)("modal", additionalClass, status),
-      onClick: this.onClick
-    }, children));
-  }
+    const { additionalClass, children, handleClose, status } = this.props;
 
+    return _react2.default.createElement(
+      "div",
+      { className: "modal-wrapper", onClick: handleClose },
+      _react2.default.createElement(
+        "div",
+        {
+          className: (0, _classnames2.default)("modal", additionalClass, status),
+          onClick: this.onClick
+        },
+        children
+      )
+    );
+  }
 }
 
 exports.Modal = Modal;
@@ -67,13 +68,17 @@ function Slide({
   additionalClass,
   handleClose
 }) {
-  return _react2.default.createElement(_Transition2.default, {
-    "in": inProp,
-    timeout: transitionTimeout,
-    appear: true
-  }, status => _react2.default.createElement(Modal, {
-    status: status,
-    additionalClass: additionalClass,
-    handleClose: handleClose
-  }, children));
+  return _react2.default.createElement(
+    _Transition2.default,
+    { "in": inProp, timeout: transitionTimeout, appear: true },
+    status => _react2.default.createElement(
+      Modal,
+      {
+        status: status,
+        additionalClass: additionalClass,
+        handleClose: handleClose
+      },
+      children
+    )
+  );
 }

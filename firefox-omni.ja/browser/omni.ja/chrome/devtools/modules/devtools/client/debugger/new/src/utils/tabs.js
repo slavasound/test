@@ -7,10 +7,6 @@ exports.getHiddenTabs = getHiddenTabs;
 exports.getFramework = getFramework;
 exports.getTabMenuItems = getTabMenuItems;
 
-/* This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
-
 /*
  * Finds the hidden tabs by comparing the tabs' top offset.
  * hidden tabs will have a great top offset.
@@ -20,9 +16,9 @@ exports.getTabMenuItems = getTabMenuItems;
  *
  * @returns Immutable.list
  */
+
 function getHiddenTabs(sourceTabs, sourceTabEls) {
   sourceTabEls = [].slice.call(sourceTabEls);
-
   function getTopOffset() {
     const topOffsets = sourceTabEls.map(t => t.getBoundingClientRect().top);
     return Math.min(...topOffsets);
@@ -39,7 +35,9 @@ function getHiddenTabs(sourceTabs, sourceTabEls) {
     const element = sourceTabEls[index];
     return element && hasTopOffset(element);
   });
-}
+} /* This Source Code Form is subject to the terms of the Mozilla Public
+   * License, v. 2.0. If a copy of the MPL was not distributed with this
+   * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
 
 function getFramework(tabs, url) {
   const tab = tabs.find(t => t.url === url);

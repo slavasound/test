@@ -19,18 +19,12 @@ var _source = require("../../utils/source");
 
 var _mapScopes = require("../../utils/pause/mapScopes/index");
 
-/* This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
 function mapScopes(scopes, frame) {
-  return async function ({
-    dispatch,
-    getState,
-    client,
-    sourceMaps
-  }) {
+  return async function ({ dispatch, getState, client, sourceMaps }) {
     const generatedSource = (0, _selectors.getSource)(getState(), frame.generatedLocation.sourceId);
+
     const source = (0, _selectors.getSource)(getState(), frame.location.sourceId);
+
     await dispatch({
       type: "MAP_SCOPES",
       frame,
@@ -50,4 +44,6 @@ function mapScopes(scopes, frame) {
       }()
     });
   };
-}
+} /* This Source Code Form is subject to the terms of the Mozilla Public
+   * License, v. 2.0. If a copy of the MPL was not distributed with this
+   * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */

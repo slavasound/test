@@ -11,37 +11,32 @@ var _url = require("../url");
 
 var _utils = require("./utils");
 
+/*
+ * Gets domain from url (without www prefix)
+ */
 /* This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
 
-/*
- * Gets domain from url (without www prefix)
- */
 function getDomain(url) {
   // TODO: define how files should be ordered on the browser debugger
   if (!url) {
     return null;
   }
-
-  const {
-    host
-  } = (0, _url.parse)(url);
-
+  const { host } = (0, _url.parse)(url);
   if (!host) {
     return null;
   }
-
   return host.startsWith("www.") ? host.substr("www.".length) : host;
 }
+
 /*
  * Checks if node name matches debugger host/domain.
  */
-
-
 function isExactDomainMatch(part, debuggeeHost) {
   return part.startsWith("www.") ? part.substr("www.".length) === debuggeeHost : part === debuggeeHost;
 }
+
 /*
  * Function to assist with node search for a defined sorted order, see e.g.
  * `createTreeNodeMatcher`. Returns negative number if the node
@@ -59,38 +54,24 @@ function isExactDomainMatch(part, debuggeeHost) {
  */
 function findNodeInContents(tree, matcher) {
   if (tree.type === "source" || tree.contents.length === 0) {
-    return {
-      found: false,
-      index: 0
-    };
+    return { found: false, index: 0 };
   }
 
   let left = 0;
   let right = tree.contents.length - 1;
-
   while (left < right) {
     const middle = Math.floor((left + right) / 2);
-
     if (matcher(tree.contents[middle]) < 0) {
       left = middle + 1;
     } else {
       right = middle;
     }
   }
-
   const result = matcher(tree.contents[left]);
-
   if (result === 0) {
-    return {
-      found: true,
-      index: left
-    };
+    return { found: true, index: left };
   }
-
-  return {
-    found: false,
-    index: result > 0 ? left : left + 1
-  };
+  return { found: false, index: result > 0 ? left : left + 1 };
 }
 
 const IndexName = "(index)";
@@ -104,7 +85,6 @@ function createTreeNodeMatcherWithDebuggeeHost(debuggeeHost) {
     if (node.name === IndexName) {
       return -1;
     }
-
     return isExactDomainMatch(node.name, debuggeeHost) ? 0 : 1;
   };
 }
@@ -114,13 +94,10 @@ function createTreeNodeMatcherWithNameAndOther(part, isDir, debuggeeHost) {
     if (node.name === IndexName) {
       return -1;
     }
-
     if (debuggeeHost && isExactDomainMatch(node.name, debuggeeHost)) {
       return -1;
     }
-
     const nodeIsDir = (0, _utils.nodeHasChildren)(node);
-
     if (nodeIsDir && !isDir) {
       return -1;
     } else if (!nodeIsDir && isDir) {
@@ -130,6 +107,7 @@ function createTreeNodeMatcherWithNameAndOther(part, isDir, debuggeeHost) {
     return node.name.localeCompare(part);
   };
 }
+
 /*
  * Creates a matcher for findNodeInContents.
  * The sorting order of nodes during comparison is:
@@ -138,8 +116,6 @@ function createTreeNodeMatcherWithNameAndOther(part, isDir, debuggeeHost) {
  * - hosts/directories (not files) sorted by name
  * - files sorted by name
  */
-
-
 function createTreeNodeMatcher(part, isDir, debuggeeHost) {
   if (part === IndexName) {
     // Specialied matcher, when we are looking for "(index)" position.
@@ -149,8 +125,8 @@ function createTreeNodeMatcher(part, isDir, debuggeeHost) {
   if (debuggeeHost && isExactDomainMatch(part, debuggeeHost)) {
     // Specialied matcher, when we are looking for domain position.
     return createTreeNodeMatcherWithDebuggeeHost(debuggeeHost);
-  } // Rest of the cases, without mentioned above.
+  }
 
-
+  // Rest of the cases, without mentioned above.
   return createTreeNodeMatcherWithNameAndOther(part, isDir, debuggeeHost);
 }

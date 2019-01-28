@@ -16,6 +16,7 @@ var _reselect = require("devtools/client/debugger/new/dist/vendors").vendored["r
 /* This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
+
 function getLocation(frame, location) {
   if (!location) {
     return frame.location;
@@ -29,9 +30,8 @@ const getVisibleSelectedFrame = exports.getVisibleSelectedFrame = (0, _reselect.
     return null;
   }
 
-  const {
-    id
-  } = selectedFrame;
+  const { id } = selectedFrame;
+
   return {
     id,
     location: getLocation(selectedFrame, selectedLocation)

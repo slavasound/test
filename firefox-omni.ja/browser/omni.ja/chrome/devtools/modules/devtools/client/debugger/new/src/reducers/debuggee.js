@@ -23,6 +23,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * Debuggee reducer
  * @module reducers/debuggee
  */
+
 const createDebuggeeState = exports.createDebuggeeState = (0, _makeRecord2.default)({
   workers: (0, _immutable.List)()
 });
@@ -31,7 +32,6 @@ function debuggee(state = createDebuggeeState(), action) {
   switch (action.type) {
     case "SET_WORKERS":
       return state.set("workers", (0, _immutable.List)(action.workers));
-
     default:
       return state;
   }

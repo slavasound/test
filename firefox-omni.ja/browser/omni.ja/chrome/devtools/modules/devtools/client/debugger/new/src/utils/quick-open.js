@@ -22,15 +22,14 @@ var _source = require("./source");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/* This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
 const MODIFIERS = exports.MODIFIERS = {
   "@": "functions",
   "#": "variables",
   ":": "goto",
   "?": "shortcuts"
-};
+}; /* This Source Code Form is subject to the terms of the Mozilla Public
+    * License, v. 2.0. If a copy of the MPL was not distributed with this
+    * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
 
 function parseQuickOpenQuery(query) {
   const modifierPattern = /^@|#|:|\?$/;
@@ -54,22 +53,21 @@ function parseLineColumn(query) {
   const [, line, column] = query.split(":");
   const lineNumber = parseInt(line, 10);
   const columnNumber = parseInt(column, 10);
-
   if (!isNaN(lineNumber)) {
     return {
       line: lineNumber,
-      ...(!isNaN(columnNumber) ? {
-        column: columnNumber
-      } : null)
+      ...(!isNaN(columnNumber) ? { column: columnNumber } : null)
     };
   }
 }
 
 function formatSourcesForList(source, tabs) {
   const title = (0, _source.getFilename)(source);
-  const subtitle = (0, _utils.endTruncateStr)(source.relativeUrl, 100);
+  const relativeUrlWithQuery = `${source.relativeUrl}${(0, _source.getSourceQueryString)(source)}`;
+  const subtitle = (0, _utils.endTruncateStr)(relativeUrlWithQuery, 100);
+  const value = relativeUrlWithQuery;
   return {
-    value: source.relativeUrl,
+    value,
     title,
     subtitle,
     icon: tabs.some(tab => tab.url == source.url) ? "tab result-item-icon" : (0, _classnames2.default)((0, _source.getSourceClassnames)(source), "result-item-icon"),
@@ -90,18 +88,12 @@ function formatSymbol(symbol) {
 
 function formatSymbols(symbols) {
   if (!symbols || symbols.loading) {
-    return {
-      variables: [],
-      functions: []
-    };
+    return { functions: [] };
   }
 
-  const {
-    variables,
-    functions
-  } = symbols;
+  const { functions } = symbols;
+
   return {
-    variables: variables.map(formatSymbol),
     functions: functions.map(formatSymbol)
   };
 }
@@ -124,7 +116,6 @@ function formatShortcutResults() {
 
 function formatSources(sources, tabs) {
   const sourceList = Object.values(sources);
-  return sourceList.filter(source => !(0, _source.isPretty)(source)).filter(({
-    relativeUrl
-  }) => !!relativeUrl).map(source => formatSourcesForList(source, tabs));
+
+  return sourceList.filter(source => !(0, _source.isPretty)(source)).filter(({ relativeUrl }) => !!relativeUrl).map(source => formatSourcesForList(source, tabs));
 }

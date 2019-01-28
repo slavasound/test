@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.getBreakpointSources = exports.getVisibleSelectedFrame = exports.getCallStackFrames = exports.isSelectedFrameVisible = exports.inComponent = exports.getVisibleBreakpoints = exports.getBreakpointsAtLine = exports.getBreakpointAtLocation = exports.getQuickOpenType = exports.getQuickOpenQuery = exports.getQuickOpenEnabled = exports.getEventListeners = undefined;
+exports.getVisiblePausePoints = exports.visibleColumnBreakpoints = exports.shouldPauseOnAnyXHR = exports.getXHRBreakpoints = exports.getBreakpointSources = exports.getVisibleSelectedFrame = exports.getCallStackFrames = exports.isSelectedFrameVisible = exports.inComponent = exports.getVisibleBreakpoints = exports.getBreakpointsAtLine = exports.getBreakpointAtLocation = exports.getQuickOpenType = exports.getQuickOpenQuery = exports.getQuickOpenEnabled = undefined;
 
 var _expressions = require("../reducers/expressions");
 
@@ -125,18 +125,6 @@ Object.keys(_ast).forEach(function (key) {
   });
 });
 
-var _coverage = require("../reducers/coverage");
-
-Object.keys(_coverage).forEach(function (key) {
-  if (key === "default" || key === "__esModule") return;
-  Object.defineProperty(exports, key, {
-    enumerable: true,
-    get: function () {
-      return _coverage[key];
-    }
-  });
-});
-
 var _projectTextSearch = require("../reducers/project-text-search");
 
 Object.keys(_projectTextSearch).forEach(function (key) {
@@ -159,15 +147,6 @@ Object.keys(_sourceTree).forEach(function (key) {
       return _sourceTree[key];
     }
   });
-});
-
-var _eventListeners = require("../reducers/event-listeners");
-
-Object.defineProperty(exports, "getEventListeners", {
-  enumerable: true,
-  get: function () {
-    return _eventListeners.getEventListeners;
-  }
 });
 
 var _quickOpen = require("../reducers/quick-open");
@@ -260,16 +239,47 @@ Object.defineProperty(exports, "getBreakpointSources", {
   }
 });
 
+var _breakpoints2 = require("./breakpoints");
+
+Object.defineProperty(exports, "getXHRBreakpoints", {
+  enumerable: true,
+  get: function () {
+    return _breakpoints2.getXHRBreakpoints;
+  }
+});
+Object.defineProperty(exports, "shouldPauseOnAnyXHR", {
+  enumerable: true,
+  get: function () {
+    return _breakpoints2.shouldPauseOnAnyXHR;
+  }
+});
+
+var _visibleColumnBreakpoints = require("./visibleColumnBreakpoints");
+
+Object.defineProperty(exports, "visibleColumnBreakpoints", {
+  enumerable: true,
+  get: function () {
+    return _visibleColumnBreakpoints.visibleColumnBreakpoints;
+  }
+});
+
+var _visiblePausePoints = require("./visiblePausePoints");
+
+Object.defineProperty(exports, "getVisiblePausePoints", {
+  enumerable: true,
+  get: function () {
+    return _visiblePausePoints.getVisiblePausePoints;
+  }
+});
+
 var _devtoolsReps = require("devtools/client/shared/components/reps/reps.js");
 
-const {
-  reducer
-} = _devtoolsReps.objectInspector;
+const { reducer } = _devtoolsReps.objectInspector;
+
 Object.keys(reducer).forEach(function (key) {
   if (key === "default" || key === "__esModule") {
     return;
   }
-
   Object.defineProperty(exports, key, {
     enumerable: true,
     get: reducer[key]

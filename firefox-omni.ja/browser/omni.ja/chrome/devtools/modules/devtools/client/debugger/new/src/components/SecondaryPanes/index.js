@@ -4,10 +4,6 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _propTypes = require("devtools/client/shared/vendor/react-prop-types");
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
 var _react = require("devtools/client/shared/vendor/react");
 
 var _react2 = _interopRequireDefault(_react);
@@ -44,10 +40,6 @@ var _Frames = require("./Frames/index");
 
 var _Frames2 = _interopRequireDefault(_Frames);
 
-var _EventListeners = require("./EventListeners");
-
-var _EventListeners2 = _interopRequireDefault(_EventListeners);
-
 var _Workers = require("./Workers");
 
 var _Workers2 = _interopRequireDefault(_Workers);
@@ -68,6 +60,10 @@ var _FrameworkComponent = require("./FrameworkComponent");
 
 var _FrameworkComponent2 = _interopRequireDefault(_FrameworkComponent);
 
+var _XHRBreakpoints = require("./XHRBreakpoints");
+
+var _XHRBreakpoints2 = _interopRequireDefault(_XHRBreakpoints);
+
 var _Scopes = require("./Scopes");
 
 var _Scopes2 = _interopRequireDefault(_Scopes);
@@ -77,17 +73,18 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 /* This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
+
 function debugBtn(onClick, type, className, tooltip) {
-  return _react2.default.createElement("button", {
-    onClick: onClick,
-    className: `${type} ${className}`,
-    key: type,
-    title: tooltip
-  }, _react2.default.createElement(_Svg2.default, {
-    name: type,
-    title: tooltip,
-    "aria-label": tooltip
-  }));
+  return _react2.default.createElement(
+    "button",
+    {
+      onClick: onClick,
+      className: `${type} ${className}`,
+      key: type,
+      title: tooltip
+    },
+    _react2.default.createElement(_Svg2.default, { name: type, title: tooltip, "aria-label": tooltip })
+  );
 }
 
 class SecondaryPanes extends _react.Component {
@@ -95,13 +92,16 @@ class SecondaryPanes extends _react.Component {
     super(props);
 
     this.onExpressionAdded = () => {
-      this.setState({
-        showExpressionsInput: false
-      });
+      this.setState({ showExpressionsInput: false });
+    };
+
+    this.onXHRAdded = () => {
+      this.setState({ showXHRInput: false });
     };
 
     this.state = {
-      showExpressionsInput: false
+      showExpressionsInput: false,
+      showXHRInput: false
     };
   }
 
@@ -114,7 +114,7 @@ class SecondaryPanes extends _react.Component {
     } = this.props;
     const isIndeterminate = !breakpointsDisabled && breakpoints.some(x => x.disabled);
 
-    if (_prefs.features.skipPausing || breakpoints.size == 0) {
+    if (_prefs.features.skipPausing || breakpoints.length === 0) {
       return null;
     }
 
@@ -137,13 +137,13 @@ class SecondaryPanes extends _react.Component {
       },
       title: breakpointsDisabled ? L10N.getStr("breakpoints.enable") : L10N.getStr("breakpoints.disable")
     };
+
     return _react2.default.createElement("input", inputProps);
   }
 
   watchExpressionHeaderButtons() {
-    const {
-      expressions
-    } = this.props;
+    const { expressions } = this.props;
+
     const buttons = [];
 
     if (expressions.size) {
@@ -157,11 +157,22 @@ class SecondaryPanes extends _react.Component {
       if (_prefs.prefs.expressionsVisible) {
         evt.stopPropagation();
       }
-
-      this.setState({
-        showExpressionsInput: true
-      });
+      this.setState({ showExpressionsInput: true });
     }, "plus", "plus", L10N.getStr("expressions.placeholder")));
+
+    return buttons;
+  }
+
+  xhrBreakpointsHeaderButtons() {
+    const buttons = [];
+
+    buttons.push(debugBtn(evt => {
+      if (_prefs.prefs.expressionsVisible) {
+        evt.stopPropagation();
+      }
+      this.setState({ showXHRInput: true });
+    }, "plus", "plus", L10N.getStr("xhrBreakpoints.placeholder")));
+
     return buttons;
   }
 
@@ -179,10 +190,9 @@ class SecondaryPanes extends _react.Component {
 
   getComponentItem() {
     const {
-      extra: {
-        react
-      }
+      extra: { react }
     } = this.props;
+
     return {
       header: react.displayName,
       className: "component-pane",
@@ -206,6 +216,22 @@ class SecondaryPanes extends _react.Component {
       opened: _prefs.prefs.expressionsVisible,
       onToggle: opened => {
         _prefs.prefs.expressionsVisible = opened;
+      }
+    };
+  }
+
+  getXHRItem() {
+    return {
+      header: L10N.getStr("xhrBreakpoints.header"),
+      className: "xhr-breakpoints-pane",
+      buttons: this.xhrBreakpointsHeaderButtons(),
+      component: _react2.default.createElement(_XHRBreakpoints2.default, {
+        showInput: this.state.showXHRInput,
+        onXHRAdded: this.onXHRAdded
+      }),
+      opened: _prefs.prefs.xhrBreakpointsVisible,
+      onToggle: opened => {
+        _prefs.prefs.xhrBreakpointsVisible = opened;
       }
     };
   }
@@ -240,6 +266,7 @@ class SecondaryPanes extends _react.Component {
       shouldPauseOnCaughtExceptions,
       pauseOnExceptions
     } = this.props;
+
     return {
       header: L10N.getStr("breakpoints.header"),
       className: "breakpoints-pane",
@@ -257,12 +284,9 @@ class SecondaryPanes extends _react.Component {
   }
 
   getStartItems() {
-    const {
-      extra,
-      workers
-    } = this.props;
-    const items = [];
+    const { extra, workers } = this.props;
 
+    const items = [];
     if (this.props.horizontal) {
       if (_prefs.features.workers && workers.size > 0) {
         items.push(this.getWorkersItem());
@@ -285,28 +309,20 @@ class SecondaryPanes extends _react.Component {
       }
     }
 
-    if (_prefs.features.eventListeners) {
-      items.push({
-        header: L10N.getStr("eventListenersHeader"),
-        className: "event-listeners-pane",
-        component: _react2.default.createElement(_EventListeners2.default, null)
-      });
+    if (_prefs.features.xhrBreakpoints) {
+      items.push(this.getXHRItem());
     }
 
     return items.filter(item => item);
   }
 
   renderHorizontalLayout() {
-    return _react2.default.createElement(_Accordion2.default, {
-      items: this.getItems()
-    });
+    return _react2.default.createElement(_Accordion2.default, { items: this.getItems() });
   }
 
   getEndItems() {
-    const {
-      extra,
-      workers
-    } = this.props;
+    const { extra, workers } = this.props;
+
     let items = [];
 
     if (this.props.horizontal) {
@@ -340,12 +356,8 @@ class SecondaryPanes extends _react.Component {
       minSize: 10,
       maxSize: "50%",
       splitterSize: 1,
-      startPanel: _react2.default.createElement(_Accordion2.default, {
-        items: this.getStartItems()
-      }),
-      endPanel: _react2.default.createElement(_Accordion2.default, {
-        items: this.getEndItems()
-      })
+      startPanel: _react2.default.createElement(_Accordion2.default, { items: this.getStartItems() }),
+      endPanel: _react2.default.createElement(_Accordion2.default, { items: this.getEndItems() })
     });
   }
 
@@ -361,26 +373,25 @@ class SecondaryPanes extends _react.Component {
   }
 
   render() {
-    return _react2.default.createElement("div", {
-      className: "secondary-panes-wrapper"
-    }, _react2.default.createElement(_CommandBar2.default, {
-      horizontal: this.props.horizontal
-    }), _react2.default.createElement("div", {
-      className: "secondary-panes"
-    }, this.props.horizontal ? this.renderHorizontalLayout() : this.renderVerticalLayout()), this.renderUtilsBar());
+    return _react2.default.createElement(
+      "div",
+      { className: "secondary-panes-wrapper" },
+      _react2.default.createElement(_CommandBar2.default, { horizontal: this.props.horizontal }),
+      _react2.default.createElement(
+        "div",
+        { className: "secondary-panes" },
+        this.props.horizontal ? this.renderHorizontalLayout() : this.renderVerticalLayout()
+      ),
+      this.renderUtilsBar()
+    );
   }
-
 }
-
-SecondaryPanes.contextTypes = {
-  shortcuts: _propTypes2.default.object
-};
 
 const mapStateToProps = state => ({
   expressions: (0, _selectors.getExpressions)(state),
   extra: (0, _selectors.getExtra)(state),
   hasFrames: !!(0, _selectors.getTopFrame)(state),
-  breakpoints: (0, _selectors.getBreakpoints)(state),
+  breakpoints: (0, _selectors.getBreakpointsList)(state),
   breakpointsDisabled: (0, _selectors.getBreakpointsDisabled)(state),
   breakpointsLoading: (0, _selectors.getBreakpointsLoading)(state),
   isWaitingOnBreak: (0, _selectors.getIsWaitingOnBreak)(state),

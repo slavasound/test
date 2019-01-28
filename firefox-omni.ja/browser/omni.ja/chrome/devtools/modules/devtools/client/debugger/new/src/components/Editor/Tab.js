@@ -36,9 +36,6 @@ var _classnames2 = _interopRequireDefault(_classnames);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/* This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
 class Tab extends _react.PureComponent {
   constructor(...args) {
     var _temp;
@@ -58,6 +55,7 @@ class Tab extends _react.PureComponent {
       togglePrettyPrint,
       selectedSource
     } = this.props;
+
     const otherTabs = tabSources.filter(t => t.id !== tab);
     const sourceTab = tabSources.find(t => t.id == tab);
     const tabURLs = tabSources.map(t => t.url);
@@ -70,16 +68,19 @@ class Tab extends _react.PureComponent {
     const isPrettySource = (0, _source.isPretty)(sourceTab);
     const tabMenuItems = (0, _tabs.getTabMenuItems)();
     const items = [{
-      item: { ...tabMenuItems.closeTab,
+      item: {
+        ...tabMenuItems.closeTab,
         click: () => closeTab(sourceTab)
       }
     }, {
-      item: { ...tabMenuItems.closeOtherTabs,
+      item: {
+        ...tabMenuItems.closeOtherTabs,
         click: () => closeTabs(otherTabURLs)
       },
       hidden: () => tabSources.size === 1
     }, {
-      item: { ...tabMenuItems.closeTabsToEnd,
+      item: {
+        ...tabMenuItems.closeTabsToEnd,
         click: () => {
           const tabIndex = tabSources.findIndex(t => t.id == tab);
           closeTabs(tabURLs.filter((t, i) => i > tabIndex));
@@ -87,32 +88,31 @@ class Tab extends _react.PureComponent {
       },
       hidden: () => tabSources.size === 1 || tabSources.some((t, i) => t === tab && tabSources.size - 1 === i)
     }, {
-      item: { ...tabMenuItems.closeAllTabs,
-        click: () => closeTabs(tabURLs)
-      }
-    }, {
+      item: { ...tabMenuItems.closeAllTabs, click: () => closeTabs(tabURLs) }
+    }, { item: { type: "separator" } }, {
       item: {
-        type: "separator"
-      }
-    }, {
-      item: { ...tabMenuItems.copyToClipboard,
+        ...tabMenuItems.copyToClipboard,
         disabled: selectedSource.id !== tab,
         click: () => (0, _clipboard.copyToTheClipboard)(sourceTab.text)
       }
     }, {
-      item: { ...tabMenuItems.copySourceUri2,
+      item: {
+        ...tabMenuItems.copySourceUri2,
+        disabled: !selectedSource.url,
         click: () => (0, _clipboard.copyToTheClipboard)((0, _source.getRawSourceURL)(sourceTab.url))
       }
-    }];
-    items.push({
-      item: { ...tabMenuItems.showSource,
+    }, {
+      item: {
+        ...tabMenuItems.showSource,
+        disabled: !selectedSource.url,
         click: () => showSource(tab)
       }
-    });
+    }];
 
     if (!isPrettySource) {
       items.push({
-        item: { ...tabMenuItems.prettyPrint,
+        item: {
+          ...tabMenuItems.prettyPrint,
           click: () => togglePrettyPrint(tab)
         }
       });
@@ -135,7 +135,8 @@ class Tab extends _react.PureComponent {
       selectSource,
       closeTab,
       source,
-      tabSources
+      tabSources,
+      hasSiblingOfSameName
     } = this.props;
     const sourceId = source.id;
     const active = selectedSource && sourceId == selectedSource.id && !this.isProjectSearchEnabled() && !this.isSourceSearchEnabled();
@@ -156,36 +157,53 @@ class Tab extends _react.PureComponent {
       active,
       pretty: isPrettyCode
     });
+
     const path = (0, _source.getDisplayPath)(source, tabSources);
-    return _react2.default.createElement("div", {
-      className: className,
-      key: sourceId,
-      onClick: handleTabClick // Accommodate middle click to close tab
-      ,
-      onMouseUp: e => e.button === 1 && closeTab(source),
-      onContextMenu: e => this.onTabContextMenu(e, sourceId),
-      title: (0, _source.getFileURL)(source)
-    }, _react2.default.createElement(_SourceIcon2.default, {
-      source: source,
-      shouldHide: icon => ["file", "javascript"].includes(icon)
-    }), _react2.default.createElement("div", {
-      className: "filename"
-    }, (0, _source.getTruncatedFileName)(source), path && _react2.default.createElement("span", null, `../${path}/..`)), _react2.default.createElement(_Button.CloseButton, {
-      handleClick: onClickClose,
-      tooltip: L10N.getStr("sourceTabs.closeTabButtonTooltip")
-    }));
+    const query = hasSiblingOfSameName ? (0, _source.getSourceQueryString)(source) : "";
+
+    return _react2.default.createElement(
+      "div",
+      {
+        className: className,
+        key: sourceId,
+        onClick: handleTabClick
+        // Accommodate middle click to close tab
+        , onMouseUp: e => e.button === 1 && closeTab(source),
+        onContextMenu: e => this.onTabContextMenu(e, sourceId),
+        title: (0, _source.getFileURL)(source, false)
+      },
+      _react2.default.createElement(_SourceIcon2.default, {
+        source: source,
+        shouldHide: icon => ["file", "javascript"].includes(icon)
+      }),
+      _react2.default.createElement(
+        "div",
+        { className: "filename" },
+        (0, _source.getTruncatedFileName)(source, query),
+        path && _react2.default.createElement(
+          "span",
+          null,
+          `../${path}/..`
+        )
+      ),
+      _react2.default.createElement(_Button.CloseButton, {
+        handleClick: onClickClose,
+        tooltip: L10N.getStr("sourceTabs.closeTabButtonTooltip")
+      })
+    );
   }
+} /* This Source Code Form is subject to the terms of the Mozilla Public
+   * License, v. 2.0. If a copy of the MPL was not distributed with this
+   * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
 
-}
-
-const mapStateToProps = (state, {
-  source
-}) => {
+const mapStateToProps = (state, { source }) => {
   const selectedSource = (0, _selectors.getSelectedSource)(state);
+
   return {
     tabSources: (0, _selectors.getSourcesForTabs)(state),
     selectedSource: selectedSource,
-    activeSearch: (0, _selectors.getActiveSearch)(state)
+    activeSearch: (0, _selectors.getActiveSearch)(state),
+    hasSiblingOfSameName: (0, _selectors.getHasSiblingOfSameName)(state, source)
   };
 };
 

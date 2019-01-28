@@ -73,6 +73,7 @@ exports.toEditorPosition = toEditorPosition;
 exports.toEditorRange = toEditorRange;
 exports.toSourceLine = toSourceLine;
 exports.scrollToColumn = scrollToColumn;
+exports.getLocationsInViewport = getLocationsInViewport;
 exports.markText = markText;
 exports.lineAtHeight = lineAtHeight;
 exports.getSourceLocationFromMouseEvent = getSourceLocationFromMouseEvent;
@@ -109,7 +110,6 @@ function getCodeMirror() {
 
 function startOperation() {
   const codeMirror = getCodeMirror();
-
   if (!codeMirror) {
     return;
   }
@@ -119,7 +119,6 @@ function startOperation() {
 
 function endOperation() {
   const codeMirror = getCodeMirror();
-
   if (!codeMirror) {
     return;
   }
@@ -139,11 +138,9 @@ function shouldShowFooter(selectedSource, horizontal) {
   if (!horizontal) {
     return true;
   }
-
   if (!selectedSource) {
     return false;
   }
-
   return shouldShowPrettyPrint(selectedSource) || (0, _source.isOriginal)(selectedSource);
 }
 
@@ -175,17 +172,10 @@ function toEditorPosition(location) {
 }
 
 function toEditorRange(sourceId, location) {
-  const {
-    start,
-    end
-  } = location;
+  const { start, end } = location;
   return {
-    start: toEditorPosition({ ...start,
-      sourceId
-    }),
-    end: toEditorPosition({ ...end,
-      sourceId
-    })
+    start: toEditorPosition({ ...start, sourceId }),
+    end: toEditorPosition({ ...end, sourceId })
   };
 }
 
@@ -194,18 +184,13 @@ function toSourceLine(sourceId, line) {
 }
 
 function scrollToColumn(codeMirror, line, column) {
-  const {
-    top,
-    left
-  } = codeMirror.charCoords({
-    line: line,
-    ch: column
-  }, "local");
+  const { top, left } = codeMirror.charCoords({ line: line, ch: column }, "local");
 
   if (!isVisible(codeMirror, top, left)) {
     const scroller = codeMirror.getScrollerElement();
     const centeredX = Math.max(left - scroller.offsetWidth / 2, 0);
     const centeredY = Math.max(top - scroller.offsetHeight / 2, 0);
+
     codeMirror.scrollTo(centeredX, centeredY);
   }
 }
@@ -218,41 +203,51 @@ function isVisible(codeMirror, top, left) {
   const scrollArea = codeMirror.getScrollInfo();
   const charWidth = codeMirror.defaultCharWidth();
   const fontHeight = codeMirror.defaultTextHeight();
-  const {
-    scrollTop,
-    scrollLeft
-  } = codeMirror.doc;
+  const { scrollTop, scrollLeft } = codeMirror.doc;
+
   const inXView = withinBounds(left, scrollLeft, scrollLeft + (scrollArea.clientWidth - 30) - charWidth);
+
   const inYView = withinBounds(top, scrollTop, scrollTop + scrollArea.clientHeight - fontHeight);
+
   return inXView && inYView;
 }
 
-function markText(_editor, className, {
-  start,
-  end
-}) {
-  return _editor.codeMirror.markText({
-    ch: start.column,
-    line: start.line
-  }, {
-    ch: end.column,
-    line: end.line
-  }, {
-    className
-  });
+function getLocationsInViewport(_editor) {
+  // Get scroll position
+  const charWidth = _editor.codeMirror.defaultCharWidth();
+  const scrollArea = _editor.codeMirror.getScrollInfo();
+  const { scrollLeft } = _editor.codeMirror.doc;
+  const rect = _editor.codeMirror.getWrapperElement().getBoundingClientRect();
+  const topVisibleLine = _editor.codeMirror.lineAtHeight(rect.top, "window");
+  const bottomVisibleLine = _editor.codeMirror.lineAtHeight(rect.bottom, "window");
+
+  const leftColumn = Math.floor(scrollLeft > 0 ? scrollLeft / charWidth : 0);
+  const rightPosition = scrollLeft + (scrollArea.clientWidth - 30);
+  const rightCharacter = Math.floor(rightPosition / charWidth);
+
+  return {
+    start: {
+      line: topVisibleLine,
+      column: leftColumn
+    },
+    end: {
+      line: bottomVisibleLine,
+      column: rightCharacter
+    }
+  };
+}
+
+function markText(_editor, className, { start, end }) {
+  return _editor.codeMirror.markText({ ch: start.column, line: start.line }, { ch: end.column, line: end.line }, { className });
 }
 
 function lineAtHeight(_editor, sourceId, event) {
   const _editorLine = _editor.codeMirror.lineAtHeight(event.clientY);
-
   return toSourceLine(sourceId, _editorLine);
 }
 
 function getSourceLocationFromMouseEvent(_editor, selectedLocation, e) {
-  const {
-    line,
-    ch
-  } = _editor.codeMirror.coordsChar({
+  const { line, ch } = _editor.codeMirror.coordsChar({
     left: e.clientX,
     top: e.clientY
   });

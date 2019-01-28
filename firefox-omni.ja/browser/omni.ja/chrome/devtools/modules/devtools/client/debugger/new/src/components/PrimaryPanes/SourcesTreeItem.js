@@ -43,18 +43,14 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 /* This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
+
 class SourceTreeItem extends _react.Component {
   constructor(...args) {
     var _temp;
 
     return _temp = super(...args), this.onClick = e => {
-      const {
-        expanded,
-        item,
-        focusItem,
-        setExpanded,
-        selectItem
-      } = this.props;
+      const { expanded, item, focusItem, setExpanded, selectItem } = this.props;
+
       focusItem(item);
 
       if ((0, _sourcesTree.isDirectory)(item)) {
@@ -68,15 +64,15 @@ class SourceTreeItem extends _react.Component {
       const setDirectoryRootLabel = L10N.getStr("setDirectoryRoot.label");
       const setDirectoryRootKey = L10N.getStr("setDirectoryRoot.accesskey");
       const removeDirectoryRootLabel = L10N.getStr("removeDirectoryRoot.label");
+
       event.stopPropagation();
       event.preventDefault();
+
       const menuOptions = [];
 
       if (!(0, _sourcesTree.isDirectory)(item)) {
         // Flow requires some extra handling to ensure the value of contents.
-        const {
-          contents
-        } = item;
+        const { contents } = item;
 
         if (!Array.isArray(contents)) {
           const copySourceUri2 = {
@@ -86,17 +82,14 @@ class SourceTreeItem extends _react.Component {
             disabled: false,
             click: () => (0, _clipboard.copyToTheClipboard)(contents.url)
           };
+
           menuOptions.push(copySourceUri2);
         }
       }
 
       if ((0, _sourcesTree.isDirectory)(item) && _prefs.features.root) {
-        const {
-          path
-        } = item;
-        const {
-          projectRoot
-        } = this.props;
+        const { path } = item;
+        const { projectRoot } = this.props;
 
         if (projectRoot.endsWith(path)) {
           menuOptions.push({
@@ -121,24 +114,14 @@ class SourceTreeItem extends _react.Component {
   }
 
   getIcon(item, depth) {
-    const {
-      debuggeeUrl,
-      projectRoot,
-      source
-    } = this.props;
+    const { debuggeeUrl, projectRoot, source } = this.props;
 
     if (item.path === "webpack://") {
-      return _react2.default.createElement(_Svg2.default, {
-        name: "webpack"
-      });
+      return _react2.default.createElement(_Svg2.default, { name: "webpack" });
     } else if (item.path === "ng://") {
-      return _react2.default.createElement(_Svg2.default, {
-        name: "angular"
-      });
+      return _react2.default.createElement(_Svg2.default, { name: "angular" });
     } else if (item.path.startsWith("moz-extension://") && depth === 0) {
-      return _react2.default.createElement("img", {
-        className: "extension"
-      });
+      return _react2.default.createElement("img", { className: "extension" });
     }
 
     if (depth === 0 && projectRoot === "") {
@@ -150,46 +133,29 @@ class SourceTreeItem extends _react.Component {
     }
 
     if ((0, _sourcesTree.isDirectory)(item)) {
-      return _react2.default.createElement("img", {
-        className: "folder"
-      });
+      return _react2.default.createElement("img", { className: "folder" });
     }
 
     if (source) {
-      return _react2.default.createElement(_SourceIcon2.default, {
-        source: source
-      });
+      return _react2.default.createElement(_SourceIcon2.default, { source: source });
     }
 
     return null;
   }
 
   renderItemArrow() {
-    const {
-      item,
-      expanded
-    } = this.props;
-    return (0, _sourcesTree.isDirectory)(item) ? _react2.default.createElement("img", {
-      className: (0, _classnames2.default)("arrow", {
-        expanded
-      })
-    }) : _react2.default.createElement("i", {
-      className: "no-arrow"
-    });
+    const { item, expanded } = this.props;
+    return (0, _sourcesTree.isDirectory)(item) ? _react2.default.createElement("img", { className: (0, _classnames2.default)("arrow", { expanded }) }) : _react2.default.createElement("i", { className: "no-arrow" });
   }
 
   renderItemName() {
-    const {
-      item
-    } = this.props;
+    const { item } = this.props;
 
     switch (item.name) {
       case "ng://":
         return "Angular";
-
       case "webpack://":
         return "Webpack";
-
       default:
         return `${item.name}`;
     }
@@ -199,24 +165,46 @@ class SourceTreeItem extends _react.Component {
     const {
       item,
       depth,
+      source,
       focused,
-      hasMatchingGeneratedSource
+      hasMatchingGeneratedSource,
+      hasSiblingOfSameName
     } = this.props;
-    const suffix = hasMatchingGeneratedSource ? _react2.default.createElement("span", {
-      className: "suffix"
-    }, L10N.getStr("sourceFooter.mappedSuffix")) : null;
-    return _react2.default.createElement("div", {
-      className: (0, _classnames2.default)("node", {
-        focused
-      }),
-      key: item.path,
-      onClick: this.onClick,
-      onContextMenu: e => this.onContextMenu(e, item)
-    }, this.renderItemArrow(), this.getIcon(item, depth), _react2.default.createElement("span", {
-      className: "label"
-    }, " ", this.renderItemName(), " ", suffix));
-  }
 
+    const suffix = hasMatchingGeneratedSource ? _react2.default.createElement(
+      "span",
+      { className: "suffix" },
+      L10N.getStr("sourceFooter.mappedSuffix")
+    ) : null;
+
+    const querystring = (0, _source.getSourceQueryString)(source);
+    const query = hasSiblingOfSameName && querystring ? _react2.default.createElement(
+      "span",
+      { className: "query" },
+      querystring
+    ) : null;
+
+    return _react2.default.createElement(
+      "div",
+      {
+        className: (0, _classnames2.default)("node", { focused }),
+        key: item.path,
+        onClick: this.onClick,
+        onContextMenu: e => this.onContextMenu(e, item)
+      },
+      this.renderItemArrow(),
+      this.getIcon(item, depth),
+      _react2.default.createElement(
+        "span",
+        { className: "label" },
+        " ",
+        this.renderItemName(),
+        query,
+        " ",
+        suffix
+      )
+    );
+  }
 }
 
 function getHasMatchingGeneratedSource(state, source) {
@@ -228,11 +216,10 @@ function getHasMatchingGeneratedSource(state, source) {
 }
 
 const mapStateToProps = (state, props) => {
-  const {
-    source
-  } = props;
+  const { source } = props;
   return {
-    hasMatchingGeneratedSource: getHasMatchingGeneratedSource(state, source)
+    hasMatchingGeneratedSource: getHasMatchingGeneratedSource(state, source),
+    hasSiblingOfSameName: (0, _selectors.getHasSiblingOfSameName)(state, source)
   };
 };
 

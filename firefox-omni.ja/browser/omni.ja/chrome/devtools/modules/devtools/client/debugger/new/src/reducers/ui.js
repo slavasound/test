@@ -13,6 +13,7 @@ exports.getPaneCollapse = getPaneCollapse;
 exports.getHighlightedLineRange = getHighlightedLineRange;
 exports.getConditionalPanelLine = getConditionalPanelLine;
 exports.getOrientation = getOrientation;
+exports.getViewport = getViewport;
 
 var _makeRecord = require("../utils/makeRecord");
 
@@ -30,6 +31,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * UI reducer
  * @module reducers/ui
  */
+
 const createUIState = exports.createUIState = (0, _makeRecord2.default)({
   selectedPrimaryPaneTab: "sources",
   activeSearch: null,
@@ -40,7 +42,8 @@ const createUIState = exports.createUIState = (0, _makeRecord2.default)({
   frameworkGroupingOn: _prefs.prefs.frameworkGroupingOn,
   highlightedLineRange: undefined,
   conditionalPanelLine: null,
-  orientation: "horizontal"
+  orientation: "horizontal",
+  viewport: null
 });
 
 function update(state = createUIState(), action) {
@@ -83,19 +86,11 @@ function update(state = createUIState(), action) {
       }
 
     case "HIGHLIGHT_LINES":
-      const {
-        start,
-        end,
-        sourceId
-      } = action.location;
+      const { start, end, sourceId } = action.location;
       let lineRange = {};
 
       if (start && end && sourceId) {
-        lineRange = {
-          start,
-          end,
-          sourceId
-        };
+        lineRange = { start, end, sourceId };
       }
 
       return state.set("highlightedLineRange", lineRange);
@@ -118,8 +113,12 @@ function update(state = createUIState(), action) {
         if (state.get("activeSearch") === "project") {
           return state.set("activeSearch", null);
         }
-
         return state;
+      }
+
+    case "SET_VIEWPORT":
+      {
+        return state.set("viewport", action.viewport);
       }
 
     case "NAVIGATE":
@@ -132,10 +131,10 @@ function update(state = createUIState(), action) {
         return state;
       }
   }
-} // NOTE: we'd like to have the app state fully typed
+}
+
+// NOTE: we'd like to have the app state fully typed
 // https://github.com/devtools-html/debugger.html/blob/master/src/reducers/sources.js#L179-L185
-
-
 function getSelectedPrimaryPaneTab(state) {
   return state.ui.get("selectedPrimaryPaneTab");
 }
@@ -174,6 +173,10 @@ function getConditionalPanelLine(state) {
 
 function getOrientation(state) {
   return state.ui.get("orientation");
+}
+
+function getViewport(state) {
+  return state.ui.get("viewport");
 }
 
 exports.default = update;

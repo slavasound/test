@@ -11,10 +11,6 @@ var _asyncStorage2 = _interopRequireDefault(_asyncStorage);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/* This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
-
 /*
  * asyncStoreHelper wraps asyncStorage so that it is easy to define project
  * specific properties. It is similar to PrefsHelper.
@@ -40,12 +36,11 @@ function asyncStoreHelper(root, mappings) {
       const value = await _asyncStorage2.default.getItem(`${root}.${getMappingKey(key)}`);
       return value || getMappingDefaultValue(key);
     },
-
     set(value) {
       return _asyncStorage2.default.setItem(`${root}.${getMappingKey(key)}`, value);
     }
-
   }));
+
   store = new Proxy(store, {
     set: function (target, property, value, receiver) {
       if (!mappings.hasOwnProperty(property)) {
@@ -56,5 +51,8 @@ function asyncStoreHelper(root, mappings) {
       return true;
     }
   });
+
   return store;
-}
+} /* This Source Code Form is subject to the terms of the Mozilla Public
+   * License, v. 2.0. If a copy of the MPL was not distributed with this
+   * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */

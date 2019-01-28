@@ -16,6 +16,12 @@ exports.toggleBreakpoint = toggleBreakpoint;
 exports.toggleBreakpointsAtLine = toggleBreakpointsAtLine;
 exports.addOrToggleDisabledBreakpoint = addOrToggleDisabledBreakpoint;
 exports.toggleDisabledBreakpoint = toggleDisabledBreakpoint;
+exports.enableXHRBreakpoint = enableXHRBreakpoint;
+exports.disableXHRBreakpoint = disableXHRBreakpoint;
+exports.updateXHRBreakpoint = updateXHRBreakpoint;
+exports.togglePauseOnAny = togglePauseOnAny;
+exports.setXHRBreakpoint = setXHRBreakpoint;
+exports.removeXHRBreakpoint = removeXHRBreakpoint;
 
 var _devtoolsSourceMap = require("devtools/client/shared/source-map/index.js");
 
@@ -39,15 +45,6 @@ var _telemetry = require("../../utils/telemetry");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/* This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
-
-/**
- * Redux actions for breakpoints
- * @module actions/breakpoints
- */
-
 /**
  * Remove a single breakpoint
  *
@@ -55,21 +52,17 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * @static
  */
 function removeBreakpoint(location) {
-  return ({
-    dispatch,
-    getState,
-    client
-  }) => {
+  return ({ dispatch, getState, client }) => {
     const bp = (0, _selectors.getBreakpoint)(getState(), location);
-
     if (!bp || bp.loading) {
       return;
     }
 
-    (0, _telemetry.recordEvent)("remove_breakpoint"); // If the breakpoint is already disabled, we don't need to communicate
+    (0, _telemetry.recordEvent)("remove_breakpoint");
+
+    // If the breakpoint is already disabled, we don't need to communicate
     // with the server. We just need to dispatch an action
     // simulating a successful server request
-
     if (bp.disabled) {
       return dispatch({
         type: "REMOVE_BREAKPOINT",
@@ -86,6 +79,7 @@ function removeBreakpoint(location) {
     });
   };
 }
+
 /**
  * Disable a single breakpoint
  *
@@ -94,12 +88,19 @@ function removeBreakpoint(location) {
  */
 
 
+// this will need to be changed so that addCLientBreakpoint is removed
+
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
+
+/**
+ * Redux actions for breakpoints
+ * @module actions/breakpoints
+ */
+
 function disableBreakpoint(location) {
-  return async ({
-    dispatch,
-    getState,
-    client
-  }) => {
+  return async ({ dispatch, getState, client }) => {
     const bp = (0, _selectors.getBreakpoint)(getState(), location);
 
     if (!bp || bp.loading) {
@@ -107,43 +108,34 @@ function disableBreakpoint(location) {
     }
 
     await client.removeBreakpoint(bp.generatedLocation);
-    const newBreakpoint = { ...bp,
-      disabled: true
-    };
+    const newBreakpoint = { ...bp, disabled: true };
+
     return dispatch({
       type: "DISABLE_BREAKPOINT",
       breakpoint: newBreakpoint
     });
   };
 }
+
 /**
  * Toggle All Breakpoints
  *
  * @memberof actions/breakpoints
  * @static
  */
-
-
 function toggleAllBreakpoints(shouldDisableBreakpoints) {
-  return async ({
-    dispatch,
-    getState,
-    client
-  }) => {
-    const breakpoints = (0, _selectors.getBreakpoints)(getState());
+  return async ({ dispatch, getState, client }) => {
+    const breakpoints = (0, _selectors.getBreakpointsList)(getState());
+
     const modifiedBreakpoints = [];
 
-    for (const [, breakpoint] of breakpoints) {
+    for (const breakpoint of breakpoints) {
       if (shouldDisableBreakpoints) {
         await client.removeBreakpoint(breakpoint.generatedLocation);
-        const newBreakpoint = { ...breakpoint,
-          disabled: true
-        };
+        const newBreakpoint = { ...breakpoint, disabled: true };
         modifiedBreakpoints.push(newBreakpoint);
       } else {
-        const newBreakpoint = { ...breakpoint,
-          disabled: false
-        };
+        const newBreakpoint = { ...breakpoint, disabled: false };
         modifiedBreakpoints.push(newBreakpoint);
       }
     }
@@ -161,99 +153,75 @@ function toggleAllBreakpoints(shouldDisableBreakpoints) {
     });
   };
 }
+
 /**
  * Toggle Breakpoints
  *
  * @memberof actions/breakpoints
  * @static
  */
-
-
 function toggleBreakpoints(shouldDisableBreakpoints, breakpoints) {
-  return async ({
-    dispatch
-  }) => {
-    const promises = breakpoints.valueSeq().toJS().map(([, breakpoint]) => shouldDisableBreakpoints ? dispatch(disableBreakpoint(breakpoint.location)) : dispatch((0, _addBreakpoint.enableBreakpoint)(breakpoint.location)));
+  return async ({ dispatch }) => {
+    const promises = breakpoints.map(breakpoint => shouldDisableBreakpoints ? dispatch(disableBreakpoint(breakpoint.location)) : dispatch((0, _addBreakpoint.enableBreakpoint)(breakpoint.location)));
+
     await Promise.all(promises);
   };
 }
+
 /**
  * Removes all breakpoints
  *
  * @memberof actions/breakpoints
  * @static
  */
-
-
 function removeAllBreakpoints() {
-  return async ({
-    dispatch,
-    getState
-  }) => {
-    const breakpointList = (0, _selectors.getBreakpoints)(getState()).valueSeq().toJS();
+  return async ({ dispatch, getState }) => {
+    const breakpointList = (0, _selectors.getBreakpointsList)(getState());
     return Promise.all(breakpointList.map(bp => dispatch(removeBreakpoint(bp.location))));
   };
 }
+
 /**
  * Removes breakpoints
  *
  * @memberof actions/breakpoints
  * @static
  */
-
-
 function removeBreakpoints(breakpoints) {
-  return async ({
-    dispatch
-  }) => {
-    const breakpointList = breakpoints.valueSeq().toJS();
-    return Promise.all(breakpointList.map(bp => dispatch(removeBreakpoint(bp.location))));
+  return async ({ dispatch }) => {
+    return Promise.all(breakpoints.map(bp => dispatch(removeBreakpoint(bp.location))));
   };
 }
 
 function remapBreakpoints(sourceId) {
-  return async ({
-    dispatch,
-    getState,
-    sourceMaps
-  }) => {
-    const breakpoints = (0, _selectors.getBreakpoints)(getState());
+  return async ({ dispatch, getState, sourceMaps }) => {
+    const breakpoints = (0, _selectors.getBreakpointsList)(getState());
     const newBreakpoints = await (0, _remapLocations2.default)(breakpoints, sourceId, sourceMaps);
+
     return dispatch({
       type: "REMAP_BREAKPOINTS",
       breakpoints: newBreakpoints
     });
   };
 }
+
 /**
  * Update the condition of a breakpoint.
  *
  * @throws {Error} "not implemented"
  * @memberof actions/breakpoints
  * @static
- * @param {Location} location
+ * @param {SourceLocation} location
  *        @see DebuggerController.Breakpoints.addBreakpoint
  * @param {string} condition
  *        The condition to set on the breakpoint
  * @param {Boolean} $1.disabled Disable value for breakpoint value
  */
-
-
-function setBreakpointCondition(location, {
-  condition
-} = {}) {
-  return async ({
-    dispatch,
-    getState,
-    client,
-    sourceMaps
-  }) => {
+function setBreakpointCondition(location, { condition } = {}) {
+  return async ({ dispatch, getState, client, sourceMaps }) => {
     const bp = (0, _selectors.getBreakpoint)(getState(), location);
-
     if (!bp) {
-      return dispatch((0, _addBreakpoint.addBreakpoint)(location, {
-        condition
-      }));
+      return dispatch((0, _addBreakpoint.addBreakpoint)(location, { condition }));
     }
 
     if (bp.loading) {
@@ -262,14 +230,14 @@ function setBreakpointCondition(location, {
 
     if (bp.disabled) {
       await dispatch((0, _addBreakpoint.enableBreakpoint)(location));
-      bp.disabled = !bp.disabled;
     }
 
     await client.setBreakpointCondition(bp.id, location, condition, (0, _devtoolsSourceMap.isOriginalId)(bp.location.sourceId));
-    const newBreakpoint = { ...bp,
-      condition
-    };
+
+    const newBreakpoint = { ...bp, disabled: false, condition };
+
     (0, _breakpoint.assertBreakpoint)(newBreakpoint);
+
     return dispatch({
       type: "SET_BREAKPOINT_CONDITION",
       breakpoint: newBreakpoint
@@ -278,12 +246,7 @@ function setBreakpointCondition(location, {
 }
 
 function toggleBreakpoint(line, column) {
-  return ({
-    dispatch,
-    getState,
-    client,
-    sourceMaps
-  }) => {
+  return ({ dispatch, getState, client, sourceMaps }) => {
     const state = getState();
     const selectedSource = (0, _selectors.getSelectedSource)(state);
 
@@ -291,10 +254,7 @@ function toggleBreakpoint(line, column) {
       return;
     }
 
-    const bp = (0, _selectors.getBreakpointAtLocation)(state, {
-      line,
-      column
-    });
+    const bp = (0, _selectors.getBreakpointAtLocation)(state, { line, column });
     const isEmptyLine = (0, _ast.isEmptyLineInSource)(state, line, selectedSource.id);
 
     if (!bp && isEmptyLine || bp && bp.loading) {
@@ -310,7 +270,6 @@ function toggleBreakpoint(line, column) {
         column: column || bp.location.column
       }));
     }
-
     return dispatch((0, _addBreakpoint.addBreakpoint)({
       sourceId: selectedSource.id,
       sourceUrl: selectedSource.url,
@@ -321,12 +280,7 @@ function toggleBreakpoint(line, column) {
 }
 
 function toggleBreakpointsAtLine(line, column) {
-  return ({
-    dispatch,
-    getState,
-    client,
-    sourceMaps
-  }) => {
+  return ({ dispatch, getState, client, sourceMaps }) => {
     const state = getState();
     const selectedSource = (0, _selectors.getSelectedSource)(state);
 
@@ -337,7 +291,7 @@ function toggleBreakpointsAtLine(line, column) {
     const bps = (0, _selectors.getBreakpointsAtLine)(state, line);
     const isEmptyLine = (0, _ast.isEmptyLineInSource)(state, line, selectedSource.id);
 
-    if (bps.size === 0 && !isEmptyLine) {
+    if (bps.length === 0 && !isEmptyLine) {
       return dispatch((0, _addBreakpoint.addBreakpoint)({
         sourceId: selectedSource.id,
         sourceUrl: selectedSource.url,
@@ -351,22 +305,14 @@ function toggleBreakpointsAtLine(line, column) {
 }
 
 function addOrToggleDisabledBreakpoint(line, column) {
-  return ({
-    dispatch,
-    getState,
-    client,
-    sourceMaps
-  }) => {
+  return ({ dispatch, getState, client, sourceMaps }) => {
     const selectedSource = (0, _selectors.getSelectedSource)(getState());
 
     if (!line || !selectedSource) {
       return;
     }
 
-    const bp = (0, _selectors.getBreakpointAtLocation)(getState(), {
-      line,
-      column
-    });
+    const bp = (0, _selectors.getBreakpointAtLocation)(getState(), { line, column });
 
     if (bp && bp.loading) {
       return;
@@ -387,17 +333,8 @@ function addOrToggleDisabledBreakpoint(line, column) {
 }
 
 function toggleDisabledBreakpoint(line, column) {
-  return ({
-    dispatch,
-    getState,
-    client,
-    sourceMaps
-  }) => {
-    const bp = (0, _selectors.getBreakpointAtLocation)(getState(), {
-      line,
-      column
-    });
-
+  return ({ dispatch, getState, client, sourceMaps }) => {
+    const bp = (0, _selectors.getBreakpointAtLocation)(getState(), { line, column });
     if (!bp || bp.loading) {
       return;
     }
@@ -405,8 +342,105 @@ function toggleDisabledBreakpoint(line, column) {
     if (!bp.disabled) {
       return dispatch(disableBreakpoint(bp.location));
     }
-
     return dispatch((0, _addBreakpoint.enableBreakpoint)(bp.location));
+  };
+}
+
+function enableXHRBreakpoint(index, bp) {
+  return ({ dispatch, getState, client }) => {
+    const xhrBreakpoints = (0, _selectors.getXHRBreakpoints)(getState());
+    const breakpoint = bp || xhrBreakpoints.get(index);
+    const enabledBreakpoint = {
+      ...breakpoint,
+      disabled: false
+    };
+
+    return dispatch({
+      type: "ENABLE_XHR_BREAKPOINT",
+      breakpoint: enabledBreakpoint,
+      index,
+      [_promise.PROMISE]: client.setXHRBreakpoint(breakpoint.path, breakpoint.method)
+    });
+  };
+}
+
+function disableXHRBreakpoint(index, bp) {
+  return ({ dispatch, getState, client }) => {
+    const xhrBreakpoints = (0, _selectors.getXHRBreakpoints)(getState());
+    const breakpoint = bp || xhrBreakpoints.get(index);
+    const disabledBreakpoint = {
+      ...breakpoint,
+      disabled: true
+    };
+
+    return dispatch({
+      type: "DISABLE_XHR_BREAKPOINT",
+      breakpoint: disabledBreakpoint,
+      index,
+      [_promise.PROMISE]: client.removeXHRBreakpoint(breakpoint.path, breakpoint.method)
+    });
+  };
+}
+
+function updateXHRBreakpoint(index, path, method) {
+  return ({ dispatch, getState, client }) => {
+    const xhrBreakpoints = (0, _selectors.getXHRBreakpoints)(getState());
+    const breakpoint = xhrBreakpoints.get(index);
+
+    const updatedBreakpoint = {
+      ...breakpoint,
+      path,
+      method,
+      text: `URL contains "${path}"`
+    };
+
+    return dispatch({
+      type: "UPDATE_XHR_BREAKPOINT",
+      breakpoint: updatedBreakpoint,
+      index,
+      [_promise.PROMISE]: Promise.all([client.removeXHRBreakpoint(breakpoint.path, breakpoint.method), client.setXHRBreakpoint(path, method)])
+    });
+  };
+}
+function togglePauseOnAny() {
+  return ({ dispatch, getState }) => {
+    const xhrBreakpoints = (0, _selectors.getXHRBreakpoints)(getState());
+    const index = xhrBreakpoints.findIndex(({ path }) => path.length === 0);
+    if (index < 0) {
+      return dispatch(setXHRBreakpoint("", "ANY"));
+    }
+
+    const bp = xhrBreakpoints.get(index);
+    if (bp.disabled) {
+      return dispatch(enableXHRBreakpoint(index, bp));
+    }
+
+    return dispatch(disableXHRBreakpoint(index, bp));
+  };
+}
+
+function setXHRBreakpoint(path, method) {
+  return ({ dispatch, getState, client }) => {
+    const breakpoint = (0, _breakpoint.createXHRBreakpoint)(path, method);
+
+    return dispatch({
+      type: "SET_XHR_BREAKPOINT",
+      breakpoint,
+      [_promise.PROMISE]: client.setXHRBreakpoint(path, method)
+    });
+  };
+}
+
+function removeXHRBreakpoint(index) {
+  return ({ dispatch, getState, client }) => {
+    const xhrBreakpoints = (0, _selectors.getXHRBreakpoints)(getState());
+    const breakpoint = xhrBreakpoints.get(index);
+    return dispatch({
+      type: "REMOVE_XHR_BREAKPOINT",
+      breakpoint,
+      index,
+      [_promise.PROMISE]: client.removeXHRBreakpoint(breakpoint.path, breakpoint.method)
+    });
   };
 }
 

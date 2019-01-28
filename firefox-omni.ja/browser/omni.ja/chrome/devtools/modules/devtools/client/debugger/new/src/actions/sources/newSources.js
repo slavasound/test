@@ -24,6 +24,8 @@ var _source = require("../../utils/source");
 
 var _selectors = require("../../selectors/index");
 
+var _prefs = require("../../utils/prefs");
+
 /* This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
@@ -32,6 +34,7 @@ var _selectors = require("../../selectors/index");
  * Redux actions for the sources state
  * @module actions/sources
  */
+
 function createOriginalSource(originalUrl, generatedSource, sourceMaps) {
   return {
     url: originalUrl,
@@ -45,36 +48,26 @@ function createOriginalSource(originalUrl, generatedSource, sourceMaps) {
 }
 
 function loadSourceMaps(sources) {
-  return async function ({
-    dispatch,
-    sourceMaps
-  }) {
-    if (!sourceMaps) {
+  return async function ({ dispatch, sourceMaps }) {
+    if (!_prefs.prefs.clientSourceMapsEnabled) {
       return;
     }
 
-    let originalSources = await Promise.all(sources.map(({
-      id
-    }) => dispatch(loadSourceMap(id))));
-    originalSources = (0, _lodash.flatten)(originalSources).filter(Boolean);
+    let originalSources = await Promise.all(sources.map(({ id }) => dispatch(loadSourceMap(id))));
 
+    originalSources = (0, _lodash.flatten)(originalSources).filter(Boolean);
     if (originalSources.length > 0) {
       await dispatch(newSources(originalSources));
     }
   };
 }
+
 /**
  * @memberof actions/sources
  * @static
  */
-
-
 function loadSourceMap(sourceId) {
-  return async function ({
-    dispatch,
-    getState,
-    sourceMaps
-  }) {
+  return async function ({ dispatch, getState, sourceMaps }) {
     const source = (0, _selectors.getSource)(getState(), sourceId);
 
     if (!source || (0, _source.isOriginal)(source) || !source.sourceMapURL) {
@@ -82,7 +75,6 @@ function loadSourceMap(sourceId) {
     }
 
     let urls = null;
-
     try {
       urls = await sourceMaps.getOriginalURLs(source);
     } catch (e) {
@@ -90,28 +82,29 @@ function loadSourceMap(sourceId) {
     }
 
     if (!urls) {
+      // The source might have changed while we looked up the URLs, so we need
+      // to load it again before dispatching. We ran into an issue here because
+      // this was previously using 'source' and was at risk of resetting the
+      // 'loadedState' field to 'loading', putting it in an inconsistent state.
+      const currentSource = (0, _selectors.getSource)(getState(), sourceId);
+
       // If this source doesn't have a sourcemap, enable it for pretty printing
       dispatch({
         type: "UPDATE_SOURCE",
         // NOTE: Flow https://github.com/facebook/flow/issues/6342 issue
-        source: { ...source,
-          sourceMapURL: ""
-        }
+        source: { ...currentSource, sourceMapURL: "" }
       });
       return;
     }
 
     return urls.map(url => createOriginalSource(url, source, sourceMaps));
   };
-} // If a request has been made to show this source, go ahead and
+}
+
+// If a request has been made to show this source, go ahead and
 // select it.
-
-
 function checkSelectedSource(sourceId) {
-  return async ({
-    dispatch,
-    getState
-  }) => {
+  return async ({ dispatch, getState }) => {
     const source = (0, _selectors.getSource)(getState(), sourceId);
     const pendingLocation = (0, _selectors.getPendingSelectedLocation)(getState());
 
@@ -128,21 +121,19 @@ function checkSelectedSource(sourceId) {
         return dispatch(checkPendingBreakpoints(prettySource.id));
       }
 
-      await dispatch((0, _sources.selectLocation)({ ...pendingLocation,
-        sourceId: source.id
+      await dispatch((0, _sources.selectLocation)({
+        sourceId: source.id,
+        line: typeof pendingLocation.line === "number" ? pendingLocation.line : 0,
+        column: pendingLocation.column
       }));
     }
   };
 }
 
 function checkPendingBreakpoints(sourceId) {
-  return async ({
-    dispatch,
-    getState
-  }) => {
+  return async ({ dispatch, getState }) => {
     // source may have been modified by selectLocation
     const source = (0, _selectors.getSource)(getState(), sourceId);
-
     if (!source) {
       return;
     }
@@ -151,24 +142,21 @@ function checkPendingBreakpoints(sourceId) {
 
     if (pendingBreakpoints.length === 0) {
       return;
-    } // load the source text if there is a pending breakpoint for it
+    }
 
-
+    // load the source text if there is a pending breakpoint for it
     await dispatch((0, _loadSourceText.loadSourceText)(source));
+
     await Promise.all(pendingBreakpoints.map(bp => dispatch((0, _breakpoints.syncBreakpoint)(sourceId, bp))));
   };
 }
 
 function restoreBlackBoxedSources(sources) {
-  return async ({
-    dispatch
-  }) => {
+  return async ({ dispatch }) => {
     const tabs = (0, _selectors.getBlackBoxList)();
-
     if (tabs.length == 0) {
       return;
     }
-
     for (const source of sources) {
       if (tabs.includes(source.url) && !source.isBlackBoxed) {
         dispatch((0, _blackbox.toggleBlackBox)(source));
@@ -176,45 +164,37 @@ function restoreBlackBoxedSources(sources) {
     }
   };
 }
+
 /**
  * Handler for the debugger client's unsolicited newSource notification.
  * @memberof actions/sources
  * @static
  */
-
-
 function newSource(source) {
-  return async ({
-    dispatch
-  }) => {
+  return async ({ dispatch }) => {
     await dispatch(newSources([source]));
   };
 }
 
 function newSources(sources) {
-  return async ({
-    dispatch,
-    getState
-  }) => {
+  return async ({ dispatch, getState }) => {
     sources = sources.filter(source => !(0, _selectors.getSource)(getState(), source.id));
 
     if (sources.length == 0) {
       return;
     }
 
-    dispatch({
-      type: "ADD_SOURCES",
-      sources: sources
-    });
+    dispatch({ type: "ADD_SOURCES", sources: sources });
+
     await dispatch(loadSourceMaps(sources));
 
     for (const source of sources) {
       dispatch(checkSelectedSource(source.id));
       dispatch(checkPendingBreakpoints(source.id));
-    } // We would like to restore the blackboxed state
+    }
+
+    // We would like to restore the blackboxed state
     // after loading all states to make sure the correctness.
-
-
     await dispatch(restoreBlackBoxedSources(sources));
   };
 }

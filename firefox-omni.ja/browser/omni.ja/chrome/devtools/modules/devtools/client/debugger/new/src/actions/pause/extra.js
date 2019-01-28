@@ -13,6 +13,7 @@ var _preview = require("../../utils/preview");
 /* This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
+
 async function getReactProps(evaluate, displayName) {
   const componentNames = await evaluate(`
     if(this.hasOwnProperty('_reactInternalFiber')) {
@@ -28,16 +29,12 @@ async function getReactProps(evaluate, displayName) {
       [this._reactInternalInstance.getName()];
     }
     `);
-  const items = componentNames.result.preview && componentNames.result.preview.items;
-  let extra = {
-    displayName
-  };
 
+  const items = componentNames.result.preview && componentNames.result.preview.items;
+
+  let extra = { displayName };
   if (items) {
-    extra = {
-      displayName,
-      componentStack: items
-    };
+    extra = { displayName, componentStack: items };
   }
 
   return extra;
@@ -46,8 +43,10 @@ async function getReactProps(evaluate, displayName) {
 async function getImmutableProps(expression, evaluate) {
   // NOTE: it's possible the expression is a statement e.g `_this.fields;`
   expression = expression.replace(/;$/, "");
+
   const immutableEntries = await evaluate(`${expression}.toJS()`);
   const immutableType = await evaluate(`${expression}.constructor.name`);
+
   return {
     type: immutableType.result,
     entries: immutableEntries.result
@@ -56,6 +55,7 @@ async function getImmutableProps(expression, evaluate) {
 
 async function getExtraProps(getState, expression, result, evaluate) {
   const props = {};
+
   const component = (0, _selectors.inComponent)(getState());
 
   if (component) {
@@ -70,12 +70,8 @@ async function getExtraProps(getState, expression, result, evaluate) {
 }
 
 function fetchExtra() {
-  return async function ({
-    dispatch,
-    getState
-  }) {
+  return async function ({ dispatch, getState }) {
     const frame = (0, _selectors.getSelectedFrame)(getState());
-
     if (!frame) {
       return;
     }
@@ -89,19 +85,14 @@ function fetchExtra() {
 }
 
 function getExtra(expression, result) {
-  return async ({
-    dispatch,
-    getState,
-    client,
-    sourceMaps
-  }) => {
+  return async ({ dispatch, getState, client, sourceMaps }) => {
     const selectedFrame = (0, _selectors.getSelectedFrame)(getState());
-
     if (!selectedFrame) {
       return {};
     }
 
     const extra = await getExtraProps(getState, expression, result, expr => client.evaluateInFrame(expr, selectedFrame.id));
+
     return extra;
   };
 }

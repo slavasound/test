@@ -25,28 +25,29 @@ var _selectors = require("../selectors/index");
  * Redux actions for the editor tabs
  * @module actions/tabs
  */
+
 function updateTab(source, framework) {
-  const {
-    url
-  } = source;
+  const { url, id: sourceId } = source;
   const isOriginal = (0, _devtoolsSourceMap.isOriginalId)(source.id);
+
   return {
     type: "UPDATE_TAB",
     url,
     framework,
-    isOriginal
+    isOriginal,
+    sourceId
   };
 }
 
 function addTab(source) {
-  const {
-    url
-  } = source;
+  const { url, id: sourceId } = source;
   const isOriginal = (0, _devtoolsSourceMap.isOriginalId)(source.id);
+
   return {
     type: "ADD_TAB",
     url,
-    isOriginal
+    isOriginal,
+    sourceId
   };
 }
 
@@ -57,53 +58,36 @@ function moveTab(url, tabIndex) {
     tabIndex
   };
 }
+
 /**
  * @memberof actions/tabs
  * @static
  */
-
-
 function closeTab(source) {
-  return ({
-    dispatch,
-    getState,
-    client
-  }) => {
-    const {
-      id,
-      url
-    } = source;
+  return ({ dispatch, getState, client }) => {
+    const { id, url } = source;
+
     (0, _editor.removeDocument)(id);
+
     const tabs = (0, _selectors.removeSourceFromTabList)((0, _selectors.getSourceTabs)(getState()), source);
     const sourceId = (0, _selectors.getNewSelectedSourceId)(getState(), tabs);
-    dispatch({
-      type: "CLOSE_TAB",
-      url,
-      tabs
-    });
+    dispatch({ type: "CLOSE_TAB", url, tabs });
     dispatch((0, _sources.selectSource)(sourceId));
   };
 }
+
 /**
  * @memberof actions/tabs
  * @static
  */
-
-
 function closeTabs(urls) {
-  return ({
-    dispatch,
-    getState,
-    client
-  }) => {
+  return ({ dispatch, getState, client }) => {
     const sources = (0, _selectors.getSourcesByURLs)(getState(), urls);
     sources.map(source => (0, _editor.removeDocument)(source.id));
+
     const tabs = (0, _selectors.removeSourcesFromTabList)((0, _selectors.getSourceTabs)(getState()), sources);
-    dispatch({
-      type: "CLOSE_TABS",
-      sources,
-      tabs
-    });
+    dispatch({ type: "CLOSE_TABS", sources, tabs });
+
     const sourceId = (0, _selectors.getNewSelectedSourceId)(getState(), tabs);
     dispatch((0, _sources.selectSource)(sourceId));
   };

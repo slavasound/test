@@ -21,6 +21,7 @@ var _reselect = require("devtools/client/debugger/new/dist/vendors").vendored["r
 /* This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
+
 function getLocation(frame, isGeneratedSource) {
   return isGeneratedSource ? frame.generatedLocation || frame.location : frame.location;
 }
@@ -32,7 +33,8 @@ function getSourceForFrame(sources, frame, isGeneratedSource) {
 
 function appendSource(sources, frame, selectedSource) {
   const isGeneratedSource = selectedSource && !(0, _source.isOriginal)(selectedSource);
-  return { ...frame,
+  return {
+    ...frame,
     location: getLocation(frame, isGeneratedSource),
     source: getSourceForFrame(sources, frame, isGeneratedSource)
   };
@@ -44,6 +46,7 @@ function formatCallStackFrames(frames, sources, selectedSource) {
   }
 
   const formattedFrames = frames.filter(frame => getSourceForFrame(sources, frame)).map(frame => appendSource(sources, frame, selectedSource)).filter(frame => !(0, _lodash.get)(frame, "source.isBlackBoxed"));
+
   return (0, _frames.annotateFrames)(formattedFrames);
 }
 

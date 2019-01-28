@@ -7,7 +7,6 @@ exports.handleError = handleError;
 exports.promisify = promisify;
 exports.endTruncateStr = endTruncateStr;
 exports.waitForMs = waitForMs;
-
 /* This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
@@ -24,12 +23,11 @@ exports.waitForMs = waitForMs;
 function handleError(err) {
   console.log("ERROR: ", err);
 }
+
 /**
  * @memberof utils/utils
  * @static
  */
-
-
 function promisify(context, method, ...args) {
   return new Promise((resolve, reject) => {
     args.push(response => {
@@ -42,17 +40,15 @@ function promisify(context, method, ...args) {
     method.apply(context, args);
   });
 }
+
 /**
  * @memberof utils/utils
  * @static
  */
-
-
 function endTruncateStr(str, size) {
   if (str.length > size) {
-    return `...${str.slice(str.length - size)}`;
+    return `…${str.slice(str.length - size)}`;
   }
-
   return str;
 }
 

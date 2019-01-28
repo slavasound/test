@@ -17,7 +17,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 /* This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
+
 class ResultList extends _react.Component {
+
   constructor(props) {
     super(props);
 
@@ -25,21 +27,20 @@ class ResultList extends _react.Component {
   }
 
   render() {
-    const {
-      size,
-      items,
-      role
-    } = this.props;
-    return _react2.default.createElement("ul", {
-      className: (0, _classnames2.default)("result-list", size),
-      id: "result-list",
-      role: role,
-      "aria-live": "polite"
-    }, items.map(this.renderListItem));
+    const { size, items, role } = this.props;
+
+    return _react2.default.createElement(
+      "ul",
+      {
+        className: (0, _classnames2.default)("result-list", size),
+        id: "result-list",
+        role: role,
+        "aria-live": "polite"
+      },
+      items.map(this.renderListItem)
+    );
   }
-
 }
-
 exports.default = ResultList;
 ResultList.defaultProps = {
   size: "small",
@@ -52,10 +53,7 @@ var _initialiseProps = function () {
       item.title = "(index)";
     }
 
-    const {
-      selectItem,
-      selected
-    } = this.props;
+    const { selectItem, selected } = this.props;
     const props = {
       onClick: event => selectItem(event, item, index),
       key: `${item.id}${item.value}${index}`,
@@ -68,14 +66,25 @@ var _initialiseProps = function () {
         selected: index === selected
       })
     };
-    return _react2.default.createElement("li", props, item.icon && _react2.default.createElement("div", null, _react2.default.createElement("img", {
-      className: item.icon
-    })), _react2.default.createElement("div", {
-      id: `${item.id}-title`,
-      className: "title"
-    }, item.title), item.subtitle != item.title ? _react2.default.createElement("div", {
-      id: `${item.id}-subtitle`,
-      className: "subtitle"
-    }, item.subtitle) : null);
+
+    return _react2.default.createElement(
+      "li",
+      props,
+      item.icon && _react2.default.createElement(
+        "div",
+        null,
+        _react2.default.createElement("img", { className: item.icon })
+      ),
+      _react2.default.createElement(
+        "div",
+        { id: `${item.id}-title`, className: "title" },
+        item.title
+      ),
+      item.subtitle != item.title ? _react2.default.createElement(
+        "div",
+        { id: `${item.id}-subtitle`, className: "subtitle" },
+        item.subtitle
+      ) : null
+    );
   };
 };

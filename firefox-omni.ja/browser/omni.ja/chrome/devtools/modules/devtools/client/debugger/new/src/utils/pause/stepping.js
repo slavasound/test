@@ -16,6 +16,7 @@ var _selectors = require("../../selectors/index");
 /* This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
+
 function getFrameLocation(source, frame) {
   if (!frame) {
     return null;
@@ -34,10 +35,12 @@ function shouldStep(rootFrame, state, sourceMaps) {
 
   const previousFrameLoc = getFrameLocation(selectedSource, previousFrameInfo);
   const frameLoc = getFrameLocation(selectedSource, rootFrame);
+
   const sameLocation = previousFrameLoc && (0, _lodash.isEqual)(previousFrameLoc, frameLoc);
   const pausePoint = (0, _selectors.getPausePoint)(state, frameLoc);
-  const invalidPauseLocation = pausePoint && !pausePoint.step; // We always want to pause in generated locations
+  const invalidPauseLocation = pausePoint && !pausePoint.types.step;
 
+  // We always want to pause in generated locations
   if (!frameLoc || (0, _devtoolsSourceMap.isGeneratedId)(frameLoc.sourceId)) {
     return false;
   }

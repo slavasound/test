@@ -18,17 +18,6 @@ var _thunk = require("./middleware/thunk");
 
 var _timing = require("./middleware/timing");
 
-/* This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
-
-/* global window */
-
-/**
- * Redux store utils
- * @module utils/create-store
- */
-
 /**
  * This creates a dispatcher with all the standard middleware in place
  * that all code requires. It can also be optionally configured in
@@ -42,8 +31,16 @@ var _timing = require("./middleware/timing");
  * @memberof utils/create-store
  * @static
  */
+
+
+/**
+ * @memberof utils/create-store
+ * @static
+ */
 const configureStore = (opts = {}) => {
-  const middleware = [(0, _thunk.thunk)(opts.makeThunkArgs), _promise.promise, // Order is important: services must go last as they always
+  const middleware = [(0, _thunk.thunk)(opts.makeThunkArgs), _promise.promise,
+
+  // Order is important: services must go last as they always
   // operate on "already transformed" actions. Actions going through
   // them shouldn't have any special fields like promises, they
   // should just be normal JSON objects.
@@ -63,11 +60,21 @@ const configureStore = (opts = {}) => {
 
   if (opts.timing) {
     middleware.push(_timing.timing);
-  } // Hook in the redux devtools browser extension if it exists
+  }
 
-
+  // Hook in the redux devtools browser extension if it exists
   const devtoolsExt = typeof window === "object" && window.devToolsExtension ? window.devToolsExtension() : f => f;
+
   return (0, _redux.applyMiddleware)(...middleware)(devtoolsExt(_redux.createStore));
-};
+}; /* This Source Code Form is subject to the terms of the Mozilla Public
+    * License, v. 2.0. If a copy of the MPL was not distributed with this
+    * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
+
+/* global window */
+
+/**
+ * Redux store utils
+ * @module utils/create-store
+ */
 
 exports.default = configureStore;

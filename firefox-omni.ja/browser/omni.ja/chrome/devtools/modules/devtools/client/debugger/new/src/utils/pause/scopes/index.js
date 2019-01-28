@@ -7,9 +7,6 @@ exports.getScopes = getScopes;
 
 var _getScope = require("./getScope");
 
-/* This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
 function getScopes(why, selectedFrame, frameScopes) {
   if (!why || !selectedFrame) {
     return null;
@@ -20,6 +17,7 @@ function getScopes(why, selectedFrame, frameScopes) {
   }
 
   const scopes = [];
+
   let scope = frameScopes;
   let scopeIndex = 1;
 
@@ -29,10 +27,11 @@ function getScopes(why, selectedFrame, frameScopes) {
     if (scopeItem) {
       scopes.push(scopeItem);
     }
-
     scopeIndex++;
     scope = scope.parent;
   }
 
   return scopes;
-}
+} /* This Source Code Form is subject to the terms of the Mozilla Public
+   * License, v. 2.0. If a copy of the MPL was not distributed with this
+   * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */

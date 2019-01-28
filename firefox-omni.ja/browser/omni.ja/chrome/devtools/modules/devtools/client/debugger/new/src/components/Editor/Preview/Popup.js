@@ -39,31 +39,19 @@ var _firefox = require("../../../client/firefox");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/* This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
 const {
-  REPS: {
-    Rep
-  },
+  REPS: { Rep },
   MODE,
   objectInspector
-} = _devtoolsReps2.default;
+} = _devtoolsReps2.default; /* This Source Code Form is subject to the terms of the Mozilla Public
+                             * License, v. 2.0. If a copy of the MPL was not distributed with this
+                             * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
+
+const { ObjectInspector, utils } = objectInspector;
+
 const {
-  ObjectInspector,
-  utils
-} = objectInspector;
-const {
-  node: {
-    createNode,
-    getChildren,
-    getValue,
-    nodeIsPrimitive,
-    NODE_TYPES
-  },
-  loadProperties: {
-    loadItemProperties
-  }
+  node: { createNode, getChildren, getValue, nodeIsPrimitive, NODE_TYPES },
+  loadProperties: { loadItemProperties }
 } = utils;
 
 function inPreview(event) {
@@ -71,14 +59,16 @@ function inPreview(event) {
 
   if (!relatedTarget || relatedTarget.classList && relatedTarget.classList.contains("preview-expression")) {
     return true;
-  } // $FlowIgnore
+  }
 
-
+  // $FlowIgnore
   const inPreviewSelection = document.elementsFromPoint(event.clientX, event.clientY).some(el => el.classList.contains("preview-selection"));
+
   return inPreviewSelection;
 }
 
 class Popup extends _react.Component {
+
   constructor(props) {
     super(props);
 
@@ -101,21 +91,15 @@ class Popup extends _react.Component {
     };
 
     this.calculateMaxHeight = () => {
-      const {
-        editorRef
-      } = this.props;
-
+      const { editorRef } = this.props;
       if (!editorRef) {
         return "auto";
       }
-
       return editorRef.getBoundingClientRect().height - this.state.top;
     };
 
     this.onPopoverCoords = coords => {
-      this.setState({
-        top: coords.top
-      });
+      this.setState({ top: coords.top });
     };
 
     this.state = {
@@ -129,11 +113,11 @@ class Popup extends _react.Component {
       setPopupObjectProperties,
       popupObjectProperties
     } = this.props;
+
     const root = this.getRoot();
 
     if (!nodeIsPrimitive(root) && value && value.actor && !popupObjectProperties[value.actor]) {
       const onLoadItemProperties = loadItemProperties(root, _firefox.createObjectClient);
-
       if (onLoadItemProperties !== null) {
         const properties = await onLoadItemProperties;
         setPopupObjectProperties(root.contents.value, properties);
@@ -142,13 +126,9 @@ class Popup extends _react.Component {
   }
 
   getRoot() {
-    const {
-      expression,
-      value,
-      extra
-    } = this.props;
-    let rootValue = value;
+    const { expression, value, extra } = this.props;
 
+    let rootValue = value;
     if (extra.immutable) {
       rootValue = extra.immutable.entries;
     }
@@ -156,19 +136,14 @@ class Popup extends _react.Component {
     return createNode({
       name: expression,
       path: expression,
-      contents: {
-        value: rootValue
-      }
+      contents: { value: rootValue }
     });
   }
 
   getObjectProperties() {
-    const {
-      popupObjectProperties
-    } = this.props;
+    const { popupObjectProperties } = this.props;
     const root = this.getRoot();
     const value = getValue(root);
-
     if (!value) {
       return null;
     }
@@ -197,53 +172,55 @@ class Popup extends _react.Component {
   }
 
   renderFunctionPreview() {
-    const {
-      selectSourceURL,
-      value
-    } = this.props;
+    const { selectSourceURL, value } = this.props;
 
     if (!value) {
       return null;
     }
 
-    const {
-      location
-    } = value;
-    return _react2.default.createElement("div", {
-      className: "preview-popup",
-      onClick: () => selectSourceURL(location.url, {
-        line: location.line
-      })
-    }, _react2.default.createElement(_PreviewFunction2.default, {
-      func: value
-    }));
+    const { location } = value;
+    return _react2.default.createElement(
+      "div",
+      {
+        className: "preview-popup",
+        onClick: () => selectSourceURL(location.url, { line: location.line })
+      },
+      _react2.default.createElement(_PreviewFunction2.default, { func: value })
+    );
   }
 
   renderReact(react) {
     const reactHeader = react.displayName || "React Component";
-    return _react2.default.createElement("div", {
-      className: "header-container"
-    }, _react2.default.createElement(_Svg2.default, {
-      name: "react",
-      className: "logo"
-    }), _react2.default.createElement("h3", null, reactHeader));
+
+    return _react2.default.createElement(
+      "div",
+      { className: "header-container" },
+      _react2.default.createElement(_Svg2.default, { name: "react", className: "logo" }),
+      _react2.default.createElement(
+        "h3",
+        null,
+        reactHeader
+      )
+    );
   }
 
   renderImmutable(immutable) {
     const immutableHeader = immutable.type || "Immutable";
-    return _react2.default.createElement("div", {
-      className: "header-container"
-    }, _react2.default.createElement(_Svg2.default, {
-      name: "immutable",
-      className: "logo"
-    }), _react2.default.createElement("h3", null, immutableHeader));
+
+    return _react2.default.createElement(
+      "div",
+      { className: "header-container" },
+      _react2.default.createElement(_Svg2.default, { name: "immutable", className: "logo" }),
+      _react2.default.createElement(
+        "h3",
+        null,
+        immutableHeader
+      )
+    );
   }
 
   renderObjectPreview() {
-    const {
-      extra,
-      value
-    } = this.props;
+    const { extra, value } = this.props;
     const root = this.getRoot();
 
     if (nodeIsPrimitive(root)) {
@@ -251,13 +228,11 @@ class Popup extends _react.Component {
     }
 
     let roots = this.getChildren();
-
     if (!Array.isArray(roots) || roots.length === 0) {
       return null;
     }
 
     let header = null;
-
     if (extra.immutable && (0, _preview.isImmutablePreview)(value)) {
       header = this.renderImmutable(extra.immutable);
       roots = roots.filter(r => r.type != NODE_TYPES.PROTOTYPE);
@@ -266,31 +241,33 @@ class Popup extends _react.Component {
       roots = roots.filter(r => ["state", "props"].includes(r.name));
     }
 
-    return _react2.default.createElement("div", {
-      className: "preview-popup",
-      style: {
-        maxHeight: this.calculateMaxHeight()
-      }
-    }, header, this.renderObjectInspector(roots));
+    return _react2.default.createElement(
+      "div",
+      {
+        className: "preview-popup",
+        style: { maxHeight: this.calculateMaxHeight() }
+      },
+      header,
+      this.renderObjectInspector(roots)
+    );
   }
 
   renderSimplePreview(value) {
-    const {
-      openLink
-    } = this.props;
-    return _react2.default.createElement("div", {
-      className: "preview-popup"
-    }, Rep({
-      object: value,
-      mode: MODE.LONG,
-      openLink
-    }));
+    const { openLink } = this.props;
+    return _react2.default.createElement(
+      "div",
+      { className: "preview-popup" },
+      Rep({
+        object: value,
+        mode: MODE.LONG,
+        openLink
+      })
+    );
   }
 
   renderObjectInspector(roots) {
-    const {
-      openLink
-    } = this.props;
+    const { openLink } = this.props;
+
     return _react2.default.createElement(ObjectInspector, {
       roots: roots,
       autoExpandDepth: 0,
@@ -306,16 +283,18 @@ class Popup extends _react.Component {
     // return on `false`, `""`, `0`, `undefined` etc,
     // these falsy simple typed value because we want to
     // do `renderSimplePreview` on these values below.
-    const {
-      value
-    } = this.props;
+    const { value } = this.props;
 
     if (value && value.class === "Function") {
       return this.renderFunctionPreview();
     }
 
     if (value && value.type === "object") {
-      return _react2.default.createElement("div", null, this.renderObjectPreview());
+      return _react2.default.createElement(
+        "div",
+        null,
+        this.renderObjectPreview()
+      );
     }
 
     return this.renderSimplePreview(value);
@@ -330,31 +309,29 @@ class Popup extends _react.Component {
   }
 
   render() {
-    const {
-      popoverPos,
-      value,
-      editorRef
-    } = this.props;
+    const { popoverPos, value, editorRef } = this.props;
     const type = this.getPreviewType(value);
 
     if (value && value.type === "object" && !this.getChildren()) {
       return null;
     }
 
-    return _react2.default.createElement(_Popover2.default, {
-      targetPosition: popoverPos,
-      onMouseLeave: this.onMouseLeave,
-      onKeyDown: this.onKeyDown,
-      type: type,
-      onPopoverCoords: this.onPopoverCoords,
-      editorRef: editorRef
-    }, this.renderPreview());
+    return _react2.default.createElement(
+      _Popover2.default,
+      {
+        targetPosition: popoverPos,
+        onMouseLeave: this.onMouseLeave,
+        onKeyDown: this.onKeyDown,
+        type: type,
+        onPopoverCoords: this.onPopoverCoords,
+        editorRef: editorRef
+      },
+      this.renderPreview()
+    );
   }
-
 }
 
 exports.Popup = Popup;
-
 const mapStateToProps = state => ({
   popupObjectProperties: (0, _selectors.getAllPopupObjectProperties)(state)
 });
@@ -366,6 +343,7 @@ const {
   setPopupObjectProperties,
   openLink
 } = _actions2.default;
+
 const mapDispatchToProps = {
   addExpression,
   selectSourceURL,
@@ -373,4 +351,5 @@ const mapDispatchToProps = {
   setPopupObjectProperties,
   openLink
 };
+
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Popup);

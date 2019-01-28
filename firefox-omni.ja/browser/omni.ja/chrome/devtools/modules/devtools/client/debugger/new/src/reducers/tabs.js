@@ -22,17 +22,16 @@ var _sources = require("./sources");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/* This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
+function isSimilarTab(tab, url, isOriginal) {
+  return tab.url === url && tab.isOriginal === isOriginal;
+} /* This Source Code Form is subject to the terms of the Mozilla Public
+   * License, v. 2.0. If a copy of the MPL was not distributed with this
+   * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
 
 /**
  * Tabs reducer
  * @module reducers/tabs
  */
-function isSimilarTab(tab, url, isOriginal) {
-  return tab.url === url && tab.isOriginal === isOriginal;
-}
 
 function update(state = [], action) {
   switch (action.type) {
@@ -60,43 +59,42 @@ function removeSourceFromTabList(tabs, source) {
 function removeSourcesFromTabList(tabs, sources) {
   return sources.reduce((t, source) => removeSourceFromTabList(t, source), tabs);
 }
+
 /**
  * Adds the new source to the tab list if it is not already there
  * @memberof reducers/tabs
  * @static
  */
-
-
-function updateTabList(tabs, {
-  url,
-  framework = null,
-  isOriginal = false
-}) {
-  const currentIndex = tabs.findIndex(tab => isSimilarTab(tab, url, isOriginal));
+function updateTabList(tabs, { url, framework = null, sourceId, isOriginal = false }) {
+  // Set currentIndex to -1 for URL-less tabs so that they aren't
+  // filtered by isSimilarTab
+  const currentIndex = url ? tabs.findIndex(tab => isSimilarTab(tab, url, isOriginal)) : -1;
 
   if (currentIndex === -1) {
-    tabs = [{
-      url,
-      framework,
-      isOriginal
-    }, ...tabs];
+    tabs = [{ url, framework, sourceId, isOriginal }, ...tabs];
   } else if (framework) {
     tabs[currentIndex].framework = framework;
   }
 
-  _prefs.asyncStore.tabs = tabs;
+  _prefs.asyncStore.tabs = persistTabs(tabs);
   return tabs;
 }
 
-function moveTabInList(tabs, {
-  url,
-  tabIndex: newIndex
-}) {
+function persistTabs(tabs) {
+  return tabs.filter(tab => tab.url).map(tab => {
+    const newTab = { ...tab };
+    delete newTab.sourceId;
+    return newTab;
+  });
+}
+
+function moveTabInList(tabs, { url, tabIndex: newIndex }) {
   const currentIndex = tabs.findIndex(tab => tab.url == url);
   tabs = (0, _lodashMove2.default)(tabs, currentIndex, newIndex);
   _prefs.asyncStore.tabs = tabs;
   return tabs;
 }
+
 /**
  * Gets the next tab to select when a tab closes. Heuristics:
  * 1. if the selected tab is available, it remains selected
@@ -106,17 +104,13 @@ function moveTabInList(tabs, {
  * @memberof reducers/tabs
  * @static
  */
-
-
 function getNewSelectedSourceId(state, availableTabs) {
   const selectedLocation = state.sources.selectedLocation;
-
   if (!selectedLocation) {
     return "";
   }
 
   const selectedTab = (0, _sources.getSource)(state, selectedLocation.sourceId);
-
   if (!selectedTab) {
     return "";
   }
@@ -125,7 +119,6 @@ function getNewSelectedSourceId(state, availableTabs) {
 
   if (matchingTab) {
     const sources = state.sources.sources;
-
     if (!sources) {
       return "";
     }
@@ -154,7 +147,10 @@ function getNewSelectedSourceId(state, availableTabs) {
   }
 
   return "";
-} // Selectors
+}
+
+// Selectors
+
 // Unfortunately, it's really hard to make these functions accept just
 // the state that we care about and still type it with Flow. The
 // problem is that we want to re-export all selectors from a single
@@ -162,12 +158,18 @@ function getNewSelectedSourceId(state, availableTabs) {
 // top-level app state, so we'd have to "wrap" them to automatically
 // pick off the piece of state we're interested in. It's impossible
 // (right now) to type those wrapped functions.
-
-
 const getTabs = exports.getTabs = state => state.tabs;
 
-const getSourceTabs = exports.getSourceTabs = (0, _reselect.createSelector)(getTabs, _sources.getSources, _sources.getUrls, (tabs, sources, urls) => tabs.filter(tab => (0, _sources.getSpecificSourceByUrlInSources)(sources, urls, tab.url, tab.isOriginal)));
-const getSourcesForTabs = exports.getSourcesForTabs = (0, _reselect.createSelector)(getSourceTabs, _sources.getSources, _sources.getUrls, (tabs, sources, urls) => {
-  return tabs.map(tab => (0, _sources.getSpecificSourceByUrlInSources)(sources, urls, tab.url, tab.isOriginal)).filter(Boolean);
-});
+const getSourceTabs = exports.getSourceTabs = (0, _reselect.createSelector)(getTabs, _sources.getSources, _sources.getUrls, (tabs, sources, urls) => tabs.filter(tab => getTabWithOrWithoutUrl(tab, sources, urls)));
+
+const getSourcesForTabs = exports.getSourcesForTabs = (0, _reselect.createSelector)(getSourceTabs, _sources.getSources, _sources.getUrls, (tabs, sources, urls) => tabs.map(tab => getTabWithOrWithoutUrl(tab, sources, urls)).filter(Boolean));
+
+function getTabWithOrWithoutUrl(tab, sources, urls) {
+  if (tab.url) {
+    return (0, _sources.getSpecificSourceByUrlInSources)(sources, urls, tab.url, tab.isOriginal);
+  }
+
+  return tab.sourceId ? sources[tab.sourceId] : null;
+}
+
 exports.default = update;

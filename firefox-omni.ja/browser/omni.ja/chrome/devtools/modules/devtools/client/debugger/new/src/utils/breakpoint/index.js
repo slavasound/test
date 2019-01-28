@@ -31,7 +31,11 @@ exports.assertPendingLocation = assertPendingLocation;
 exports.breakpointAtLocation = breakpointAtLocation;
 exports.breakpointExists = breakpointExists;
 exports.createBreakpoint = createBreakpoint;
+exports.createXHRBreakpoint = createXHRBreakpoint;
 exports.createPendingBreakpoint = createPendingBreakpoint;
+exports.sortBreakpoints = sortBreakpoints;
+
+var _lodash = require("devtools/client/shared/vendor/lodash");
 
 var _selectors = require("../../selectors/index");
 
@@ -51,7 +55,6 @@ function firstString(...args) {
       return arg;
     }
   }
-
   return null;
 }
 
@@ -60,32 +63,22 @@ function locationMoved(location, newLocation) {
 }
 
 function makeLocationId(location) {
-  const {
-    sourceId,
-    line,
-    column
-  } = location;
+  const { sourceId, line, column } = location;
   const columnString = column || "";
   return `${sourceId}:${line}:${columnString}`;
 }
 
 function getLocationWithoutColumn(location) {
-  const {
-    sourceId,
-    line
-  } = location;
+  const { sourceId, line } = location;
   return `${sourceId}:${line}`;
 }
 
 function makePendingLocationId(location) {
   assertPendingLocation(location);
-  const {
-    sourceUrl,
-    line,
-    column
-  } = location;
+  const { sourceUrl, line, column } = location;
   const sourceUrlString = sourceUrl || "";
   const columnString = column || "";
+
   return `${sourceUrlString}:${line}:${columnString}`;
 }
 
@@ -101,37 +94,31 @@ function assertPendingBreakpoint(pendingBreakpoint) {
 
 function assertLocation(location) {
   assertPendingLocation(location);
-  const {
-    sourceId
-  } = location;
+  const { sourceId } = location;
   (0, _assert2.default)(!!sourceId, "location must have a source id");
 }
 
 function assertPendingLocation(location) {
   (0, _assert2.default)(!!location, "location must exist");
-  const {
-    sourceUrl
-  } = location; // sourceUrl is null when the source does not have a url
 
+  const { sourceUrl } = location;
+
+  // sourceUrl is null when the source does not have a url
   (0, _assert2.default)(sourceUrl !== undefined, "location must have a source url");
   (0, _assert2.default)(location.hasOwnProperty("line"), "location must have a line");
   (0, _assert2.default)(location.hasOwnProperty("column") != null, "location must have a column");
-} // syncing
+}
 
-
-function breakpointAtLocation(breakpoints, {
-  line,
-  column
-}) {
+// syncing
+function breakpointAtLocation(breakpoints, { line, column }) {
   return breakpoints.find(breakpoint => {
     const sameLine = breakpoint.location.line === line;
-
     if (!sameLine) {
       return false;
-    } // NOTE: when column breakpoints are disabled we want to find
+    }
+
+    // NOTE: when column breakpoints are disabled we want to find
     // the first breakpoint
-
-
     if (!_prefs.features.columnBreakpoints) {
       return true;
     }
@@ -156,10 +143,8 @@ function createBreakpoint(location, overrides = {}) {
     text,
     originalText
   } = overrides;
-  const defaultASTLocation = {
-    name: undefined,
-    offset: location
-  };
+
+  const defaultASTLocation = { name: undefined, offset: location };
   const properties = {
     id,
     condition: condition || null,
@@ -172,26 +157,33 @@ function createBreakpoint(location, overrides = {}) {
     text,
     originalText
   };
+
   return properties;
 }
 
-function createPendingLocation(location) {
-  const {
-    sourceUrl,
-    line,
-    column
-  } = location;
-  return {
-    sourceUrl,
-    line,
-    column
+function createXHRBreakpoint(path, method, overrides = {}) {
+  const properties = {
+    path,
+    method,
+    disabled: false,
+    loading: false,
+    text: `URL contains "${path}"`
   };
+
+  return { ...properties, ...overrides };
+}
+
+function createPendingLocation(location) {
+  const { sourceUrl, line, column } = location;
+  return { sourceUrl, line, column };
 }
 
 function createPendingBreakpoint(bp) {
   const pendingLocation = createPendingLocation(bp.location);
   const pendingGeneratedLocation = createPendingLocation(bp.generatedLocation);
+
   assertPendingLocation(pendingLocation);
+
   return {
     condition: bp.condition,
     disabled: bp.disabled,
@@ -199,4 +191,18 @@ function createPendingBreakpoint(bp) {
     astLocation: bp.astLocation,
     generatedLocation: pendingGeneratedLocation
   };
+}
+
+function sortBreakpoints(breakpoints) {
+  breakpoints = breakpoints.map(bp => ({
+    ...bp,
+    selectedLocation: {
+      ...bp.selectedLocation,
+      // If a breakpoint has an undefined column, we must provide a 0 value
+      // or the breakpoint will display after all explicit column numbers
+      column: bp.selectedLocation.column || 0
+    }
+  }));
+
+  return (0, _lodash.sortBy)(breakpoints, ["selectedLocation.line", "selectedLocation.column"]);
 }

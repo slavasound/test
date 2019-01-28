@@ -24,12 +24,9 @@ var _devtoolsReps = require("devtools/client/shared/components/reps/reps.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/* This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
-const {
-  ObjectInspector
-} = _devtoolsReps.objectInspector;
+const { ObjectInspector } = _devtoolsReps.objectInspector; /* This Source Code Form is subject to the terms of the Mozilla Public
+                                                            * License, v. 2.0. If a copy of the MPL was not distributed with this
+                                                            * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
 
 class Scopes extends _react.PureComponent {
   constructor(props, ...args) {
@@ -39,7 +36,9 @@ class Scopes extends _react.PureComponent {
       originalFrameScopes,
       generatedFrameScopes
     } = props;
+
     super(props, ...args);
+
     this.state = {
       originalScopes: (0, _scopes.getScopes)(why, selectedFrame, originalFrameScopes),
       generatedScopes: (0, _scopes.getScopes)(why, selectedFrame, generatedFrameScopes),
@@ -68,45 +67,44 @@ class Scopes extends _react.PureComponent {
   }
 
   render() {
-    const {
-      isPaused,
-      isLoading,
-      openLink
-    } = this.props;
-    const {
-      originalScopes,
-      generatedScopes,
-      showOriginal
-    } = this.state;
+    const { isPaused, isLoading, openLink } = this.props;
+    const { originalScopes, generatedScopes, showOriginal } = this.state;
+
     const scopes = showOriginal && originalScopes || generatedScopes;
 
     if (scopes && !isLoading) {
-      return _react2.default.createElement("div", {
-        className: "pane scopes-list"
-      }, _react2.default.createElement(ObjectInspector, {
-        roots: scopes,
-        autoExpandAll: false,
-        autoExpandDepth: 1,
-        disableWrap: true,
-        focusable: false,
-        dimTopLevelWindow: true,
-        openLink: openLink,
-        createObjectClient: grip => (0, _firefox.createObjectClient)(grip)
-      }), originalScopes ? _react2.default.createElement("div", {
-        className: "scope-type-toggle"
-      }, _react2.default.createElement("a", {
-        href: "",
-        onClick: e => {
-          e.preventDefault();
-          this.setState({
-            showOriginal: !showOriginal
-          });
-        }
-      }, showOriginal ? L10N.getStr("scopes.toggleToGenerated") : L10N.getStr("scopes.toggleToOriginal"))) : null);
+      return _react2.default.createElement(
+        "div",
+        { className: "pane scopes-list" },
+        _react2.default.createElement(ObjectInspector, {
+          roots: scopes,
+          autoExpandAll: false,
+          autoExpandDepth: 1,
+          disableWrap: true,
+          focusable: false,
+          dimTopLevelWindow: true,
+          openLink: openLink,
+          createObjectClient: grip => (0, _firefox.createObjectClient)(grip)
+        }),
+        originalScopes ? _react2.default.createElement(
+          "div",
+          { className: "scope-type-toggle" },
+          _react2.default.createElement(
+            "a",
+            {
+              href: "",
+              onClick: e => {
+                e.preventDefault();
+                this.setState({ showOriginal: !showOriginal });
+              }
+            },
+            showOriginal ? L10N.getStr("scopes.toggleToGenerated") : L10N.getStr("scopes.toggleToOriginal")
+          )
+        ) : null
+      );
     }
 
     let stateText = L10N.getStr("scopes.notPaused");
-
     if (isPaused) {
       if (isLoading) {
         stateText = L10N.getStr("loadingText");
@@ -115,25 +113,27 @@ class Scopes extends _react.PureComponent {
       }
     }
 
-    return _react2.default.createElement("div", {
-      className: "pane scopes-list"
-    }, _react2.default.createElement("div", {
-      className: "pane-info"
-    }, stateText));
+    return _react2.default.createElement(
+      "div",
+      { className: "pane scopes-list" },
+      _react2.default.createElement(
+        "div",
+        { className: "pane-info" },
+        stateText
+      )
+    );
   }
-
 }
 
 const mapStateToProps = state => {
   const selectedFrame = (0, _selectors.getSelectedFrame)(state);
   const selectedSource = (0, _selectors.getSelectedSource)(state);
+
   const {
     scope: originalFrameScopes,
     pending: originalPending
-  } = (0, _selectors.getOriginalFrameScope)(state, selectedSource && selectedSource.id, selectedFrame && selectedFrame.id) || {
-    scope: null,
-    pending: false
-  };
+  } = (0, _selectors.getOriginalFrameScope)(state, selectedSource && selectedSource.id, selectedFrame && selectedFrame.id) || { scope: null, pending: false };
+
   const {
     scope: generatedFrameScopes,
     pending: generatedPending
@@ -141,6 +141,7 @@ const mapStateToProps = state => {
     scope: null,
     pending: false
   };
+
   return {
     selectedFrame,
     isPaused: (0, _selectors.isPaused)(state),

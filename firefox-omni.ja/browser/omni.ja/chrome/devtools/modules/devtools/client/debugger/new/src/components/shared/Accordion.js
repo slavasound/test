@@ -17,32 +17,39 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 /* This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
+
 class Accordion extends _react.Component {
   constructor(props) {
     super(props);
 
     this.renderContainer = (item, i) => {
-      const {
-        opened
-      } = item;
-      return _react2.default.createElement("li", {
-        role: "listitem",
-        className: item.className,
-        key: i
-      }, _react2.default.createElement("h2", {
-        className: "_header",
-        tabIndex: "0",
-        onKeyDown: e => this.onHandleHeaderKeyDown(e, i),
-        onClick: () => this.handleHeaderClick(i)
-      }, _react2.default.createElement(_Svg2.default, {
-        name: "arrow",
-        className: opened ? "expanded" : ""
-      }), item.header, item.buttons ? _react2.default.createElement("div", {
-        className: "header-buttons",
-        tabIndex: "-1"
-      }, item.buttons) : null), opened && _react2.default.createElement("div", {
-        className: "_content"
-      }, (0, _react.cloneElement)(item.component, item.componentProps || {})));
+      const { opened } = item;
+
+      return _react2.default.createElement(
+        "li",
+        { role: "listitem", className: item.className, key: i },
+        _react2.default.createElement(
+          "h2",
+          {
+            className: "_header",
+            tabIndex: "0",
+            onKeyDown: e => this.onHandleHeaderKeyDown(e, i),
+            onClick: () => this.handleHeaderClick(i)
+          },
+          _react2.default.createElement(_Svg2.default, { name: "arrow", className: opened ? "expanded" : "" }),
+          item.header,
+          item.buttons ? _react2.default.createElement(
+            "div",
+            { className: "header-buttons", tabIndex: "-1" },
+            item.buttons
+          ) : null
+        ),
+        opened && _react2.default.createElement(
+          "div",
+          { className: "_content" },
+          (0, _react.cloneElement)(item.component, item.componentProps || {})
+        )
+      );
     };
 
     this.state = {
@@ -58,10 +65,10 @@ class Accordion extends _react.Component {
 
     if (item.onToggle) {
       item.onToggle(opened);
-    } // We force an update because otherwise the accordion
+    }
+
+    // We force an update because otherwise the accordion
     // would not re-render
-
-
     this.forceUpdate();
   }
 
@@ -72,12 +79,12 @@ class Accordion extends _react.Component {
   }
 
   render() {
-    return _react2.default.createElement("ul", {
-      role: "list",
-      className: "accordion"
-    }, this.props.items.map(this.renderContainer));
+    return _react2.default.createElement(
+      "ul",
+      { role: "list", className: "accordion" },
+      this.props.items.map(this.renderContainer)
+    );
   }
-
 }
 
 exports.default = Accordion;

@@ -24,6 +24,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 /* This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
+
 function gutterMenu({
   breakpoint,
   line,
@@ -38,6 +39,7 @@ function gutterMenu({
 }) {
   event.stopPropagation();
   event.preventDefault();
+
   const gutterItems = {
     addBreakpoint: {
       id: "node-menu-add-breakpoint",
@@ -68,12 +70,12 @@ function gutterMenu({
       label: L10N.getStr("editor.continueToHere.label")
     }
   };
+
   const toggleBreakpointItem = {
     accesskey: L10N.getStr("shortcuts.toggleBreakpoint.accesskey"),
     disabled: false,
     click: () => {
       toggleBreakpoint(line);
-
       if (isCbPanelOpen) {
         closeConditionalPanel();
       }
@@ -81,6 +83,7 @@ function gutterMenu({
     accelerator: L10N.getStr("toggleBreakpoint.key"),
     ...(breakpoint ? gutterItems.removeBreakpoint : gutterItems.addBreakpoint)
   };
+
   const conditionalBreakpoint = {
     accesskey: L10N.getStr("editor.addConditionalBreakpoint.accesskey"),
     disabled: false,
@@ -88,6 +91,7 @@ function gutterMenu({
     accelerator: L10N.getStr("toggleCondPanel.key"),
     ...(breakpoint && breakpoint.condition ? gutterItems.editConditional : gutterItems.addConditional)
   };
+
   const items = [toggleBreakpointItem, conditionalBreakpoint];
 
   if (isPaused) {
@@ -114,6 +118,7 @@ function gutterMenu({
 }
 
 class GutterContextMenuComponent extends _react.Component {
+
   constructor() {
     super();
   }
@@ -129,13 +134,8 @@ class GutterContextMenuComponent extends _react.Component {
   }
 
   showMenu(nextProps) {
-    const {
-      contextMenu,
-      ...props
-    } = nextProps;
-    const {
-      event
-    } = contextMenu;
+    const { contextMenu, ...props } = nextProps;
+    const { event } = contextMenu;
     const sourceId = props.selectedSource ? props.selectedSource.id : "";
     const line = (0, _editor.lineAtHeight)(props.editor, sourceId, event);
     const breakpoint = nextProps.breakpoints.find(bp => bp.location.line === line);
@@ -144,23 +144,17 @@ class GutterContextMenuComponent extends _react.Component {
       return;
     }
 
-    gutterMenu({
-      event,
-      sourceId,
-      line,
-      breakpoint,
-      ...props
-    });
+    gutterMenu({ event, sourceId, line, breakpoint, ...props });
   }
 
   render() {
     return null;
   }
-
 }
 
 const mapStateToProps = state => {
   const selectedSource = (0, _selectors.getSelectedSource)(state);
+
   return {
     selectedLocation: (0, _selectors.getSelectedLocation)(state),
     selectedSource: selectedSource,

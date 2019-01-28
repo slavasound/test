@@ -31,16 +31,8 @@ var _ast = require("../utils/ast");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-/* This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
-
-/**
- * Ast reducer
- * @module reducers/ast
- */
 function initialASTState() {
   return (0, _makeRecord2.default)({
     symbols: I.Map(),
@@ -51,20 +43,22 @@ function initialASTState() {
     pausePoints: I.Map(),
     sourceMetaData: I.Map()
   })();
-}
+} /* This Source Code Form is subject to the terms of the Mozilla Public
+   * License, v. 2.0. If a copy of the MPL was not distributed with this
+   * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
+
+/**
+ * Ast reducer
+ * @module reducers/ast
+ */
 
 function update(state = initialASTState(), action) {
   switch (action.type) {
     case "SET_SYMBOLS":
       {
-        const {
-          sourceId
-        } = action;
-
+        const { sourceId } = action;
         if (action.status === "start") {
-          return state.setIn(["symbols", sourceId], {
-            loading: true
-          });
+          return state.setIn(["symbols", sourceId], { loading: true });
         }
 
         const value = action.value;
@@ -73,12 +67,9 @@ function update(state = initialASTState(), action) {
 
     case "SET_PAUSE_POINTS":
       {
-        const {
-          sourceText,
-          sourceId,
-          pausePoints
-        } = action;
+        const { sourceText, sourceId, pausePoints } = action;
         const emptyLines = (0, _ast.findEmptyLines)(sourceText, pausePoints);
+
         return state.setIn(["pausePoints", sourceId], pausePoints).setIn(["emptyLines", sourceId], emptyLines);
       }
 
@@ -100,18 +91,17 @@ function update(state = initialASTState(), action) {
     case "SET_PREVIEW":
       {
         if (action.status == "start") {
-          return state.set("preview", {
-            updating: true
-          });
+          return state.set("preview", { updating: true });
         }
 
         if (!action.value) {
           return state.set("preview", null);
-        } // NOTE: if the preview does not exist, it has been cleared
+        }
 
-
+        // NOTE: if the preview does not exist, it has been cleared
         if (state.get("preview")) {
-          return state.set("preview", { ...action.value,
+          return state.set("preview", {
+            ...action.value,
             updating: false
           });
         }
@@ -139,10 +129,10 @@ function update(state = initialASTState(), action) {
         return state;
       }
   }
-} // NOTE: we'd like to have the app state fully typed
+}
+
+// NOTE: we'd like to have the app state fully typed
 // https://github.com/devtools-html/debugger.html/blob/master/src/reducers/sources.js#L179-L185
-
-
 function getSymbols(state, source) {
   if (!source) {
     return null;
@@ -163,7 +153,6 @@ function hasSymbols(state, source) {
 
 function isSymbolsLoading(state, source) {
   const symbols = getSymbols(state, source);
-
   if (!symbols) {
     return false;
   }
@@ -193,19 +182,13 @@ function getPausePoint(state, location) {
     return;
   }
 
-  const {
-    column,
-    line,
-    sourceId
-  } = location;
+  const { column, line, sourceId } = location;
   const pausePoints = getPausePoints(state, sourceId);
-
   if (!pausePoints) {
     return;
   }
 
   const linePoints = pausePoints[String(line)];
-
   if (linePoints && column) {
     return linePoints[String(column)];
   }
@@ -225,7 +208,6 @@ function getPreview(state) {
 }
 
 const emptySourceMetaData = {};
-
 function getSourceMetaData(state, sourceId) {
   return state.ast.sourceMetaData.get(sourceId) || emptySourceMetaData;
 }

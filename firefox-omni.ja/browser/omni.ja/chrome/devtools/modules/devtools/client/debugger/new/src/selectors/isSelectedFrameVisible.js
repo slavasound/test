@@ -11,9 +11,6 @@ var _pause = require("../reducers/pause");
 
 var _sources = require("../reducers/sources");
 
-/* This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
 function getGeneratedId(sourceId) {
   if ((0, _devtoolsSourceMap.isOriginalId)(sourceId)) {
     return (0, _devtoolsSourceMap.originalToGeneratedId)(sourceId);
@@ -21,11 +18,14 @@ function getGeneratedId(sourceId) {
 
   return sourceId;
 }
+
 /*
  * Checks to if the selected frame's source is currently
  * selected.
  */
-
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
 
 function isSelectedFrameVisible(state) {
   const selectedLocation = (0, _sources.getSelectedLocation)(state);

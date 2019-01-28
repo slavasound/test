@@ -18,6 +18,7 @@ exports.openConditionalPanel = openConditionalPanel;
 exports.closeConditionalPanel = closeConditionalPanel;
 exports.clearProjectDirectoryRoot = clearProjectDirectoryRoot;
 exports.setProjectDirectoryRoot = setProjectDirectoryRoot;
+exports.updateViewport = updateViewport;
 exports.setOrientation = setOrientation;
 
 var _selectors = require("../selectors/index");
@@ -31,25 +32,15 @@ var _fileSearch = require("./file-search");
 /* This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
+
 function setContextMenu(type, event) {
-  return ({
-    dispatch
-  }) => {
-    dispatch({
-      type: "SET_CONTEXT_MENU",
-      contextMenu: {
-        type,
-        event
-      }
-    });
+  return ({ dispatch }) => {
+    dispatch({ type: "SET_CONTEXT_MENU", contextMenu: { type, event } });
   };
 }
 
 function setPrimaryPaneTab(tabName) {
-  return {
-    type: "SET_PRIMARY_PANE_TAB",
-    tabName
-  };
+  return { type: "SET_PRIMARY_PANE_TAB", tabName };
 }
 
 function closeActiveSearch() {
@@ -60,20 +51,14 @@ function closeActiveSearch() {
 }
 
 function setActiveSearch(activeSearch) {
-  return ({
-    dispatch,
-    getState
-  }) => {
+  return ({ dispatch, getState }) => {
     const activeSearchState = (0, _selectors.getActiveSearch)(getState());
-
     if (activeSearchState === activeSearch) {
       return;
     }
 
     if ((0, _selectors.getQuickOpenEnabled)(getState())) {
-      dispatch({
-        type: "CLOSE_QUICK_OPEN"
-      });
+      dispatch({ type: "CLOSE_QUICK_OPEN" });
     }
 
     dispatch({
@@ -84,13 +69,9 @@ function setActiveSearch(activeSearch) {
 }
 
 function updateActiveFileSearch() {
-  return ({
-    dispatch,
-    getState
-  }) => {
+  return ({ dispatch, getState }) => {
     const isFileSearchOpen = (0, _selectors.getActiveSearch)(getState()) === "file";
     const fileSearchQuery = (0, _selectors.getFileSearchQuery)(getState());
-
     if (isFileSearchOpen && fileSearchQuery) {
       const editor = (0, _editor.getEditor)();
       dispatch((0, _fileSearch.searchContents)(fileSearchQuery, editor));
@@ -99,10 +80,7 @@ function updateActiveFileSearch() {
 }
 
 function toggleFrameworkGrouping(toggleValue) {
-  return ({
-    dispatch,
-    getState
-  }) => {
+  return ({ dispatch, getState }) => {
     dispatch({
       type: "TOGGLE_FRAMEWORK_GROUPING",
       value: toggleValue
@@ -111,12 +89,8 @@ function toggleFrameworkGrouping(toggleValue) {
 }
 
 function showSource(sourceId) {
-  return ({
-    dispatch,
-    getState
-  }) => {
+  return ({ dispatch, getState }) => {
     const source = (0, _selectors.getSource)(getState(), sourceId);
-
     if (!source) {
       return;
     }
@@ -130,25 +104,16 @@ function showSource(sourceId) {
     }
 
     dispatch(setPrimaryPaneTab("sources"));
-    dispatch({
-      type: "SHOW_SOURCE",
-      source: null
-    });
+
+    dispatch({ type: "SHOW_SOURCE", source: null });
     dispatch((0, _select.selectSource)(source.id));
-    dispatch({
-      type: "SHOW_SOURCE",
-      source
-    });
+    dispatch({ type: "SHOW_SOURCE", source });
   };
 }
 
 function togglePaneCollapse(position, paneCollapsed) {
-  return ({
-    dispatch,
-    getState
-  }) => {
+  return ({ dispatch, getState }) => {
     const prevPaneCollapse = (0, _selectors.getPaneCollapse)(getState(), position);
-
     if (prevPaneCollapse === paneCollapsed) {
       return;
     }
@@ -160,12 +125,11 @@ function togglePaneCollapse(position, paneCollapsed) {
     });
   };
 }
+
 /**
  * @memberof actions/sources
  * @static
  */
-
-
 function highlightLineRange(location) {
   return {
     type: "HIGHLIGHT_LINES",
@@ -174,19 +138,16 @@ function highlightLineRange(location) {
 }
 
 function flashLineRange(location) {
-  return ({
-    dispatch
-  }) => {
+  return ({ dispatch }) => {
     dispatch(highlightLineRange(location));
     setTimeout(() => dispatch(clearHighlightLineRange()), 200);
   };
 }
+
 /**
  * @memberof actions/sources
  * @static
  */
-
-
 function clearHighlightLineRange() {
   return {
     type: "CLEAR_HIGHLIGHT_LINES"
@@ -218,16 +179,11 @@ function clearProjectDirectoryRoot() {
 }
 
 function setProjectDirectoryRoot(newRoot) {
-  return ({
-    dispatch,
-    getState
-  }) => {
+  return ({ dispatch, getState }) => {
     const curRoot = (0, _selectors.getProjectDirectoryRoot)(getState());
-
     if (newRoot && curRoot) {
       const newRootArr = newRoot.replace(/\/+/g, "/").split("/");
       const curRootArr = curRoot.replace(/^\//, "").replace(/\/+/g, "/").split("/");
-
       if (newRootArr[0] !== curRootArr[0]) {
         newRootArr.splice(0, 2);
         newRoot = `${curRoot}/${newRootArr.join("/")}`;
@@ -241,9 +197,13 @@ function setProjectDirectoryRoot(newRoot) {
   };
 }
 
-function setOrientation(orientation) {
+function updateViewport() {
   return {
-    type: "SET_ORIENTATION",
-    orientation
+    type: "SET_VIEWPORT",
+    viewport: (0, _editor.getLocationsInViewport)((0, _editor.getEditor)())
   };
+}
+
+function setOrientation(orientation) {
+  return { type: "SET_ORIENTATION", orientation };
 }

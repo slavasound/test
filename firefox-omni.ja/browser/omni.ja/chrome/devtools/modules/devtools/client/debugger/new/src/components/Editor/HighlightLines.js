@@ -15,29 +15,26 @@ var _selectors = require("../../selectors/index");
 /* This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
+
 class HighlightLines extends _react.Component {
+
   constructor() {
     super();
 
     this.highlightLineRange = () => {
-      const {
-        highlightedLineRange,
-        editor
-      } = this.props;
-      const {
-        codeMirror
-      } = editor;
+      const { highlightedLineRange, editor } = this.props;
+
+      const { codeMirror } = editor;
 
       if ((0, _lodash.isEmpty)(highlightedLineRange) || !codeMirror) {
         return;
       }
 
-      const {
-        start,
-        end
-      } = highlightedLineRange;
+      const { start, end } = highlightedLineRange;
+
       codeMirror.operation(() => {
         editor.alignLine(start);
+
         (0, _lodash.range)(start - 1, end).forEach(line => {
           codeMirror.addLineClass(line, "line", "highlight-lines");
         });
@@ -62,22 +59,15 @@ class HighlightLines extends _react.Component {
   }
 
   clearHighlightRange() {
-    const {
-      highlightedLineRange,
-      editor
-    } = this.props;
-    const {
-      codeMirror
-    } = editor;
+    const { highlightedLineRange, editor } = this.props;
+
+    const { codeMirror } = editor;
 
     if ((0, _lodash.isEmpty)(highlightedLineRange) || !codeMirror) {
       return;
     }
 
-    const {
-      start,
-      end
-    } = highlightedLineRange;
+    const { start, end } = highlightedLineRange;
     codeMirror.operation(() => {
       (0, _lodash.range)(start - 1, end).forEach(line => {
         codeMirror.removeLineClass(line, "line", "highlight-lines");
@@ -88,7 +78,6 @@ class HighlightLines extends _react.Component {
   render() {
     return null;
   }
-
 }
 
 exports.default = (0, _reactRedux.connect)(state => ({

@@ -16,13 +16,13 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 /* This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
+
 function renderExceptionSummary(exception) {
   if (typeof exception === "string") {
     return exception;
   }
 
   const preview = exception.preview;
-
   if (!preview || !preview.name || !preview.message) {
     return;
   }
@@ -32,15 +32,19 @@ function renderExceptionSummary(exception) {
 
 function renderMessage(why) {
   if (why.type == "exception" && why.exception) {
-    return _react2.default.createElement("div", {
-      className: "message warning"
-    }, renderExceptionSummary(why.exception));
+    return _react2.default.createElement(
+      "div",
+      { className: "message warning" },
+      renderExceptionSummary(why.exception)
+    );
   }
 
   if (typeof why.message == "string") {
-    return _react2.default.createElement("div", {
-      className: "message"
-    }, why.message);
+    return _react2.default.createElement(
+      "div",
+      { className: "message" },
+      why.message
+    );
   }
 
   return null;
@@ -53,9 +57,19 @@ function renderWhyPaused(why) {
     return null;
   }
 
-  return _react2.default.createElement("div", {
-    className: "pane why-paused"
-  }, _react2.default.createElement("div", null, L10N.getStr(reason)), renderMessage(why));
+  return _react2.default.createElement(
+    "div",
+    { className: "pane why-paused" },
+    _react2.default.createElement(
+      "div",
+      null,
+      _react2.default.createElement(
+        "div",
+        null,
+        L10N.getStr(reason)
+      ),
+      renderMessage(why)
+    )
+  );
 }
-
 renderWhyPaused.displayName = "whyPaused";

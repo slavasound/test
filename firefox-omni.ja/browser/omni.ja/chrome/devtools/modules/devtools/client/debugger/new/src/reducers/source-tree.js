@@ -6,7 +6,6 @@ Object.defineProperty(exports, "__esModule", {
 exports.InitialState = InitialState;
 exports.default = update;
 exports.getExpandedState = getExpandedState;
-
 /* This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
@@ -15,6 +14,7 @@ exports.getExpandedState = getExpandedState;
  * Source tree reducer
  * @module reducers/source-tree
  */
+
 function InitialState() {
   return {
     expanded: null
@@ -31,7 +31,8 @@ function update(state = InitialState(), action) {
 }
 
 function updateExpanded(state, action) {
-  return { ...state,
+  return {
+    ...state,
     expanded: new Set(action.expanded)
   };
 }

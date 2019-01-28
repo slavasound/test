@@ -40,40 +40,27 @@ var _source = require("../../utils/source");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/* This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
-// Dependencies
-// Selectors
-// Actions
-// Components
 // Utils
+
+
+// Actions
+
+
+// Selectors
 class SourcesTree extends _react.Component {
+
   constructor(props) {
     super(props);
 
     _initialiseProps.call(this);
 
-    const {
-      debuggeeUrl,
-      sources,
-      projectRoot
-    } = this.props;
+    const { debuggeeUrl, sources, projectRoot } = this.props;
+
     this.state = (0, _sourcesTree.createTree)({
       projectRoot,
       debuggeeUrl,
       sources
     });
-  }
-
-  componentDidMount() {
-    const {
-      selectedSource
-    } = this.props;
-
-    if (selectedSource) {
-      this.setHighlightFocusItems(selectedSource);
-    }
   }
 
   componentWillReceiveProps(nextProps) {
@@ -84,10 +71,7 @@ class SourcesTree extends _react.Component {
       shownSource,
       selectedSource
     } = this.props;
-    const {
-      uncollapsedTree,
-      sourceTree
-    } = this.state;
+    const { uncollapsedTree, sourceTree } = this.state;
 
     if (projectRoot != nextProps.projectRoot || debuggeeUrl != nextProps.debuggeeUrl || nextProps.sourceCount === 0) {
       // early recreate tree because of changes
@@ -100,15 +84,17 @@ class SourcesTree extends _react.Component {
     }
 
     if (nextProps.shownSource && nextProps.shownSource != shownSource) {
-      return this.setHighlightFocusItems(nextProps.shownSource);
+      const listItems = (0, _sourcesTree.getDirectories)(nextProps.shownSource, sourceTree);
+      return this.setState({ listItems });
     }
 
     if (nextProps.selectedSource && nextProps.selectedSource != selectedSource) {
-      this.setHighlightFocusItems(nextProps.selectedSource);
-    } // NOTE: do not run this every time a source is clicked,
+      const highlightItems = (0, _sourcesTree.getDirectories)(nextProps.selectedSource, sourceTree);
+      this.setState({ highlightItems });
+    }
+
+    // NOTE: do not run this every time a source is clicked,
     // only when a new source is added
-
-
     if (nextProps.sources != this.props.sources) {
       this.setState((0, _sourcesTree.updateTree)({
         newSources: nextProps.sources,
@@ -116,30 +102,15 @@ class SourcesTree extends _react.Component {
         debuggeeUrl,
         projectRoot,
         uncollapsedTree,
-        sourceTree
+        sourceTree,
+        focusedItem: this.state.focusedItem
       }));
-    }
-  }
-
-  setHighlightFocusItems(source) {
-    const {
-      sourceTree,
-      parentMap
-    } = this.state;
-
-    if (source) {
-      const items = (0, _sourcesTree.getDirectories)(source, parentMap, sourceTree);
-      return this.setState({
-        listItems: items,
-        highlightItems: items
-      });
     }
   }
 
   // NOTE: we get the source from sources because item.contents is cached
   getSource(item) {
     const source = (0, _sourcesTree.getSourceFromNode)(item);
-
     if (source) {
       return this.props.sources[source.id];
     }
@@ -148,54 +119,52 @@ class SourcesTree extends _react.Component {
   }
 
   isEmpty() {
-    const {
-      sourceTree
-    } = this.state;
+    const { sourceTree } = this.state;
     return sourceTree.contents.length === 0;
   }
 
   renderEmptyElement(message) {
-    return _react2.default.createElement("div", {
-      key: "empty",
-      className: "no-sources-message"
-    }, message);
+    return _react2.default.createElement(
+      "div",
+      { key: "empty", className: "no-sources-message" },
+      message
+    );
   }
 
   renderProjectRootHeader() {
-    const {
-      projectRoot
-    } = this.props;
+    const { projectRoot } = this.props;
 
     if (!projectRoot) {
       return null;
     }
 
     const rootLabel = projectRoot.split("/").pop();
-    return _react2.default.createElement("div", {
-      key: "root",
-      className: "sources-clear-root-container"
-    }, _react2.default.createElement("button", {
-      className: "sources-clear-root",
-      onClick: () => this.props.clearProjectDirectoryRoot(),
-      title: L10N.getStr("removeDirectoryRoot.label")
-    }, _react2.default.createElement(_Svg2.default, {
-      name: "home"
-    }), _react2.default.createElement(_Svg2.default, {
-      name: "breadcrumb"
-    }), _react2.default.createElement("span", {
-      className: "sources-clear-root-label"
-    }, rootLabel)));
+
+    return _react2.default.createElement(
+      "div",
+      { key: "root", className: "sources-clear-root-container" },
+      _react2.default.createElement(
+        "button",
+        {
+          className: "sources-clear-root",
+          onClick: () => this.props.clearProjectDirectoryRoot(),
+          title: L10N.getStr("removeDirectoryRoot.label")
+        },
+        _react2.default.createElement(_Svg2.default, { name: "home" }),
+        _react2.default.createElement(_Svg2.default, { name: "breadcrumb" }),
+        _react2.default.createElement(
+          "span",
+          { className: "sources-clear-root-label" },
+          rootLabel
+        )
+      )
+    );
   }
 
   renderTree() {
-    const {
-      expanded
-    } = this.props;
-    const {
-      highlightItems,
-      listItems,
-      parentMap
-    } = this.state;
+    const { expanded } = this.props;
+    const { highlightItems, listItems, parentMap } = this.state;
+
     const treeProps = {
       autoExpandAll: false,
       autoExpandDepth: expanded ? 0 : 1,
@@ -214,25 +183,27 @@ class SourcesTree extends _react.Component {
       renderItem: this.renderItem,
       preventBlur: true
     };
+
     return _react2.default.createElement(_ManagedTree2.default, treeProps);
   }
 
   renderPane(...children) {
-    const {
-      projectRoot
-    } = this.props;
-    return _react2.default.createElement("div", {
-      key: "pane",
-      className: (0, _classnames2.default)("sources-pane", {
-        "sources-list-custom-root": projectRoot
-      })
-    }, children);
+    const { projectRoot } = this.props;
+
+    return _react2.default.createElement(
+      "div",
+      {
+        key: "pane",
+        className: (0, _classnames2.default)("sources-pane", {
+          "sources-list-custom-root": projectRoot
+        })
+      },
+      children
+    );
   }
 
   render() {
-    const {
-      projectRoot
-    } = this.props;
+    const { projectRoot } = this.props;
 
     if (this.isEmpty()) {
       if (projectRoot) {
@@ -242,20 +213,24 @@ class SourcesTree extends _react.Component {
       return this.renderPane(this.renderEmptyElement(L10N.getStr("sources.noSourcesAvailable")));
     }
 
-    return this.renderPane(this.renderProjectRootHeader(), _react2.default.createElement("div", {
-      key: "tree",
-      className: "sources-list",
-      onKeyDown: this.onKeyDown
-    }, this.renderTree()));
+    return this.renderPane(this.renderProjectRootHeader(), _react2.default.createElement(
+      "div",
+      { key: "tree", className: "sources-list", onKeyDown: this.onKeyDown },
+      this.renderTree()
+    ));
   }
-
 }
+
+// Components
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
+
+// Dependencies
 
 var _initialiseProps = function () {
   this.focusItem = item => {
-    this.setState({
-      focusedItem: item
-    });
+    this.setState({ focusedItem: item });
   };
 
   this.selectItem = item => {
@@ -285,9 +260,7 @@ var _initialiseProps = function () {
   };
 
   this.onKeyDown = e => {
-    const {
-      focusedItem
-    } = this.state;
+    const { focusedItem } = this.state;
 
     if (e.keyCode === 13 && focusedItem) {
       this.selectItem(focusedItem);
@@ -295,34 +268,27 @@ var _initialiseProps = function () {
   };
 
   this.getRoots = () => {
-    const {
-      projectRoot
-    } = this.props;
-    const {
-      sourceTree
-    } = this.state;
-    const sourceContents = sourceTree.contents[0];
-    const rootLabel = projectRoot.split("/").pop(); // The "sourceTree.contents[0]" check ensures that there are contents
-    // A custom root with no existing sources will be ignored
+    const { projectRoot } = this.props;
+    const { sourceTree } = this.state;
 
+    const sourceContents = sourceTree.contents[0];
+    const rootLabel = projectRoot.split("/").pop();
+
+    // The "sourceTree.contents[0]" check ensures that there are contents
+    // A custom root with no existing sources will be ignored
     if (projectRoot) {
       if (sourceContents && sourceContents.name !== rootLabel) {
         return sourceContents.contents[0].contents;
       }
-
       return sourceContents.contents;
     }
 
     return sourceTree.contents;
   };
 
-  this.renderItem = (item, depth, focused, _, expanded, {
-    setExpanded
-  }) => {
-    const {
-      debuggeeUrl,
-      projectRoot
-    } = this.props;
+  this.renderItem = (item, depth, focused, _, expanded, { setExpanded }) => {
+    const { debuggeeUrl, projectRoot } = this.props;
+
     return _react2.default.createElement(_SourcesTreeItem2.default, {
       item: item,
       depth: depth,
@@ -349,6 +315,7 @@ function getSourceForTree(state, source) {
 const mapStateToProps = state => {
   const selectedSource = (0, _selectors.getSelectedSource)(state);
   const shownSource = (0, _selectors.getShownSource)(state);
+
   return {
     shownSource: getSourceForTree(state, shownSource),
     selectedSource: getSourceForTree(state, selectedSource),

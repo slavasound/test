@@ -16,23 +16,16 @@ var _pausePoints = require("./pause/pausePoints");
 /* This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
+
 function findBestMatchExpression(symbols, tokenPos) {
   if (symbols.loading) {
     return null;
   }
 
-  const {
-    line,
-    column
-  } = tokenPos;
-  const {
-    memberExpressions,
-    identifiers,
-    literals
-  } = symbols;
-  const members = memberExpressions.filter(({
-    computed
-  }) => !computed);
+  const { line, column } = tokenPos;
+  const { memberExpressions, identifiers, literals } = symbols;
+  const members = memberExpressions.filter(({ computed }) => !computed);
+
   return [].concat(identifiers, members, literals).reduce((found, expression) => {
     const overlaps = expression.location.start.line == line && expression.location.start.column <= column && expression.location.end.column >= column;
 
@@ -50,6 +43,7 @@ function findEmptyLines(sourceText, pausePoints) {
   }
 
   const pausePointsList = (0, _pausePoints.convertToList)(pausePoints);
+
   const breakpoints = pausePointsList.filter(point => point.types.break);
   const breakpointLines = breakpoints.map(point => point.location.line);
 
@@ -65,6 +59,7 @@ function findEmptyLines(sourceText, pausePoints) {
 function containsPosition(a, b) {
   const startsBefore = a.start.line < b.line || a.start.line === b.line && a.start.column <= b.column;
   const endsAfter = a.end.line > b.line || a.end.line === b.line && a.end.column >= b.column;
+
   return startsBefore && endsAfter;
 }
 
@@ -88,7 +83,6 @@ function findClosestofSymbol(declarations, location) {
     if (found.location.start.line > currNode.location.start.line) {
       return found;
     }
-
     if (found.location.start.line === currNode.location.start.line && found.location.start.column > currNode.location.start.column) {
       return found;
     }

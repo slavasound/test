@@ -39,6 +39,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 /* This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
+
 class PrimaryPanes extends _react.Component {
   constructor(props) {
     super(props);
@@ -50,9 +51,7 @@ class PrimaryPanes extends _react.Component {
     this.onAlphabetizeClick = () => {
       const alphabetizeOutline = !_prefs.prefs.alphabetizeOutline;
       _prefs.prefs.alphabetizeOutline = alphabetizeOutline;
-      this.setState({
-        alphabetizeOutline
-      });
+      this.setState({ alphabetizeOutline });
     };
 
     this.onActivateTab = index => {
@@ -77,39 +76,51 @@ class PrimaryPanes extends _react.Component {
     const outline = (0, _text.formatKeyShortcut)(L10N.getStr("outline.header"));
     const isSources = this.props.selectedTab === "sources";
     const isOutline = this.props.selectedTab === "outline";
-    return [_react2.default.createElement(_tabs.Tab, {
-      className: (0, _classnames2.default)("tab sources-tab", {
-        active: isSources
-      }),
-      key: "sources-tab"
-    }, sources), _react2.default.createElement(_tabs.Tab, {
-      className: (0, _classnames2.default)("tab outline-tab", {
-        active: isOutline
-      }),
-      key: "outline-tab"
-    }, outline)];
+
+    return [_react2.default.createElement(
+      _tabs.Tab,
+      {
+        className: (0, _classnames2.default)("tab sources-tab", { active: isSources }),
+        key: "sources-tab"
+      },
+      sources
+    ), _react2.default.createElement(
+      _tabs.Tab,
+      {
+        className: (0, _classnames2.default)("tab outline-tab", { active: isOutline }),
+        key: "outline-tab"
+      },
+      outline
+    )];
   }
 
   render() {
-    const {
-      selectedTab
-    } = this.props;
+    const { selectedTab } = this.props;
     const activeIndex = selectedTab === "sources" ? 0 : 1;
-    return _react2.default.createElement(_tabs.Tabs, {
-      activeIndex: activeIndex,
-      className: "sources-panel",
-      onActivateTab: this.onActivateTab
-    }, _react2.default.createElement(_tabs.TabList, {
-      className: "source-outline-tabs"
-    }, this.renderOutlineTabs()), _react2.default.createElement(_tabs.TabPanels, {
-      className: "source-outline-panel",
-      hasFocusableContent: true
-    }, _react2.default.createElement(_SourcesTree2.default, null), _react2.default.createElement(_Outline2.default, {
-      alphabetizeOutline: this.state.alphabetizeOutline,
-      onAlphabetizeClick: this.onAlphabetizeClick
-    })));
-  }
 
+    return _react2.default.createElement(
+      _tabs.Tabs,
+      {
+        activeIndex: activeIndex,
+        className: "sources-panel",
+        onActivateTab: this.onActivateTab
+      },
+      _react2.default.createElement(
+        _tabs.TabList,
+        { className: "source-outline-tabs" },
+        this.renderOutlineTabs()
+      ),
+      _react2.default.createElement(
+        _tabs.TabPanels,
+        { className: "source-outline-panel", hasFocusableContent: true },
+        _react2.default.createElement(_SourcesTree2.default, null),
+        _react2.default.createElement(_Outline2.default, {
+          alphabetizeOutline: this.state.alphabetizeOutline,
+          onAlphabetizeClick: this.onAlphabetizeClick
+        })
+      )
+    );
+  }
 }
 
 const mapStateToProps = state => ({

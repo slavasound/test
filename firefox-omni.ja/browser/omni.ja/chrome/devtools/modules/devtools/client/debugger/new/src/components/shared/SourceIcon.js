@@ -18,29 +18,20 @@ var _selectors = require("../../selectors/index");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/* This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
 class SourceIcon extends _react.PureComponent {
   render() {
-    const {
-      shouldHide,
-      source,
-      sourceMetaData,
-      framework
-    } = this.props;
+    const { shouldHide, source, sourceMetaData, framework } = this.props;
     const iconClass = framework ? framework.toLowerCase() : (0, _source.getSourceClassnames)(source, sourceMetaData);
 
     if (shouldHide && shouldHide(iconClass)) {
       return null;
     }
 
-    return _react2.default.createElement("img", {
-      className: `source-icon ${iconClass}`
-    });
+    return _react2.default.createElement("img", { className: `source-icon ${iconClass}` });
   }
-
-}
+} /* This Source Code Form is subject to the terms of the Mozilla Public
+   * License, v. 2.0. If a copy of the MPL was not distributed with this
+   * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
 
 exports.default = (0, _reactRedux.connect)((state, props) => {
   return {

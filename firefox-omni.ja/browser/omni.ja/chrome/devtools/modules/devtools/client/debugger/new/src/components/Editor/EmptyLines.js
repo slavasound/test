@@ -15,7 +15,9 @@ var _editor = require("../../utils/editor/index");
 /* This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
+
 class EmptyLines extends _react.Component {
+
   componentDidMount() {
     this.disableEmptyLines();
   }
@@ -25,11 +27,7 @@ class EmptyLines extends _react.Component {
   }
 
   componentWillUnmount() {
-    const {
-      emptyLines,
-      selectedSource,
-      editor
-    } = this.props;
+    const { emptyLines, selectedSource, editor } = this.props;
 
     if (!emptyLines) {
       return;
@@ -44,16 +42,11 @@ class EmptyLines extends _react.Component {
   }
 
   disableEmptyLines() {
-    const {
-      emptyLines,
-      selectedSource,
-      editor
-    } = this.props;
+    const { emptyLines, selectedSource, editor } = this.props;
 
     if (!emptyLines) {
       return;
     }
-
     editor.codeMirror.operation(() => {
       emptyLines.forEach(emptyLine => {
         const line = (0, _editor.toEditorLine)(selectedSource.id, emptyLine);
@@ -65,12 +58,12 @@ class EmptyLines extends _react.Component {
   render() {
     return null;
   }
-
 }
 
 const mapStateToProps = state => {
   const selectedSource = (0, _selectors.getSelectedSource)(state);
   const foundEmptyLines = (0, _selectors.getEmptyLines)(state, selectedSource.id);
+
   return {
     selectedSource,
     emptyLines: selectedSource ? foundEmptyLines : []

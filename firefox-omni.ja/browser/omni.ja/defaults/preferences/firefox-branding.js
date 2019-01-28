@@ -18,9 +18,9 @@ pref("app.update.promptWaitTime", 691200);
 // app.update.url.details: a default value for the "More information about this
 // update" link supplied in the "An update is available" page of the update
 // wizard.
-//@line 25 "/builds/worker/workspace/build/src/browser/branding/official/pref/firefox-branding.js"
-pref("app.update.url.manual", "https://www.mozilla.org/firefox/");
-pref("app.update.url.details", "https://www.mozilla.org/%LOCALE%/firefox/notes");
+//@line 22 "/builds/worker/workspace/build/src/browser/branding/official/pref/firefox-branding.js"
+pref("app.update.url.manual", "https://www.mozilla.org/firefox/beta");
+pref("app.update.url.details", "https://www.mozilla.org/%LOCALE%/firefox/beta/notes");
 //@line 28 "/builds/worker/workspace/build/src/browser/branding/official/pref/firefox-branding.js"
 
 pref("app.releaseNotesURL", "https://www.mozilla.org/%LOCALE%/firefox/%VERSION%/releasenotes/?utm_source=firefox-browser&utm_medium=firefox-browser&utm_campaign=whatsnew");

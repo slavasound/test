@@ -15,19 +15,31 @@ var _assert2 = _interopRequireDefault(_assert);
 
 var _ast = require("../../utils/ast");
 
+var _prefs = require("../../utils/prefs");
+
 var _devtoolsSourceMap = require("devtools/client/shared/source-map/index.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/* This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
+function getSelectedFrameId(state, frames) {
+  if (!_prefs.features.originalBlackbox) {
+    const selectedFrame = (0, _selectors.getSelectedFrame)(state);
+    return selectedFrame && selectedFrame.id;
+  }
+
+  const selectedFrame = frames.find(frame => !(0, _selectors.getSource)(state, frame.location.sourceId).isBlackBoxed);
+
+  return selectedFrame && selectedFrame.id;
+} /* This Source Code Form is subject to the terms of the Mozilla Public
+   * License, v. 2.0. If a copy of the MPL was not distributed with this
+   * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
+
 function updateFrameLocation(frame, sourceMaps) {
   if (frame.isOriginal) {
     return Promise.resolve(frame);
   }
-
-  return sourceMaps.getOriginalLocation(frame.location).then(loc => ({ ...frame,
+  return sourceMaps.getOriginalLocation(frame.location).then(loc => ({
+    ...frame,
     location: loc,
     generatedLocation: frame.generatedLocation || frame.location
   }));
@@ -46,7 +58,6 @@ function mapDisplayNames(frames, getState) {
     if (frame.isOriginal) {
       return frame;
     }
-
     const source = (0, _selectors.getSource)(getState(), frame.location.sourceId);
 
     if (!source) {
@@ -66,9 +77,7 @@ function mapDisplayNames(frames, getState) {
     }
 
     const originalDisplayName = originalFunction.name;
-    return { ...frame,
-      originalDisplayName
-    };
+    return { ...frame, originalDisplayName };
   });
 }
 
@@ -76,34 +85,32 @@ function isWasmOriginalSourceFrame(frame, getState) {
   if ((0, _devtoolsSourceMap.isGeneratedId)(frame.location.sourceId)) {
     return false;
   }
-
   const generatedSource = (0, _selectors.getSource)(getState(), frame.generatedLocation.sourceId);
+
   return Boolean(generatedSource && generatedSource.isWasm);
 }
 
 async function expandFrames(frames, sourceMaps, getState) {
   const result = [];
-
   for (let i = 0; i < frames.length; ++i) {
     const frame = frames[i];
-
     if (frame.isOriginal || !isWasmOriginalSourceFrame(frame, getState)) {
       result.push(frame);
       continue;
     }
-
     const originalFrames = await sourceMaps.getOriginalStackFrames(frame.generatedLocation);
-
     if (!originalFrames) {
       result.push(frame);
       continue;
     }
 
-    (0, _assert2.default)(originalFrames.length > 0, "Expected at least one original frame"); // First entry has not specific location -- use one from original frame.
-
-    originalFrames[0] = { ...originalFrames[0],
+    (0, _assert2.default)(originalFrames.length > 0, "Expected at least one original frame");
+    // First entry has not specific location -- use one from original frame.
+    originalFrames[0] = {
+      ...originalFrames[0],
       location: frame.location
     };
+
     originalFrames.forEach((originalFrame, j) => {
       // Keep outer most frame with true actor ID, and generate uniquie
       // one for the nested frames.
@@ -122,9 +129,9 @@ async function expandFrames(frames, sourceMaps, getState) {
       });
     });
   }
-
   return result;
 }
+
 /**
  * Map call stack frame locations and display names to originals.
  * e.g.
@@ -134,16 +141,9 @@ async function expandFrames(frames, sourceMaps, getState) {
  * @memberof actions/pause
  * @static
  */
-
-
 function mapFrames() {
-  return async function ({
-    dispatch,
-    getState,
-    sourceMaps
-  }) {
+  return async function ({ dispatch, getState, sourceMaps }) {
     const frames = (0, _selectors.getFrames)(getState());
-
     if (!frames) {
       return;
     }
@@ -151,9 +151,12 @@ function mapFrames() {
     let mappedFrames = await updateFrameLocations(frames, sourceMaps);
     mappedFrames = await expandFrames(mappedFrames, sourceMaps, getState);
     mappedFrames = mapDisplayNames(mappedFrames, getState);
+
+    const selectedFrameId = getSelectedFrameId(getState(), mappedFrames);
     dispatch({
       type: "MAP_FRAMES",
-      frames: mappedFrames
+      frames: mappedFrames,
+      selectedFrameId
     });
   };
 }

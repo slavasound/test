@@ -6,8 +6,10 @@ var I = _interopRequireWildcard(_immutable);
 
 var _lodash = require("devtools/client/shared/vendor/lodash");
 
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
+// hasOwnProperty is defensive because it is possible that the
+// object that we're creating a map for has a `hasOwnProperty` field
 /* This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
@@ -17,8 +19,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
  * @deprecated
  * @module utils/fromJS
  */
-// hasOwnProperty is defensive because it is possible that the
-// object that we're creating a map for has a `hasOwnProperty` field
+
 function hasOwnProperty(value, key) {
   if (value.hasOwnProperty && (0, _lodash.isFunction)(value.hasOwnProperty)) {
     return value.hasOwnProperty(key);
@@ -30,6 +31,7 @@ function hasOwnProperty(value, key) {
 
   return false;
 }
+
 /*
   creates an immutable map, where each of the value's
   items are transformed into their own map.
@@ -37,8 +39,6 @@ function hasOwnProperty(value, key) {
   NOTE: we guard against `length` being a property because
   length confuses Immutable's internal algorithm.
 */
-
-
 function createMap(value) {
   const hasLength = hasOwnProperty(value, "length");
   const length = value.length;
@@ -60,6 +60,7 @@ function createMap(value) {
 function createList(value) {
   return I.Seq(value).map(fromJS).toList();
 }
+
 /**
  * When our app state is fully typed, we should be able to get rid of
  * this function. This is only temporarily necessary to support
@@ -69,36 +70,33 @@ function createList(value) {
  * @memberof utils/fromJS
  * @static
  */
-
-
 function fromJS(value) {
   if (Array.isArray(value)) {
     return createList(value);
   }
-
   if (value && value.constructor && value.constructor.meta) {
     // This adds support for tcomb objects which are native JS objects
     // but are not "plain", so the above checks fail. Since they
     // behave the same we can use the same constructors, but we need
     // special checks for them.
     const kind = value.constructor.meta.kind;
-
     if (kind === "struct") {
       return createMap(value);
     } else if (kind === "list") {
       return createList(value);
     }
-  } // If it's a primitive type, just return the value. Note `==` check
+  }
+
+  // If it's a primitive type, just return the value. Note `==` check
   // for null, which is intentionally used to match either `null` or
   // `undefined`.
-
-
   if (value == null || typeof value !== "object") {
     return value;
-  } // Otherwise, treat it like an object. We can't reliably detect if
+  }
+
+  // Otherwise, treat it like an object. We can't reliably detect if
   // it's a plain object because we might be objects from other JS
   // contexts so `Object !== Object`.
-
 
   return createMap(value);
 }

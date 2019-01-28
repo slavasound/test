@@ -27,16 +27,16 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 /* This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
+
 function inPopup(e) {
-  const {
-    relatedTarget
-  } = e;
+  const { relatedTarget } = e;
 
   if (!relatedTarget) {
     return true;
   }
 
   const pop = relatedTarget.closest(".tooltip") || relatedTarget.closest(".popover") || relatedTarget.classList.contains("debug-expression");
+
   return pop;
 }
 
@@ -50,10 +50,7 @@ class Preview extends _react.PureComponent {
     super(props);
     this.target = null;
 
-    this.onTokenEnter = ({
-      target,
-      tokenPos
-    }) => {
+    this.onTokenEnter = ({ target, tokenPos }) => {
       this.props.updatePreview(target, tokenPos, this.props.editor.codeMirror);
     };
 
@@ -64,16 +61,12 @@ class Preview extends _react.PureComponent {
     };
 
     this.onMouseUp = () => {
-      this.setState({
-        selecting: false
-      });
+      this.setState({ selecting: false });
       return true;
     };
 
     this.onMouseDown = () => {
-      this.setState({
-        selecting: true
-      });
+      this.setState({ selecting: true });
       return true;
     };
 
@@ -85,9 +78,7 @@ class Preview extends _react.PureComponent {
       this.props.clearPreview();
     };
 
-    this.state = {
-      selecting: false
-    };
+    this.state = { selecting: false };
   }
 
   componentDidMount() {
@@ -100,12 +91,9 @@ class Preview extends _react.PureComponent {
   }
 
   updateListeners(prevProps) {
-    const {
-      isPaused
-    } = this.props;
-    const {
-      codeMirror
-    } = this.props.editor;
+    const { isPaused } = this.props;
+
+    const { codeMirror } = this.props.editor;
     const codeMirrorWrapper = codeMirror.getWrapperElement();
     const wasNotPaused = !prevProps || !prevProps.isPaused;
     const wasPaused = prevProps && prevProps.isPaused;
@@ -127,9 +115,7 @@ class Preview extends _react.PureComponent {
   }
 
   updateHighlight(prevProps) {
-    const {
-      preview
-    } = this.props;
+    const { preview } = this.props;
 
     if (preview && !preview.updating) {
       const target = getElementFromPos(preview.cursorPos);
@@ -143,11 +129,7 @@ class Preview extends _react.PureComponent {
   }
 
   render() {
-    const {
-      selectedSource,
-      preview
-    } = this.props;
-
+    const { selectedSource, preview } = this.props;
     if (!this.props.editor || !selectedSource || this.state.selecting) {
       return null;
     }
@@ -156,20 +138,14 @@ class Preview extends _react.PureComponent {
       return null;
     }
 
-    const {
-      result,
-      expression,
-      location,
-      cursorPos,
-      extra
-    } = preview;
+    const { result, expression, location, cursorPos, extra } = preview;
     const value = result;
-
     if (typeof value == "undefined" || value.optimizedOut) {
       return null;
     }
 
     const editorRange = (0, _editor.toEditorRange)(selectedSource.id, location);
+
     return _react2.default.createElement(_Popup2.default, {
       value: value,
       editor: this.props.editor,
@@ -181,7 +157,6 @@ class Preview extends _react.PureComponent {
       onClose: this.onClose
     });
   }
-
 }
 
 const mapStateToProps = state => ({

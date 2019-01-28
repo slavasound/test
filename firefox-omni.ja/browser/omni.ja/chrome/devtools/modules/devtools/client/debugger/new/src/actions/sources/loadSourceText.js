@@ -25,55 +25,46 @@ var _defer2 = _interopRequireDefault(_defer);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 /* This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
-const requests = new Map(); // Measures the time it takes for a source to load
 
+const requests = new Map();
+
+// Measures the time it takes for a source to load
 const loadSourceHistogram = "DEVTOOLS_DEBUGGER_LOAD_SOURCE_MS";
 const telemetry = new _telemetry2.default();
 
-async function loadSource(source, {
-  sourceMaps,
-  client
-}) {
-  const {
-    id
-  } = source;
-
+async function loadSource(source, { sourceMaps, client }) {
+  const { id } = source;
   if ((0, _source.isOriginal)(source)) {
     return sourceMaps.getOriginalSourceText(source);
   }
 
   const response = await client.sourceContents(id);
   telemetry.finish(loadSourceHistogram, source);
+
   return {
     id,
     text: response.source,
     contentType: response.contentType || "text/javascript"
   };
 }
+
 /**
  * @memberof actions/sources
  * @static
  */
-
-
 function loadSourceText(source) {
-  return async ({
-    dispatch,
-    getState,
-    client,
-    sourceMaps
-  }) => {
+  return async ({ dispatch, getState, client, sourceMaps }) => {
     if (!source) {
       return;
     }
 
-    const id = source.id; // Fetch the source text only once.
-
+    const id = source.id;
+    // Fetch the source text only once.
     if (requests.has(id)) {
       return requests.get(id);
     }
@@ -84,16 +75,13 @@ function loadSourceText(source) {
 
     const deferred = (0, _defer2.default)();
     requests.set(id, deferred.promise);
-    telemetry.start(loadSourceHistogram, source);
 
+    telemetry.start(loadSourceHistogram, source);
     try {
       await dispatch({
         type: "LOAD_SOURCE_TEXT",
         sourceId: source.id,
-        [_promise.PROMISE]: loadSource(source, {
-          sourceMaps,
-          client
-        })
+        [_promise.PROMISE]: loadSource(source, { sourceMaps, client })
       });
     } catch (e) {
       deferred.resolve();
@@ -102,7 +90,6 @@ function loadSourceText(source) {
     }
 
     const newSource = (0, _selectors.getSource)(getState(), source.id);
-
     if (!newSource) {
       return;
     }
@@ -114,11 +101,12 @@ function loadSourceText(source) {
 
     if (!newSource.isWasm) {
       await parser.setSource(newSource);
-    } // signal that the action is finished
+    }
 
-
+    // signal that the action is finished
     deferred.resolve();
     requests.delete(id);
+
     return source;
   };
 }

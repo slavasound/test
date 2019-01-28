@@ -5,7 +5,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.toggleBlackBox = toggleBlackBox;
 
+var _devtoolsSourceMap = require("devtools/client/shared/source-map/index.js");
+
 var _telemetry = require("../../utils/telemetry");
+
+var _prefs = require("../../utils/prefs");
 
 var _promise = require("../utils/middleware/promise");
 
@@ -17,26 +21,26 @@ var _promise = require("../utils/middleware/promise");
  * Redux actions for the sources state
  * @module actions/sources
  */
+
 function toggleBlackBox(source) {
-  return async ({
-    dispatch,
-    getState,
-    client,
-    sourceMaps
-  }) => {
-    const {
-      isBlackBoxed,
-      id
-    } = source;
+  return async ({ dispatch, getState, client, sourceMaps }) => {
+    const { isBlackBoxed, id } = source;
 
     if (!isBlackBoxed) {
       (0, _telemetry.recordEvent)("blackbox");
     }
 
+    let promise;
+    if (_prefs.features.originalBlackbox && (0, _devtoolsSourceMap.isOriginalId)(id)) {
+      promise = Promise.resolve({ isBlackBoxed: !isBlackBoxed });
+    } else {
+      promise = client.blackBox(id, isBlackBoxed);
+    }
+
     return dispatch({
       type: "BLACKBOX",
       source,
-      [_promise.PROMISE]: client.blackBox(id, isBlackBoxed)
+      [_promise.PROMISE]: promise
     });
   };
 }

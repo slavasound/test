@@ -20,6 +20,7 @@ var _selectors = require("../../selectors/index");
 /* This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
+
 function isDebugLine(selectedFrame, selectedLocation) {
   if (!selectedFrame) {
     return;
@@ -40,18 +41,12 @@ class HighlightLine extends _react.Component {
   }
 
   shouldComponentUpdate(nextProps) {
-    const {
-      selectedLocation,
-      selectedSource
-    } = nextProps;
+    const { selectedLocation, selectedSource } = nextProps;
     return this.shouldSetHighlightLine(selectedLocation, selectedSource);
   }
 
   shouldSetHighlightLine(selectedLocation, selectedSource) {
-    const {
-      sourceId,
-      line
-    } = selectedLocation;
+    const { sourceId, line } = selectedLocation;
     const editorLine = (0, _editor.toEditorLine)(sourceId, line);
 
     if (!isDocumentReady(selectedSource, selectedLocation)) {
@@ -72,7 +67,6 @@ class HighlightLine extends _react.Component {
       selectedFrame,
       selectedSource
     } = this.props;
-
     if (pauseCommand) {
       this.isStepping = true;
     }
@@ -84,15 +78,10 @@ class HighlightLine extends _react.Component {
   }
 
   setHighlightLine(selectedLocation, selectedFrame, selectedSource) {
-    const {
-      sourceId,
-      line
-    } = selectedLocation;
-
+    const { sourceId, line } = selectedLocation;
     if (!this.shouldSetHighlightLine(selectedLocation, selectedSource)) {
       return;
     }
-
     this.isStepping = false;
     const editorLine = (0, _editor.toEditorLine)(sourceId, line);
     this.previousEditorLine = editorLine;
@@ -110,10 +99,7 @@ class HighlightLine extends _react.Component {
       return;
     }
 
-    const {
-      line,
-      sourceId
-    } = selectedLocation;
+    const { line, sourceId } = selectedLocation;
     const editorLine = (0, _editor.toEditorLine)(sourceId, line);
     const doc = (0, _sourceDocuments.getDocument)(sourceId);
     doc.removeLineClass(editorLine, "line", "highlight-line");
@@ -122,7 +108,6 @@ class HighlightLine extends _react.Component {
   render() {
     return null;
   }
-
 }
 
 exports.HighlightLine = HighlightLine;

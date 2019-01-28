@@ -36,10 +36,8 @@ var _Dropdown2 = _interopRequireDefault(_Dropdown);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/* This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
 class Tabs extends _react.PureComponent {
+
   constructor(props) {
     super(props);
 
@@ -47,12 +45,7 @@ class Tabs extends _react.PureComponent {
       if (!this.refs.sourceTabs) {
         return;
       }
-
-      const {
-        selectedSource,
-        tabSources,
-        moveTab
-      } = this.props;
+      const { selectedSource, tabSources, moveTab } = this.props;
       const sourceTabEls = this.refs.sourceTabs.children;
       const hiddenTabs = (0, _tabs.getHiddenTabs)(tabSources, sourceTabEls);
 
@@ -60,31 +53,27 @@ class Tabs extends _react.PureComponent {
         return moveTab(selectedSource.url, 0);
       }
 
-      this.setState({
-        hiddenTabs
-      });
+      this.setState({ hiddenTabs });
     };
 
     this.renderDropdownSource = source => {
-      const {
-        selectSource
-      } = this.props;
+      const { selectSource } = this.props;
       const filename = (0, _source.getFilename)(source);
 
       const onClick = () => selectSource(source.id);
-
-      return _react2.default.createElement("li", {
-        key: source.id,
-        onClick: onClick
-      }, _react2.default.createElement("img", {
-        className: `dropdown-icon ${this.getIconClass(source)}`
-      }), filename);
+      return _react2.default.createElement(
+        "li",
+        { key: source.id, onClick: onClick },
+        _react2.default.createElement("img", { className: `dropdown-icon ${this.getIconClass(source)}` }),
+        filename
+      );
     };
 
     this.state = {
       dropdownShown: false,
       hiddenTabs: []
     };
+
     this.onResize = (0, _lodash.debounce)(() => {
       this.updateHiddenTabs();
     });
@@ -99,11 +88,14 @@ class Tabs extends _react.PureComponent {
   componentDidMount() {
     window.requestIdleCallback(this.updateHiddenTabs);
     window.addEventListener("resize", this.onResize);
+    window.document.querySelector(".editor-pane").addEventListener("resizeend", this.onResize);
   }
 
   componentWillUnmount() {
     window.removeEventListener("resize", this.onResize);
+    window.document.querySelector(".editor-pane").removeEventListener("resizeend", this.onResize);
   }
+
   /*
    * Updates the hiddenSourceTabs state, by
    * finding the source tabs which are wrapped and are not on the top row.
@@ -120,49 +112,39 @@ class Tabs extends _react.PureComponent {
     if ((0, _source.isPretty)(source)) {
       return "prettyPrint";
     }
-
     if (source.isBlackBoxed) {
       return "blackBox";
     }
-
     return "file";
   }
 
   renderTabs() {
-    const {
-      tabSources
-    } = this.props;
-
+    const { tabSources } = this.props;
     if (!tabSources) {
       return;
     }
 
-    return _react2.default.createElement("div", {
-      className: "source-tabs",
-      ref: "sourceTabs"
-    }, tabSources.map((source, index) => _react2.default.createElement(_Tab2.default, {
-      key: index,
-      source: source
-    })));
+    return _react2.default.createElement(
+      "div",
+      { className: "source-tabs", ref: "sourceTabs" },
+      tabSources.map((source, index) => _react2.default.createElement(_Tab2.default, { key: index, source: source }))
+    );
   }
 
   renderDropdown() {
     const hiddenTabs = this.state.hiddenTabs;
-
     if (!hiddenTabs || hiddenTabs.length == 0) {
       return null;
     }
 
-    const Panel = _react2.default.createElement("ul", null, hiddenTabs.map(this.renderDropdownSource));
+    const Panel = _react2.default.createElement(
+      "ul",
+      null,
+      hiddenTabs.map(this.renderDropdownSource)
+    );
+    const icon = _react2.default.createElement("img", { className: "moreTabs" });
 
-    const icon = _react2.default.createElement("img", {
-      className: "moreTabs"
-    });
-
-    return _react2.default.createElement(_Dropdown2.default, {
-      panel: Panel,
-      icon: icon
-    });
+    return _react2.default.createElement(_Dropdown2.default, { panel: Panel, icon: icon });
   }
 
   renderStartPanelToggleButton() {
@@ -174,12 +156,7 @@ class Tabs extends _react.PureComponent {
   }
 
   renderEndPanelToggleButton() {
-    const {
-      horizontal,
-      endPanelCollapsed,
-      togglePaneCollapse
-    } = this.props;
-
+    const { horizontal, endPanelCollapsed, togglePaneCollapse } = this.props;
     if (!horizontal) {
       return;
     }
@@ -193,12 +170,18 @@ class Tabs extends _react.PureComponent {
   }
 
   render() {
-    return _react2.default.createElement("div", {
-      className: "source-header"
-    }, this.renderStartPanelToggleButton(), this.renderTabs(), this.renderDropdown(), this.renderEndPanelToggleButton());
+    return _react2.default.createElement(
+      "div",
+      { className: "source-header" },
+      this.renderStartPanelToggleButton(),
+      this.renderTabs(),
+      this.renderDropdown(),
+      this.renderEndPanelToggleButton()
+    );
   }
-
-}
+} /* This Source Code Form is subject to the terms of the Mozilla Public
+   * License, v. 2.0. If a copy of the MPL was not distributed with this
+   * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
 
 const mapStateToProps = state => ({
   selectedSource: (0, _selectors.getSelectedSource)(state),

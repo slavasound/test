@@ -24,12 +24,14 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * File Search reducer
  * @module reducers/fileSearch
  */
+
 const emptySearchResults = Object.freeze({
   matches: Object.freeze([]),
   matchIndex: -1,
   index: -1,
   count: 0
 });
+
 const createFileSearchState = exports.createFileSearchState = (0, _makeRecord2.default)({
   query: "",
   searchResults: emptySearchResults,
@@ -81,10 +83,10 @@ function update(state = createFileSearchState(), action) {
         return state;
       }
   }
-} // NOTE: we'd like to have the app state fully typed
+}
+
+// NOTE: we'd like to have the app state fully typed
 // https://github.com/devtools-html/debugger.html/blob/master/src/reducers/sources.js#L179-L185
-
-
 function getFileSearchQuery(state) {
   return state.fileSearch.query;
 }

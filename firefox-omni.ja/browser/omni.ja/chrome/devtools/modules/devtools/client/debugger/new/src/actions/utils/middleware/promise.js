@@ -12,6 +12,7 @@ var _DevToolsUtils = require("../../../utils/DevToolsUtils");
 /* This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
+
 let seqIdVal = 1;
 
 function seqIdGen() {
@@ -32,35 +33,26 @@ function promiseMiddleware({
     }
 
     const promiseInst = action[PROMISE];
-    const seqId = seqIdGen().toString(); // Create a new action that doesn't have the promise field and has
+    const seqId = seqIdGen().toString();
+
+    // Create a new action that doesn't have the promise field and has
     // the `seqId` field that represents the sequence id
+    action = { ...filterAction(action), seqId };
 
-    action = { ...filterAction(action),
-      seqId
-    };
-    dispatch({ ...action,
-      status: "start"
-    }); // Return the promise so action creators can still compose if they
+    dispatch({ ...action, status: "start" });
+
+    // Return the promise so action creators can still compose if they
     // want to.
-
-    return new Promise((resolve, reject) => {
-      promiseInst.then(value => {
-        (0, _DevToolsUtils.executeSoon)(() => {
-          dispatch({ ...action,
-            status: "done",
-            value: value
-          });
-          resolve(value);
-        });
-      }, error => {
-        (0, _DevToolsUtils.executeSoon)(() => {
-          dispatch({ ...action,
-            status: "error",
-            error: error.message || error
-          });
-          reject(error);
-        });
+    return Promise.resolve(promiseInst).finally(() => new Promise(resolve => (0, _DevToolsUtils.executeSoon)(resolve))).then(value => {
+      dispatch({ ...action, status: "done", value: value });
+      return value;
+    }, error => {
+      dispatch({
+        ...action,
+        status: "error",
+        error: error.message || error
       });
+      return Promise.reject(error);
     });
   };
 }

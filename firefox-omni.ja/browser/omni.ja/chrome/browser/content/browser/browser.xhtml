@@ -73,7 +73,9 @@
         retargetdocumentfocus="urlbar"
         persist="screenX screenY width height sizemode"
         hidden="true"
+        mozpersist=""
         >
+
 
 
 
@@ -82,34 +84,28 @@ xmlns="http://www.w3.org/1999/xhtml"
 >
 Components.utils.import("resource://gre/modules/Services.jsm");
 
-for (let script of [
-  "chrome://browser/content/browser.js",
-  "chrome://browser/content/search/searchbar.js",
+Services.scriptloader.loadSubScript("chrome://browser/content/browser.js", this);
+Services.scriptloader.loadSubScript("chrome://browser/content/browser-places.js", this);
+Services.scriptloader.loadSubScript("chrome://global/content/globalOverlay.js", this);
+Services.scriptloader.loadSubScript("chrome://browser/content/utilityOverlay.js", this);
 
-  "chrome://browser/content/browser-captivePortal.js",
-  "chrome://browser/content/browser-compacttheme.js",
-  "chrome://browser/content/browser-contentblocking.js",
-  "chrome://browser/content/browser-media.js",
-  "chrome://browser/content/browser-pageActions.js",
-  "chrome://browser/content/browser-places.js",
-  "chrome://browser/content/browser-plugins.js",
-  "chrome://browser/content/browser-sidebar.js",
-  "chrome://browser/content/browser-siteIdentity.js",
-  "chrome://browser/content/browser-tabsintitlebar.js",
-
-  "chrome://global/content/globalOverlay.js",
-  "chrome://browser/content/utilityOverlay.js",
-  "chrome://browser/content/browser-data-submission-info-bar.js",
-]) {
-  Services.scriptloader.loadSubScript(script, this);
-}
 </script>
 
 <script type="application/javascript"
 xmlns="http://www.w3.org/1999/xhtml"
 >
   Services.scriptloader.loadSubScript("chrome://global/content/contentAreaUtils.js", this);
+  Services.scriptloader.loadSubScript("chrome://browser/content/browser-captivePortal.js", this);
+  Services.scriptloader.loadSubScript("chrome://browser/content/browser-compacttheme.js", this);
+  Services.scriptloader.loadSubScript("chrome://browser/content/browser-contentblocking.js", this);
+  Services.scriptloader.loadSubScript("chrome://browser/content/browser-data-submission-info-bar.js", this);
+  Services.scriptloader.loadSubScript("chrome://browser/content/browser-media.js", this);
+  Services.scriptloader.loadSubScript("chrome://browser/content/browser-pageActions.js", this);
+  Services.scriptloader.loadSubScript("chrome://browser/content/browser-plugins.js", this);
+  Services.scriptloader.loadSubScript("chrome://browser/content/browser-sidebar.js", this);
+  Services.scriptloader.loadSubScript("chrome://browser/content/browser-tabsintitlebar.js", this);
   Services.scriptloader.loadSubScript("chrome://browser/content/tabbrowser.js", this);
+  Services.scriptloader.loadSubScript("chrome://browser/content/search/searchbar.js", this);
 
   window.onload = gBrowserInit.onLoad.bind(gBrowserInit);
   window.onunload = gBrowserInit.onUnload.bind(gBrowserInit);
@@ -136,7 +132,6 @@ xmlns="http://www.w3.org/1999/xhtml"
                    string-editthisbookmark="&editThisBookmarkCmd.label;">
     <stringbundle id="bundle_brand" src="chrome://branding/locale/brand.properties"/>
     <stringbundle id="bundle_shell" src="chrome://browser/locale/shellservice.properties"/>
-    <stringbundle id="bundle_preferences" src="chrome://browser/locale/preferences/preferences.properties"/>
   </stringbundleset>
 
   <commandset id="mainCommandSet">
@@ -265,8 +260,6 @@ xmlns="http://www.w3.org/1999/xhtml"
   <command id="placesCmd_rename"
            oncommand="PlacesUIUtils.doCommand(window, 'placesCmd_show:info');"
            observes="placesCmd_show:info"/>
-  <command id="placesCmd_reload"
-           oncommand="PlacesUIUtils.doCommand(window, 'placesCmd_reload');"/>
   <command id="placesCmd_sortBy:name"
            oncommand="PlacesUIUtils.doCommand(window, 'placesCmd_sortBy:name');"/>
   <command id="placesCmd_deleteDataHost"
@@ -346,6 +339,7 @@ xmlns="http://www.w3.org/1999/xhtml"
     <key keycode="&findAgainCmd.commandkey2;"  command="cmd_findPrevious" modifiers="shift"/>
 
     <key id="addBookmarkAsKb" key="&bookmarkThisPageCmd.commandkey;" command="Browser:AddBookmarkAs" modifiers="accel"/>
+    <key id="bookmarkAllTabsKb" key="&bookmarkThisPageCmd.commandkey;" oncommand="PlacesCommandHook.bookmarkPages(PlacesCommandHook.uniqueCurrentPages);" modifiers="accel,shift"/>
     <key id="manBookmarkKb" key="&bookmarksGtkCmd.commandkey;" command="Browser:ShowAllBookmarks" modifiers="accel,shift"/>
     <key id="viewBookmarksSidebarKb" key="&bookmarksCmd.commandkey;" oncommand="SidebarUI.toggle('viewBookmarksSidebar');" modifiers="accel"/>
 
@@ -420,6 +414,9 @@ xmlns="http://www.w3.org/1999/xhtml"
       <menuitem id="context_duplicateTab" label="&duplicateTab.label;"
                 accesskey="&duplicateTab.accesskey;"
                 oncommand="duplicateTabIn(TabContextMenu.contextTab, 'tab');"/>
+      <menuitem id="context_duplicateTabs" label="&duplicateTabs.label;"
+                accesskey="&duplicateTabs.accesskey;"
+                oncommand="TabContextMenu.duplicateSelectedTabs();"/>
       <menuseparator/>
       <menuitem id="context_selectAllTabs" label="&selectAllTabs.label;" accesskey="&selectAllTabs.accesskey;"
                 oncommand="gBrowser.selectAllTabs();"/>
@@ -530,13 +527,16 @@ xmlns="http://www.w3.org/1999/xhtml"
         <html:div class="urlbarView-body-inner">
           <!-- TODO: add search suggestions notification -->
           <html:div class="urlbarView-results"/>
-          <!-- TODO: add footer -->
         </html:div>
       </html:div>
+      <hbox class="search-one-offs"
+            compact="true"
+            includecurrentengine="true"
+            disabletab="true"/>
     </panel>
 
-   <!-- for date/time picker. consumeoutsideclicks is set to never, so that
-        clicks on the anchored input box are never consumed. -->
+    <!-- for date/time picker. consumeoutsideclicks is set to never, so that
+         clicks on the anchored input box are never consumed. -->
     <panel id="DateTimePickerPanel"
            type="arrow"
            hidden="true"
@@ -609,7 +609,7 @@ xmlns="http://www.w3.org/1999/xhtml"
              control="editBMPanel_folderMenuList"/>
       <hbox flex="1" align="center">
         <menulist id="editBMPanel_folderMenuList"
-                  class="folder-icon"
+                  class="folder-icon panel-button"
                   flex="1"
                   oncommand="gEditItemOverlay.onFolderMenuListCommand(event).catch(Components.utils.reportError);">
           <menupopup>
@@ -628,7 +628,7 @@ xmlns="http://www.w3.org/1999/xhtml"
           </menupopup>
         </menulist>
         <button id="editBMPanel_foldersExpander"
-                class="expander-down"
+                class="expander-down panel-button"
                 tooltiptext="&editBookmarkOverlay.foldersExpanderDown.tooltip;"
                 tooltiptextdown="&editBookmarkOverlay.foldersExpanderDown.tooltip;"
                 tooltiptextup="&editBookmarkOverlay.expanderUp.tooltip;"
@@ -674,11 +674,12 @@ xmlns="http://www.w3.org/1999/xhtml"
                  autocompletesearch="places-tag-autocomplete"
                  autocompletepopup="PopupAutoComplete"
                  completedefaultindex="true"
+                 completeselectedindex="true"
                  tabscrolling="true"
                  placeholder="&editBookmarkOverlay.tagsEmptyDesc.label;"
                  onchange="gEditItemOverlay.onTagsFieldChange();"/>
         <button id="editBMPanel_tagsSelectorExpander"
-                class="expander-down"
+                class="expander-down panel-button"
                 tooltiptext="&editBookmarkOverlay.tagsExpanderDown.tooltip;"
                 tooltiptextdown="&editBookmarkOverlay.tagsExpanderDown.tooltip;"
                 tooltiptextup="&editBookmarkOverlay.expanderUp.tooltip;"
@@ -711,6 +712,7 @@ xmlns="http://www.w3.org/1999/xhtml"
                   oncommand="StarUI.onShowForNewBookmarksCheckboxCommand();"/>
       </vbox>
       <hbox id="editBookmarkPanelBottomButtons"
+            class="panel-footer"
             style="min-width: &editBookmark.panel.width;;">
         <button id="editBookmarkPanelRemoveButton"
                 class="editBookmarkPanelBottomButton"
@@ -814,49 +816,43 @@ xmlns="http://www.w3.org/1999/xhtml"
                 label="&customizeMenu.pinToOverflowMenu.label;"
                 contexttype="toolbaritem"
                 class="customize-context-moveToPanel"/>
-      <menuitem oncommand="ToolbarContextMenu.onDownloadsAutoHideChange(event)"
+      <menuitem id="toolbar-context-autohide-downloads-button"
+                oncommand="ToolbarContextMenu.onDownloadsAutoHideChange(event);"
                 type="checkbox"
                 accesskey="&customizeMenu.autoHideDownloadsButton.accesskey;"
                 label="&customizeMenu.autoHideDownloadsButton.label;"
-                contexttype="toolbaritem"
-                class="customize-context-autoHide"/>
+                contexttype="toolbaritem"/>
       <menuitem oncommand="gCustomizeMode.removeFromArea(document.popupNode)"
                 accesskey="&customizeMenu.removeFromToolbar.accesskey;"
                 label="&customizeMenu.removeFromToolbar.label;"
                 contexttype="toolbaritem"
                 class="customize-context-removeFromToolbar"/>
       <menuitem id="toolbar-context-reloadSelectedTab"
-                class="toolbaritem-tabsmenu"
                 contexttype="tabbar"
                 oncommand="gBrowser.reloadMultiSelectedTabs();"
                 label="&toolbarContextMenu.reloadSelectedTab.label;"
                 accesskey="&toolbarContextMenu.reloadSelectedTab.accesskey;"/>
       <menuitem id="toolbar-context-reloadSelectedTabs"
-                class="toolbaritem-tabsmenu"
                 contexttype="tabbar"
                 oncommand="gBrowser.reloadMultiSelectedTabs();"
                 label="&toolbarContextMenu.reloadSelectedTabs.label;"
                 accesskey="&toolbarContextMenu.reloadSelectedTabs.accesskey;"/>
       <menuitem id="toolbar-context-bookmarkSelectedTab"
-                class="toolbaritem-tabsmenu"
                 contexttype="tabbar"
                 oncommand="PlacesCommandHook.bookmarkPages(PlacesCommandHook.uniqueSelectedPages);"
                 label="&toolbarContextMenu.bookmarkSelectedTab.label;"
                 accesskey="&toolbarContextMenu.bookmarkSelectedTab.accesskey;"/>
       <menuitem id="toolbar-context-bookmarkSelectedTabs"
-                class="toolbaritem-tabsmenu"
                 contexttype="tabbar"
                 oncommand="PlacesCommandHook.bookmarkPages(PlacesCommandHook.uniqueSelectedPages);"
                 label="&toolbarContextMenu.bookmarkSelectedTabs.label;"
                 accesskey="&toolbarContextMenu.bookmarkSelectedTabs.accesskey;"/>
       <menuitem id="toolbar-context-selectAllTabs"
-                class="toolbaritem-tabsmenu"
                 contexttype="tabbar"
                 oncommand="gBrowser.selectAllTabs();"
                 label="&toolbarContextMenu.selectAllTabs.label;"
                 accesskey="&toolbarContextMenu.selectAllTabs.accesskey;"/>
       <menuitem id="toolbar-context-undoCloseTab"
-                class="toolbaritem-tabsmenu"
                 contexttype="tabbar"
                 label="&toolbarContextMenu.undoCloseTab.label;"
                 accesskey="&toolbarContextMenu.undoCloseTab.accesskey;"
@@ -1440,7 +1436,7 @@ xmlns="http://www.w3.org/1999/xhtml"
             accesskey="&cutCmd.accesskey;"
             closemenu="single"
             selection="bookmark|folder|separator|query"
-            forcehideselection="tagChild|livemarkChild"/>
+            forcehideselection="tagChild"/>
   <menuitem id="placesContext_copy"
             command="placesCmd_copy"
             label="&copyCmd.label;"
@@ -1481,19 +1477,12 @@ xmlns="http://www.w3.org/1999/xhtml"
             accesskey="&cmd.context_sortby_name.accesskey;"
             closemenu="single"
             selection="folder"/>
-  <menuitem id="placesContext_reload"
-            command="placesCmd_reload"
-            label="&cmd.reloadLivebookmark.label;"
-            accesskey="&cmd.reloadLivebookmark.accesskey;"
-            closemenu="single"
-            selection="livemark"/>
   <menuseparator id="placesContext_sortSeparator"/>
   <menuitem id="placesContext_show:info"
             command="placesCmd_show:info"
             label="&cmd.properties.label;"
             accesskey="&cmd.properties.accesskey;"
-            selection="bookmark|folder|query"
-            forcehideselection="livemarkChild"/>
+            selection="bookmark|folder|query"/>
 </menupopup>
 
     <panel id="ctrlTab-panel" hidden="true" norestorefocus="true" level="top">
@@ -1685,6 +1674,21 @@ xmlns="http://www.w3.org/1999/xhtml"
           <label id="cfr-notification-footer-learn-more-link" class="text-link"/>
         </hbox>
       </popupnotificationfooter>
+    </popupnotification>
+
+    <popupnotification id="storage-access-notification" hidden="true">
+      <popupnotificationcontent class="storage-access-notification-content">
+        <xul:vbox flex="1">
+          <!-- These need to be on the same line to avoid creating
+               whitespace between them (whitespace is added in the
+               localization file, if necessary). -->
+          <xul:description class="storage-access-perm-text"><html:span
+            id="storage-access-perm-label"/><html:a id="storage-access-perm-learnmore"
+            onclick="openTrustedLinkIn(this.href, 'tab'); return false;"
+            class="text-link popup-notification-learnmore-link"/><html:span
+            id="storage-access-perm-endlabel"/></xul:description>
+        </xul:vbox>
+      </popupnotificationcontent>
     </popupnotification>
 
 <!-- This Source Code Form is subject to the terms of the Mozilla Public
@@ -1913,16 +1917,14 @@ xmlns="http://www.w3.org/1999/xhtml"
                          closemenu="none"/>
         </toolbaritem>
         <toolbarseparator class="sync-ui-item"/>
-        <toolbaritem closemenu="none">
-          <toolbarbutton id="appMenu-tp-label"
-                         tooltiptext="&trackingProtection.tooltip;"
-                         class="subviewbutton subviewbutton-iconic"
-                         oncommand="ContentBlocking.openPreferences('appMenu-trackingprotection'); PanelUI.hide();"
-                         label="&trackingProtection.title;"/>
-          <toolbarseparator id="appMenu-tp-vertical-separator" orient="vertical"/>
-          <toolbarbutton id="appMenu-tp-toggle"
-                         enabled="false"
-                         oncommand="ContentBlocking.onGlobalToggleCommand();" />
+        <toolbaritem>
+          <toolbarbutton id="appMenu-tp-button"
+               class="subviewbutton subviewbutton-iconic"
+               oncommand="ContentBlocking.openPreferences('appMenu-trackingprotection');">
+            <image id="appMenu-tp-icon" class="toolbarbutton-icon"/>
+            <label id="appMenu-tp-label" class="toolbarbutton-text"/>
+            <label id="appMenu-tp-category"/>
+          </toolbarbutton>
         </toolbaritem>
         <toolbarseparator id="appMenu-tp-separator"/>
         <toolbarbutton id="appMenu-new-window-button"
@@ -2458,6 +2460,7 @@ xmlns="http://www.w3.org/1999/xhtml"
        hidden="true"
        photon="true"
        role="alertdialog"
+       aria-labelledby="identity-popup-mainView-panel-header-span"
        onpopupshown="gIdentityHandler.onPopupShown(event);"
        onpopuphidden="gIdentityHandler.onPopupHidden(event);"
        orient="vertical">
@@ -2509,24 +2512,11 @@ xmlns="http://www.w3.org/1999/xhtml"
             when-connection="not-secure secure secure-ev secure-cert-user-overridden extension">
         <vbox id="identity-popup-content-blocking-content" flex="1">
           <hbox align="start">
-            <label id="tracking-protection-label"
-                   class="identity-popup-headline"
-                   flex="1">&trackingProtection.title;</label>
             <label id="content-blocking-label"
                    class="identity-popup-headline"
                    flex="1">&contentBlocking.title;</label>
-            <hbox id="identity-popup-content-blocking-disabled-label">
-              <image/>
-              <label id="identity-popup-content-blocking-disabled-label-exception"
-                     value="&contentBlocking.disabled.label;"
-                     tooltiptext="&contentBlocking.exception.tooltip;"/>
-              <label id="identity-popup-content-blocking-disabled-label-global"
-                     value="&contentBlocking.disabled.label;"
-                     tooltiptext="&contentBlocking.disabled.tooltip;"/>
-            </hbox>
             <toolbarbutton id="tracking-protection-preferences-button"
                            class="identity-popup-preferences-button subviewbutton"
-                           tooltiptext="&trackingProtection.tooltip;"
                            oncommand="ContentBlocking.openPreferences('identityPopup-TP-preferencesButton'); gIdentityHandler.recordClick('cb_prefs_button');" />
           </hbox>
 
@@ -2536,51 +2526,37 @@ xmlns="http://www.w3.org/1999/xhtml"
                        crop="end">&contentBlocking.notDetected;</description>
 
           <vbox id="identity-popup-content-blocking-category-list">
-            <hbox id="identity-popup-content-blocking-category-fastblock"
-                  class="identity-popup-content-blocking-category" align="center" role="group">
-              <image class="identity-popup-content-blocking-category-icon fastblock-icon"/>
-              <label flex="1" class="identity-popup-content-blocking-category-label">&contentBlocking.fastBlock.label;</label>
-              <label flex="1" class="identity-popup-content-blocking-category-state-label">&contentBlocking.fastBlock.blocking.label;</label>
-              <label flex="1" class="identity-popup-content-blocking-category-add-blocking text-link"
-                     onclick="ContentBlocking.openPreferences('identityPopup-CB-fastblock'); gIdentityHandler.recordClick('fb_add_blocking');">&contentBlocking.fastBlock.add.label;</label>
-            </hbox>
-            <hbox id="identity-popup-content-blocking-category-tracking-protection"
-                  class="identity-popup-content-blocking-category" align="center" role="group">
+            <toolbarbutton id="identity-popup-content-blocking-category-tracking-protection"
+                           onclick="ContentBlocking.showTrackersSubview()"
+                           class="identity-popup-content-blocking-category" align="center">
               <image class="identity-popup-content-blocking-category-icon tracking-protection-icon"/>
               <label flex="1" class="identity-popup-content-blocking-category-label">&contentBlocking.trackingProtection3.label;</label>
-              <label flex="1" class="identity-popup-content-blocking-category-state-label">&contentBlocking.trackingProtection.blocking.label;</label>
-              <label flex="1" class="identity-popup-content-blocking-category-add-blocking text-link"
-                     id="identity-popup-tracking-protection-add-blocking"
-                     onclick="ContentBlocking.openPreferences('identityPopup-CB-tracking-protection'); gIdentityHandler.recordClick('tp_add_blocking');">&contentBlocking.trackingProtection.add.label;</label>
-            </hbox>
-            <hbox id="identity-popup-content-blocking-category-3rdpartycookies"
-                  class="identity-popup-content-blocking-category" align="center" role="group">
+              <label flex="1" id="identity-popup-content-blocking-tracking-protection-state-label" class="identity-popup-content-blocking-category-state-label"/>
+            </toolbarbutton>
+            <toolbarbutton id="identity-popup-content-blocking-category-cookies"
+                           onclick="ContentBlocking.showCookiesSubview()"
+                           class="identity-popup-content-blocking-category" align="center">
               <image class="identity-popup-content-blocking-category-icon thirdpartycookies-icon"/>
               <label flex="1" id="identity-popup-content-blocking-category-label-default"
-                     class="identity-popup-content-blocking-category-label">&contentBlocking.3rdPartyCookies.label;</label>
-              <label flex="1" id="identity-popup-content-blocking-category-label-trackers"
-                     hidden="true" class="identity-popup-content-blocking-category-label">&contentBlocking.3rdPartyCookies.trackers.label;</label>
-              <label flex="1" class="identity-popup-content-blocking-category-state-label">&contentBlocking.3rdPartyCookies.blocking.label;</label>
-              <label flex="1" class="identity-popup-content-blocking-category-add-blocking text-link"
-                     id="identity-popup-3rdpartycookies-add-blocking"
-                     onclick="ContentBlocking.openPreferences('identityPopup-CB-3rdpartycookies'); gIdentityHandler.recordClick('cookies_add_blocking');">&contentBlocking.3rdPartyCookies.add.label;</label>
-            </hbox>
+                     class="identity-popup-content-blocking-category-label">&contentBlocking.cookies.label;</label>
+              <label flex="1" id="identity-popup-content-blocking-cookies-state-label" class="identity-popup-content-blocking-category-state-label"/>
+            </toolbarbutton>
           </vbox>
 
           <button id="tracking-action-unblock"
-                  class="tracking-protection-button"
-                  label="&trackingProtection.unblock4.label;"
-                  accesskey="&trackingProtection.unblock4.accesskey;"
+                  class="panel-button tracking-protection-button"
+                  label="&trackingProtection.unblock5.label;"
+                  accesskey="&trackingProtection.unblock5.accesskey;"
                   oncommand="ContentBlocking.disableForCurrentPage(); gIdentityHandler.recordClick('unblock');" />
           <button id="tracking-action-unblock-private"
-                  class="tracking-protection-button"
-                  label="&trackingProtection.unblockPrivate4.label;"
-                  accesskey="&trackingProtection.unblockPrivate4.accesskey;"
+                  class="panel-button tracking-protection-button"
+                  label="&trackingProtection.unblockPrivate5.label;"
+                  accesskey="&trackingProtection.unblockPrivate5.accesskey;"
                   oncommand="ContentBlocking.disableForCurrentPage(); gIdentityHandler.recordClick('unblock_private');" />
           <button id="tracking-action-block"
-                  class="tracking-protection-button"
-                  label="&trackingProtection.block5.label;"
-                  accesskey="&trackingProtection.block5.accesskey;"
+                  class="panel-button tracking-protection-button"
+                  label="&trackingProtection.block6.label;"
+                  accesskey="&trackingProtection.block6.accesskey;"
                   oncommand="ContentBlocking.enableForCurrentPage(); gIdentityHandler.recordClick('block');" />
           <label id="identity-popup-content-blocking-report-breakage"
                  onclick="ContentBlocking.showReportBreakageSubview(); gIdentityHandler.recordClick('report_breakage');"
@@ -2613,7 +2589,7 @@ xmlns="http://www.w3.org/1999/xhtml"
       <!-- Clear Site Data Button -->
       <vbox hidden="true"
             id="identity-popup-clear-sitedata-footer"
-            class="identity-popup-footer">
+            class="panel-footer identity-popup-footer">
         <button id="identity-popup-clear-sitedata-button"
                 label="&identity.clearSiteData;"
                 oncommand="gIdentityHandler.clearSiteData(event); gIdentityHandler.recordClick('clear_sitedata');"/>
@@ -2650,6 +2626,7 @@ xmlns="http://www.w3.org/1999/xhtml"
         <button when-connection="secure-cert-user-overridden"
                 label="&identity.removeCertException.label;"
                 accesskey="&identity.removeCertException.accesskey;"
+                class="panel-button"
                 oncommand="gIdentityHandler.removeCertException()"/>
 
         <!-- Connection is Not Secure -->
@@ -2692,20 +2669,56 @@ xmlns="http://www.w3.org/1999/xhtml"
         <button when-mixedcontent="active-blocked"
                 label="&identity.disableMixedContentBlocking.label;"
                 accesskey="&identity.disableMixedContentBlocking.accesskey;"
+                class="panel-button"
                 oncommand="gIdentityHandler.disableMixedContentProtection()"/>
         <button when-mixedcontent="active-loaded"
                 label="&identity.enableMixedContentBlocking.label;"
                 accesskey="&identity.enableMixedContentBlocking.accesskey;"
+                class="panel-button"
                 oncommand="gIdentityHandler.enableMixedContentProtection()"/>
       </vbox>
 
-      <vbox id="identity-popup-more-info-footer" class="identity-popup-footer">
+      <vbox id="identity-popup-more-info-footer" class="panel-footer identity-popup-footer">
         <!-- More Security Information -->
         <button id="identity-popup-more-info"
                 label="&identity.moreInfoLinkText2;"
                 oncommand="gIdentityHandler.handleMoreInfoClick(event);"/>
       </vbox>
 
+    </panelview>
+
+    <!-- Trackers SubView -->
+    <panelview id="identity-popup-trackersView"
+               role="document"
+               title="&contentBlocking.trackersView.label;"
+               descriptionheightworkaround="true">
+        <vbox id="identity-popup-trackersView-list" class="identity-popup-content-blocking-list">
+        </vbox>
+        <hbox id="identity-popup-trackersView-strict-info">
+          <image/>
+          <label>&contentBlocking.trackersView.strictInfo.label;</label>
+        </hbox>
+        <vbox class="panel-footer identity-popup-footer">
+          <button id="identity-popup-trackersView-settings-button"
+                  label="&contentBlocking.manageSettings.label;"
+                  accesskey="&contentBlocking.manageSettings.accesskey;"
+                  oncommand="ContentBlocking.openPreferences();"/>
+        </vbox>
+    </panelview>
+
+    <!-- Cookies SubView -->
+    <panelview id="identity-popup-cookiesView"
+               role="document"
+               title="&contentBlocking.cookiesView.label;"
+               descriptionheightworkaround="true">
+        <vbox id="identity-popup-cookiesView-list" class="identity-popup-content-blocking-list">
+        </vbox>
+        <vbox class="panel-footer identity-popup-footer">
+          <button id="identity-popup-cookiesView-settings-button"
+                  label="&contentBlocking.manageSettings.label;"
+                  accesskey="&contentBlocking.manageSettings.accesskey;"
+                  oncommand="ContentBlocking.openPreferences();"/>
+        </vbox>
     </panelview>
 
     <!-- Report Breakage SubView -->
@@ -2727,7 +2740,8 @@ xmlns="http://www.w3.org/1999/xhtml"
             <textbox multiline="true" id="identity-popup-breakageReportView-collection-comments"/>
           </vbox>
         </vbox>
-        <vbox id="identity-popup-breakageReportView-footer" class="identity-popup-footer">
+        <vbox id="identity-popup-breakageReportView-footer"
+              class="panel-footer identity-popup-footer">
           <button id="identity-popup-breakageReportView-cancel"
                   label="&contentBlocking.breakageReportView.cancel.label;"
                   oncommand="ContentBlocking.backToMainView();"/>
@@ -2884,7 +2898,8 @@ xmlns="http://www.w3.org/1999/xhtml"
                            crop="end"/>
             </vbox>
           </hbox>
-          <hbox id="downloadsFooterButtons">
+          <hbox id="downloadsFooterButtons"
+                class="panel-footer">
             <button id="downloadsHistory"
                     class="downloadsPanelFooterButton"
                     label="&downloadsHistory.label;"
@@ -2907,7 +2922,7 @@ xmlns="http://www.w3.org/1999/xhtml"
         <description id="downloadsPanel-blockedSubview-details2"/>
       </vbox>
       <hbox id="downloadsPanel-blockedSubview-buttons"
-            class="downloadsPanelFooter"
+            class="panel-footer downloadsPanelFooter"
             align="stretch">
         <button id="downloadsPanel-blockedSubview-openButton"
                 class="downloadsPanelFooterButton"
@@ -3081,30 +3096,19 @@ xmlns="http://www.w3.org/1999/xhtml"
   </popupset>
   <box id="appMenu-viewCache" hidden="true"/>
 
-<vbox id="titlebar">
-  <hbox id="titlebar-content">
-    <spacer id="titlebar-spacer" flex="1"/>
-    <hbox id="titlebar-buttonbox-container">
-      <hbox id="titlebar-buttonbox" class="titlebar-color">
-        <toolbarbutton class="titlebar-button" id="titlebar-min" oncommand="window.minimize();"/>
-        <toolbarbutton class="titlebar-button" id="titlebar-max" oncommand="onTitlebarMaxClick();"/>
-        <toolbarbutton class="titlebar-button" id="titlebar-close" command="cmd_closeWindow"/>
-      </hbox>
-    </hbox>
-  </hbox>
-</vbox>
-
   <toolbox id="navigator-toolbox">
-    <!-- Menu -->
-    <toolbar type="menubar" id="toolbar-menubar"
-             class="browser-toolbar chromeclass-menubar titlebar-color"
-             customizable="true"
-             mode="icons"
-             toolbarname="&menubarCmd.label;"
-             accesskey="&menubarCmd.accesskey;"
-             autohide="true"
-             context="toolbar-context-menu">
-      <toolbaritem id="menubar-items" align="center">
+
+    <vbox id="titlebar">
+      <!-- Menu -->
+      <toolbar type="menubar" id="toolbar-menubar"
+               class="browser-toolbar chromeclass-menubar titlebar-color"
+               customizable="true"
+               mode="icons"
+               toolbarname="&menubarCmd.label;"
+               accesskey="&menubarCmd.accesskey;"
+               autohide="true"
+               context="toolbar-context-menu">
+        <toolbaritem id="menubar-items" align="center">
 
        <menubar id="main-menubar"
                 onpopupshowing="if (event.target.parentNode.parentNode == this &amp;&amp;
@@ -3615,64 +3619,86 @@ xmlns="http://www.w3.org/1999/xhtml"
               </menupopup>
           </menu>
         </menubar>
-      </toolbaritem>
+        </toolbaritem>
+        <spacer flex="1" skipintoolbarset="true" ordinal="1000"/>
 
-      <hbox class="titlebar-placeholder" type="caption-buttons" ordinal="1000"
-            skipintoolbarset="true"/>
-    </toolbar>
+<hbox class="titlebar-buttonbox-container" skipintoolbarset="true">
+  <hbox class="titlebar-buttonbox titlebar-color">
+    <toolbarbutton class="titlebar-button titlebar-min" oncommand="window.minimize();"/>
+    <toolbarbutton class="titlebar-button titlebar-max" oncommand="onTitlebarMaxClick();"/>
+    <toolbarbutton class="titlebar-button titlebar-close" command="cmd_closeWindow"/>
+  </hbox>
+</hbox>
+      </toolbar>
 
-    <toolbar id="TabsToolbar"
-             class="browser-toolbar titlebar-color"
-             fullscreentoolbar="true"
-             customizable="true"
-             mode="icons"
-             aria-label="&tabsToolbar.label;"
-             context="toolbar-context-menu">
-      <hbox class="titlebar-placeholder" type="pre-tabs"
-            skipintoolbarset="true"/>
+      <toolbar id="TabsToolbar"
+               class="browser-toolbar titlebar-color"
+               fullscreentoolbar="true"
+               customizable="true"
+               customizationtarget="TabsToolbar-customization-target"
+               mode="icons"
+               aria-label="&tabsToolbar.label;"
+               context="toolbar-context-menu"
+               flex="1">
+        <vbox flex="1" class="toolbar-items">
+          <spacer flex="1000"/>
 
-      <tabs id="tabbrowser-tabs"
-            flex="1"
-            setfocus="false"
-            tooltip="tabbrowser-tab-tooltip"
-            stopwatchid="FX_TAB_CLICK_MS">
-        <tab class="tabbrowser-tab" selected="true" visuallyselected="true" fadein="true"/>
-      </tabs>
+          <hbox id="TabsToolbar-customization-target" flex="1">
+            <hbox class="titlebar-spacer" type="pre-tabs"
+                  skipintoolbarset="true"/>
 
-      <toolbarbutton id="new-tab-button"
-                     class="toolbarbutton-1 chromeclass-toolbar-additional"
-                     label="&tabCmd.label;"
-                     command="cmd_newNavigatorTab"
-                     onclick="checkForMiddleClick(this, event);"
-                     tooltip="dynamic-shortcut-tooltip"
-                     ondrop="newTabButtonObserver.onDrop(event)"
-                     ondragover="newTabButtonObserver.onDragOver(event)"
-                     ondragenter="newTabButtonObserver.onDragOver(event)"
-                     ondragexit="newTabButtonObserver.onDragExit(event)"
-                     cui-areatype="toolbar"
-                     removable="true"/>
+            <tabs id="tabbrowser-tabs"
+                  flex="1"
+                  setfocus="false"
+                  tooltip="tabbrowser-tab-tooltip"
+                  stopwatchid="FX_TAB_CLICK_MS">
+              <tab class="tabbrowser-tab" selected="true" visuallyselected="true" fadein="true"/>
+            </tabs>
 
-      <toolbarbutton id="alltabs-button"
-                     class="toolbarbutton-1 chromeclass-toolbar-additional tabs-alltabs-button badged-button"
-                     oncommand="gTabsPanel.showAllTabsPanel();"
-                     label="&listAllTabs.label;"
-                     tooltiptext="&listAllTabs.label;"
-                     removable="false"/>
+            <toolbarbutton id="new-tab-button"
+                           class="toolbarbutton-1 chromeclass-toolbar-additional"
+                           label="&tabCmd.label;"
+                           command="cmd_newNavigatorTab"
+                           onclick="checkForMiddleClick(this, event);"
+                           tooltip="dynamic-shortcut-tooltip"
+                           ondrop="newTabButtonObserver.onDrop(event)"
+                           ondragover="newTabButtonObserver.onDragOver(event)"
+                           ondragenter="newTabButtonObserver.onDragOver(event)"
+                           ondragexit="newTabButtonObserver.onDragExit(event)"
+                           cui-areatype="toolbar"
+                           removable="true"/>
 
-      <hbox class="titlebar-placeholder" type="post-tabs"
-            ordinal="1000"
-            skipintoolbarset="true"/>
+            <toolbarbutton id="alltabs-button"
+                           class="toolbarbutton-1 chromeclass-toolbar-additional tabs-alltabs-button badged-button"
+                           oncommand="gTabsPanel.showAllTabsPanel();"
+                           label="&listAllTabs.label;"
+                           tooltiptext="&listAllTabs.label;"
+                           removable="false"/>
 
-      <button class="accessibility-indicator" tooltiptext="&accessibilityIndicator.tooltip;"
-              ordinal="1000"
-              aria-live="polite" skipintoolbarset="true"/>
-      <hbox class="private-browsing-indicator" skipintoolbarset="true"
-            ordinal="1000"/>
-      <hbox class="titlebar-placeholder" type="caption-buttons"
-            ordinal="1000"
-            skipintoolbarset="true"/>
+            <hbox class="titlebar-spacer" type="post-tabs"
+                  ordinal="1000"
+                  skipintoolbarset="true"/>
+          </hbox>
+        </vbox>
 
-    </toolbar>
+        <button class="accessibility-indicator" tooltiptext="&accessibilityIndicator.tooltip;"
+                ordinal="1000"
+                aria-live="polite" skipintoolbarset="true"/>
+        <hbox class="private-browsing-indicator" skipintoolbarset="true"
+              ordinal="1000"/>
+
+
+<hbox class="titlebar-buttonbox-container" skipintoolbarset="true">
+  <hbox class="titlebar-buttonbox titlebar-color">
+    <toolbarbutton class="titlebar-button titlebar-min" oncommand="window.minimize();"/>
+    <toolbarbutton class="titlebar-button titlebar-max" oncommand="onTitlebarMaxClick();"/>
+    <toolbarbutton class="titlebar-button titlebar-close" command="cmd_closeWindow"/>
+  </hbox>
+</hbox>
+
+      </toolbar>
+
+    </vbox>
 
     <toolbar id="nav-bar"
              class="browser-toolbar"
@@ -3840,6 +3866,8 @@ xmlns="http://www.w3.org/1999/xhtml"
                          tooltiptext="&urlbar.midiNotificationAnchor.tooltip;"/>
                   <image id="webauthn-notification-icon" class="notification-anchor-icon" role="button"
                          tooltiptext="&urlbar.webAuthnAnchor.tooltip;"/>
+                  <image id="storage-access-notification-icon" class="notification-anchor-icon storage-access-icon" role="button"
+                         tooltiptext="&urlbar.storageAccessAnchor.tooltip;"/>
                 </box>
                 <image id="connection-icon"/>
                 <image id="extension-icon"/>
@@ -3973,6 +4001,10 @@ xmlns="http://www.w3.org/1999/xhtml"
                        tooltiptext="&fullScreenClose.tooltip;"
                        oncommand="BrowserTryToCloseWindow();"/>
       </hbox>
+
+      <box id="library-animatable-box" class="toolbarbutton-animatable-box">
+        <image class="toolbarbutton-animatable-image"/>
+      </box>
     </toolbar>
 
     <toolbar id="PersonalToolbar"
@@ -4149,9 +4181,6 @@ xmlns="http://www.w3.org/1999/xhtml"
         <searchbar id="searchbar" flex="1"/>
       </toolbaritem>
     </toolbarpalette>
-    <box id="library-animatable-box" class="toolbarbutton-animatable-box">
-      <image class="toolbarbutton-animatable-image"/>
-    </box>
   </toolbox>
 
   <hbox id="fullscr-toggler" hidden="true"/>
@@ -4176,7 +4205,7 @@ xmlns="http://www.w3.org/1999/xhtml"
 
       <splitter id="sidebar-splitter" class="chromeclass-extrachrome sidebar-splitter" hidden="true"/>
       <vbox id="appcontent" flex="1">
-        <notificationbox id="high-priority-global-notificationbox" notificationside="top"/>
+        <!-- gHighPriorityNotificationBox will be added here lazily. -->
         <tabbox id="tabbrowser-tabbox"
                 flex="1" tabcontainer="tabbrowser-tabs">
           <tabpanels id="tabbrowser-tabpanels"
@@ -4351,7 +4380,7 @@ xmlns="http://www.w3.org/1999/xhtml"
   </html:div>
 
   <vbox id="browser-bottombox" layer="true">
-    <notificationbox id="global-notificationbox" notificationside="bottom"/>
+    <!-- gNotificationBox will be added here lazily. -->
   </vbox>
 
 </window>

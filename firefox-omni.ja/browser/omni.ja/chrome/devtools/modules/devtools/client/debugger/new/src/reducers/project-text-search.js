@@ -19,17 +19,19 @@ var _makeRecord2 = _interopRequireDefault(_makeRecord);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 /* This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
+
 // @format
 
 /**
  * Project text search reducer
  * @module reducers/project-text-search
  */
+
 const statusType = exports.statusType = {
   initial: "INITIAL",
   fetching: "FETCHING",
@@ -59,14 +61,10 @@ function update(state = initialProjectTextSearchState(), action) {
 
     case "ADD_SEARCH_RESULT":
       const results = state.get("results");
-      return state.merge({
-        results: results.push(action.result)
-      });
+      return state.merge({ results: results.push(action.result) });
 
     case "UPDATE_STATUS":
-      return state.merge({
-        status: action.status
-      });
+      return state.merge({ status: action.status });
 
     case "CLEAR_SEARCH_RESULTS":
       return state.merge({
@@ -82,7 +80,6 @@ function update(state = initialProjectTextSearchState(), action) {
         status: statusType.initial
       });
   }
-
   return state;
 }
 

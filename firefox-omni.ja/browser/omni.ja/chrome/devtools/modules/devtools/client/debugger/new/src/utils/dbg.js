@@ -15,11 +15,12 @@ var _devtoolsEnvironment = require("devtools/client/debugger/new/dist/vendors").
 
 var _pausePoints = require("./pause/pausePoints");
 
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 /* This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
+
 function findSource(dbg, url) {
   const sources = dbg.selectors.getSourceList();
   return sources.find(s => (s.url || "").includes(url));
@@ -35,10 +36,7 @@ function sendPacket(dbg, packet, callback) {
 }
 
 function sendPacketToThread(dbg, packet, callback) {
-  sendPacket(dbg, {
-    to: dbg.connection.tabConnection.threadClient.actor,
-    ...packet
-  }, callback);
+  sendPacket(dbg, { to: dbg.connection.tabConnection.threadClient.actor, ...packet }, callback);
 }
 
 function evaluate(dbg, expression, callback) {
@@ -48,7 +46,6 @@ function evaluate(dbg, expression, callback) {
 function bindSelectors(obj) {
   return Object.keys(obj.selectors).reduce((bound, selector) => {
     bound[selector] = (a, b, c) => obj.selectors[selector](obj.store.getState(), a, b, c);
-
     return bound;
   }, {});
 }
@@ -59,14 +56,19 @@ function getCM() {
 }
 
 function _formatPausePoints(dbg, url) {
-  const source = dbg.helpers.findSource(url);
-  const pausePoints = dbg.selectors.getPausePoints(source);
+  const source = dbg.helpers.findSource(url) || dbg.selectors.getSelectedSource();
+  const pausePoints = dbg.selectors.getPausePoints(source.id);
   console.log((0, _pausePoints.formatPausePoints)(source.text, pausePoints));
+}
+
+function _formatColumnBreapoints(dbg) {
+  console.log(dbg.selectors.formatColumnBreakpoints(dbg.selectors.visibleColumnBreakpoints()));
 }
 
 function setupHelper(obj) {
   const selectors = bindSelectors(obj);
-  const dbg = { ...obj,
+  const dbg = {
+    ...obj,
     selectors,
     prefs: _prefs.prefs,
     asyncStore: _prefs.asyncStore,
@@ -81,12 +83,14 @@ function setupHelper(obj) {
       sendPacket: (packet, cbk) => sendPacket(dbg, packet, cbk)
     },
     formatters: {
-      pausePoints: url => _formatPausePoints(dbg, url)
+      pausePoints: url => _formatPausePoints(dbg, url),
+      visibleColumnBreakpoints: () => _formatColumnBreapoints(dbg)
     },
     _telemetry: {
       events: {}
     }
   };
+
   window.dbg = dbg;
 
   if ((0, _devtoolsEnvironment.isDevelopment)() && !(0, _devtoolsEnvironment.isTesting)()) {

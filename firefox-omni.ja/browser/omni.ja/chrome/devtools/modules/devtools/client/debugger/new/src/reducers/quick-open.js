@@ -25,6 +25,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * Quick Open reducer
  * @module reducers/quick-open
  */
+
 const createQuickOpenState = exports.createQuickOpenState = (0, _makeRecord2.default)({
   enabled: false,
   query: "",
@@ -41,18 +42,14 @@ function update(state = createQuickOpenState(), action) {
           searchType: (0, _quickOpen.parseQuickOpenQuery)(action.query)
         });
       }
-
       return state.set("enabled", true);
-
     case "CLOSE_QUICK_OPEN":
       return createQuickOpenState();
-
     case "SET_QUICK_OPEN_QUERY":
       return state.merge({
         query: action.query,
         searchType: (0, _quickOpen.parseQuickOpenQuery)(action.query)
       });
-
     default:
       return state;
   }

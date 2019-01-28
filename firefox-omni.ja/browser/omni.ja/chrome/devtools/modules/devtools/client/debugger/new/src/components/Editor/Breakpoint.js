@@ -29,11 +29,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 /* This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
-const breakpointSvg = document.createElement("div");
 
-_reactDom2.default.render(_react2.default.createElement(_Svg2.default, {
-  name: "breakpoint"
-}), breakpointSvg);
+const breakpointSvg = document.createElement("div");
+_reactDom2.default.render(_react2.default.createElement(_Svg2.default, { name: "breakpoint" }), breakpointSvg);
 
 function makeMarker(isDisabled) {
   const bp = breakpointSvg.cloneNode(true);
@@ -41,6 +39,7 @@ function makeMarker(isDisabled) {
     "breakpoint-disabled": isDisabled,
     "folding-enabled": _prefs.features.codeFolding
   });
+
   return bp;
 }
 
@@ -49,27 +48,25 @@ class Breakpoint extends _react.PureComponent {
     var _temp;
 
     return _temp = super(...args), this.addBreakpoint = () => {
-      const {
-        breakpoint,
-        editor,
-        selectedSource
-      } = this.props; // Hidden Breakpoints are never rendered on the client
+      const { breakpoint, editor, selectedSource } = this.props;
 
+      // Hidden Breakpoints are never rendered on the client
       if (breakpoint.hidden) {
         return;
-      } // NOTE: we need to wait for the breakpoint to be loaded
+      }
+
+      // NOTE: we need to wait for the breakpoint to be loaded
       // to get the generated location
-
-
       if (!selectedSource || breakpoint.loading) {
         return;
       }
 
       const sourceId = selectedSource.id;
       const line = (0, _editor.toEditorLine)(sourceId, breakpoint.location.line);
-      editor.codeMirror.setGutterMarker(line, "breakpoints", makeMarker(breakpoint.disabled));
-      editor.codeMirror.addLineClass(line, "line", "new-breakpoint");
 
+      editor.codeMirror.setGutterMarker(line, "breakpoints", makeMarker(breakpoint.disabled));
+
+      editor.codeMirror.addLineClass(line, "line", "new-breakpoint");
       if (breakpoint.condition) {
         editor.codeMirror.addLineClass(line, "line", "has-condition");
       } else {
@@ -87,11 +84,7 @@ class Breakpoint extends _react.PureComponent {
   }
 
   componentWillUnmount() {
-    const {
-      editor,
-      breakpoint,
-      selectedSource
-    } = this.props;
+    const { editor, breakpoint, selectedSource } = this.props;
 
     if (!selectedSource) {
       return;
@@ -103,13 +96,13 @@ class Breakpoint extends _react.PureComponent {
 
     const sourceId = selectedSource.id;
     const doc = (0, _editor.getDocument)(sourceId);
-
     if (!doc) {
       return;
     }
 
-    const line = (0, _editor.toEditorLine)(sourceId, breakpoint.location.line); // NOTE: when we upgrade codemirror we can use `doc.setGutterMarker`
+    const line = (0, _editor.toEditorLine)(sourceId, breakpoint.location.line);
 
+    // NOTE: when we upgrade codemirror we can use `doc.setGutterMarker`
     if (doc.setGutterMarker) {
       doc.setGutterMarker(line, "breakpoints", null);
     } else {
@@ -123,7 +116,6 @@ class Breakpoint extends _react.PureComponent {
   render() {
     return null;
   }
-
 }
 
 exports.default = Breakpoint;

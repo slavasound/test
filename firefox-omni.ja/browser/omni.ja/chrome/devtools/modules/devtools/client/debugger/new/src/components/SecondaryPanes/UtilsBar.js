@@ -16,22 +16,24 @@ var _CommandBarButton = require("../shared/Button/CommandBarButton");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/* This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
 class UtilsBar extends _react.Component {
   renderUtilButtons() {
     return [(0, _CommandBarButton.debugBtn)(this.props.toggleShortcutsModal, "shortcuts", "active", L10N.getStr("shortcuts.buttonName"), false)];
   }
 
   render() {
-    return _react2.default.createElement("div", {
-      className: (0, _classnames2.default)("command-bar bottom", {
-        vertical: !this.props.horizontal
-      })
-    }, this.renderUtilButtons());
+    return _react2.default.createElement(
+      "div",
+      {
+        className: (0, _classnames2.default)("command-bar bottom", {
+          vertical: !this.props.horizontal
+        })
+      },
+      this.renderUtilButtons()
+    );
   }
-
-}
+} /* This Source Code Form is subject to the terms of the Mozilla Public
+   * License, v. 2.0. If a copy of the MPL was not distributed with this
+   * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
 
 exports.default = UtilsBar;

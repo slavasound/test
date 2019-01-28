@@ -8,10 +8,6 @@ var _expressions = require("./expressions");
 
 var _expressions2 = _interopRequireDefault(_expressions);
 
-var _eventListeners = require("./event-listeners");
-
-var _eventListeners2 = _interopRequireDefault(_eventListeners);
-
 var _sources = require("./sources");
 
 var _sources2 = _interopRequireDefault(_sources);
@@ -48,10 +44,6 @@ var _ast = require("./ast");
 
 var _ast2 = _interopRequireDefault(_ast);
 
-var _coverage = require("./coverage");
-
-var _coverage2 = _interopRequireDefault(_coverage);
-
 var _projectTextSearch = require("./project-text-search");
 
 var _projectTextSearch2 = _interopRequireDefault(_projectTextSearch);
@@ -72,17 +64,8 @@ var _devtoolsReps = require("devtools/client/shared/components/reps/reps.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/* This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
-
-/**
- * Reducer index
- * @module reducers/index
- */
 exports.default = {
   expressions: _expressions2.default,
-  eventListeners: _eventListeners2.default,
   sources: _sources2.default,
   tabs: _tabs2.default,
   breakpoints: _breakpoints2.default,
@@ -92,10 +75,16 @@ exports.default = {
   ui: _ui2.default,
   fileSearch: _fileSearch2.default,
   ast: _ast2.default,
-  coverage: _coverage2.default,
   projectTextSearch: _projectTextSearch2.default,
   quickOpen: _quickOpen2.default,
   sourceTree: _sourceTree2.default,
   debuggee: _debuggee2.default,
   objectInspector: _devtoolsReps.objectInspector.reducer.default
-};
+}; /* This Source Code Form is subject to the terms of the Mozilla Public
+    * License, v. 2.0. If a copy of the MPL was not distributed with this
+    * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
+
+/**
+ * Reducer index
+ * @module reducers/index
+ */

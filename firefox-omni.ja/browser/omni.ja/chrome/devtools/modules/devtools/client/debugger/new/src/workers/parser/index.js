@@ -7,16 +7,12 @@ exports.getPausePoints = exports.getFramework = exports.mapExpression = exports.
 
 var _devtoolsUtils = require("devtools/client/debugger/new/dist/vendors").vendored["devtools-utils"];
 
-/* This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
-const {
-  WorkerDispatcher
-} = _devtoolsUtils.workerUtils;
+const { WorkerDispatcher } = _devtoolsUtils.workerUtils; /* This Source Code Form is subject to the terms of the Mozilla Public
+                                                          * License, v. 2.0. If a copy of the MPL was not distributed with this
+                                                          * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
+
 const dispatcher = new WorkerDispatcher();
-
-const start = exports.start = (url, win=window) => dispatcher.start(url, win);
-
+const start = exports.start = (url, win = window) => dispatcher.start(url, win);
 const stop = exports.stop = () => dispatcher.stop();
 
 const findOutOfScopeLocations = exports.findOutOfScopeLocations = async (sourceId, position) => dispatcher.invoke("findOutOfScopeLocations", sourceId, position);

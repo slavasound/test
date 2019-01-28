@@ -7,24 +7,19 @@ exports.buildScopeList = undefined;
 exports.default = getScopes;
 exports.clearScopes = clearScopes;
 
-var _visitor = require("./visitor");
+var _visitor = require("./visitor/index");
 
-/* This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
-let parsedScopesCache = new Map();
+let parsedScopesCache = new Map(); /* This Source Code Form is subject to the terms of the Mozilla Public
+                                    * License, v. 2.0. If a copy of the MPL was not distributed with this
+                                    * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
 
 function getScopes(location) {
-  const {
-    sourceId
-  } = location;
+  const { sourceId } = location;
   let parsedScopes = parsedScopesCache.get(sourceId);
-
   if (!parsedScopes) {
     parsedScopes = (0, _visitor.parseSourceScopes)(sourceId);
     parsedScopesCache.set(sourceId, parsedScopes);
   }
-
   return parsedScopes ? findScopes(parsedScopes, location) : [];
 }
 
@@ -33,6 +28,7 @@ function clearScopes() {
 }
 
 exports.buildScopeList = _visitor.buildScopeList;
+
 /**
  * Searches all scopes and their bindings at the specific location.
  */
@@ -41,7 +37,6 @@ function findScopes(scopes, location) {
   // Find inner most in the tree structure.
   let searchInScopes = scopes;
   const found = [];
-
   while (searchInScopes) {
     const foundOne = searchInScopes.some(s => {
       if (compareLocations(s.start, location) <= 0 && compareLocations(location, s.end) < 0) {
@@ -50,15 +45,12 @@ function findScopes(scopes, location) {
         searchInScopes = s.children;
         return true;
       }
-
       return false;
     });
-
     if (!foundOne) {
       break;
     }
   }
-
   return found.map(i => {
     return {
       type: i.type,

@@ -21,20 +21,19 @@ var _prefs = require("../utils/prefs");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/* This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
-
-/**
- * Expressions reducer
- * @module reducers/expressions
- */
 const createExpressionState = exports.createExpressionState = (0, _makeRecord2.default)({
   expressions: (0, _immutable.List)(restoreExpressions()),
   expressionError: false,
   autocompleteMatches: (0, _immutable.Map)({}),
   currentAutocompleteInput: null
-});
+}); /* This Source Code Form is subject to the terms of the Mozilla Public
+     * License, v. 2.0. If a copy of the MPL was not distributed with this
+     * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
+
+/**
+ * Expressions reducer
+ * @module reducers/expressions
+ */
 
 function update(state = createExpressionState(), action) {
   switch (action.type) {
@@ -42,7 +41,6 @@ function update(state = createExpressionState(), action) {
       if (action.expressionError) {
         return state.set("expressionError", !!action.expressionError);
       }
-
       return appendExpressionToList(state, {
         input: action.input,
         value: null,
@@ -65,10 +63,8 @@ function update(state = createExpressionState(), action) {
       });
 
     case "EVALUATE_EXPRESSIONS":
-      const {
-        inputs,
-        results
-      } = action;
+      const { inputs, results } = action;
+
       return (0, _lodash.zip)(inputs, results).reduce((newState, [input, result]) => updateExpressionInList(newState, input, {
         input: input,
         value: result,
@@ -80,16 +76,14 @@ function update(state = createExpressionState(), action) {
 
     case "CLEAR_EXPRESSION_ERROR":
       return state.set("expressionError", false);
-    // respond to time travel
 
+    // respond to time travel
     case "TRAVEL_TO":
       return travelTo(state, action);
 
     case "AUTOCOMPLETE":
-      const {
-        matchProp,
-        matches
-      } = action.result;
+      const { matchProp, matches } = action.result;
+
       return state.updateIn(["autocompleteMatches", matchProp], list => matches).set("currentAutocompleteInput", matchProp);
 
     case "CLEAR_AUTOCOMPLETE":
@@ -100,14 +94,10 @@ function update(state = createExpressionState(), action) {
 }
 
 function travelTo(state, action) {
-  const {
-    expressions
-  } = action.data;
-
+  const { expressions } = action.data;
   if (!expressions) {
     return state;
   }
-
   return expressions.reduce((finalState, previousState) => updateExpressionInList(finalState, previousState.input, {
     input: previousState.input,
     value: previousState.value,
@@ -117,17 +107,13 @@ function travelTo(state, action) {
 
 function restoreExpressions() {
   const exprs = _prefs.prefs.expressions;
-
   if (exprs.length == 0) {
     return;
   }
-
   return exprs;
 }
 
-function storeExpressions({
-  expressions
-}) {
+function storeExpressions({ expressions }) {
   _prefs.prefs.expressions = expressions.map(expression => (0, _lodash.omit)(expression, "value")).toJS();
 }
 
@@ -135,6 +121,7 @@ function appendExpressionToList(state, value) {
   const newState = state.update("expressions", () => {
     return state.expressions.push(value);
   });
+
   storeExpressions(newState);
   return newState;
 }
@@ -145,14 +132,13 @@ function updateExpressionInList(state, key, value) {
     const index = list.findIndex(e => e.input == key);
     return list.update(index, () => value);
   });
+
   storeExpressions(newState);
   return newState;
 }
 
 function deleteExpression(state, input) {
-  const index = getExpressions({
-    expressions: state
-  }).findIndex(e => e.input == input);
+  const index = getExpressions({ expressions: state }).findIndex(e => e.input == input);
   const newState = state.deleteIn(["expressions", index]);
   storeExpressions(newState);
   return newState;
@@ -161,6 +147,7 @@ function deleteExpression(state, input) {
 const getExpressionsWrapper = state => state.expressions;
 
 const getExpressions = exports.getExpressions = (0, _reselect.createSelector)(getExpressionsWrapper, expressions => expressions.expressions);
+
 const getAutocompleteMatches = exports.getAutocompleteMatches = (0, _reselect.createSelector)(getExpressionsWrapper, expressions => expressions.autocompleteMatches);
 
 function getExpression(state, input) {
@@ -173,4 +160,5 @@ function getAutocompleteMatchset(state) {
 }
 
 const getExpressionError = exports.getExpressionError = (0, _reselect.createSelector)(getExpressionsWrapper, expressions => expressions.expressionError);
+
 exports.default = update;

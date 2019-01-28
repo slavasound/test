@@ -8,10 +8,11 @@ exports.isImmutable = isImmutable;
 exports.isReactComponent = isReactComponent;
 exports.isConsole = isConsole;
 
-/* This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
-const IMMUTABLE_FIELDS = ["_root", "__ownerID", "__altered", "__hash"];
+
+const IMMUTABLE_FIELDS = ["_root", "__ownerID", "__altered", "__hash"]; /* This Source Code Form is subject to the terms of the Mozilla Public
+                                                                         * License, v. 2.0. If a copy of the MPL was not distributed with this
+                                                                         * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
+
 const REACT_FIELDS = ["_reactInternalInstance", "_reactInternalFiber"];
 
 function isImmutablePreview(result) {
@@ -37,5 +38,6 @@ function isReactComponent(result) {
 }
 
 function isConsole(expression) {
-  return /^console/.test(expression);
+  return (/^console/.test(expression)
+  );
 }

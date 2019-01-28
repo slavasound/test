@@ -24,8 +24,6 @@ var _actions2 = _interopRequireDefault(_actions);
 
 var _selectors = require("../../selectors/index");
 
-var _prefs = require("../../utils/prefs");
-
 var _source = require("../../utils/source");
 
 var _sources = require("../../reducers/sources");
@@ -39,19 +37,38 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 /* This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
+
 class SourceFooter extends _react.PureComponent {
+  constructor() {
+    super();
+
+    this.onCursorChange = event => {
+      const { line, ch } = event.doc.getCursor();
+      this.setState({ cursorPosition: { line, column: ch } });
+    };
+
+    this.state = { cursorPosition: { line: 1, column: 1 } };
+  }
+
+  componentDidMount() {
+    const { editor } = this.props;
+    editor.codeMirror.on("cursorActivity", this.onCursorChange);
+  }
+
+  componentWillUnmount() {
+    const { editor } = this.props;
+    editor.codeMirror.off("cursorActivity", this.onCursorChange);
+  }
+
   prettyPrintButton() {
-    const {
-      selectedSource,
-      togglePrettyPrint
-    } = this.props;
+    const { selectedSource, togglePrettyPrint } = this.props;
 
     if ((0, _source.isLoading)(selectedSource) && selectedSource.isPrettyPrinted) {
-      return _react2.default.createElement("div", {
-        className: "loader"
-      }, _react2.default.createElement(_Svg2.default, {
-        name: "loader"
-      }));
+      return _react2.default.createElement(
+        "div",
+        { className: "loader" },
+        _react2.default.createElement(_Svg2.default, { name: "loader" })
+      );
     }
 
     if (!(0, _editor.shouldShowPrettyPrint)(selectedSource)) {
@@ -60,78 +77,65 @@ class SourceFooter extends _react.PureComponent {
 
     const tooltip = L10N.getStr("sourceTabs.prettyPrint");
     const sourceLoaded = selectedSource && (0, _source.isLoaded)(selectedSource);
+
     const type = "prettyPrint";
-    return _react2.default.createElement("button", {
-      onClick: () => togglePrettyPrint(selectedSource.id),
-      className: (0, _classnames2.default)("action", type, {
-        active: sourceLoaded,
-        pretty: (0, _source.isPretty)(selectedSource)
-      }),
-      key: type,
-      title: tooltip,
-      "aria-label": tooltip
-    }, _react2.default.createElement("img", {
-      className: type
-    }));
+    return _react2.default.createElement(
+      "button",
+      {
+        onClick: () => togglePrettyPrint(selectedSource.id),
+        className: (0, _classnames2.default)("action", type, {
+          active: sourceLoaded,
+          pretty: (0, _source.isPretty)(selectedSource)
+        }),
+        key: type,
+        title: tooltip,
+        "aria-label": tooltip
+      },
+      _react2.default.createElement("img", { className: type })
+    );
   }
 
   blackBoxButton() {
-    const {
-      selectedSource,
-      toggleBlackBox
-    } = this.props;
+    const { selectedSource, toggleBlackBox } = this.props;
     const sourceLoaded = selectedSource && (0, _source.isLoaded)(selectedSource);
 
-    if (!sourceLoaded || selectedSource.isPrettyPrinted) {
+    if (!(0, _source.shouldBlackbox)(selectedSource)) {
       return;
     }
 
     const blackboxed = selectedSource.isBlackBoxed;
+
     const tooltip = L10N.getStr("sourceFooter.blackbox");
     const type = "black-box";
-    return _react2.default.createElement("button", {
-      onClick: () => toggleBlackBox(selectedSource),
-      className: (0, _classnames2.default)("action", type, {
-        active: sourceLoaded,
-        blackboxed: blackboxed
-      }),
-      key: type,
-      title: tooltip,
-      "aria-label": tooltip
-    }, _react2.default.createElement("img", {
-      className: "blackBox"
-    }));
+
+    return _react2.default.createElement(
+      "button",
+      {
+        onClick: () => toggleBlackBox(selectedSource),
+        className: (0, _classnames2.default)("action", type, {
+          active: sourceLoaded,
+          blackboxed: blackboxed
+        }),
+        key: type,
+        title: tooltip,
+        "aria-label": tooltip
+      },
+      _react2.default.createElement("img", { className: "blackBox" })
+    );
   }
 
   blackBoxSummary() {
-    const {
-      selectedSource
-    } = this.props;
+    const { selectedSource } = this.props;
 
     if (!selectedSource || !selectedSource.isBlackBoxed) {
       return;
     }
 
-    return _react2.default.createElement("span", {
-      className: "blackbox-summary"
-    }, L10N.getStr("sourceFooter.blackboxed"));
-  }
-
-  coverageButton() {
-    const {
-      recordCoverage
-    } = this.props;
-
-    if (!_prefs.features.codeCoverage) {
-      return;
-    }
-
-    return _react2.default.createElement("button", {
-      className: "coverage action",
-      title: L10N.getStr("sourceFooter.codeCoverage"),
-      onClick: () => recordCoverage(),
-      "aria-label": L10N.getStr("sourceFooter.codeCoverage")
-    }, "C");
+    return _react2.default.createElement(
+      "span",
+      { className: "blackbox-summary" },
+      L10N.getStr("sourceFooter.blackboxed")
+    );
   }
 
   renderToggleButton() {
@@ -148,17 +152,17 @@ class SourceFooter extends _react.PureComponent {
   }
 
   renderCommands() {
-    return _react2.default.createElement("div", {
-      className: "commands"
-    }, this.prettyPrintButton(), this.blackBoxButton(), this.blackBoxSummary(), this.coverageButton());
+    return _react2.default.createElement(
+      "div",
+      { className: "commands" },
+      this.prettyPrintButton(),
+      this.blackBoxButton(),
+      this.blackBoxSummary()
+    );
   }
 
   renderSourceSummary() {
-    const {
-      mappedSource,
-      jumpToMappedLocation,
-      selectedSource
-    } = this.props;
+    const { mappedSource, jumpToMappedLocation, selectedSource } = this.props;
 
     if (!mappedSource || !(0, _source.isOriginal)(selectedSource)) {
       return null;
@@ -172,33 +176,54 @@ class SourceFooter extends _react.PureComponent {
       line: 1,
       column: 1
     };
-    return _react2.default.createElement("button", {
-      className: "mapped-source",
-      onClick: () => jumpToMappedLocation(mappedSourceLocation),
-      title: tooltip
-    }, _react2.default.createElement("span", null, title));
+    return _react2.default.createElement(
+      "button",
+      {
+        className: "mapped-source",
+        onClick: () => jumpToMappedLocation(mappedSourceLocation),
+        title: tooltip
+      },
+      _react2.default.createElement(
+        "span",
+        null,
+        title
+      )
+    );
+  }
+
+  renderCursorPosition() {
+    const { cursorPosition } = this.state;
+
+    const text = L10N.getFormatStr("sourceFooter.currentCursorPosition", cursorPosition.line + 1, cursorPosition.column + 1);
+    return _react2.default.createElement(
+      "span",
+      { className: "cursor-position" },
+      text
+    );
   }
 
   render() {
-    const {
-      selectedSource,
-      horizontal
-    } = this.props;
+    const { selectedSource, horizontal } = this.props;
 
     if (!(0, _editor.shouldShowFooter)(selectedSource, horizontal)) {
       return null;
     }
 
-    return _react2.default.createElement("div", {
-      className: "source-footer"
-    }, this.renderCommands(), this.renderSourceSummary(), this.renderToggleButton());
+    return _react2.default.createElement(
+      "div",
+      { className: "source-footer" },
+      this.renderCommands(),
+      this.renderCursorPosition(),
+      this.renderSourceSummary(),
+      this.renderToggleButton()
+    );
   }
-
 }
 
 const mapStateToProps = state => {
   const selectedSource = (0, _selectors.getSelectedSource)(state);
   const selectedId = selectedSource.id;
+
   return {
     selectedSource,
     mappedSource: (0, _sources.getGeneratedSource)(state, selectedSource),
@@ -211,6 +236,5 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps, {
   togglePrettyPrint: _actions2.default.togglePrettyPrint,
   toggleBlackBox: _actions2.default.toggleBlackBox,
   jumpToMappedLocation: _actions2.default.jumpToMappedLocation,
-  recordCoverage: _actions2.default.recordCoverage,
   togglePaneCollapse: _actions2.default.togglePaneCollapse
 })(SourceFooter);

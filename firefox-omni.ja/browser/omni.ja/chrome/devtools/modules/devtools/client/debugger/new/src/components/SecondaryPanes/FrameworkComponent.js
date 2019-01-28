@@ -24,57 +24,41 @@ var _preview = require("../../utils/preview");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/* This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
 const {
   component: ObjectInspector,
   utils: {
     createNode,
     getChildren,
-    loadProperties: {
-      loadItemProperties
-    }
+    loadProperties: { loadItemProperties }
   }
-} = _devtoolsReps.objectInspector;
+} = _devtoolsReps.objectInspector; /* This Source Code Form is subject to the terms of the Mozilla Public
+                                    * License, v. 2.0. If a copy of the MPL was not distributed with this
+                                    * file, You can obtain one at <http://mozilla.org/MPL/2.0/>. */
 
 class FrameworkComponent extends _react.PureComponent {
   async componentWillMount() {
     const expression = "this;";
-    const {
-      selectedFrame,
-      setPopupObjectProperties
-    } = this.props;
+    const { selectedFrame, setPopupObjectProperties } = this.props;
     const value = selectedFrame.this;
-    const root = createNode({
-      name: expression,
-      contents: {
-        value
-      }
-    });
-    const properties = await loadItemProperties(root, _firefox.createObjectClient);
 
+    const root = createNode({ name: expression, contents: { value } });
+    const properties = await loadItemProperties(root, _firefox.createObjectClient);
     if (properties) {
       setPopupObjectProperties(value, properties);
     }
   }
 
   renderReactComponent() {
-    const {
-      selectedFrame,
-      popupObjectProperties
-    } = this.props;
+    const { selectedFrame, popupObjectProperties } = this.props;
     const expression = "this;";
     const value = selectedFrame.this;
     const root = {
       name: expression,
       path: expression,
-      contents: {
-        value
-      }
+      contents: { value }
     };
-    const loadedRootProperties = popupObjectProperties[value.actor];
 
+    const loadedRootProperties = popupObjectProperties[value.actor];
     if (!loadedRootProperties) {
       return null;
     }
@@ -83,32 +67,32 @@ class FrameworkComponent extends _react.PureComponent {
       item: root,
       loadedProperties: new Map([[root.path, loadedRootProperties]])
     });
+
     roots = roots.filter(r => ["state", "props"].includes(r.name));
-    return _react2.default.createElement("div", {
-      className: "pane framework-component"
-    }, _react2.default.createElement(ObjectInspector, {
-      roots: roots,
-      autoExpandAll: false,
-      autoExpandDepth: 0,
-      disableWrap: true,
-      focusable: false,
-      dimTopLevelWindow: true,
-      createObjectClient: grip => (0, _firefox.createObjectClient)(grip)
-    }));
+
+    return _react2.default.createElement(
+      "div",
+      { className: "pane framework-component" },
+      _react2.default.createElement(ObjectInspector, {
+        roots: roots,
+        autoExpandAll: false,
+        autoExpandDepth: 0,
+        disableWrap: true,
+        focusable: false,
+        dimTopLevelWindow: true,
+        createObjectClient: grip => (0, _firefox.createObjectClient)(grip)
+      })
+    );
   }
 
   render() {
-    const {
-      selectedFrame
-    } = this.props;
-
+    const { selectedFrame } = this.props;
     if (selectedFrame && (0, _preview.isReactComponent)(selectedFrame.this)) {
       return this.renderReactComponent();
     }
 
     return null;
   }
-
 }
 
 const mapStateToProps = state => ({
