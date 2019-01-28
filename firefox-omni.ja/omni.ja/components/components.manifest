@@ -101,10 +101,6 @@ contract @mozilla.org/content-process-singleton;1 {ca2a8470-45c7-11e4-916c-08002
 category app-startup ContentProcessSingleton service,@mozilla.org/content-process-singleton;1 process=content
 component {e6156350-2be8-11db-a98b-0800200c9a66} nsURLFormatter.js
 contract @mozilla.org/toolkit/URLFormatterService;1 {e6156350-2be8-11db-a98b-0800200c9a66}
-component {18a03189-067b-4978-b4f1-bafe35292ed6} txEXSLTRegExFunctions.js
-contract @mozilla.org/exslt/regexp;1 {18a03189-067b-4978-b4f1-bafe35292ed6}
-component {dca61eb5-c7cd-4df1-b0fb-d0722baba251} nsLivemarkService.js
-contract @mozilla.org/browser/livemark-service;2 {dca61eb5-c7cd-4df1-b0fb-d0722baba251}
 component {bbc23860-2553-479d-8b78-94d9038334f7} nsTaggingService.js
 contract @mozilla.org/browser/tagging-service;1 {bbc23860-2553-479d-8b78-94d9038334f7}
 component {1dcc23b0-d4cb-11dc-9ad6-479d56d89593} nsTaggingService.js
@@ -128,8 +124,6 @@ contract @mozilla.org/toolkit/default-clh;1 {6ebc941a-f2ff-4d56-b3b6-f7d0b9d7334
 category command-line-handler y-default @mozilla.org/toolkit/default-clh;1
 component {e3f772f3-023f-4b32-b074-36cf0fd5d414} ContentPrefService2.js
 contract @mozilla.org/content-pref/service;1 {e3f772f3-023f-4b32-b074-36cf0fd5d414}
-component {8df290ae-dcaa-4c11-98a5-2429a4dc97bb} ContentPrefService2.js
-contract @mozilla.org/content-pref/hostname-grouper;1 {8df290ae-dcaa-4c11-98a5-2429a4dc97bb}
 component {e35d5067-95bc-4029-8432-e8f1e431148d} nsContentDispatchChooser.js
 contract @mozilla.org/content-dispatch-chooser;1 {e35d5067-95bc-4029-8432-e8f1e431148d}
 component {220cc253-b60f-41f6-b9cf-fdcb325f970f} HandlerService.js

@@ -10,6 +10,10 @@
 
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 
+.notificationbox-stack {
+  overflow: -moz-hidden-unscrollable;
+}
+
 notification {
   padding: 2px 0 3px;
   padding-inline-start: 12px;
@@ -21,11 +25,15 @@ notification {
   text-shadow: none;
 }
 
-notificationbox[notificationside="top"] > notification {
+notification.animated {
+  transition: margin-top 300ms var(--animation-easing-function), opacity 300ms var(--animation-easing-function);
+}
+
+.notificationbox-stack[notificationside="top"] > notification {
   border-top-style: none;
 }
 
-notificationbox[notificationside="bottom"] > notification {
+.notificationbox-stack[notificationside="bottom"] > notification {
   border-bottom-style: none;
 }
 
@@ -61,15 +69,15 @@ notification[type="critical"] {
   fill: currentColor;
 }
 
-.messageImage[type="info"] {
+notification[type="info"] > hbox > .messageImage {
   list-style-image: url("chrome://global/skin/icons/help.svg");
 }
 
-.messageImage[type="warning"] {
+notification[type="warning"] > hbox > .messageImage {
   list-style-image: url("chrome://global/skin/icons/warning.svg");
 }
 
-.messageImage[type="critical"] {
+notification[type="critical"] > hbox > .messageImage {
   list-style-image: url("chrome://global/skin/icons/error.svg");
 }
 
@@ -126,7 +134,6 @@ notification[type="critical"] {
 }
 
 .popup-notification-button-container {
-  background-color: var(--arrowpanel-dimmed);
   display: flex;
 }
 
@@ -144,49 +151,21 @@ notification[type="critical"] {
 
 .popup-notification-button {
   flex: 1;
-  -moz-appearance: none;
-  background-color: transparent;
-  color: inherit;
   margin: 0;
-  padding: 0;
   min-width: 0;
   min-height: 41px;
-  border: none;
   border-top: 1px solid var(--panel-separator-color);
 }
 
-.popup-notification-button:hover:not([disabled]) {
-  background-color: var(--arrowpanel-dimmed);
-}
-
 .popup-notification-button:hover:active:not([disabled]) {
-  background-color: var(--arrowpanel-dimmed-further);
   box-shadow: 0 1px 0 hsla(210,4%,10%,.05) inset;
 }
 
-.popup-notification-button[disabled] {
-  background-color: var(--arrowpanel-dimmed-further);
-  color: var(--panel-disabled-color);
-}
-
-.popup-notification-button[default]:not([alone]) {
+.popup-notification-primary-button:not([alone]) {
   flex: 0 50%;
 }
 
-.popup-notification-button[default][highlight="true"]:not([disabled]) {
-  background-color: #0996f8;
-  color: white;
-}
-
-.popup-notification-button[default][highlight="true"]:hover:not([disabled]) {
-  background-color: #0675d3;
-}
-
-.popup-notification-button[default][highlight="true"]:hover:active:not([disabled]) {
-  background-color: #0568ba;
-}
-
-.popup-notification-button[anonid="secondarybutton"][hidden="true"] ~ .popup-notification-button[default] {
+.popup-notification-secondary-button[hidden="true"] ~ .popup-notification-primary-button {
   flex: 1;
 }
 
@@ -220,10 +199,10 @@ notification[type="critical"] {
 }
 
 .popup-notification-button:-moz-focusring {
-  outline: 1px -moz-dialogtext dotted;
+  outline: 1px dotted;
   outline-offset: -5px;
 }
 
-.popup-notification-button[anonid="secondarybutton"]:not([hidden="true"])  ~ .popup-notification-button[default]:not([highlight="true"]) {
+.popup-notification-secondary-button:not([hidden="true"]) ~ .popup-notification-primary-button:not([default]) {
   border-inline-start: 1px solid var(--panel-separator-color);
 }

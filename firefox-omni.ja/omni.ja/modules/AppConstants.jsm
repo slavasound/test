@@ -215,11 +215,11 @@ this.AppConstants = Object.freeze({
   DLL_SUFFIX: ".so",
 
   MOZ_APP_NAME: "firefox",
-  MOZ_APP_VERSION: "64.0.2",
-  MOZ_APP_VERSION_DISPLAY: "64.0.2",
+  MOZ_APP_VERSION: "65.0",
+  MOZ_APP_VERSION_DISPLAY: "65.0b12",
   MOZ_BUILD_APP: "browser",
   MOZ_MACBUNDLE_NAME: "Firefox.app",
-  MOZ_UPDATE_CHANNEL: "release",
+  MOZ_UPDATE_CHANNEL: "beta",
   INSTALL_LOCALE: "en-US",
   MOZ_WIDGET_TOOLKIT: "gtk3",
   ANDROID_PACKAGE_NAME: "org.mozilla.firefox",
@@ -228,7 +228,7 @@ this.AppConstants = Object.freeze({
 
   MOZ_BING_API_CLIENTID: "no-bing-api-clientid",
   MOZ_BING_API_KEY: "no-bing-api-key",
-  MOZ_GOOGLE_API_KEY: "AIzaSyD_Drzahe4dBzGCZ9ArvowCvrPx_yFrlCM",
+  MOZ_GOOGLE_API_KEY: "AIzaSyB2h2OuRcUgy5N-5hsZqiPW6sH3n_rptiQ",
   MOZ_MOZILLA_API_KEY: "7e40f68c-7938-4c5d-9f95-e61647c213eb",
 
   BROWSER_CHROME_URL: "chrome://browser/content/browser.xul",
@@ -237,7 +237,7 @@ this.AppConstants = Object.freeze({
   // "https://hg.mozilla.org/mozilla-central/rev/6256ec9113c1")
   // On unofficial builds, this is an empty string.
 //@line 328 "/builds/worker/workspace/build/src/toolkit/modules/AppConstants.jsm"
-  SOURCE_REVISION_URL: "https://hg.mozilla.org/releases/mozilla-release/rev/c58ea2229c337e9981ab9d3650b04fd3d249b141",
+  SOURCE_REVISION_URL: "https://hg.mozilla.org/releases/mozilla-beta/rev/666a44dfa6eb44515da1a8c9747224a95f45a3c0",
 
   HAVE_USR_LIB64_DIR:
 //@line 334 "/builds/worker/workspace/build/src/toolkit/modules/AppConstants.jsm"

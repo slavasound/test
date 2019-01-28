@@ -11,25 +11,25 @@ skin help classic/1.0 toolkit/skin/classic/help/
 skin mozapps classic/1.0 toolkit/skin/classic/mozapps/
 content recording recording/content/
 content pippki pippki/content/pippki/
-locale alerts en-US en-US/locale/en-US/alerts/
-locale autoconfig en-US en-US/locale/en-US/autoconfig/
-locale global en-US en-US/locale/en-US/global/
-locale global-platform en-US en-US/locale/en-US/global-platform/mac/ os=Darwin
-locale global-platform en-US en-US/locale/en-US/global-platform/unix/ os=LikeUnix os=Android
-locale global-platform en-US en-US/locale/en-US/global-platform/win/ os=WINNT
-locale mozapps en-US en-US/locale/en-US/mozapps/
-locale necko en-US en-US/locale/en-US/necko/
-locale passwordmgr en-US en-US/locale/en-US/passwordmgr/
-locale pipnss en-US en-US/locale/en-US/pipnss/
-locale pippki en-US en-US/locale/en-US/pippki/
-locale places en-US en-US/locale/en-US/places/
-locale pluginproblem en-US en-US/locale/en-US/pluginproblem/
-locale weave en-US en-US/locale/en-US/services/
+locale alerts ru ru/locale/ru/alerts/
+locale autoconfig ru ru/locale/ru/autoconfig/
+locale global ru ru/locale/ru/global/
+locale global-platform ru ru/locale/ru/global-platform/mac/ os=Darwin
+locale global-platform ru ru/locale/ru/global-platform/unix/ os=LikeUnix os=Android
+locale global-platform ru ru/locale/ru/global-platform/win/ os=WINNT
+locale mozapps ru ru/locale/ru/mozapps/
+locale necko ru ru/locale/ru/necko/
+locale passwordmgr ru ru/locale/ru/passwordmgr/
+locale pipnss ru ru/locale/ru/pipnss/
+locale pippki ru ru/locale/ru/pippki/
+locale places ru ru/locale/ru/places/
+locale pluginproblem ru ru/locale/ru/pluginproblem/
+locale weave ru ru/locale/ru/services/
 override chrome://mozapps/skin/extensions/category-dictionaries.svg chrome://mozapps/skin/extensions/dictionaryGeneric.svg
 override chrome://mozapps/skin/extensions/category-experiments.svg chrome://mozapps/skin/extensions/experimentGeneric.svg
 override chrome://mozapps/skin/extensions/category-extensions.svg chrome://mozapps/skin/extensions/extensionGeneric.svg
 override chrome://mozapps/skin/extensions/category-languages.svg chrome://mozapps/skin/extensions/localeGeneric.svg
-override chrome://mozapps/skin/extensions/category-plugins.svg chrome://mozapps/skin/plugins/pluginGeneric.svg
+override chrome://mozapps/skin/extensions/category-plugins.svg chrome://global/skin/plugins/pluginGeneric.svg
 override chrome://mozapps/skin/extensions/category-themes.svg chrome://mozapps/skin/extensions/themeGeneric.svg
 override chrome://mozapps/skin/extensions/localeGeneric.svg chrome://mozapps/skin/extensions/dictionaryGeneric.svg
 override chrome://mozapps/skin/xpinstall/xpinstallItemGeneric.png chrome://mozapps/skin/extensions/extensionGeneric.svg
