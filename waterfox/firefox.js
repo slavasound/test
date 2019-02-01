@@ -1,12 +1,12 @@
-//@line 5 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 5 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 
 // XXX Toolkit-specific preferences should be moved into toolkit.js
 
-//@line 9 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 9 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 
-//@line 17 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 17 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 
-//@line 23 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 23 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 
 pref("browser.chromeURL","chrome://browser/content/");
 pref("browser.hiddenWindowChromeURL", "chrome://browser/content/hiddenWindow.xul");
@@ -64,16 +64,18 @@ pref("extensions.startupScanScopes", 0);
 // NOTE: deliberately http right now since https://symbols.mozilla.org is not supported.
 pref("extensions.geckoProfiler.symbols.url", "http://symbols.mozilla.org/");
 pref("extensions.geckoProfiler.acceptedExtensionIds", "geckoprofiler@mozilla.com,quantum-foxfooding@mozilla.com");
-//@line 81 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
-pref("extensions.geckoProfiler.getSymbolRules", "localBreakpad,remoteBreakpad,nm");
-//@line 85 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 83 "c:\Work\Waterfox\browser\app\profile\firefox.js"
+pref("extensions.geckoProfiler.getSymbolRules", "localBreakpad,remoteBreakpad");
+//@line 85 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 
 
 // Add-on content security policies.
 pref("extensions.webextensions.base-content-security-policy", "script-src 'self' https://* moz-extension: blob: filesystem: 'unsafe-eval' 'unsafe-inline'; object-src 'self' https://* moz-extension: blob: filesystem:;");
 pref("extensions.webextensions.default-content-security-policy", "script-src 'self'; object-src 'self';");
 
-//@line 94 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 92 "c:\Work\Waterfox\browser\app\profile\firefox.js"
+pref("extensions.webextensions.remote", true);
+//@line 94 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 
 // Extensions that should not be flagged as legacy in about:addons
 pref("extensions.legacy.exceptions", "{972ce4c6-7e08-4474-a285-3208198ce6fd},testpilot@cliqz.com,@testpilot-containers,jid1-NeEaf3sAHdKHPA@jetpack,@activity-streams,pulse@mozilla.com,@testpilot-addon,@min-vid,tabcentertest1@mozilla.com,snoozetabs@mozilla.com,speaktome@mozilla.com,hoverpad@mozilla.com");
@@ -150,14 +152,14 @@ pref("app.update.silent", false);
 
 // If set to true, the Update Service will apply updates in the background
 // when it finishes downloading them.
-//@line 173 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
-pref("app.update.staging.enabled", true);
-//@line 175 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 171 "c:\Work\Waterfox\browser\app\profile\firefox.js"
+pref("app.update.staging.enabled", false);
+//@line 175 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 
 // Update service URL:
-//@line 184 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
-pref("app.update.url", "https://www.waterfoxproject.org/update/linux64/%VERSION%/%LOCALE%/%CHANNEL%/update.xml");
-//@line 186 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 178 "c:\Work\Waterfox\browser\app\profile\firefox.js"
+pref("app.update.url", "https://www.waterfoxproject.org/update/win64/%VERSION%/%LOCALE%/%CHANNEL%/update.xml");
+//@line 186 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 // app.update.url.manual is in branding section
 // app.update.url.details is in branding section
 
@@ -168,7 +170,7 @@ pref("app.update.url", "https://www.waterfoxproject.org/update/linux64/%VERSION%
 pref("app.update.idletime", 60);
 
 // Whether or not to attempt using the service for updates.
-//@line 199 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 199 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 
 // Symmetric (can be overridden by individual extensions) update preferences.
 // e.g.
@@ -203,13 +205,13 @@ pref("browser.customizemode.tip0.learnMoreUrl", "");
 pref("keyword.enabled", true);
 pref("browser.fixup.domainwhitelist.localhost", true);
 
-//@line 236 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 236 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 pref("general.skins.selectedSkin", "classic/1.0");
 
 pref("general.smoothScroll", true);
-//@line 240 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
-pref("general.autoScroll", false);
-//@line 244 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 242 "c:\Work\Waterfox\browser\app\profile\firefox.js"
+pref("general.autoScroll", true);
+//@line 244 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 
 pref("general.oldDefaultProfile", "");
 
@@ -220,9 +222,9 @@ pref("browser.stopReloadAnimation.enabled", true);
 pref("browser.uidensity", 0);
 // Whether Firefox will automatically override the uidensity to "touch"
 // while the user is in a touch environment (such as Windows tablet mode).
-//@line 257 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 257 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 pref("browser.touchmode.auto", false);
-//@line 259 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 259 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 
 // At startup, check if we're the default browser and prompt user if not.
 pref("browser.shell.checkDefaultBrowser", true);
@@ -257,11 +259,11 @@ pref("browser.showQuitWarning", false);
 pref("browser.fullscreen.autohide", true);
 pref("browser.overlink-delay", 80);
 
-//@line 294 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
-pref("browser.urlbar.clickSelectsAll", false);
-//@line 299 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
-pref("browser.urlbar.doubleClickSelectsAll", true);
-//@line 303 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 296 "c:\Work\Waterfox\browser\app\profile\firefox.js"
+pref("browser.urlbar.clickSelectsAll", true);
+//@line 301 "c:\Work\Waterfox\browser\app\profile\firefox.js"
+pref("browser.urlbar.doubleClickSelectsAll", false);
+//@line 303 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 
 // Allow dropping text directly in urlbar and loading
 pref("browser.urlbar.dragDropLoad", false);
@@ -338,9 +340,9 @@ pref("browser.download.animateNotifications", true);
 // This records whether or not the panel has been shown at least once.
 pref("browser.download.panel.shown", false);
 
-//@line 380 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 380 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 pref("browser.helperApps.deleteTempFileOnExit", true);
-//@line 382 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 382 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 
 // search engines URL
 pref("browser.search.searchEnginesURL",      "https://addons.mozilla.org/%LOCALE%/firefox/search-engines/");
@@ -380,7 +382,7 @@ pref("browser.search.hiddenOneOffs", "");
 // position and attributes of the search-container element in browser.xul.
 pref("browser.search.widget.inNavBar", true);
 
-//@line 424 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 424 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 
 pref("browser.sessionhistory.max_entries", 50);
 
@@ -406,13 +408,13 @@ pref("browser.link.open_newwindow.restriction", 2);
 // window.open arguments) when the browser is in fullscreen mode.
 // We set this differently on Mac because the fullscreen implementation there is
 // different.
-//@line 452 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 452 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 pref("browser.link.open_newwindow.disabled_in_fullscreen", false);
-//@line 454 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 454 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 
-//@line 458 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 458 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 pref("browser.photon.structure.enabled", false);
-//@line 460 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 460 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 
 // Tabbed browser
 pref("browser.tabs.closeWindowWithLastTab", true);
@@ -426,9 +428,9 @@ pref("browser.tabs.opentabfor.middleclick", true);
 pref("browser.tabs.loadDivertedInBackground", false);
 pref("browser.tabs.loadBookmarksInBackground", false);
 pref("browser.tabs.tabClipWidth", 140);
-//@line 474 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
-pref("browser.tabs.drawInTitlebar", false);
-//@line 478 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 476 "c:\Work\Waterfox\browser\app\profile\firefox.js"
+pref("browser.tabs.drawInTitlebar", true);
+//@line 478 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 pref("browser.tabs.duplicateTab", true);
 
 // 0 - Disable the tabbar session restore button.
@@ -467,7 +469,7 @@ pref("browser.bookmarks.showRecentlyBookmarked",  true);
 // Scripts & Windows prefs
 pref("dom.disable_open_during_load",              true);
 pref("javascript.options.showInConsole",          true);
-//@line 519 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 519 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 
 // This is the pref to control the location bar, change this to true to
 // force this - this makes the origin of popup windows more obvious to avoid
@@ -537,16 +539,16 @@ pref("browser.gesture.swipe.left", "Browser:BackOrBackDuplicate");
 pref("browser.gesture.swipe.right", "Browser:ForwardOrForwardDuplicate");
 pref("browser.gesture.swipe.up", "cmd_scrollTop");
 pref("browser.gesture.swipe.down", "cmd_scrollBottom");
-//@line 592 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 592 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 pref("browser.gesture.pinch.latched", false);
 pref("browser.gesture.pinch.threshold", 25);
-//@line 602 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
-// Disabled by default due to issues with track pad input.
-pref("browser.gesture.pinch.out", "");
-pref("browser.gesture.pinch.in", "");
-pref("browser.gesture.pinch.out.shift", "");
-pref("browser.gesture.pinch.in.shift", "");
-//@line 608 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 596 "c:\Work\Waterfox\browser\app\profile\firefox.js"
+// Enabled for touch input display zoom.
+pref("browser.gesture.pinch.out", "cmd_fullZoomEnlarge");
+pref("browser.gesture.pinch.in", "cmd_fullZoomReduce");
+pref("browser.gesture.pinch.out.shift", "cmd_fullZoomReset");
+pref("browser.gesture.pinch.in.shift", "cmd_fullZoomReset");
+//@line 608 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 pref("browser.gesture.twist.latched", false);
 pref("browser.gesture.twist.threshold", 0);
 pref("browser.gesture.twist.right", "cmd_gestureRotateRight");
@@ -560,11 +562,11 @@ pref("browser.snapshots.limit", 0);
 // 1: Scrolling contents
 // 2: Go back or go forward, in your history
 // 3: Zoom in or out.
-//@line 638 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 638 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 pref("mousewheel.with_alt.action", 1);
 pref("mousewheel.with_shift.action", 2);
 pref("mousewheel.with_meta.action", 1); // win key on Win, Super/Hyper on Linux
-//@line 642 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 642 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 pref("mousewheel.with_control.action",3);
 pref("mousewheel.with_win.action", 1);
 
@@ -582,14 +584,18 @@ pref("network.protocol-handler.external.mailto", true); // for mail
 pref("network.protocol-handler.external.news", true);   // for news
 pref("network.protocol-handler.external.snews", true);  // for secure news
 pref("network.protocol-handler.external.nntp", true);   // also news
-//@line 662 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 660 "c:\Work\Waterfox\browser\app\profile\firefox.js"
+pref("network.protocol-handler.external.ms-windows-store", true);
+//@line 662 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 
 // ...without warning dialogs
 pref("network.protocol-handler.warn-external.mailto", false);
 pref("network.protocol-handler.warn-external.news", false);
 pref("network.protocol-handler.warn-external.snews", false);
 pref("network.protocol-handler.warn-external.nntp", false);
-//@line 671 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 669 "c:\Work\Waterfox\browser\app\profile\firefox.js"
+pref("network.protocol-handler.warn-external.ms-windows-store", false);
+//@line 671 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 
 // By default, all protocol handlers are exposed.  This means that
 // the browser will respond to openURL commands for all URL types.
@@ -645,9 +651,9 @@ pref("plugins.favorfallback.mode", "follow-ctp");
 pref("plugins.favorfallback.rules", "nosrc,video");
 
 
-//@line 729 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
-pref("browser.preferences.instantApply", true);
-//@line 731 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 727 "c:\Work\Waterfox\browser\app\profile\firefox.js"
+pref("browser.preferences.instantApply", false);
+//@line 731 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 
 // Toggling Search bar on and off in about:preferences
 pref("browser.preferences.search", true);
@@ -659,9 +665,9 @@ pref("browser.preferences.useOldOrganization", true);
 // (The Storage Management-related prefs are browser.storageManager.* )
 // The Offline(Appcache) Group section in about:preferences will be hidden.
 // And the task to clear appcache will be done by Storage Management.
-//@line 745 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 745 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 pref("browser.preferences.offlineGroup.enabled", true);
-//@line 747 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 747 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 
 pref("browser.preferences.defaultPerformanceSettings.enabled", true);
 
@@ -672,9 +678,9 @@ pref("browser.download.hide_plugins_without_extensions", true);
 // 0 goes Back/Forward
 // 1 act like PgUp/PgDown
 // 2 and other values, nothing
-//@line 758 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
-pref("browser.backspace_action", 2);
-//@line 762 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 760 "c:\Work\Waterfox\browser\app\profile\firefox.js"
+pref("browser.backspace_action", 0);
+//@line 762 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 
 // this will automatically enable inline spellchecking (if it is available) for
 // editable elements in HTML
@@ -766,7 +772,7 @@ pref("browser.EULA.version", 3);
 pref("browser.rights.version", 3);
 pref("browser.rights.3.shown", false);
 
-//@line 857 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 857 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 
 pref("browser.sessionstore.resume_from_crash", true);
 pref("browser.sessionstore.resume_session_once", false);
@@ -828,9 +834,9 @@ pref("accessibility.blockautorefresh", false);
 
 // Whether useAsyncTransactions is enabled or not.
 // Currently we only enable them for nightly.
-//@line 921 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 921 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 pref("browser.places.useAsyncTransactions", false);
-//@line 923 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 923 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 
 // Whether history is enabled or not.
 pref("places.history.enabled", true);
@@ -913,9 +919,9 @@ pref("app.support.baseURL", "https://support.mozilla.org/1/firefox/%VERSION%/%OS
 pref("app.support.e10sAccessibilityUrl", "https://support.mozilla.org/1/firefox/%VERSION%/%OS%/%LOCALE%/accessibility-ppt");
 
 // base url for web-based feedback pages
-//@line 1008 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 1008 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 pref("app.feedback.baseURL", "https://input.mozilla.org/%LOCALE%/feedback/%APP%/%VERSION%/");
-//@line 1010 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 1010 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 
 // base URL for web-based marketing pages
 pref("app.productInfo.baseURL", "https://www.mozilla.org/firefox/features/");
@@ -940,44 +946,63 @@ pref("browser.flash-protected-mode-flip.done", false);
 
 pref("dom.ipc.shims.enabledWarnings", false);
 
-//@line 1075 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 1035 "c:\Work\Waterfox\browser\app\profile\firefox.js"
+// Controls whether and how the Windows NPAPI plugin process is sandboxed.
+// To get a different setting for a particular plugin replace "default", with
+// the plugin's nice file name, see: nsPluginTag::GetNiceFileName.
+// On windows these levels are:
+// 0 - no sandbox
+// 1 - sandbox with USER_NON_ADMIN access token level
+// 2 - a more strict sandbox, which might cause functionality issues. This now
+//     includes running at low integrity.
+// 3 - the strongest settings we seem to be able to use without breaking
+//     everything, but will probably cause some functionality restrictions
+pref("dom.ipc.plugins.sandbox-level.default", 0);
+//@line 1047 "c:\Work\Waterfox\browser\app\profile\firefox.js"
+// The lines in PluginModuleParent.cpp should be changed in line with this.
+pref("dom.ipc.plugins.sandbox-level.flash", 2);
+//@line 1052 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 
-//@line 1093 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
-
-//@line 1095 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
-// This pref is introduced as part of bug 742434, the naming is inspired from
-// its Windows/Mac counterpart, but on Linux it's an integer which means:
-// 0 -> "no sandbox"
-// 1 -> "content sandbox using seccomp-bpf when available"
-// 2 -> "seccomp-bpf + write file broker"
-// 3 -> "seccomp-bpf + read/write file brokering"
-// Content sandboxing on Linux is currently in the stage of
-// 'just getting it enabled', which includes a very permissive whitelist. We
-// enable seccomp-bpf on nightly to see if everything is running, or if we need
-// to whitelist more system calls.
-//
-// So the purpose of this setting is to allow nightly users to disable the
-// sandbox while we fix their problems. This way, they won't have to wait for
-// another nightly release which disables seccomp-bpf again.
-//
-// This setting may not be required anymore once we decide to permanently
-// enable the content sandbox.
-//@line 1115 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 1054 "c:\Work\Waterfox\browser\app\profile\firefox.js"
+// This controls the strength of the Windows content process sandbox for testing
+// purposes. This will require a restart.
+// On windows these levels are:
+// See - security/sandbox/win/src/sandboxbroker/sandboxBroker.cpp
+// SetSecurityLevelForContentProcess() for what the different settings mean.
 pref("security.sandbox.content.level", 1);
-//@line 1117 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
-pref("security.sandbox.content.write_path_whitelist", "");
-pref("security.sandbox.content.read_path_whitelist", "");
-pref("security.sandbox.content.syscall_whitelist", "");
-//@line 1121 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
 
-//@line 1130 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+// This controls the depth of stack trace that is logged when Windows sandbox
+// logging is turned on.  This is only currently available for the content
+// process because the only other sandbox (for GMP) has too strict a policy to
+// allow stack tracing.  This does not require a restart to take effect.
+pref("security.sandbox.windows.log.stackTraceDepth", 0);
+//@line 1067 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 
-//@line 1132 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+// This controls the strength of the Windows GPU process sandbox.  Changes
+// will require restart.
+// For information on what the level number means, see
+// SetSecurityLevelForGPUProcess() in
+// security/sandbox/win/src/sandboxbroker/sandboxBroker.cpp
+pref("security.sandbox.gpu.level", 0);
+//@line 1075 "c:\Work\Waterfox\browser\app\profile\firefox.js"
+
+//@line 1093 "c:\Work\Waterfox\browser\app\profile\firefox.js"
+
+//@line 1121 "c:\Work\Waterfox\browser\app\profile\firefox.js"
+
+//@line 1124 "c:\Work\Waterfox\browser\app\profile\firefox.js"
+// ID (a UUID when set by gecko) that is used to form the name of a
+// sandbox-writable temporary directory to be used by content processes
+// when a temporary writable file is required in a level 1 sandbox.
+pref("security.sandbox.content.tempDirSuffix", "");
+//@line 1130 "c:\Work\Waterfox\browser\app\profile\firefox.js"
+
+//@line 1132 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 // This pref determines if messages relevant to sandbox violations are
 // logged.
-//@line 1137 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
-pref("security.sandbox.logging.enabled", true);
-//@line 1140 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 1135 "c:\Work\Waterfox\browser\app\profile\firefox.js"
+pref("security.sandbox.logging.enabled", false);
+//@line 1140 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 
 // This pref governs whether we attempt to work around problems caused by
 // plugins using OS calls to manipulate the cursor while running out-of-
@@ -986,9 +1011,19 @@ pref("security.sandbox.logging.enabled", true);
 // in the browser process.  Eventually plugins will be required to use the
 // NPAPI to manipulate the cursor, and these workarounds will be removed.
 // See bug 621117.
-//@line 1151 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 1151 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 
-//@line 1163 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 1153 "c:\Work\Waterfox\browser\app\profile\firefox.js"
+pref("browser.taskbar.previews.enable", false);
+pref("browser.taskbar.previews.max", 20);
+pref("browser.taskbar.previews.cachetime", 5);
+pref("browser.taskbar.lists.enabled", true);
+pref("browser.taskbar.lists.frequent.enabled", true);
+pref("browser.taskbar.lists.recent.enabled", false);
+pref("browser.taskbar.lists.maxListItemCount", 7);
+pref("browser.taskbar.lists.tasks.enabled", true);
+pref("browser.taskbar.lists.refreshInSeconds", 120);
+//@line 1163 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 
 // Preferences to be synced by default
 pref("services.sync.prefs.sync.accessibility.blockautorefresh", true);
@@ -1073,9 +1108,9 @@ pref("services.sync.prefs.sync.xpinstall.whitelist.required", true);
 pref("services.sync.syncedTabs.showRemoteIcons", true);
 
 // Developer edition preferences
-//@line 1250 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 1250 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 sticky_pref("lightweightThemes.selectedThemeID", "");
-//@line 1252 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 1252 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 
 // Whether the character encoding menu is under the main Firefox button. This
 // preference is a string so that localizers can alter it.
@@ -1114,9 +1149,9 @@ pref("browser.newtabpage.columns", 5);
 sticky_pref("browser.newtabpage.directory.source", "data:application/json,{}");
 
 // activates Activity Stream
-//@line 1293 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 1293 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 pref("browser.newtabpage.activity-stream.enabled", false);
-//@line 1295 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 1295 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 
 // Enable the DOM fullscreen API.
 pref("full-screen-api.enabled", true);
@@ -1173,11 +1208,13 @@ pref("dom.debug.propagate_gesture_events_through_content", false);
 
 pref("geo.wifi.uri", "");
 
-//@line 1354 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 1354 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 
-//@line 1358 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 1356 "c:\Work\Waterfox\browser\app\profile\firefox.js"
+sticky_pref("geo.provider.ms-windows-location", true);
+//@line 1358 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 
-//@line 1364 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 1364 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 
 // We keep allowing non-HTTPS geo requests on all the release
 // channels, for now.
@@ -1235,14 +1272,12 @@ pref("identity.mobilepromo.ios", "https://www.mozilla.org/firefox/ios/?utm_sourc
 
 // Migrate any existing Firefox Account data from the default profile to the
 // Developer Edition profile.
-//@line 1424 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 1424 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 pref("identity.fxaccounts.migrateToDevEdition", false);
-//@line 1426 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 1426 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 
 // On GTK, we now default to showing the menubar only when alt is pressed:
-//@line 1429 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
-pref("ui.key.menuAccessKeyFocuses", true);
-//@line 1431 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 1431 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 
 // Encrypted media extensions.
 // EME is visible but disabled by default. This is so that the
@@ -1254,9 +1289,9 @@ pref("ui.key.menuAccessKeyFocuses", true);
 // permission is granted.
 pref("media.eme.enabled", false);
 
-//@line 1445 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 1445 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 pref("media.eme.vp9-in-mp4.enabled", false);
-//@line 1447 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 1447 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 
 // Whether we should run a test-pattern through EME GMPs before assuming they'll
 // decode H.264.
@@ -1270,14 +1305,14 @@ pref("media.gmp.trial-create.enabled", true);
 // to enable the CDM if its disabled; it's as if the keysystem is completely
 // unsupported.
 
-//@line 1461 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 1461 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 pref("browser.eme.ui.enabled", true);
-//@line 1465 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 1465 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 
-//@line 1467 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 1467 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 pref("media.gmp-widevinecdm.visible", true);
 pref("media.gmp-widevinecdm.enabled", true);
-//@line 1470 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 1470 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 
 // Play with different values of the decay time and get telemetry,
 // 0 means to randomize (and persist) the experiment value in users' profiles,
@@ -1313,27 +1348,27 @@ sticky_pref("experiments.supported", false);
 // Enable GMP support in the addon manager.
 pref("media.gmp-provider.enabled", true);
 
-//@line 1508 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 1508 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 pref("privacy.trackingprotection.ui.enabled", false);
-//@line 1510 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 1510 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 pref("privacy.trackingprotection.introCount", 0);
 pref("privacy.trackingprotection.introURL", "https://www.mozilla.org/%LOCALE%/firefox/%VERSION%/tracking-protection/start/");
 
 // Enable Contextual Identity Containers
-//@line 1522 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 1522 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 pref("privacy.userContext.enabled", false);
 pref("privacy.userContext.ui.enabled", false);
 pref("privacy.usercontext.about_newtab_segregation.enabled", false);
 
 // 0 disables long press, 1 when clicked, the menu is shown, 2 the menu is shown after X milliseconds.
 pref("privacy.userContext.longPressBehavior", 0);
-//@line 1529 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 1529 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 
 // Start the browser in e10s mode
 pref("browser.tabs.remote.autostart", true);
 pref("browser.tabs.remote.desktopbehavior", true);
 
-//@line 1541 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 1541 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 
 // For the about:tabcrashed page
 pref("browser.tabs.crashReporting.sendReport", false);
@@ -1347,13 +1382,13 @@ pref("extensions.interposition.enabled", true);
 pref("extensions.interposition.prefetching", true);
 
 // But don't allow non-MPC extensions by default on Nightly
-//@line 1557 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 1557 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 
 // Enable blocking of e10s and e10s-multi for add-on users on beta/release.
-//@line 1560 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 1560 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 pref("extensions.e10sBlocksEnabling", false);
 pref("extensions.e10sMultiBlocksEnabling", true);
-//@line 1563 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 1563 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 
 // How often to check for CPOW timeouts. CPOWs are only timed out by
 // the hang monitor.
@@ -1372,9 +1407,9 @@ pref("dom.ipc.cpows.allow-cpows-in-compat-addons", "{b9db16a4-6edc-47ec-a1f4-b86
 // detection).
 pref("dom.ipc.processHangMonitor", true);
 
-//@line 1586 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 1586 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 pref("dom.ipc.reportProcessHangs", true);
-//@line 1588 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 1588 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 
 // Don't limit how many nodes we care about on desktop:
 pref("reader.parse-node-limit", 0);
@@ -1429,7 +1464,9 @@ pref("signon.schemeUpgrades", true);
 // in toolkit.
 //
 // This feature is only enabled on Nightly for Linux until bug 1306295 is fixed.
-//@line 1649 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 1647 "c:\Work\Waterfox\browser\app\profile\firefox.js"
+pref("print.use_simplify_page", true);
+//@line 1649 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 
 // Space separated list of URLS that are allowed to send objects (instead of
 // only strings) through webchannels. This list is duplicated in mobile/android/app/mobile.js
@@ -1438,9 +1475,9 @@ pref("webchannel.allowObject.urlWhitelist", "https://accounts.firefox.com https:
 // Whether or not the browser should scan for unsubmitted
 // crash reports, and then show a notification for submitting
 // those reports.
-//@line 1660 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 1660 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 pref("browser.crashReports.unsubmittedCheck.enabled", false);
-//@line 1662 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 1662 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 
 // chancesUntilSuppress is how many times we'll show the unsubmitted
 // crash report notification across different days and shutdown
@@ -1453,9 +1490,9 @@ pref("browser.crashReports.unsubmittedCheck.autoSubmit", false);
 // The truthy values of "extensions.formautofill.available" are "on" and "detect",
 // any other value means autofill isn't available.
 // "detect" means it's enabled if conditions defined in the extension are met.
-//@line 1677 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 1677 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 pref("extensions.formautofill.available", "staged-rollout");
-//@line 1681 "/home/linuxbox/Waterfox/browser/app/profile/firefox.js"
+//@line 1681 "c:\Work\Waterfox\browser\app\profile\firefox.js"
 pref("extensions.formautofill.addresses.enabled", true);
 pref("extensions.formautofill.creditCards.enabled", true);
 pref("extensions.formautofill.firstTimeUse", true);

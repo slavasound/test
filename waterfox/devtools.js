@@ -7,9 +7,9 @@ pref("devtools.devedition.promo.shown", false);
 pref("devtools.devedition.promo.url", "https://www.mozilla.org/firefox/developer/?utm_source=firefox-dev-tools&utm_medium=firefox-browser&utm_content=betadoorhanger");
 
 // Only potentially show in beta release
-//@line 13 "/home/linuxbox/Waterfox/devtools/client/preferences/devtools.js"
+//@line 13 "c:\Work\Waterfox\devtools\client\preferences\devtools.js"
   pref("devtools.devedition.promo.enabled", false);
-//@line 15 "/home/linuxbox/Waterfox/devtools/client/preferences/devtools.js"
+//@line 15 "c:\Work\Waterfox\devtools\client\preferences\devtools.js"
 
 // DevTools development workflow
 pref("devtools.loader.hotreload", false);
@@ -144,9 +144,9 @@ pref("devtools.performance.ui.show-triggers-for-gc-types",
 pref("devtools.performance.ui.enable-memory-flame", false);
 
 // Enable experimental options in the UI only in Nightly
-//@line 152 "/home/linuxbox/Waterfox/devtools/client/preferences/devtools.js"
+//@line 152 "c:\Work\Waterfox\devtools\client\preferences\devtools.js"
 pref("devtools.performance.ui.experimental", false);
-//@line 154 "/home/linuxbox/Waterfox/devtools/client/preferences/devtools.js"
+//@line 154 "c:\Work\Waterfox\devtools\client\preferences\devtools.js"
 
 // The default cache UI setting
 pref("devtools.cache.disabled", false);
@@ -228,9 +228,9 @@ pref("devtools.dom.enabled", false);
 pref("devtools.webaudioeditor.inspectorWidth", 300);
 
 // Default theme ("dark" or "light")
-//@line 238 "/home/linuxbox/Waterfox/devtools/client/preferences/devtools.js"
+//@line 238 "c:\Work\Waterfox\devtools\client\preferences\devtools.js"
 sticky_pref("devtools.theme", "light");
-//@line 240 "/home/linuxbox/Waterfox/devtools/client/preferences/devtools.js"
+//@line 240 "c:\Work\Waterfox\devtools\client\preferences\devtools.js"
 
 // Web console filters
 pref("devtools.webconsole.filter.error", true);
@@ -307,9 +307,9 @@ pref("devtools.webconsole.timestampMessages", false);
 pref("devtools.webconsole.autoMultiline", true);
 
 // Enable the new webconsole frontend
-//@line 319 "/home/linuxbox/Waterfox/devtools/client/preferences/devtools.js"
+//@line 319 "c:\Work\Waterfox\devtools\client\preferences\devtools.js"
 pref("devtools.webconsole.new-frontend-enabled", false);
-//@line 321 "/home/linuxbox/Waterfox/devtools/client/preferences/devtools.js"
+//@line 321 "c:\Work\Waterfox\devtools\client\preferences\devtools.js"
 
 // Enable client-side mapping service for source maps
 pref("devtools.source-map.client-service.enabled", true);

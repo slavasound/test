@@ -1,4 +1,4 @@
-//@line 1 "/home/linuxbox/Waterfox/security/manager/ssl/security-prefs.js"
+//@line 1 "c:\Work\Waterfox\security\manager\ssl\security-prefs.js"
 /* This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -52,14 +52,14 @@ pref("security.enterprise_roots.enabled", false);
 // 0: do not fetch OCSP
 // 1: fetch OCSP for DV and EV certificates
 // 2: fetch OCSP only for EV certificates
-//@line 55 "/home/linuxbox/Waterfox/security/manager/ssl/security-prefs.js"
+//@line 55 "c:\Work\Waterfox\security\manager\ssl\security-prefs.js"
 pref("security.OCSP.enabled", 1);
-//@line 59 "/home/linuxbox/Waterfox/security/manager/ssl/security-prefs.js"
+//@line 59 "c:\Work\Waterfox\security\manager\ssl\security-prefs.js"
 pref("security.OCSP.require", false);
 pref("security.OCSP.GET.enabled", false);
-//@line 62 "/home/linuxbox/Waterfox/security/manager/ssl/security-prefs.js"
+//@line 62 "c:\Work\Waterfox\security\manager\ssl\security-prefs.js"
 pref("security.OCSP.timeoutMilliseconds.soft", 2000);
-//@line 66 "/home/linuxbox/Waterfox/security/manager/ssl/security-prefs.js"
+//@line 66 "c:\Work\Waterfox\security\manager\ssl\security-prefs.js"
 pref("security.OCSP.timeoutMilliseconds.hard", 10000);
 
 pref("security.pki.cert_short_lifetime_in_days", 10);
@@ -78,9 +78,9 @@ pref("security.pki.sha1_enforcement_level", 3);
 // 2: fall back to the subject common name for certificates valid before 23
 //    August 2015 if necessary
 // 3: only use name information from the subject alternative name extension
-//@line 85 "/home/linuxbox/Waterfox/security/manager/ssl/security-prefs.js"
+//@line 85 "c:\Work\Waterfox\security\manager\ssl\security-prefs.js"
 pref("security.pki.name_matching_mode", 1);
-//@line 89 "/home/linuxbox/Waterfox/security/manager/ssl/security-prefs.js"
+//@line 89 "c:\Work\Waterfox\security\manager\ssl\security-prefs.js"
 
 // security.pki.netscape_step_up_policy controls how the platform handles the
 // id-Netscape-stepUp OID in extended key usage extensions of CA certificates.
@@ -88,9 +88,9 @@ pref("security.pki.name_matching_mode", 1);
 // 1: it is considered equivalent when the notBefore is before 23 August 2016
 // 2: similarly, but for 23 August 2015
 // 3: it is never considered equivalent
-//@line 97 "/home/linuxbox/Waterfox/security/manager/ssl/security-prefs.js"
+//@line 97 "c:\Work\Waterfox\security\manager\ssl\security-prefs.js"
 pref("security.pki.netscape_step_up_policy", 1);
-//@line 101 "/home/linuxbox/Waterfox/security/manager/ssl/security-prefs.js"
+//@line 101 "c:\Work\Waterfox\security\manager\ssl\security-prefs.js"
 
 // Configures Certificate Transparency support mode:
 // 0: Fully disabled.
@@ -121,13 +121,13 @@ pref("security.cert_pinning.max_max_age_seconds", 5184000);
 // order to be most compatible with current standards in Release
 pref("security.mixed_content.send_hsts_priming", false);
 pref("security.mixed_content.use_hsts", false);
-//@line 137 "/home/linuxbox/Waterfox/security/manager/ssl/security-prefs.js"
+//@line 137 "c:\Work\Waterfox\security\manager\ssl\security-prefs.js"
 // Approximately 1 week default cache for HSTS priming failures, in seconds
 pref ("security.mixed_content.hsts_priming_cache_timeout", 604800);
 // Force the channel to timeout in 2 seconds if we have not received
 // expects a time in milliseconds
 pref ("security.mixed_content.hsts_priming_request_timeout", 2000);
-//@line 1 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 1 "c:\Work\Waterfox\modules\libpref\init\all.js"
 /* -*- indent-tabs-mode: nil; js-indent-level: 2 -*- */
 /* This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -158,9 +158,11 @@ pref("general.useragent.compatMode.firefox", false);
 // This pref exists only for testing purposes. In order to disable all
 // overrides by default, don't initialize UserAgentOverrides.jsm.
 pref("general.useragent.site_specific_overrides", true);
-//@line 38 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
-pref("general.useragent.override.addons.mozilla.org", "Mozilla/5.0 (X11; Linux x86_64; rv:57.0) Gecko/20100101 Firefox/57.0");
-//@line 40 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 32 "c:\Work\Waterfox\modules\libpref\init\all.js"
+pref("general.useragent.override.addons.mozilla.org", "Mozilla/5.0 (Windows NT 10.0; Win64; rv:57.0) Gecko/20100101 Firefox/57.0");
+pref("general.useragent.override.amazon.com", "Mozilla/5.0 (Windows NT 10.0; Win64; rv:65.0) Gecko/20100101 Firefox/65.0");
+pref("general.useragent.override.amazon.co.uk", "Mozilla/5.0 (Windows NT 10.0; Win64; rv:65.0) Gecko/20100101 Firefox/65.0");
+//@line 44 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
 pref("general.config.obscure_value", 13); // for MCD .cfg files
 
@@ -274,9 +276,9 @@ pref("dom.manifest.onappinstalled", false);
 pref("dom.select_events.enabled", true);
 
 // Whether or not selection events on text controls are enabled
-//@line 156 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 160 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("dom.select_events.textcontrols.enabled", false);
-//@line 158 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 162 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
 // Whether or not Web Workers are enabled.
 pref("dom.workers.enabled", true);
@@ -315,9 +317,9 @@ pref("dom.permissions.revoke.enable", false);
 pref("dom.performance.time_to_non_blank_paint.enabled", false);
 
 // Enable Performance Observer API
-//@line 199 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 203 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("dom.enable_performance_observer", false);
-//@line 201 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 205 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
 // Enable requestIdleCallback API
 pref("dom.requestIdleCallback.enabled", true);
@@ -325,9 +327,9 @@ pref("dom.requestIdleCallback.enabled", true);
 // Whether the Gamepad API is enabled
 pref("dom.gamepad.enabled", true);
 pref("dom.gamepad.test.enabled", false);
-//@line 209 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 213 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("dom.gamepad.non_standard_events.enabled", false);
-//@line 213 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 217 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("dom.gamepad.extensions.enabled", true);
 pref("dom.gamepad.haptic_feedback.enabled", true);
 
@@ -494,28 +496,35 @@ pref("media.play-stand-alone", true);
 pref("media.hardware-video-decoding.enabled", true);
 pref("media.hardware-video-decoding.force-enabled", false);
 
-//@line 380 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 384 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("media.mp4.enabled", true);
 // Specifies whether the PDMFactory can create a test decoder that
-//@line 383 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 387 "c:\Work\Waterfox\modules\libpref\init\all.js"
 // just outputs blank frames/audio instead of actually decoding. The blank
 // decoder works on all platforms.
 pref("media.use-blank-decoder", false);
-//@line 402 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
-pref("media.ffmpeg.enabled", true);
-//@line 404 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
-pref("media.libavcodec.allow-obsolete", false);
-//@line 407 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 391 "c:\Work\Waterfox\modules\libpref\init\all.js"
+pref("media.wmf.enabled", true);
+pref("media.wmf.decoder.thread-count", -1);
+pref("media.wmf.low-latency.enabled", false);
+pref("media.wmf.skip-blacklist", false);
+pref("media.wmf.vp9.enabled", true);
+pref("media.wmf.allow-unsupported-resolutions", false);
+pref("media.windows-media-foundation.allow-d3d11-dxva", true);
+pref("media.windows-media-foundation.use-nv12-format", false);
+pref("media.wmf.disable-d3d11-for-dlls", "igd11dxva64.dll: 20.19.15.4463, 20.19.15.4454, 20.19.15.4444, 20.19.15.4416, 20.19.15.4404, 20.19.15.4390, 20.19.15.4380, 20.19.15.4377, 20.19.15.4364, 20.19.15.4360, 20.19.15.4352, 20.19.15.4331, 20.19.15.4326, 20.19.15.4300; igd10iumd32.dll: 20.19.15.4444, 20.19.15.4424, 20.19.15.4409, 20.19.15.4390, 20.19.15.4380, 20.19.15.4360, 10.18.10.4358, 20.19.15.4331, 20.19.15.4312, 20.19.15.4300, 10.18.15.4281, 10.18.15.4279, 10.18.10.4276, 10.18.15.4268, 10.18.15.4256, 10.18.10.4252, 10.18.15.4248, 10.18.14.4112, 10.18.10.3958, 10.18.10.3496, 10.18.10.3431, 10.18.10.3412, 10.18.10.3355, 9.18.10.3234, 9.18.10.3071, 9.18.10.3055, 9.18.10.3006; igd10umd32.dll: 9.17.10.4229, 9.17.10.3040, 9.17.10.2857, 8.15.10.2274, 8.15.10.2272, 8.15.10.2246, 8.15.10.1840, 8.15.10.1808; igd10umd64.dll: 9.17.10.4229, 9.17.10.2857, 10.18.10.3496; isonyvideoprocessor.dll: 4.1.2247.8090, 4.1.2153.6200; tosqep.dll: 1.2.15.526, 1.1.12.201, 1.0.11.318, 1.0.11.215, 1.0.10.1224; tosqep64.dll: 1.1.12.201, 1.0.11.215; nvwgf2um.dll: 22.21.13.8253, 22.21.13.8233, 22.21.13.8205, 22.21.13.8189, 22.21.13.8178, 22.21.13.8165, 21.21.13.7892, 21.21.13.7878, 21.21.13.7866, 21.21.13.7849, 21.21.13.7654, 21.21.13.7653, 21.21.13.7633, 21.21.13.7619, 21.21.13.7563, 21.21.13.7306, 21.21.13.7290, 21.21.13.7270, 21.21.13.7254, 21.21.13.6939, 21.21.13.6926, 21.21.13.6909, 21.21.13.4201, 21.21.13.4200, 10.18.13.6881, 10.18.13.6839, 10.18.13.6510, 10.18.13.6472, 10.18.13.6143, 10.18.13.5946, 10.18.13.5923, 10.18.13.5921, 10.18.13.5891, 10.18.13.5887, 10.18.13.5582, 10.18.13.5445, 10.18.13.5382, 10.18.13.5362, 9.18.13.4788, 9.18.13.4752, 9.18.13.4725, 9.18.13.4709, 9.18.13.4195, 9.18.13.4192, 9.18.13.4144, 9.18.13.4052, 9.18.13.3788, 9.18.13.3523, 9.18.13.3235, 9.18.13.3165, 9.18.13.2723, 9.18.13.2702, 9.18.13.1422, 9.18.13.1407, 9.18.13.1106, 9.18.13.546; atidxx32.dll: 21.19.151.3, 21.19.142.257, 21.19.137.514, 21.19.137.1, 21.19.134.1, 21.19.128.7, 21.19.128.4, 20.19.0.32837, 20.19.0.32832, 8.17.10.682, 8.17.10.671, 8.17.10.661, 8.17.10.648, 8.17.10.644, 8.17.10.625, 8.17.10.605, 8.17.10.581, 8.17.10.569, 8.17.10.560, 8.17.10.545, 8.17.10.539, 8.17.10.531, 8.17.10.525, 8.17.10.520, 8.17.10.519, 8.17.10.514, 8.17.10.511, 8.17.10.494, 8.17.10.489, 8.17.10.483, 8.17.10.453, 8.17.10.451, 8.17.10.441, 8.17.10.436, 8.17.10.432, 8.17.10.425, 8.17.10.418, 8.17.10.414, 8.17.10.401, 8.17.10.395, 8.17.10.385, 8.17.10.378, 8.17.10.362, 8.17.10.355, 8.17.10.342, 8.17.10.331, 8.17.10.318, 8.17.10.310, 8.17.10.286, 8.17.10.269, 8.17.10.261, 8.17.10.247, 8.17.10.240, 8.15.10.212; atidxx64.dll: 21.19.151.3, 21.19.142.257, 21.19.137.514, 21.19.137.1, 21.19.134.1, 21.19.128.7, 21.19.128.4, 20.19.0.32832, 8.17.10.682, 8.17.10.661, 8.17.10.644, 8.17.10.625; nvumdshim.dll: 10.18.13.6822");
+pref("media.wmf.disable-d3d9-for-dlls", "igdumd64.dll: 8.15.10.2189, 8.15.10.2119, 8.15.10.2104, 8.15.10.2102, 8.771.1.0; atiumd64.dll: 7.14.10.833, 7.14.10.867, 7.14.10.885, 7.14.10.903, 7.14.10.911, 8.14.10.768, 9.14.10.1001, 9.14.10.1017, 9.14.10.1080, 9.14.10.1128, 9.14.10.1162, 9.14.10.1171, 9.14.10.1183, 9.14.10.1197, 9.14.10.945, 9.14.10.972, 9.14.10.984, 9.14.10.996");
+//@line 411 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("media.ffvpx.enabled", true);
-//@line 410 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 414 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("media.ffmpeg.low-latency.enabled", false);
-//@line 412 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 416 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("media.gmp.decoder.enabled", false);
 pref("media.gmp.decoder.aac", 0);
 pref("media.gmp.decoder.h264", 0);
-//@line 416 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 420 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("media.raw.enabled", true);
-//@line 418 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 422 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("media.ogg.enabled", true);
 pref("media.opus.enabled", true);
 pref("media.wave.enabled", true);
@@ -524,7 +533,7 @@ pref("media.webm.enabled", true);
 pref("media.eme.chromium-api.enabled", true);
 pref("media.eme.chromium-api.video-shmems", 6);
 
-//@line 433 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 437 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
 // GMP storage version number. At startup we check the version against
 // media.gmp.storage.version.observed, and if the versions don't match,
@@ -535,9 +544,9 @@ pref("media.gmp.storage.version.expected", 1);
 
 // Filter what triggers user notifications.
 // See DecoderDoctorDocumentWatcher::ReportAnalysis for details.
-//@line 446 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 450 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("media.decoder-doctor.notifications-allowed", "MediaWMFNeeded,MediaWidevineNoWMF,MediaCannotInitializePulseAudio,MediaCannotPlayNoDecoders,MediaUnsupportedLibavcodec");
-//@line 448 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 452 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("media.decoder-doctor.decode-errors-allowed", "");
 pref("media.decoder-doctor.decode-warnings-allowed", "");
 // Whether we report partial failures.
@@ -548,9 +557,9 @@ pref("media.decoder-doctor.wmf-disabled-is-failure", false);
 pref("media.decoder-doctor.new-issue-endpoint", "https://webcompat.com/issues/new");
 
 // Whether to suspend decoding of videos in background tabs.
-//@line 459 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 463 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("media.suspend-bkgnd-video.enabled", false);
-//@line 463 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 467 "c:\Work\Waterfox\modules\libpref\init\all.js"
 // Delay, in ms, from time window goes to background to suspending
 // video decoders. Defaults to 10 seconds.
 pref("media.suspend-bkgnd-video.delay-ms", 10000);
@@ -558,7 +567,7 @@ pref("media.suspend-bkgnd-video.delay-ms", 10000);
 // reduce the resume latency and improve the user experience.
 pref("media.resume-bkgnd-video-on-tabhover", true);;
 
-//@line 471 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 475 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("media.navigator.enabled", true);
 pref("media.navigator.video.enabled", true);
 pref("media.navigator.load_adapt", true);
@@ -626,10 +635,10 @@ pref("media.peerconnection.ice.proxy_only", false);
 // kXxxUnchanged = 0, kXxxDefault = 1, and higher values are specific to each
 // setting (for Xxx = Ec, Agc, or Ns).  Defaults are all set to kXxxDefault here.
 pref("media.peerconnection.turn.disable", false);
-//@line 542 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 546 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("media.getusermedia.aec_enabled", true);
 pref("media.getusermedia.noise_enabled", true);
-//@line 545 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 549 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("media.getusermedia.aec_extended_filter", true);
 pref("media.getusermedia.aec_delay_agnostic", true);
 pref("media.getusermedia.noise", 1);
@@ -638,25 +647,25 @@ pref("media.getusermedia.agc", 1);
 // capture_delay: Adjustments for OS-specific input delay (lower bound)
 // playout_delay: Adjustments for OS-specific AudioStream+cubeb+output delay (lower bound)
 // full_duplex: enable cubeb full-duplex capture/playback
-//@line 569 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
-pref("media.peerconnection.capture_delay", 70);
-pref("media.getusermedia.playout_delay", 50);
+//@line 562 "c:\Work\Waterfox\modules\libpref\init\all.js"
+pref("media.peerconnection.capture_delay", 50);
+pref("media.getusermedia.playout_delay", 40);
 pref("media.navigator.audio.full_duplex", true);
-//@line 578 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 582 "c:\Work\Waterfox\modules\libpref\init\all.js"
 // Use MediaDataDecoder API for WebRTC, this includes hardware acceleration for
 // decoding.
 pref("media.navigator.mediadatadecoder_enabled", false);
-//@line 582 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 586 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
 pref("dom.webaudio.enabled", true);
 
-//@line 586 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 590 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("media.getusermedia.screensharing.enabled", true);
-//@line 588 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 592 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
-//@line 590 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 594 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("media.getusermedia.screensharing.allowed_domains", "webex.com,*.webex.com,ciscospark.com,*.ciscospark.com,projectsquared.com,*.projectsquared.com,*.room.co,room.co,beta.talky.io,talky.io,*.clearslide.com,appear.in,*.appear.in,tokbox.com,*.tokbox.com,*.sso.francetelecom.fr,*.si.francetelecom.fr,*.sso.infra.ftgroup,*.multimedia-conference.orange-business.com,*.espacecollaboration.orange-business.com,free.gotomeeting.com,g2m.me,*.g2m.me,*.mypurecloud.com,*.mypurecloud.com.au,spreed.me,*.spreed.me,*.spreed.com,air.mozilla.org,*.circuit.com,*.yourcircuit.com,circuit.siemens.com,yourcircuit.siemens.com,circuitsandbox.net,*.unify.com,tandi.circuitsandbox.net,*.ericsson.net,*.cct.ericsson.net,*.opentok.com,*.conf.meetecho.com,meet.jit.si,*.meet.jit.si,web.stage.speakeasyapp.net,web.speakeasyapp.net,*.hipchat.me,*.beta-wspbx.com,*.wspbx.com,*.unifiedcloudit.com,*.smartboxuc.com,*.smartbox-uc.com,*.panterranetworks.com,pexipdemo.com,*.pexipdemo.com,pex.me,*.pex.me,*.rd.pexip.com,1click.io,*.1click.io,*.fuze.com,*.fuzemeeting.com,*.thinkingphones.com,gotomeeting.com,*.gotomeeting.com,gotowebinar.com,*.gotowebinar.com,gototraining.com,*.gototraining.com,citrix.com,*.citrix.com,expertcity.com,*.expertcity.com,citrixonline.com,*.citrixonline.com,g2m.me,*.g2m.me,gotomeet.me,*.gotomeet.me,gotomeet.at,*.gotomeet.at,miriadaxdes.miriadax.net,certificacion.miriadax.net,miriadax.net,*.wire.com,sylaps.com,*.sylaps.com,bluejeans.com,*.bluejeans.com,*.a.bluejeans.com,*.bbcollab.com");
-//@line 595 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 599 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
 pref("media.getusermedia.audiocapture.enabled", false);
 
@@ -674,9 +683,9 @@ pref("media.mediasource.enabled", true);
 
 pref("media.mediasource.mp4.enabled", true);
 
-//@line 615 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
-pref("media.mediasource.webm.enabled", true);
-//@line 617 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 617 "c:\Work\Waterfox\modules\libpref\init\all.js"
+pref("media.mediasource.webm.enabled", false);
+//@line 621 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("media.mediasource.webm.audio.enabled", true);
 
 // Use new MediaFormatReader architecture for plain ogg.
@@ -687,12 +696,12 @@ pref("media.benchmark.vp9.threshold", 150);
 pref("media.benchmark.frames", 300);
 pref("media.benchmark.timeout", 1000);
 
-//@line 628 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 632 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("media.webspeech.recognition.enable", false);
 pref("media.webspeech.synth.enabled", false);
-//@line 632 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 636 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("media.encoder.webm.enabled", true);
-//@line 634 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 638 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
 // Whether to autostart a media element with an |autoplay| attribute
 pref("media.autoplay.enabled", true);
@@ -776,11 +785,11 @@ pref("apz.fling_friction", "0.002");
 pref("apz.fling_min_velocity_threshold", "0.5");
 pref("apz.fling_stop_on_tap_threshold", "0.05");
 pref("apz.fling_stopped_threshold", "0.01");
-//@line 720 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 724 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("apz.frame_delay.enabled", false);
-//@line 725 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 729 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("apz.keyboard.enabled", false);
-//@line 727 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 731 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("apz.max_velocity_inches_per_ms", "-1.0");
 pref("apz.max_velocity_queue_size", 5);
 pref("apz.min_skate_speed", "1.0");
@@ -802,9 +811,9 @@ pref("apz.popups.enabled", false);
 // Whether to print the APZC tree for debugging
 pref("apz.printtree", false);
 
-//@line 751 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 755 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("apz.record_checkerboarding", false);
-//@line 753 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 757 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("apz.second_tap_tolerance", "0.5");
 pref("apz.test.logging_enabled", false);
 pref("apz.touch_start_tolerance", "0.1");
@@ -820,14 +829,14 @@ pref("apz.y_stationary_size_multiplier", "3.5");
 pref("apz.zoom_animation_duration_ms", 250);
 pref("apz.scale_repaint_delay_ms", 500);
 
-//@line 775 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 779 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
-//@line 783 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 787 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
-//@line 785 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 789 "c:\Work\Waterfox\modules\libpref\init\all.js"
 // Use containerless scrolling for now on desktop.
 pref("layout.scroll.root-frame-containers", false);
-//@line 788 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 792 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
 pref("layout.scrollbars.always-layerize-track", false);
 
@@ -857,14 +866,14 @@ pref("gfx.downloadable_fonts.disable_cache", false);
 pref("gfx.downloadable_fonts.woff2.enabled", true);
 
 // Whether OTS validation should be applied to OpenType Layout (OTL) tables
-//@line 818 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 822 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("gfx.downloadable_fonts.otl_validation", false);
-//@line 822 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 826 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
 // Whether to preserve OpenType variation tables in fonts (bypassing OTS)
 pref("gfx.downloadable_fonts.keep_variation_tables", false);
 
-//@line 830 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 834 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
 // Do we fire a notification about missing fonts, so the front-end can decide
 // whether to try and do something about it (e.g. download additional fonts)?
@@ -872,10 +881,10 @@ pref("gfx.missing_fonts.notify", false);
 
 // prefs controlling the font (name/cmap) loader that runs shortly after startup
 pref("gfx.font_loader.families_per_slice", 3); // read in info 3 families at a time
-//@line 841 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
-pref("gfx.font_loader.delay", 8000);           // 8 secs after startup
-pref("gfx.font_loader.interval", 50);          // run every 50 ms
-//@line 844 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 842 "c:\Work\Waterfox\modules\libpref\init\all.js"
+pref("gfx.font_loader.delay", 120000);         // 2 minutes after startup
+pref("gfx.font_loader.interval", 1000);        // every 1 second until complete
+//@line 848 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
 // whether to always search all font cmaps during system font fallback
 pref("gfx.font_rendering.fallback.always_use_cmaps", false);
@@ -888,14 +897,19 @@ pref("gfx.font_rendering.wordcache.maxentries", 10000);
 
 pref("gfx.font_rendering.graphite.enabled", true);
 
-//@line 860 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 861 "c:\Work\Waterfox\modules\libpref\init\all.js"
+pref("gfx.font_rendering.directwrite.force-enabled", false);
+pref("gfx.font_rendering.directwrite.use_gdi_table_loading", true);
+//@line 864 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
 pref("gfx.font_rendering.opentype_svg.enabled", true);
 
-//@line 875 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
-pref("gfx.canvas.azure.backends", "skia");
-pref("gfx.content.azure.backends", "skia");
-//@line 879 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 868 "c:\Work\Waterfox\modules\libpref\init\all.js"
+// comma separated list of backends to use in order of preference
+// e.g., pref("gfx.canvas.azure.backends", "direct2d,skia,cairo");
+pref("gfx.canvas.azure.backends", "direct2d1.1,skia,cairo");
+pref("gfx.content.azure.backends", "direct2d1.1,skia,cairo");
+//@line 883 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
 pref("gfx.canvas.skiagl.dynamic-cache", true);
 
@@ -911,9 +925,11 @@ pref("gfx.logging.peak-texture-usage.enabled", false);
 
 pref("gfx.ycbcr.accurate-conversion", false);
 
-//@line 897 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 901 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("gfx.webrender.enabled", false);
-//@line 902 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 904 "c:\Work\Waterfox\modules\libpref\init\all.js"
+pref("gfx.webrender.force-angle", true);
+//@line 906 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
 pref("gfx.webrender.highlight-painted-layers", false);
 pref("gfx.webrender.layers-free", false);
@@ -927,7 +943,7 @@ pref("accessibility.warn_on_browsewithcaret", true);
 
 pref("accessibility.browsewithcaret_shortcut.enabled", true);
 
-//@line 916 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 920 "c:\Work\Waterfox\modules\libpref\init\all.js"
 // Tab focus model bit field:
 // 1 focuses text controls, 2 focuses other form elements, 4 adds links.
 // Most users will want 1, 3, or 7.
@@ -935,12 +951,14 @@ pref("accessibility.browsewithcaret_shortcut.enabled", true);
 // unless accessibility.tabfocus is set by the user.
 pref("accessibility.tabfocus", 7);
 pref("accessibility.tabfocus_applies_to_xul", false);
-//@line 927 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 931 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
 // We follow the "Click in the scrollbar to:" system preference on OS X and
 // "gtk-primary-button-warps-slider" property with GTK (since 2.24 / 3.6),
 // unless this preference is explicitly set.
-//@line 934 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 936 "c:\Work\Waterfox\modules\libpref\init\all.js"
+pref("ui.scrollToClick", 0);
+//@line 938 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
 // provide ability to turn on support for canvas focus rings
 pref("canvas.focusring.enabled", true);
@@ -969,7 +987,18 @@ pref("accessibility.force_disabled", 0);
 
 pref("accessibility.AOM.enabled", false);
 
-//@line 974 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 967 "c:\Work\Waterfox\modules\libpref\init\all.js"
+// Some accessibility tools poke at windows in the plugin process during setup
+// which can cause hangs.  To hack around this set accessibility.delay_plugins
+// to true, you can also try increasing accessibility.delay_plugin_time if your
+// machine is slow and you still experience hangs.
+// See bug 781791.
+pref("accessibility.delay_plugins", false);
+pref("accessibility.delay_plugin_time", 10000);
+
+// The COM handler used for Windows e10s performance and live regions
+pref("accessibility.handler.enabled", true);
+//@line 978 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
 pref("focusmanager.testmode", false);
 
@@ -992,9 +1021,9 @@ pref("accessibility.typeaheadfind.timeout", 4000);
 pref("accessibility.typeaheadfind.enabletimeout", true);
 pref("accessibility.typeaheadfind.soundURL", "beep");
 pref("accessibility.typeaheadfind.enablesound", true);
-//@line 999 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 1003 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("accessibility.typeaheadfind.prefillwithselection", true);
-//@line 1001 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 1005 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("accessibility.typeaheadfind.matchesCountLimit", 1000);
 pref("findbar.highlightAll", false);
 pref("findbar.modalHighlight", false);
@@ -1038,15 +1067,15 @@ pref("toolkit.asyncshutdown.log", false);
 // Enable deprecation warnings.
 pref("devtools.errorconsole.deprecation_warnings", true);
 
-//@line 1048 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 1052 "c:\Work\Waterfox\modules\libpref\init\all.js"
 sticky_pref("devtools.debugger.prompt-connection", true);
-//@line 1050 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 1054 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
-//@line 1057 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 1061 "c:\Work\Waterfox\modules\libpref\init\all.js"
 // In local builds, enable the browser toolbox by default
 sticky_pref("devtools.chrome.enabled", true);
 sticky_pref("devtools.debugger.remote-enabled", true);
-//@line 1061 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 1065 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
 
 // Disable remote debugging protocol logging
@@ -1158,9 +1187,9 @@ pref("browser.fixup.hide_user_pass", true);
 
 // Location Bar AutoComplete
 pref("browser.urlbar.autocomplete.enabled", true);
-//@line 1175 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 1179 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("browser.urlbar.usepreloadedtopurls.enabled", false);
-//@line 1177 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 1181 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("browser.urlbar.usepreloadedtopurls.expire_days", 14);
 
 // Print header customization
@@ -1214,9 +1243,9 @@ pref("print.print_edge_right", 0);
 pref("print.print_edge_bottom", 0);
 
 // Print via the parent process. This is only used when e10s is enabled.
-//@line 1231 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 1235 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("print.print_via_parent", true);
-//@line 1235 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 1239 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
 // Pref used by the spellchecker extension to control the
 // maximum number of misspelled words that will be underlined
@@ -1232,9 +1261,9 @@ pref("editor.use_css",                       false);
 pref("editor.css.default_length_unit",       "px");
 pref("editor.resizing.preserve_ratio",       true);
 pref("editor.positioning.offset",            0);
-//@line 1253 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 1257 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("editor.use_div_for_default_newlines",  false);
-//@line 1255 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 1259 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
 // Scripts & Windows prefs
 pref("dom.disable_beforeunload",            false);
@@ -1274,9 +1303,9 @@ pref("dom.min_timeout_value", 4);
 pref("dom.min_background_timeout_value", 1000);
 // Timeout clamp in ms for tracking timeouts we clamp
 // Note that this requires the privacy.trackingprotection.annotate_channels pref to be on in order to have any effect.
-//@line 1297 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 1301 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("dom.min_tracking_timeout_value", 4);
-//@line 1299 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 1303 "c:\Work\Waterfox\modules\libpref\init\all.js"
 // And for background windows
 // Note that this requires the privacy.trackingprotection.annotate_channels pref to be on in order to have any effect.
 pref("dom.min_tracking_background_timeout_value", 10000);
@@ -1325,9 +1354,9 @@ pref("dom.forms.autocomplete.formautofill", false);
 pref("dom.forms.selectSearch", false);
 // Allow for webpages to provide custom styling for <select>
 // popups. Disabled on Linux due to bug 1338283.
-//@line 1348 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
-pref("dom.forms.select.customstyling", false);
-//@line 1352 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 1354 "c:\Work\Waterfox\modules\libpref\init\all.js"
+pref("dom.forms.select.customstyling", true);
+//@line 1356 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("dom.select_popup_in_parent.enabled", false);
 
 // Enable Directory API. By default, disabled.
@@ -1353,9 +1382,7 @@ pref("dom.cycle_collector.incremental", true);
 pref("dom.allow_named_properties_object_for_xrays", 1);
 
 // Parsing perf prefs. For now just mimic what the old code did.
-//@line 1378 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
-pref("content.sink.pending_event_mode", 0);
-//@line 1380 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 1384 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
 // Disable popups from plugins by default
 //   0 = openAllowed
@@ -1385,9 +1412,9 @@ pref("privacy.firstparty.isolate.restrict_opener_access", true);
 pref("privacy.resistFingerprinting", false);
 // Lower the priority of network loads for resources on the tracking protection list.
 // Note that this requires the privacy.trackingprotection.annotate_channels pref to be on in order to have any effect.
-//@line 1412 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 1416 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("privacy.trackingprotection.lower_network_priority", false);
-//@line 1414 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 1418 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
 pref("dom.event.contextmenu.enabled",       true);
 pref("dom.event.clipboardevents.enabled",   true);
@@ -1398,7 +1425,7 @@ pref("dom.webcomponents.customelements.enabled", false);
 
 pref("javascript.enabled",                  true);
 pref("javascript.options.strict",           false);
-//@line 1427 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 1431 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("javascript.options.baselinejit",      true);
 pref("javascript.options.ion",              true);
 pref("javascript.options.asmjs",            true);
@@ -1406,12 +1433,12 @@ pref("javascript.options.wasm",             true);
 pref("javascript.options.wasm_baselinejit", false);
 pref("javascript.options.native_regexp",    true);
 pref("javascript.options.parallel_parsing", true);
-//@line 1437 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 1441 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("javascript.options.asyncstack",       false);
-//@line 1439 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 1443 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("javascript.options.throw_on_asmjs_validation_failure", false);
 pref("javascript.options.ion.offthread_compilation", true);
-//@line 1444 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 1448 "c:\Work\Waterfox\modules\libpref\init\all.js"
 // This preference instructs the JS engine to discard the
 // source of any privileged JS after compilation. This saves
 // memory, but makes things like Function.prototype.toSource()
@@ -1432,9 +1459,9 @@ pref("javascript.options.mem.log", false);
 pref("javascript.options.mem.notify", false);
 pref("javascript.options.gc_on_memory_pressure", true);
 pref("javascript.options.compact_on_user_inactive", true);
-//@line 1467 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 1471 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("javascript.options.compact_on_user_inactive_delay", 300000); // ms
-//@line 1469 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 1473 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
 pref("javascript.options.mem.gc_high_frequency_time_limit_ms", 1000);
 pref("javascript.options.mem.gc_high_frequency_low_limit_mb", 100);
@@ -1489,9 +1516,9 @@ pref("network.allow-experiments", true);
 pref("network.notify.changed", true);
 
 // Allow network detection of IPv6 related changes (bug 1245059)
-//@line 1526 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
-pref("network.notify.IPv6", true);
-//@line 1528 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 1528 "c:\Work\Waterfox\modules\libpref\init\all.js"
+pref("network.notify.IPv6", false);
+//@line 1532 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
 // Transmit UDP busy-work to the LAN when anticipating low latency
 // network reads and on wifi to mitigate 802.11 Power Save Polling delays
@@ -1514,7 +1541,7 @@ pref("network.protocol-handler.external.data", false);
 pref("network.protocol-handler.external.ms-help", false);
 pref("network.protocol-handler.external.shell", false);
 pref("network.protocol-handler.external.vnd.ms.radio", false);
-//@line 1553 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 1557 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("network.protocol-handler.external.disk", false);
 pref("network.protocol-handler.external.disks", false);
 pref("network.protocol-handler.external.afp", false);
@@ -1578,9 +1605,9 @@ pref("network.http.response.timeout", 300);
 // Limit the absolute number of http connections.
 // Note: the socket transport service will clamp the number below this if the OS
 // cannot allocate that many FDs
-//@line 1619 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 1623 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("network.http.max-connections", 900);
-//@line 1621 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 1625 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
 // If NOT connecting via a proxy, then
 // a new connection will only be attempted if the number of active persistent
@@ -2077,7 +2104,12 @@ pref("network.negotiate-auth.gsslib", "");
 // Specify if the gss lib comes standard with the OS
 pref("network.negotiate-auth.using-native-gsslib", true);
 
-//@line 2123 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 2122 "c:\Work\Waterfox\modules\libpref\init\all.js"
+
+// Default to using the SSPI intead of GSSAPI on windows
+pref("network.auth.use-sspi", true);
+
+//@line 2127 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
 // Controls which NTLM authentication implementation we default to. True forces
 // the use of our generic (internal) NTLM authentication implementation vs. any
@@ -2174,7 +2206,7 @@ pref("network.proxy.no_proxies_on",         "localhost, 127.0.0.1");
 pref("network.proxy.failover_timeout",      1800); // 30 minutes
 pref("network.online",                      true); //online/offline
 pref("network.cookie.cookieBehavior",       0); // 0-Accept, 1-dontAcceptForeign, 2-dontAcceptAny, 3-limitForeign
-//@line 2222 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 2226 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("network.cookie.thirdparty.sessionOnly", false);
 pref("network.cookie.leave-secure-alone",   true);
 pref("network.cookie.lifetimePolicy",       0); // 0-accept, 1-dontUse 2-acceptForSession, 3-acceptForNDays
@@ -2224,9 +2256,9 @@ pref("intl.fallbackCharsetList.ISO-8859-1", "windows-1252");
 pref("font.language.group",                 "chrome://global/locale/intl.properties");
 
 // Android-specific pref to use key-events-only mode for IME-unaware webapps.
-//@line 2274 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 2278 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("intl.ime.hack.on_ime_unaware_apps.fire_key_events_for_composition", false);
-//@line 2276 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 2280 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
 // If you use legacy Chinese IME which puts an ideographic space to composition
 // string as placeholder, this pref might be useful.  If this is true and when
@@ -2234,9 +2266,9 @@ pref("intl.ime.hack.on_ime_unaware_apps.fire_key_events_for_composition", false)
 // ideographic space will be ignored (i.e., commits with empty string).
 pref("intl.ime.remove_placeholder_character_at_commit", false);
 
-//@line 2284 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 2288 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("intl.uidirection", -1); // -1 to set from locale; 0 for LTR; 1 for RTL
-//@line 2293 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 2297 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
 // use en-US hyphenation by default for content tagged with plain lang="en"
 pref("intl.hyphenation-alias.en", "en-us");
@@ -2451,7 +2483,7 @@ pref("font.name-list.monospace.x-math", "monospace");
 // These fonts are ignored the underline offset, instead of it, the underline is lowered to bottom of its em descent.
 pref("font.blacklist.underline_offset", "FangSong,Gulim,GulimChe,MingLiU,MingLiU-ExtB,MingLiU_HKSCS,MingLiU-HKSCS-ExtB,MS Gothic,MS Mincho,MS PGothic,MS PMincho,MS UI Gothic,PMingLiU,PMingLiU-ExtB,SimHei,SimSun,SimSun-ExtB,Hei,Kai,Apple LiGothic,Apple LiSung,Osaka");
 
-//@line 2514 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 2518 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
 pref("images.dither", "auto");
 pref("security.directory",              "");
@@ -2580,7 +2612,13 @@ pref("clipboard.autocopy", false);
 // Clipboard only supports text/plain
 pref("clipboard.plainTextOnly", false);
 
-//@line 2649 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 2647 "c:\Work\Waterfox\modules\libpref\init\all.js"
+// Setting false you can disable 4th button and/or 5th button of your mouse.
+// 4th button is typically mapped to "Back" and 5th button is typically mapped
+// to "Forward" button.
+pref("mousebutton.4th.enabled", true);
+pref("mousebutton.5th.enabled", true);
+//@line 2653 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
 // mouse wheel scroll transaction period of time (in milliseconds)
 pref("mousewheel.transaction.timeout", 1500);
@@ -2828,14 +2866,14 @@ pref("layout.css.DOMQuad.enabled", true);
 pref("layout.css.DOMMatrix.enabled", true);
 
 // Is support for GeometryUtils.getBoxQuads enabled?
-//@line 2897 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 2901 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("layout.css.getBoxQuads.enabled", false);
-//@line 2901 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 2905 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
 // Is support for GeometryUtils.convert*FromNode enabled?
-//@line 2904 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 2908 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("layout.css.convertFromNode.enabled", false);
-//@line 2908 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 2912 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
 // Is support for CSS "text-align: unsafe X" enabled?
 pref("layout.css.text-align-unsafe-value.enabled", false);
@@ -2857,9 +2895,9 @@ pref("layout.css.font-display.enabled", false);
 pref("layout.css.font-variations.enabled", false);
 
 // Is support for the frames() timing function enabled?
-//@line 2930 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 2934 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("layout.css.frames-timing.enabled", false);
-//@line 2934 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 2938 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
 // Are sets of prefixed properties supported?
 pref("layout.css.prefixes.border-image", true);
@@ -2899,9 +2937,9 @@ pref("layout.css.text-combine-upright-digits.enabled", false);
 
 // Is -moz-osx-font-smoothing enabled?
 // Only supported in OSX builds
-//@line 2976 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 2980 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("layout.css.osx-font-smoothing.enabled", false);
-//@line 2978 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 2982 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
 // Is support for the CSS-wide "unset" value enabled?
 pref("layout.css.unset-value.enabled", true);
@@ -2959,9 +2997,9 @@ pref("layout.css.shape-outside.enabled", false);
 pref("layout.css.font-loading-api.enabled", true);
 
 // Should stray control characters be rendered visibly?
-//@line 3036 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 3040 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("layout.css.control-characters.visible", false);
-//@line 3040 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 3044 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
 // Is support for column-span enabled?
 pref("layout.css.column-span.enabled", false);
@@ -3011,9 +3049,9 @@ pref("layout.idle_period.time_limit", 1);
 // Before enabling this by default, make sure also CSSPseudoElement interface
 // has been spec'ed properly, or we should add a separate pref for
 // CSSPseudoElement interface. See Bug 1174575 for further details.
-//@line 3090 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 3094 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("dom.animations-api.core.enabled", false);
-//@line 3094 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 3098 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
 // Is support for the Element.animate() function (a subset of the Web Animations
 // API) enabled?
@@ -3118,7 +3156,7 @@ pref("plugins.favorfallback.rules", "");
 // Set IPC timeouts for plugins and tabs, except in leak-checking and
 // dynamic analysis builds.  (NS_FREE_PERMANENT_DATA is C++ only, so
 // approximate its definition here.)
-//@line 3199 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 3203 "c:\Work\Waterfox\modules\libpref\init\all.js"
 // How long a plugin is allowed to process a synchronous IPC message
 // before we consider it "hung".
 pref("dom.ipc.plugins.timeoutSecs", 45);
@@ -3132,12 +3170,18 @@ pref("dom.ipc.plugins.contentTimeoutSecs", 10);
 // How long a plugin launch is allowed to take before
 // we consider it failed.
 pref("dom.ipc.plugins.processLaunchTimeoutSecs", 45);
-//@line 3219 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 3217 "c:\Work\Waterfox\modules\libpref\init\all.js"
+// How long a plugin is allowed to process a synchronous IPC message
+// before we display the plugin hang UI
+pref("dom.ipc.plugins.hangUITimeoutSecs", 11);
+// Minimum time that the plugin hang UI will be displayed
+pref("dom.ipc.plugins.hangUIMinDisplaySecs", 10);
+//@line 3223 "c:\Work\Waterfox\modules\libpref\init\all.js"
 // How long a content process can take before closing its IPC channel
 // after shutdown is initiated.  If the process exceeds the timeout,
 // we fear the worst and kill it.
 pref("dom.ipc.tabs.shutdownTimeoutSecs", 5);
-//@line 3235 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 3239 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
 pref("dom.ipc.plugins.flash.disable-protected-mode", false);
 
@@ -3155,9 +3199,9 @@ pref("dom.ipc.plugins.forcedirect.enabled", true);
 
 // Enable multi by default for Nightly and DevEdition only.
 // For Beta and Release builds, multi is controlled by the e10srollout addon.
-//@line 3253 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 3257 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("dom.ipc.processCount", 1);
-//@line 3257 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 3261 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
 // Default to allow only one file:// URL content process.
 pref("dom.ipc.processCount.file", 1);
@@ -3204,7 +3248,7 @@ pref("svg.new-getBBox.enabled", false);
 
 pref("svg.transform-box.enabled", true);
 
-//@line 3309 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 3313 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("svg.context-properties.content.enabled", true);
 
 // Default font types and sizes by locale
@@ -3494,208 +3538,360 @@ pref("ui.mouse.radius.visitedWeight", 120);
 // When false, the prefs will be used for all mouse events.
 pref("ui.mouse.radius.inputSource.touchOnly", true);
 
-//@line 3945 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 3603 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
-//@line 4167 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+pref("font.name-list.serif.ar", "Times New Roman");
+pref("font.name-list.sans-serif.ar", "Segoe UI, Tahoma, Arial");
+pref("font.name-list.monospace.ar", "Courier New");
+pref("font.name-list.cursive.ar", "Comic Sans MS");
 
-//@line 4228 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+pref("font.name-list.serif.el", "Times New Roman");
+pref("font.name-list.sans-serif.el", "Arial");
+pref("font.name-list.monospace.el", "Courier New");
+pref("font.name-list.cursive.el", "Comic Sans MS");
 
-//@line 4232 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
-// Handled differently under Mac/Windows
-pref("network.protocol-handler.warn-external.file", false);
-pref("browser.drag_out_of_frame_style", 1);
+pref("font.name-list.serif.he", "Narkisim, David");
+pref("font.name-list.sans-serif.he", "Arial");
+pref("font.name-list.monospace.he", "Fixed Miriam Transparent, Miriam Fixed, Rod, Courier New");
+pref("font.name-list.cursive.he", "Guttman Yad, Ktav, Arial");
 
-// Middle-mouse handling
-pref("middlemouse.paste", true);
-pref("middlemouse.contentLoadURL", true);
-pref("middlemouse.openNewWindow", true);
-pref("middlemouse.scrollbarPosition", true);
+//@line 3624 "c:\Work\Waterfox\modules\libpref\init\all.js"
+pref("font.name-list.serif.ja", "MS PMincho, MS Mincho, MS PGothic, MS Gothic,Meiryo");
+pref("font.name-list.sans-serif.ja", "MS PGothic, MS Gothic, MS PMincho, MS Mincho,Meiryo");
+pref("font.name-list.monospace.ja", "MS Gothic, MS Mincho, MS PGothic, MS PMincho,Meiryo");
+//@line 3628 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
-// Clipboard behavior
-pref("clipboard.autocopy", true);
+pref("font.name-list.serif.ko", "Batang, Gulim");
+pref("font.name-list.sans-serif.ko", "Gulim");
+pref("font.name-list.monospace.ko", "GulimChe");
+pref("font.name-list.cursive.ko", "Gungsuh");
 
-pref("browser.urlbar.clickSelectsAll", false);
+pref("font.name-list.serif.th", "Tahoma");
+pref("font.name-list.sans-serif.th", "Tahoma");
+pref("font.name-list.monospace.th", "Tahoma");
+pref("font.name-list.cursive.th", "Tahoma");
 
-// Tab focus model bit field:
-// 1 focuses text controls, 2 focuses other form elements, 4 adds links.
-// Leave this at the default, 7, to match mozilla1.0-era user expectations.
-// pref("accessibility.tabfocus", 1);
+pref("font.name-list.serif.x-cyrillic", "Times New Roman");
+pref("font.name-list.sans-serif.x-cyrillic", "Arial");
+pref("font.name-list.monospace.x-cyrillic", "Courier New");
+pref("font.name-list.cursive.x-cyrillic", "Comic Sans MS");
 
-// autocomplete keyboard grab workaround
-pref("autocomplete.grab_during_popup", true);
-pref("autocomplete.ungrab_during_mode_switch", true);
+pref("font.name-list.serif.x-unicode", "Times New Roman");
+pref("font.name-list.sans-serif.x-unicode", "Arial");
+pref("font.name-list.monospace.x-unicode", "Courier New");
+pref("font.name-list.cursive.x-unicode", "Comic Sans MS");
 
-// Default to using the system filepicker if possible, but allow
-// toggling to use the XUL filepicker
-pref("ui.allow_platform_file_picker", true);
+pref("font.name-list.serif.x-western", "Times New Roman");
+pref("font.name-list.sans-serif.x-western", "Arial");
+pref("font.name-list.monospace.x-western", "Courier New");
+pref("font.name-list.cursive.x-western", "Comic Sans MS");
 
-pref("helpers.global_mime_types_file", "/etc/mime.types");
-pref("helpers.global_mailcap_file", "/etc/mailcap");
-pref("helpers.private_mime_types_file", "~/.mime.types");
-pref("helpers.private_mailcap_file", "~/.mailcap");
-pref("print.printer_list", ""); // list of printers, separated by spaces
-pref("print.print_reversed", false);
-pref("print.print_color", true);
-pref("print.print_landscape", false);
-pref("print.print_paper_size", 0);
+pref("font.name-list.serif.zh-CN", "SimSun, MS Song, SimSun-ExtB");
+pref("font.name-list.sans-serif.zh-CN", "Microsoft YaHei, SimHei");
+pref("font.name-list.monospace.zh-CN", "SimSun, MS Song, SimSun-ExtB");
+pref("font.name-list.cursive.zh-CN", "KaiTi, KaiTi_GB2312");
+
+// Per Taiwanese users' demand. They don't want to use TC fonts for
+// rendering Latin letters. (bug 88579)
+pref("font.name-list.serif.zh-TW", "Times New Roman, PMingLiu, MingLiU, MingLiU-ExtB");
+pref("font.name-list.sans-serif.zh-TW", "Arial, PMingLiU, MingLiU, MingLiU-ExtB");
+pref("font.name-list.monospace.zh-TW", "MingLiU, MingLiU-ExtB");
+pref("font.name-list.cursive.zh-TW", "DFKai-SB");
+
+// hkscsm3u.ttf (HKSCS-2001) :  http://www.microsoft.com/hk/hkscs
+// Hong Kong users have the same demand about glyphs for Latin letters (bug 88579)
+pref("font.name-list.serif.zh-HK", "Times New Roman, MingLiu_HKSCS, Ming(for ISO10646), MingLiU, MingLiU_HKSCS-ExtB");
+pref("font.name-list.sans-serif.zh-HK", "Arial, MingLiU_HKSCS, Ming(for ISO10646), MingLiU, MingLiU_HKSCS-ExtB");
+pref("font.name-list.monospace.zh-HK", "MingLiU_HKSCS, Ming(for ISO10646), MingLiU, MingLiU_HKSCS-ExtB");
+pref("font.name-list.cursive.zh-HK", "DFKai-SB");
+
+pref("font.name-list.serif.x-devanagari", "Kokila, Raghindi");
+pref("font.name-list.sans-serif.x-devanagari", "Nirmala UI, Mangal");
+pref("font.name-list.monospace.x-devanagari", "Mangal, Nirmala UI");
+
+pref("font.name-list.serif.x-tamil", "Latha");
+pref("font.name-list.monospace.x-tamil", "Latha");
+
+//@line 3681 "c:\Work\Waterfox\modules\libpref\init\all.js"
+
+pref("font.name-list.serif.x-armn", "Sylfaen");
+pref("font.name-list.sans-serif.x-armn", "Arial AMU");
+pref("font.name-list.monospace.x-armn", "Arial AMU");
+
+pref("font.name-list.serif.x-beng", "Vrinda, Akaash, Likhan, Ekushey Punarbhaba");
+pref("font.name-list.sans-serif.x-beng", "Vrinda, Akaash, Likhan, Ekushey Punarbhaba");
+pref("font.name-list.monospace.x-beng", "Mitra Mono, Likhan, Mukti Narrow");
+
+pref("font.name-list.serif.x-cans", "Aboriginal Serif, BJCree Uni");
+pref("font.name-list.sans-serif.x-cans", "Aboriginal Sans");
+pref("font.name-list.monospace.x-cans", "Aboriginal Sans, OskiDakelh, Pigiarniq, Uqammaq");
+
+pref("font.name-list.serif.x-ethi", "Visual Geez Unicode, Visual Geez Unicode Agazian");
+pref("font.name-list.sans-serif.x-ethi", "GF Zemen Unicode");
+pref("font.name-list.monospace.x-ethi", "Ethiopia Jiret");
+pref("font.name-list.cursive.x-ethi", "Visual Geez Unicode Title");
+
+pref("font.name-list.serif.x-geor", "Sylfaen, BPG Paata Khutsuri U, TITUS Cyberbit Basic");
+pref("font.name-list.sans-serif.x-geor", "BPG Classic 99U");
+pref("font.name-list.monospace.x-geor", "BPG Classic 99U");
+
+pref("font.name-list.serif.x-gujr", "Shruti");
+pref("font.name-list.sans-serif.x-gujr", "Shruti");
+pref("font.name-list.monospace.x-gujr", "Shruti");
+
+pref("font.name-list.serif.x-guru", "Raavi, Saab");
+pref("font.name-list.sans-serif.x-guru", "");
+pref("font.name-list.monospace.x-guru", "Raavi, Saab");
+
+pref("font.name-list.serif.x-khmr", "PhnomPenh OT,.Mondulkiri U GR 1.5, Khmer OS");
+pref("font.name-list.sans-serif.x-khmr", "Khmer OS");
+pref("font.name-list.monospace.x-khmr", "Khmer OS, Khmer OS System");
+
+pref("font.name-list.serif.x-mlym", "Rachana_w01, AnjaliOldLipi, Kartika, ThoolikaUnicode");
+pref("font.name-list.sans-serif.x-mlym", "Rachana_w01, AnjaliOldLipi, Kartika, ThoolikaUnicode");
+pref("font.name-list.monospace.x-mlym", "Rachana_w01, AnjaliOldLipi, Kartika, ThoolikaUnicode");
+
+pref("font.name-list.serif.x-orya", "ori1Uni, Kalinga");
+pref("font.name-list.sans-serif.x-orya", "ori1Uni, Kalinga");
+pref("font.name-list.monospace.x-orya", "ori1Uni, Kalinga");
+
+pref("font.name-list.serif.x-telu", "Gautami, Akshar Unicode");
+pref("font.name-list.sans-serif.x-telu", "Gautami, Akshar Unicode");
+pref("font.name-list.monospace.x-telu", "Gautami, Akshar Unicode");
+
+pref("font.name-list.serif.x-knda", "Tunga, AksharUnicode");
+pref("font.name-list.sans-serif.x-knda", "Tunga, AksharUnicode");
+pref("font.name-list.monospace.x-knda", "Tunga, AksharUnicode");
+
+pref("font.name-list.serif.x-sinh", "Iskoola Pota, AksharUnicode");
+pref("font.name-list.sans-serif.x-sinh", "Iskoola Pota, AksharUnicode");
+pref("font.name-list.monospace.x-sinh", "Iskoola Pota, AksharUnicode");
+
+pref("font.name-list.serif.x-tibt", "Tibetan Machine Uni, Jomolhari, Microsoft Himalaya");
+pref("font.name-list.sans-serif.x-tibt", "Tibetan Machine Uni, Jomolhari, Microsoft Himalaya");
+pref("font.name-list.monospace.x-tibt", "Tibetan Machine Uni, Jomolhari, Microsoft Himalaya");
+
+pref("font.minimum-size.th", 10);
+
+pref("font.default.x-devanagari", "sans-serif");
+
+pref("font.name-list.serif.x-math", "Latin Modern Math, STIX Two Math, XITS Math, Cambria Math, Libertinus Math, DejaVu Math TeX Gyre, TeX Gyre Bonum Math, TeX Gyre Pagella Math, TeX Gyre Schola, TeX Gyre Termes Math, STIX Math, Asana Math, STIXGeneral, DejaVu Serif, DejaVu Sans, Times New Roman");
+pref("font.name-list.sans-serif.x-math", "Arial");
+pref("font.name-list.monospace.x-math", "Courier New");
+pref("font.name-list.cursive.x-math", "Comic Sans MS");
+
+// ClearType tuning parameters for directwrite/d2d.
+//
+// Allows overriding of underlying registry values in:
+//   HKCU/Software/Microsoft/Avalon.Graphics/<display> (contrast and level)
+//   HKLM/Software/Microsoft/Avalon.Graphics/<display> (gamma, pixel structure)
+// and selection of the ClearType/antialiasing mode.
+//
+// A value of -1 implies use the default value, otherwise value ranges
+// follow registry settings:
+//   gamma [1000, 2200]  default: based on screen, typically 2200 (== 2.2)
+//   enhanced contrast [0, 1000] default: 50
+//   cleartype level [0, 100] default: 100
+//   pixel structure [0, 2] default: 0 (flat/RGB/BGR)
+//   rendering mode [0, 5] default: 0
+//     0 = use default for font & size;
+//     1 = aliased;
+//     2 = GDI Classic;
+//     3 = GDI Natural Widths;
+//     4 = Natural;
+//     5 = Natural Symmetric
+//
+// See:
+//   http://msdn.microsoft.com/en-us/library/aa970267.aspx
+//   http://msdn.microsoft.com/en-us/library/dd368190%28v=VS.85%29.aspx
+// Note: DirectWrite uses the "Enhanced Contrast Level" value rather than the
+// "Text Contrast Level" value
+
+pref("gfx.font_rendering.cleartype_params.gamma", -1);
+pref("gfx.font_rendering.cleartype_params.enhanced_contrast", -1);
+pref("gfx.font_rendering.cleartype_params.cleartype_level", -1);
+pref("gfx.font_rendering.cleartype_params.pixel_structure", -1);
+pref("gfx.font_rendering.cleartype_params.rendering_mode", -1);
+
+// A comma-separated list of font family names. Fonts in these families will
+// be forced to use "GDI Classic" ClearType mode, provided the value
+// of gfx.font_rendering.cleartype_params.rendering_mode is -1
+// (i.e. a specific rendering_mode has not been explicitly set).
+// Currently we apply this setting to the sans-serif Microsoft "core Web fonts".
+pref("gfx.font_rendering.cleartype_params.force_gdi_classic_for_families",
+     "Arial,Consolas,Courier New,Microsoft Sans Serif,Segoe UI,Tahoma,Trebuchet MS,Verdana");
+// The maximum size at which we will force GDI classic mode using
+// force_gdi_classic_for_families.
+pref("gfx.font_rendering.cleartype_params.force_gdi_classic_max_size", 15);
+
+pref("ui.key.menuAccessKeyFocuses", true);
+
+// override double-click word selection behavior.
+pref("layout.word_select.eat_space_to_next_word", true);
+
+// scrollbar snapping region
+pref("slider.snapMultiplier", 6);
 
 // print_extra_margin enables platforms to specify an extra gap or margin
 // around the content of the page for Print Preview only
-pref("print.print_extra_margin", 0); // twips
+pref("print.print_extra_margin", 90); // twips (90 twips is an eigth of an inch)
 
-// font names
+// Whether to extend the native dialog with information on printing frames.
+pref("print.extend_native_print_dialog", true);
 
-pref("font.name-list.serif.ar", "serif");
-pref("font.name-list.sans-serif.ar", "sans-serif");
-pref("font.name-list.monospace.ar", "monospace");
-pref("font.size.fixed.ar", 12);
+// Locate plugins by the directories specified in the Windows registry for PLIDs
+// Which is currently HKLM\Software\MozillaPlugins\xxxPLIDxxx\Path
+pref("plugin.scan.plid.all", true);
 
-pref("font.name-list.serif.el", "serif");
-pref("font.name-list.sans-serif.el", "sans-serif");
-pref("font.name-list.monospace.el", "monospace");
-pref("font.size.fixed.el", 12);
+// Whether sending WM_MOUSEWHEEL and WM_MOUSEHWHEEL to plugins on Windows.
+pref("plugin.mousewheel.enabled", true);
 
-pref("font.name-list.serif.he", "serif");
-pref("font.name-list.sans-serif.he", "sans-serif");
-pref("font.name-list.monospace.he", "monospace");
-pref("font.size.fixed.he", 12);
+// Switch the keyboard layout per window
+pref("intl.keyboard.per_window_layout", false);
 
-pref("font.name-list.serif.ja", "serif");
-pref("font.name-list.sans-serif.ja", "sans-serif");
-pref("font.name-list.monospace.ja", "monospace");
+//@line 3818 "c:\Work\Waterfox\modules\libpref\init\all.js"
+// Enable/Disable TSF support on Vista or later.
+pref("intl.tsf.enable", true);
 
-pref("font.name-list.serif.ko", "serif");
-pref("font.name-list.sans-serif.ko", "sans-serif");
-pref("font.name-list.monospace.ko", "monospace");
+// Support IMEs implemented with IMM in TSF mode.
+pref("intl.tsf.support_imm", true);
 
-pref("font.name-list.serif.th", "serif");
-pref("font.name-list.sans-serif.th", "sans-serif");
-pref("font.name-list.monospace.th", "monospace");
-pref("font.minimum-size.th", 13);
+// This is referred only when both "intl.tsf.enable" and "intl.tsf.support_imm"
+// are true.  When this is true, default IMC is associated with focused window
+// only when active keyboard layout is a legacy IMM-IME.
+pref("intl.tsf.associate_imc_only_when_imm_ime_is_active", false);
 
-pref("font.name-list.serif.x-armn", "serif");
-pref("font.name-list.sans-serif.x-armn", "sans-serif");
-pref("font.name-list.monospace.x-armn", "monospace");
+// Enables/Disables hack for specific TIP.
 
-pref("font.name-list.serif.x-beng", "serif");
-pref("font.name-list.sans-serif.x-beng", "sans-serif");
-pref("font.name-list.monospace.x-beng", "monospace");
+// Whether creates native caret for ATOK or not.
+pref("intl.tsf.hack.atok.create_native_caret", true);
+// Whether use available composition string rect for result of
+// ITfContextView::GetTextExt() even if the specified range is same as the
+// range of composition string but some character rects of them are not
+// available.  Note that this is ignored if active ATOK is or older than 2016
+// and create_native_caret is true.
+pref("intl.tsf.hack.atok.do_not_return_no_layout_error_of_composition_string", true);
+// Whether use composition start position for the result of
+// ITfContextView::GetTextExt() if the specified range is larger than
+// composition start offset.
+// For Free ChangJie 2010
+pref("intl.tsf.hack.free_chang_jie.do_not_return_no_layout_error", true);
+// For Microsoft Pinyin and Microsoft Wubi
+pref("intl.tsf.hack.ms_simplified_chinese.do_not_return_no_layout_error", true);
+// For Microsoft ChangJie and Microsoft Quick
+pref("intl.tsf.hack.ms_traditional_chinese.do_not_return_no_layout_error", true);
+// Whether use previous character rect for the result of
+// ITfContextView::GetTextExt() if the specified range is the first character
+// of selected clause of composition string.
+pref("intl.tsf.hack.ms_japanese_ime.do_not_return_no_layout_error_at_first_char", true);
+// Whether use previous character rect for the result of
+// ITfContextView::GetTextExt() if the specified range is the caret of
+// composition string.
+pref("intl.tsf.hack.ms_japanese_ime.do_not_return_no_layout_error_at_caret", true);
+// Whether hack ITextStoreACP::QueryInsert() or not.  The method should return
+// new selection after specified length text is inserted at specified range.
+// However, Microsoft's some Chinese TIPs expect that the result is same as
+// specified range.  If following prefs are true, ITextStoreACP::QueryInsert()
+// returns specified range only when one of the TIPs is active.
+// For Microsoft Pinyin and Microsoft Wubi
+pref("intl.tsf.hack.ms_simplified_chinese.query_insert_result", true);
+// For Microsoft ChangJie and Microsoft Quick
+pref("intl.tsf.hack.ms_traditional_chinese.query_insert_result", true);
+//@line 3866 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
-pref("font.name-list.serif.x-cans", "serif");
-pref("font.name-list.sans-serif.x-cans", "sans-serif");
-pref("font.name-list.monospace.x-cans", "monospace");
+// If composition_font is set, Gecko sets the font to IME.  IME may use
+// the fonts on their window like candidate window.  If they are empty,
+// Gecko uses the system default font which is set to the IM context.
+// The font name must not start with '@'.  When the writing mode is vertical,
+// Gecko inserts '@' to the start of the font name automatically.
+// FYI: Changing these prefs requires to restart.
+pref("intl.imm.composition_font", "");
 
-pref("font.name-list.serif.x-cyrillic", "serif");
-pref("font.name-list.sans-serif.x-cyrillic", "sans-serif");
-pref("font.name-list.monospace.x-cyrillic", "monospace");
-pref("font.size.fixed.x-cyrillic", 12);
+// Japanist 2003's candidate window is broken if the font is "@System" which
+// is default composition font for vertical writing mode.
+// You can specify font to use on candidate window of Japanist 2003.
+// This value must not start with '@'.
+// FYI: Changing this pref requires to restart.
+pref("intl.imm.composition_font.japanist_2003", "MS PGothic");
 
-pref("font.name-list.serif.x-devanagari", "serif");
-pref("font.name-list.sans-serif.x-devanagari", "sans-serif");
-pref("font.name-list.monospace.x-devanagari", "monospace");
+// Even if IME claims that they support vertical writing mode but it may not
+// support vertical writing mode for its candidate window.  This pref allows
+// to ignore the claim.
+// FYI: Changing this pref requires to restart.
+pref("intl.imm.vertical_writing.always_assume_not_supported", false);
 
-pref("font.name-list.serif.x-ethi", "serif");
-pref("font.name-list.sans-serif.x-ethi", "sans-serif");
-pref("font.name-list.monospace.x-ethi", "monospace");
+// We cannot retrieve active IME name with IMM32 API if a TIP of TSF is active.
+// This pref can specify active IME name when Japanese TIP is active.
+// For example:
+//   Google Japanese Input: "Google 日本語入力 IMM32 モジュール"
+//   ATOK 2011: "ATOK 2011" (similarly, e.g., ATOK 2013 is "ATOK 2013")
+pref("intl.imm.japanese.assume_active_tip_name_as", "");
 
-pref("font.name-list.serif.x-geor", "serif");
-pref("font.name-list.sans-serif.x-geor", "sans-serif");
-pref("font.name-list.monospace.x-geor", "monospace");
+// See bug 448927, on topmost panel, some IMEs are not usable on Windows.
+pref("ui.panel.default_level_parent", false);
 
-pref("font.name-list.serif.x-gujr", "serif");
-pref("font.name-list.sans-serif.x-gujr", "sans-serif");
-pref("font.name-list.monospace.x-gujr", "monospace");
+pref("mousewheel.system_scroll_override_on_root_content.enabled", true);
 
-pref("font.name-list.serif.x-guru", "serif");
-pref("font.name-list.sans-serif.x-guru", "sans-serif");
-pref("font.name-list.monospace.x-guru", "monospace");
+// Enable system settings cache for mouse wheel message handling.
+// Note that even if this pref is set to true, Gecko may not cache the system
+// settings if Gecko detects that the cache won't be refreshed properly when
+// the settings are changed.
+pref("mousewheel.system_settings_cache.enabled", true);
 
-pref("font.name-list.serif.x-khmr", "serif");
-pref("font.name-list.sans-serif.x-khmr", "sans-serif");
-pref("font.name-list.monospace.x-khmr", "monospace");
+// This is a pref to test system settings cache for mouse wheel message
+// handling.  If this is set to true, Gecko forcibly use the cache.
+pref("mousewheel.system_settings_cache.force_enabled", false);
 
-pref("font.name-list.serif.x-knda", "serif");
-pref("font.name-list.sans-serif.x-knda", "sans-serif");
-pref("font.name-list.monospace.x-knda", "monospace");
+// High resolution scrolling with supported mouse drivers on Vista or later.
+pref("mousewheel.enable_pixel_scrolling", true);
 
-pref("font.name-list.serif.x-mlym", "serif");
-pref("font.name-list.sans-serif.x-mlym", "sans-serif");
-pref("font.name-list.monospace.x-mlym", "monospace");
+// If your mouse drive sends WM_*SCROLL messages when you turn your mouse wheel,
+// set this to true.  Then, gecko processes them as mouse wheel messages.
+pref("mousewheel.emulate_at_wm_scroll", false);
 
-pref("font.name-list.serif.x-orya", "serif");
-pref("font.name-list.sans-serif.x-orya", "sans-serif");
-pref("font.name-list.monospace.x-orya", "monospace");
+// Enables or disabled the TrackPoint hack, -1 is autodetect, 0 is off,
+// and 1 is on.  Set this to 1 if TrackPoint scrolling is not working.
+pref("ui.trackpoint_hack.enabled", -1);
 
-pref("font.name-list.serif.x-sinh", "serif");
-pref("font.name-list.sans-serif.x-sinh", "sans-serif");
-pref("font.name-list.monospace.x-sinh", "monospace");
+// Setting this to a non-empty string overrides the Win32 "window class" used
+// for "normal" windows. Setting this to MozillaUIWindowClass might make
+// some trackpad drivers behave better.
+pref("ui.window_class_override", "");
 
-pref("font.name-list.serif.x-tamil", "serif");
-pref("font.name-list.sans-serif.x-tamil", "sans-serif");
-pref("font.name-list.monospace.x-tamil", "monospace");
+// Enables or disables the Elantech gesture hacks.  -1 is autodetect, 0 is off,
+// and 1 is on.  Set this to 1 if three-finger swipe gestures do not cause
+// page back/forward actions, or if pinch-to-zoom does not work.
+pref("ui.elantech_gesture_hacks.enabled", -1);
 
-pref("font.name-list.serif.x-telu", "serif");
-pref("font.name-list.sans-serif.x-telu", "sans-serif");
-pref("font.name-list.monospace.x-telu", "monospace");
+// Show the Windows on-screen keyboard (osk.exe) when a text field is focused.
+pref("ui.osk.enabled", true);
+// Only show the on-screen keyboard if there are no physical keyboards attached
+// to the device.
+pref("ui.osk.detect_physical_keyboard", true);
+// Path to TabTip.exe on local machine. Cached for performance reasons.
+pref("ui.osk.on_screen_keyboard_path", "");
+// Only try to show the on-screen keyboard on Windows 10 and later. Setting
+// this pref to false will allow the OSK to show on Windows 8 and 8.1.
+pref("ui.osk.require_win10", false);
+// This pref stores the "reason" that the on-screen keyboard was either
+// shown or not shown when focus is moved to an editable text field. It is
+// used to help debug why the keyboard is either not appearing when expected
+// or appearing when it is not expected.
+pref("ui.osk.debug.keyboardDisplayReason", "");
 
-pref("font.name-list.serif.x-tibt", "serif");
-pref("font.name-list.sans-serif.x-tibt", "sans-serif");
-pref("font.name-list.monospace.x-tibt", "monospace");
+//@line 3949 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
-pref("font.name-list.serif.x-unicode", "serif");
-pref("font.name-list.sans-serif.x-unicode", "sans-serif");
-pref("font.name-list.monospace.x-unicode", "monospace");
-pref("font.size.fixed.x-unicode", 12);
+//@line 4171 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
-pref("font.name-list.serif.x-western", "serif");
-pref("font.name-list.sans-serif.x-western", "sans-serif");
-pref("font.name-list.monospace.x-western", "monospace");
-pref("font.size.fixed.x-western", 12);
+//@line 4232 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
-pref("font.name-list.serif.zh-CN", "serif");
-pref("font.name-list.sans-serif.zh-CN", "sans-serif");
-pref("font.name-list.monospace.zh-CN", "monospace");
+//@line 4430 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
-pref("font.name-list.serif.zh-HK", "serif");
-pref("font.name-list.sans-serif.zh-HK", "sans-serif");
-pref("font.name-list.monospace.zh-HK", "monospace");
+//@line 4451 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
-pref("font.name-list.serif.zh-TW", "serif");
-pref("font.name-list.sans-serif.zh-TW", "sans-serif");
-pref("font.name-list.monospace.zh-TW", "monospace");
+//@line 4563 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
-/* PostScript print module prefs */
-// pref("print.postscript.enabled",      true);
-
-// On GTK2 platform, we should use topmost window level for the default window
-// level of <panel> element of XUL. GTK2 has only two window types. One is
-// normal top level window, other is popup window. The popup window is always
-// topmost window level, therefore, we are using normal top level window for
-// non-topmost panel, but it is pretty hacky. On some Window Managers, we have
-// 2 problems:
-// 1. The non-topmost panel steals focus from its parent window at showing.
-// 2. The parent of non-topmost panel is not activated when the panel is hidden.
-// So, we have no reasons we should use non-toplevel window for popup.
-pref("ui.panel.default_level_parent", true);
-
-pref("mousewheel.system_scroll_override_on_root_content.enabled", false);
-
-//@line 4414 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
-pref("intl.ime.use_simple_context_on_password_field", false);
-//@line 4416 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
-
-//@line 4418 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
-// maximum number of fonts to substitute for a generic
-pref("gfx.font_rendering.fontconfig.max_generic_substitutions", 3);
-//@line 4421 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
-
-//@line 4426 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
-
-//@line 4447 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
-
-//@line 4559 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
-
-//@line 4579 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 4583 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
 // Login Manager prefs
 pref("signon.rememberSignons",              true);
@@ -3814,11 +4010,11 @@ pref("image.webp.enabled", true);
 pref("canvas.image.cache.limit", 0);
 
 // WebGL prefs
-//@line 4701 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 4705 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("gl.msaa-level", 2);
-//@line 4703 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 4707 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("gl.require-hardware", false);
-//@line 4707 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 4711 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("gl.ignore-dx-interop2-blacklist", false);
 pref("gl.use-tls-is-current", 0);
 
@@ -3855,7 +4051,13 @@ pref("webgl.enable-debug-renderer-info", true);
 pref("webgl.renderer-string-override", "");
 pref("webgl.vendor-string-override", "");
 
-//@line 4750 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 4748 "c:\Work\Waterfox\modules\libpref\init\all.js"
+pref("webgl.angle.try-d3d11", true);
+pref("webgl.angle.force-d3d11", false);
+pref("webgl.angle.force-warp", false);
+pref("webgl.dxgl.enabled", true);
+pref("webgl.dxgl.needs-finish", false);
+//@line 4754 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
 pref("gfx.offscreencanvas.enabled", false);
 
@@ -3876,14 +4078,12 @@ pref("network.tcp.keepalive.enabled", true);
 pref("network.tcp.keepalive.idle_time", 600); // seconds; 10 mins
 // Default timeout for retransmission of unack'd keepalive probes.
 // Win and Linux only; not configurable on Mac.
-//@line 4771 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 4775 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("network.tcp.keepalive.retry_interval", 1); // seconds
-//@line 4773 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 4777 "c:\Work\Waterfox\modules\libpref\init\all.js"
 // Default maximum probe retransmissions.
 // Linux only; not configurable on Win and Mac; fixed at 10 and 8 respectively.
-//@line 4776 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
-pref("network.tcp.keepalive.probe_count", 4);
-//@line 4778 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 4782 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
 pref("network.tcp.tcp_fastopen_enable", false);
 pref("network.tcp.tcp_fastopen_consecutive_failure_limit", 5);
@@ -3894,23 +4094,27 @@ pref("layers.acceleration.disabled", false);
 // and output the result to stderr.
 pref("layers.bench.enabled", false);
 
-//@line 4796 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 4793 "c:\Work\Waterfox\modules\libpref\init\all.js"
+pref("layers.gpu-process.enabled", true);
+pref("media.gpu-process-decoder", true);
+pref("layers.gpu-process.allow-software", true);
+//@line 4800 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
 // Whether to force acceleration on, ignoring blacklists.
-//@line 4806 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 4810 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("layers.acceleration.force-enabled", false);
-//@line 4808 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 4812 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
 pref("layers.acceleration.draw-fps", false);
 
 // Enable DEAA antialiasing for transformed layers in the compositor
-//@line 4813 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 4817 "c:\Work\Waterfox\modules\libpref\init\all.js"
 // Desktop prefs
 pref("layers.deaa.enabled", true);
-//@line 4819 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 4823 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
 pref("layers.dump", false);
-//@line 4828 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 4832 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("layers.draw-borders", false);
 pref("layers.draw-tile-borders", false);
 pref("layers.draw-bigimage-borders", false);
@@ -3936,9 +4140,9 @@ pref("layers.tiles.adjust", true);
 // 0  -> full-tilt mode: Recomposite even if not transaction occured.
 pref("layers.offmainthreadcomposition.frame-rate", -1);
 
-//@line 4859 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 4863 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
-//@line 4863 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 4867 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
 // Whether to animate simple opacity and transforms on the compositor
 pref("layers.offmainthreadcomposition.async-animations", true);
@@ -3953,24 +4157,34 @@ pref("layers.draw-mask-debug", false);
 
 pref("gfx.content.always-paint", false);
 
-//@line 4880 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 4884 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
-//@line 4883 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
-pref("gfx.xrender.enabled",false);
-pref("widget.chrome.allow-gtk-dark-theme", false);
-pref("widget.content.allow-gtk-dark-theme", false);
-//@line 4888 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 4892 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
 pref("widget.window-transforms.disabled", false);
 
-//@line 4904 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 4896 "c:\Work\Waterfox\modules\libpref\init\all.js"
+// Whether to disable the automatic detection and use of direct2d.
+pref("gfx.direct2d.disabled", false);
+
+// Whether to attempt to enable Direct2D regardless of automatic detection or
+// blacklisting
+pref("gfx.direct2d.force-enabled", false);
+
+pref("gfx.direct3d11.enable-debug-layer", false);
+pref("gfx.direct3d11.break-on-error", false);
+
+pref("layers.prefer-opengl", false);
+//@line 4908 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
 // Copy-on-write canvas
 pref("layers.shared-buffer-provider.enabled", true);
 
-//@line 4911 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 4913 "c:\Work\Waterfox\modules\libpref\init\all.js"
+pref("layers.shared-buffer-provider.enabled", false);
+//@line 4915 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
-//@line 4916 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 4920 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
 // Force all possible layers to be always active layers
 pref("layers.force-active", false);
@@ -4032,9 +4246,9 @@ pref("extensions.webextensions.protocol.remote", true);
 
 // Report Site Issue button
 pref("extensions.webcompat-reporter.newIssueEndpoint", "https://webcompat.com/issues/new");
-//@line 4980 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 4984 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("extensions.webcompat-reporter.enabled", false);
-//@line 4982 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 4986 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
 pref("network.buffer.cache.count", 24);
 pref("network.buffer.cache.size",  32768);
@@ -4046,25 +4260,25 @@ pref("notification.feature.enabled", false);
 pref("dom.webnotifications.enabled", true);
 pref("dom.webnotifications.serviceworker.enabled", true);
 pref("dom.webnotifications.requireinteraction.count", 3);
-//@line 4996 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 5000 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("dom.webnotifications.requireinteraction.enabled", false);
-//@line 4998 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 5002 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
 // Show favicons in web notifications.
 pref("alerts.showFavicons", false);
 
 // DOM full-screen API.
 pref("full-screen-api.enabled", false);
-//@line 5005 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 5009 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("full-screen-api.unprefix.enabled", false);
-//@line 5009 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 5013 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("full-screen-api.allow-trusted-requests-only", true);
 pref("full-screen-api.pointer-lock.enabled", true);
 // transition duration of fade-to-black and fade-from-black, unit: ms
-//@line 5016 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
-pref("full-screen-api.transition-duration.enter", "0 0");
-pref("full-screen-api.transition-duration.leave", "0 0");
-//@line 5019 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 5017 "c:\Work\Waterfox\modules\libpref\init\all.js"
+pref("full-screen-api.transition-duration.enter", "200 200");
+pref("full-screen-api.transition-duration.leave", "200 200");
+//@line 5023 "c:\Work\Waterfox\modules\libpref\init\all.js"
 // timeout for black screen in fullscreen transition, unit: ms
 pref("full-screen-api.transition.timeout", 1000);
 // time for the warning box stays on the screen before sliding out, unit: ms
@@ -4138,18 +4352,20 @@ pref("dom.push.http2.retryInterval", 5000);
 // W3C touch events
 // 0 - disabled, 1 - enabled, 2 - autodetect
 // Autodetection is currently only supported on Windows and GTK3
-//@line 5095 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 5099 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("dom.w3c_touch_events.enabled", 2);
-//@line 5097 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 5101 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
 // W3C draft pointer events
-//@line 5102 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 5106 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("dom.w3c_pointer_events.enabled", false);
-//@line 5104 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 5108 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
 // Control firing WidgetMouseEvent by handling Windows pointer messages or mouse
 // messages.
-//@line 5110 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 5112 "c:\Work\Waterfox\modules\libpref\init\all.js"
+pref("dom.w3c_pointer_events.dispatch_by_pointer_messages", false);
+//@line 5114 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
 // W3C pointer events draft
 pref("dom.w3c_pointer_events.implicit_capture", false);
@@ -4183,11 +4399,28 @@ pref("layout.css.expensive-style-struct-assertions.enabled", false);
 // enable JS dump() function.
 pref("browser.dom.window.dump.enabled", false);
 
-//@line 5147 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 5151 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("dom.netinfo.enabled", false);
-//@line 5149 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 5153 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
-//@line 5168 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 5155 "c:\Work\Waterfox\modules\libpref\init\all.js"
+// On 32-bit Windows, fire a low-memory notification if we have less than this
+// many mb of virtual address space available.
+pref("memory.low_virtual_memory_threshold_mb", 128);
+
+// On Windows 32-bit, fire a low-memory notification if we have less
+// than this many mb of commit space (physical memory plus page file) left.
+pref("memory.low_commit_space_threshold_mb", 128);
+
+// On Windows 32-bit, fire a low-memory notification if we have less
+// than this many mb of physical memory available on the whole machine.
+pref("memory.low_physical_memory_threshold_mb", 0);
+
+// On Windows 32-bit, don't fire a low-memory notification because of
+// low available physical memory or low commit space more than once every
+// low_memory_notification_interval_ms.
+pref("memory.low_memory_notification_interval_ms", 10000);
+//@line 5172 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
 // How long must we wait before declaring that a window is a "ghost" (i.e., a
 // likely leak)?  This should be longer than it usually takes for an eligible
@@ -4195,9 +4428,7 @@ pref("dom.netinfo.enabled", false);
 pref("memory.ghost_window_timeout_seconds", 60);
 
 // Disable the Linux-specific, system-wide memory reporter.
-//@line 5176 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
-pref("memory.system_memory_reporter", false);
-//@line 5178 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 5182 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
 // Don't dump memory reports on OOM, by default.
 pref("memory.dump_reports_on_oom", false);
@@ -4224,9 +4455,9 @@ pref("dom.placeholder.show_on_focus", true);
 
 // WebVR is enabled by default in beta and release for Windows and for all
 // platforms in nightly and aurora.
-//@line 5207 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
-pref("dom.vr.enabled", false);
-//@line 5209 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 5209 "c:\Work\Waterfox\modules\libpref\init\all.js"
+pref("dom.vr.enabled", true);
+//@line 5213 "c:\Work\Waterfox\modules\libpref\init\all.js"
 // It is often desirable to automatically start vr presentation when
 // a user puts on the VR headset.  This is done by emitting the
 // Window.vrdisplayactivate event when the headset's sensors detect it
@@ -4244,10 +4475,10 @@ pref("dom.vr.controller_trigger_threshold", "0.1");
 // result in a non-responsive browser in the VR headset.
 pref("dom.vr.navigation.timeout", 5000);
 // Oculus device
-//@line 5227 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 5231 "c:\Work\Waterfox\modules\libpref\init\all.js"
 // We are only enabling WebVR by default on 64-bit builds (Bug 1384459)
 pref("dom.vr.oculus.enabled", true);
-//@line 5232 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 5236 "c:\Work\Waterfox\modules\libpref\init\all.js"
 // Minimum number of milliseconds after content has stopped VR presentation
 // before the Oculus session is re-initialized to an invisible / tracking
 // only mode.  If this value is too high, users will need to wait longer
@@ -4267,10 +4498,10 @@ pref("dom.vr.oculus.quit.timeout", 30000);
 // OSVR device
 pref("dom.vr.osvr.enabled", false);
 // OpenVR device
-//@line 5255 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
-// See Bug 1310663 (Linux) and Bug 1310665 (macOS)
-pref("dom.vr.openvr.enabled", false);
-//@line 5258 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 5256 "c:\Work\Waterfox\modules\libpref\init\all.js"
+// We are only enabling WebVR by default on 64-bit builds (Bug 1384459)
+pref("dom.vr.openvr.enabled", true);
+//@line 5262 "c:\Work\Waterfox\modules\libpref\init\all.js"
 // Pose prediction reduces latency effects by returning future predicted HMD
 // poses to callers of the WebVR API.  This currently only has an effect for
 // Oculus Rift on SDK 0.8 or greater.
@@ -4322,9 +4553,9 @@ pref("captivedetect.maxWaitingTime", 5000);
 pref("captivedetect.pollingTime", 3000);
 pref("captivedetect.maxRetryCount", 5);
 
-//@line 5310 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 5314 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("dom.forms.inputmode", false);
-//@line 5314 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 5318 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
 pref("dom.flyweb.enabled", false);
 
@@ -4334,9 +4565,9 @@ pref("dom.mapped_arraybuffer.enabled", true);
 // The tables used for Safebrowsing phishing and malware checks.
 pref("urlclassifier.malwareTable", "goog-malware-shavar,goog-unwanted-shavar,test-malware-simple,test-unwanted-simple");
 
-//@line 5328 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 5332 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("urlclassifier.phishTable", "googpub-phish-shavar,test-phish-simple");
-//@line 5330 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 5334 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
 // Tables for application reputation.
 pref("urlclassifier.downloadAllowTable", "goog-downloadwhite-digest256");
@@ -4369,9 +4600,9 @@ pref("browser.safebrowsing.phishing.enabled", true);
 // Enable malware protection
 pref("browser.safebrowsing.malware.enabled", true);
 
-//@line 5365 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 5369 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("browser.safebrowsing.downloads.enabled", false);
-//@line 5367 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 5371 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("browser.safebrowsing.downloads.remote.enabled", true);
 pref("browser.safebrowsing.downloads.remote.timeout_ms", 10000);
 pref("browser.safebrowsing.downloads.remote.url", "https://sb-ssl.google.com/safebrowsing/clientreport/download?key=%GOOGLE_API_KEY%");
@@ -4437,9 +4668,9 @@ pref("plugins.flashBlock.enabled", false);
 // Allow users to ignore Safe Browsing warnings.
 pref("browser.safebrowsing.allowOverride", true);
 
-//@line 5437 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 5441 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("browser.safebrowsing.id", "Firefox");
-//@line 5439 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 5443 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
 // Turn off Spatial navigation by default.
 pref("snav.enabled", false);
@@ -4527,7 +4758,7 @@ pref("dom.presentation.discoverable.encrypted", true);
 pref("dom.presentation.discoverable.retry_ms", 5000);
 pref("dom.presentation.session_transport.data_channel.enable", false);
 
-//@line 5534 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 5538 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
 // Enable meta-viewport support in remote APZ-enabled frames.
 pref("dom.meta-viewport.enabled", false);
@@ -4544,7 +4775,7 @@ pref("browser.search.geoSpecificDefaults", false);
 pref("browser.search.geoip.url", "https://location.services.mozilla.com/v1/country?key=%MOZILLA_API_KEY%");
 pref("browser.search.geoip.timeout", 3000);
 
-//@line 5554 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 5558 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
 // GMPInstallManager prefs
 
@@ -4555,13 +4786,13 @@ pref("media.gmp-manager.updateEnabled", true);
 //pref("media.gmp-manager.url.override", "");
 
 // Update service URL for GMP install/updates:
-pref("media.gmp-manager.url", "https://aus5.mozilla.org/update/3/GMP/%VERSION%/%BUILD_ID%/%BUILD_TARGET%/%LOCALE%/%CHANNEL%/%OS_VERSION%/%DISTRIBUTION%/%DISTRIBUTION_VERSION%/update.xml");
+pref("media.gmp-manager.url", "https://www.waterfoxproject.org/update/GMP/%VERSION%/%CHANNEL%/%OS_VERSION%/update.xml");
 
 // When |media.gmp-manager.cert.requireBuiltIn| is true or not specified the
 // final certificate and all certificates the connection is redirected to before
 // the final certificate for the url specified in the |media.gmp-manager.url|
 // preference must be built-in.
-pref("media.gmp-manager.cert.requireBuiltIn", true);
+pref("media.gmp-manager.cert.requireBuiltIn", false);
 
 // The |media.gmp-manager.certs.| preference branch contains branches that are
 // sequentially numbered starting at 1 that contain attribute name / value
@@ -4579,7 +4810,7 @@ pref("media.gmp-manager.cert.requireBuiltIn", true);
 // the |media.gmp-manager.url.override| preference should ONLY be used for testing.
 // IMPORTANT! app.update.certs.* prefs should also be updated if these
 // are updated.
-pref("media.gmp-manager.cert.checkAttributes", true);
+pref("media.gmp-manager.cert.checkAttributes", false);
 pref("media.gmp-manager.certs.1.issuerName", "CN=DigiCert SHA2 Secure Server CA,O=DigiCert Inc,C=US");
 pref("media.gmp-manager.certs.1.commonName", "aus5.mozilla.org");
 pref("media.gmp-manager.certs.2.issuerName", "CN=thawte SSL CA - G2,O=\"thawte, Inc.\",C=US");
@@ -4628,9 +4859,9 @@ pref("reader.has_used_toolbar", false);
 // Whether to use a vertical or horizontal toolbar.
 pref("reader.toolbar.vertical", true);
 
-//@line 5638 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 5642 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("narrate.enabled", true);
-//@line 5642 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 5646 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
 pref("narrate.test", false);
 pref("narrate.rate", 0);
@@ -4638,20 +4869,15 @@ pref("narrate.voice", " { \"default\": \"automatic\" }");
 // Only make voices that match content language available.
 pref("narrate.filter-voices", true);
 
-//@line 5650 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
-// Whether to allow, on a Linux system that doesn't support the necessary sandboxing
-// features, loading Gecko Media Plugins unsandboxed.  However, EME CDMs will not be
-// loaded without sandboxing even if this pref is changed.
-pref("media.gmp.insecure.allow", false);
-//@line 5655 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 5659 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
 // HTML <dialog> element
 pref("dom.dialog_element.enabled", false);
 
 // Secure Element API
-//@line 5661 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 5665 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("dom.secureelement.enabled", false);
-//@line 5663 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 5667 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
 // Allow control characters appear in composition string.
 // When this is false, control characters except
@@ -4704,20 +4930,20 @@ pref("media.seekToNextFrame.enabled", true);
 pref("dom.maxHardwareConcurrency", 16);
 
 // Shutdown the osfile worker if its no longer needed.
-//@line 5718 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 5722 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
-//@line 5720 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 5724 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("dom.webkitBlink.dirPicker.enabled", true);
 pref("dom.webkitBlink.filesystem.enabled", true);
-//@line 5723 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 5727 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
 pref("media.block-autoplay-until-in-foreground", true);
 
 // Is Stylo CSS support built and enabled?
 // Only define this pref if Stylo support is actually built in.
-//@line 5732 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 5736 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("layout.css.servo.enabled", false);
-//@line 5735 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 5739 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
 // HSTS Priming
 // If a request is mixed-content, send an HSTS priming request to attempt to
@@ -4726,7 +4952,7 @@ pref("layout.css.servo.enabled", false);
 // order to be most compatible with current standards in Release
 pref("security.mixed_content.send_hsts_priming", false);
 pref("security.mixed_content.use_hsts", false);
-//@line 5749 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 5753 "c:\Work\Waterfox\modules\libpref\init\all.js"
 // Approximately 1 week default cache for HSTS priming failures, in seconds
 pref("security.mixed_content.hsts_priming_cache_timeout", 604800);
 // Force the channel to timeout in 2 seconds if we have not received
@@ -4747,18 +4973,18 @@ pref("security.data_uri.unique_opaque_origin", false);
 pref("security.data_uri.block_toplevel_data_uri_navigations", false);
 
 // Disable Storage api in release builds.
-//@line 5772 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 5776 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("dom.storageManager.enabled", false);
-//@line 5774 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 5778 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
 pref("dom.storageManager.prompt.testing", false);
 pref("dom.storageManager.prompt.testing.allow", false);
 
 // Enable the Storage management in about:preferences and persistent-storage permission request
 // To enable the DOM implementation, turn on "dom.storageManager.enabled"
-//@line 5783 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 5787 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("browser.storageManager.enabled", false);
-//@line 5785 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 5789 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("browser.storageManager.pressureNotification.minIntervalMS", 1200000);
 pref("browser.storageManager.pressureNotification.usageThresholdGB", 5);
 
@@ -4780,9 +5006,12 @@ pref("dom.timeout.max_consecutive_callbacks_ms", 4);
 // Use this preference to house "Payment Request API" during development
 pref("dom.payments.request.enabled", false);
 
-//@line 5809 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 5813 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
-//@line 5822 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 5822 "c:\Work\Waterfox\modules\libpref\init\all.js"
+pref("layers.mlgpu.dev-enabled", false);
+pref("layers.mlgpu.enable-on-windows7", false);
+//@line 5826 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
 // Set advanced layers preferences here to have them show up in about:config or
 // to be overridable in reftest.list files. They should pretty much all be set
@@ -4813,9 +5042,9 @@ pref("dom.xhr.lowercase_header.enabled", false);
 
 // When a crash happens, whether to include heap regions of the crash context
 // in the minidump. Enabled by default on nightly and aurora.
-//@line 5853 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 5857 "c:\Work\Waterfox\modules\libpref\init\all.js"
 pref("toolkit.crashreporter.include_context_heap", false);
-//@line 5857 "/home/linuxbox/Waterfox/modules/libpref/init/all.js"
+//@line 5861 "c:\Work\Waterfox\modules\libpref\init\all.js"
 
 // Open noopener links in a new process
 pref("dom.noopener.newprocess.enabled", true);

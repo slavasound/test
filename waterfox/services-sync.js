@@ -48,9 +48,9 @@ pref("services.sync.log.appender.console", "Fatal");
 pref("services.sync.log.appender.dump", "Error");
 pref("services.sync.log.appender.file.level", "Trace");
 pref("services.sync.log.appender.file.logOnError", true);
-//@line 54 "/home/linuxbox/Waterfox/services/sync/services-sync.js"
+//@line 54 "c:\Work\Waterfox\services\sync\services-sync.js"
 pref("services.sync.log.appender.file.logOnSuccess", false);
-//@line 56 "/home/linuxbox/Waterfox/services/sync/services-sync.js"
+//@line 56 "c:\Work\Waterfox\services\sync\services-sync.js"
 pref("services.sync.log.appender.file.maxErrorAge", 864000); // 10 days
 pref("services.sync.log.rootLogger", "Debug");
 pref("services.sync.log.logger.addonutils", "Debug");
@@ -80,9 +80,9 @@ pref("services.sync.fxa.privacyURL", "https://accounts.firefox.com/legal/privacy
 pref("services.sync.telemetry.submissionInterval", 43200); // 12 hours in seconds
 pref("services.sync.telemetry.maxPayloadCount", 500);
 
-//@line 90 "/home/linuxbox/Waterfox/services/sync/services-sync.js"
+//@line 90 "c:\Work\Waterfox\services\sync\services-sync.js"
 
-//@line 96 "/home/linuxbox/Waterfox/services/sync/services-sync.js"
+//@line 96 "c:\Work\Waterfox\services\sync\services-sync.js"
 
 // We consider validation this frequently. After considering validation, even
 // if we don't end up validating, we won't try again unless this much time has passed.
