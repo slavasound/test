@@ -15,10 +15,7 @@
 ##[class$="-adfox."]:not(html):not(body)
 ##[class$="-adfox_"]:not(html):not(body)
 ##[class$="-adframe-"]:not(html):not(body)
-##[class$="-adframe-"]:not(html):not(body)
 ##[class$="-adframe."]:not(html):not(body)
-##[class$="-adframe."]:not(html):not(body)
-##[class$="-adframe_"]:not(html):not(body)
 ##[class$="-adframe_"]:not(html):not(body)
 ##[class$="-ads-"]:not(html):not(body)
 ##[class$="-ads."]:not(html):not(body)
@@ -102,10 +99,7 @@
 ##[class$=".adfox."]:not(html):not(body)
 ##[class$=".adfox_"]:not(html):not(body)
 ##[class$=".adframe-"]:not(html):not(body)
-##[class$=".adframe-"]:not(html):not(body)
 ##[class$=".adframe."]:not(html):not(body)
-##[class$=".adframe."]:not(html):not(body)
-##[class$=".adframe_"]:not(html):not(body)
 ##[class$=".adframe_"]:not(html):not(body)
 ##[class$=".ads-"]:not(html):not(body)
 ##[class$=".ads."]:not(html):not(body)
@@ -189,10 +183,7 @@
 ##[class$="_adfox."]:not(html):not(body)
 ##[class$="_adfox_"]:not(html):not(body)
 ##[class$="_adframe-"]:not(html):not(body)
-##[class$="_adframe-"]:not(html):not(body)
 ##[class$="_adframe."]:not(html):not(body)
-##[class$="_adframe."]:not(html):not(body)
-##[class$="_adframe_"]:not(html):not(body)
 ##[class$="_adframe_"]:not(html):not(body)
 ##[class$="_ads-"]:not(html):not(body)
 ##[class$="_ads."]:not(html):not(body)
@@ -276,10 +267,7 @@
 ##[class*="-adfox."]:not(html):not(body)
 ##[class*="-adfox_"]:not(html):not(body)
 ##[class*="-adframe-"]:not(html):not(body)
-##[class*="-adframe-"]:not(html):not(body)
 ##[class*="-adframe."]:not(html):not(body)
-##[class*="-adframe."]:not(html):not(body)
-##[class*="-adframe_"]:not(html):not(body)
 ##[class*="-adframe_"]:not(html):not(body)
 ##[class*="-ads-"]:not(html):not(body)
 ##[class*="-ads."]:not(html):not(body)
@@ -363,10 +351,7 @@
 ##[class*=".adfox."]:not(html):not(body)
 ##[class*=".adfox_"]:not(html):not(body)
 ##[class*=".adframe-"]:not(html):not(body)
-##[class*=".adframe-"]:not(html):not(body)
 ##[class*=".adframe."]:not(html):not(body)
-##[class*=".adframe."]:not(html):not(body)
-##[class*=".adframe_"]:not(html):not(body)
 ##[class*=".adframe_"]:not(html):not(body)
 ##[class*=".ads-"]:not(html):not(body)
 ##[class*=".ads."]:not(html):not(body)
@@ -450,10 +435,7 @@
 ##[class*="_adfox."]:not(html):not(body)
 ##[class*="_adfox_"]:not(html):not(body)
 ##[class*="_adframe-"]:not(html):not(body)
-##[class*="_adframe-"]:not(html):not(body)
 ##[class*="_adframe."]:not(html):not(body)
-##[class*="_adframe."]:not(html):not(body)
-##[class*="_adframe_"]:not(html):not(body)
 ##[class*="_adframe_"]:not(html):not(body)
 ##[class*="_ads-"]:not(html):not(body)
 ##[class*="_ads."]:not(html):not(body)
@@ -537,10 +519,7 @@
 ##[class="-adfox."]:not(html):not(body)
 ##[class="-adfox_"]:not(html):not(body)
 ##[class="-adframe-"]:not(html):not(body)
-##[class="-adframe-"]:not(html):not(body)
 ##[class="-adframe."]:not(html):not(body)
-##[class="-adframe."]:not(html):not(body)
-##[class="-adframe_"]:not(html):not(body)
 ##[class="-adframe_"]:not(html):not(body)
 ##[class="-ads-"]:not(html):not(body)
 ##[class="-ads."]:not(html):not(body)
@@ -624,10 +603,7 @@
 ##[class=".adfox."]:not(html):not(body)
 ##[class=".adfox_"]:not(html):not(body)
 ##[class=".adframe-"]:not(html):not(body)
-##[class=".adframe-"]:not(html):not(body)
 ##[class=".adframe."]:not(html):not(body)
-##[class=".adframe."]:not(html):not(body)
-##[class=".adframe_"]:not(html):not(body)
 ##[class=".adframe_"]:not(html):not(body)
 ##[class=".ads-"]:not(html):not(body)
 ##[class=".ads."]:not(html):not(body)
@@ -711,10 +687,7 @@
 ##[class="_adfox."]:not(html):not(body)
 ##[class="_adfox_"]:not(html):not(body)
 ##[class="_adframe-"]:not(html):not(body)
-##[class="_adframe-"]:not(html):not(body)
 ##[class="_adframe."]:not(html):not(body)
-##[class="_adframe."]:not(html):not(body)
-##[class="_adframe_"]:not(html):not(body)
 ##[class="_adframe_"]:not(html):not(body)
 ##[class="_ads-"]:not(html):not(body)
 ##[class="_ads."]:not(html):not(body)
@@ -798,10 +771,7 @@
 ##[class^="-adfox."]:not(html):not(body)
 ##[class^="-adfox_"]:not(html):not(body)
 ##[class^="-adframe-"]:not(html):not(body)
-##[class^="-adframe-"]:not(html):not(body)
 ##[class^="-adframe."]:not(html):not(body)
-##[class^="-adframe."]:not(html):not(body)
-##[class^="-adframe_"]:not(html):not(body)
 ##[class^="-adframe_"]:not(html):not(body)
 ##[class^="-ads-"]:not(html):not(body)
 ##[class^="-ads."]:not(html):not(body)
@@ -885,10 +855,7 @@
 ##[class^=".adfox."]:not(html):not(body)
 ##[class^=".adfox_"]:not(html):not(body)
 ##[class^=".adframe-"]:not(html):not(body)
-##[class^=".adframe-"]:not(html):not(body)
 ##[class^=".adframe."]:not(html):not(body)
-##[class^=".adframe."]:not(html):not(body)
-##[class^=".adframe_"]:not(html):not(body)
 ##[class^=".adframe_"]:not(html):not(body)
 ##[class^=".ads-"]:not(html):not(body)
 ##[class^=".ads."]:not(html):not(body)
@@ -972,10 +939,7 @@
 ##[class^="_adfox."]:not(html):not(body)
 ##[class^="_adfox_"]:not(html):not(body)
 ##[class^="_adframe-"]:not(html):not(body)
-##[class^="_adframe-"]:not(html):not(body)
 ##[class^="_adframe."]:not(html):not(body)
-##[class^="_adframe."]:not(html):not(body)
-##[class^="_adframe_"]:not(html):not(body)
 ##[class^="_adframe_"]:not(html):not(body)
 ##[class^="_ads-"]:not(html):not(body)
 ##[class^="_ads."]:not(html):not(body)
@@ -1059,10 +1023,7 @@
 ##[div$="-adfox."]:not(html):not(body)
 ##[div$="-adfox_"]:not(html):not(body)
 ##[div$="-adframe-"]:not(html):not(body)
-##[div$="-adframe-"]:not(html):not(body)
 ##[div$="-adframe."]:not(html):not(body)
-##[div$="-adframe."]:not(html):not(body)
-##[div$="-adframe_"]:not(html):not(body)
 ##[div$="-adframe_"]:not(html):not(body)
 ##[div$="-ads-"]:not(html):not(body)
 ##[div$="-ads."]:not(html):not(body)
@@ -1146,10 +1107,7 @@
 ##[div$=".adfox."]:not(html):not(body)
 ##[div$=".adfox_"]:not(html):not(body)
 ##[div$=".adframe-"]:not(html):not(body)
-##[div$=".adframe-"]:not(html):not(body)
 ##[div$=".adframe."]:not(html):not(body)
-##[div$=".adframe."]:not(html):not(body)
-##[div$=".adframe_"]:not(html):not(body)
 ##[div$=".adframe_"]:not(html):not(body)
 ##[div$=".ads-"]:not(html):not(body)
 ##[div$=".ads."]:not(html):not(body)
@@ -1233,10 +1191,7 @@
 ##[div$="_adfox."]:not(html):not(body)
 ##[div$="_adfox_"]:not(html):not(body)
 ##[div$="_adframe-"]:not(html):not(body)
-##[div$="_adframe-"]:not(html):not(body)
 ##[div$="_adframe."]:not(html):not(body)
-##[div$="_adframe."]:not(html):not(body)
-##[div$="_adframe_"]:not(html):not(body)
 ##[div$="_adframe_"]:not(html):not(body)
 ##[div$="_ads-"]:not(html):not(body)
 ##[div$="_ads."]:not(html):not(body)
@@ -1320,10 +1275,7 @@
 ##[div*="-adfox."]:not(html):not(body)
 ##[div*="-adfox_"]:not(html):not(body)
 ##[div*="-adframe-"]:not(html):not(body)
-##[div*="-adframe-"]:not(html):not(body)
 ##[div*="-adframe."]:not(html):not(body)
-##[div*="-adframe."]:not(html):not(body)
-##[div*="-adframe_"]:not(html):not(body)
 ##[div*="-adframe_"]:not(html):not(body)
 ##[div*="-ads-"]:not(html):not(body)
 ##[div*="-ads."]:not(html):not(body)
@@ -1407,10 +1359,7 @@
 ##[div*=".adfox."]:not(html):not(body)
 ##[div*=".adfox_"]:not(html):not(body)
 ##[div*=".adframe-"]:not(html):not(body)
-##[div*=".adframe-"]:not(html):not(body)
 ##[div*=".adframe."]:not(html):not(body)
-##[div*=".adframe."]:not(html):not(body)
-##[div*=".adframe_"]:not(html):not(body)
 ##[div*=".adframe_"]:not(html):not(body)
 ##[div*=".ads-"]:not(html):not(body)
 ##[div*=".ads."]:not(html):not(body)
@@ -1494,10 +1443,7 @@
 ##[div*="_adfox."]:not(html):not(body)
 ##[div*="_adfox_"]:not(html):not(body)
 ##[div*="_adframe-"]:not(html):not(body)
-##[div*="_adframe-"]:not(html):not(body)
 ##[div*="_adframe."]:not(html):not(body)
-##[div*="_adframe."]:not(html):not(body)
-##[div*="_adframe_"]:not(html):not(body)
 ##[div*="_adframe_"]:not(html):not(body)
 ##[div*="_ads-"]:not(html):not(body)
 ##[div*="_ads."]:not(html):not(body)
@@ -1581,10 +1527,7 @@
 ##[div="-adfox."]:not(html):not(body)
 ##[div="-adfox_"]:not(html):not(body)
 ##[div="-adframe-"]:not(html):not(body)
-##[div="-adframe-"]:not(html):not(body)
 ##[div="-adframe."]:not(html):not(body)
-##[div="-adframe."]:not(html):not(body)
-##[div="-adframe_"]:not(html):not(body)
 ##[div="-adframe_"]:not(html):not(body)
 ##[div="-ads-"]:not(html):not(body)
 ##[div="-ads."]:not(html):not(body)
@@ -1668,10 +1611,7 @@
 ##[div=".adfox."]:not(html):not(body)
 ##[div=".adfox_"]:not(html):not(body)
 ##[div=".adframe-"]:not(html):not(body)
-##[div=".adframe-"]:not(html):not(body)
 ##[div=".adframe."]:not(html):not(body)
-##[div=".adframe."]:not(html):not(body)
-##[div=".adframe_"]:not(html):not(body)
 ##[div=".adframe_"]:not(html):not(body)
 ##[div=".ads-"]:not(html):not(body)
 ##[div=".ads."]:not(html):not(body)
@@ -1755,10 +1695,7 @@
 ##[div="_adfox."]:not(html):not(body)
 ##[div="_adfox_"]:not(html):not(body)
 ##[div="_adframe-"]:not(html):not(body)
-##[div="_adframe-"]:not(html):not(body)
 ##[div="_adframe."]:not(html):not(body)
-##[div="_adframe."]:not(html):not(body)
-##[div="_adframe_"]:not(html):not(body)
 ##[div="_adframe_"]:not(html):not(body)
 ##[div="_ads-"]:not(html):not(body)
 ##[div="_ads."]:not(html):not(body)
@@ -1842,10 +1779,7 @@
 ##[div^="-adfox."]:not(html):not(body)
 ##[div^="-adfox_"]:not(html):not(body)
 ##[div^="-adframe-"]:not(html):not(body)
-##[div^="-adframe-"]:not(html):not(body)
 ##[div^="-adframe."]:not(html):not(body)
-##[div^="-adframe."]:not(html):not(body)
-##[div^="-adframe_"]:not(html):not(body)
 ##[div^="-adframe_"]:not(html):not(body)
 ##[div^="-ads-"]:not(html):not(body)
 ##[div^="-ads."]:not(html):not(body)
@@ -1929,10 +1863,7 @@
 ##[div^=".adfox."]:not(html):not(body)
 ##[div^=".adfox_"]:not(html):not(body)
 ##[div^=".adframe-"]:not(html):not(body)
-##[div^=".adframe-"]:not(html):not(body)
 ##[div^=".adframe."]:not(html):not(body)
-##[div^=".adframe."]:not(html):not(body)
-##[div^=".adframe_"]:not(html):not(body)
 ##[div^=".adframe_"]:not(html):not(body)
 ##[div^=".ads-"]:not(html):not(body)
 ##[div^=".ads."]:not(html):not(body)
@@ -2016,10 +1947,7 @@
 ##[div^="_adfox."]:not(html):not(body)
 ##[div^="_adfox_"]:not(html):not(body)
 ##[div^="_adframe-"]:not(html):not(body)
-##[div^="_adframe-"]:not(html):not(body)
 ##[div^="_adframe."]:not(html):not(body)
-##[div^="_adframe."]:not(html):not(body)
-##[div^="_adframe_"]:not(html):not(body)
 ##[div^="_adframe_"]:not(html):not(body)
 ##[div^="_ads-"]:not(html):not(body)
 ##[div^="_ads."]:not(html):not(body)
@@ -2103,10 +2031,7 @@
 ##[id$="-adfox."]:not(html):not(body)
 ##[id$="-adfox_"]:not(html):not(body)
 ##[id$="-adframe-"]:not(html):not(body)
-##[id$="-adframe-"]:not(html):not(body)
 ##[id$="-adframe."]:not(html):not(body)
-##[id$="-adframe."]:not(html):not(body)
-##[id$="-adframe_"]:not(html):not(body)
 ##[id$="-adframe_"]:not(html):not(body)
 ##[id$="-ads-"]:not(html):not(body)
 ##[id$="-ads."]:not(html):not(body)
@@ -2190,10 +2115,7 @@
 ##[id$=".adfox."]:not(html):not(body)
 ##[id$=".adfox_"]:not(html):not(body)
 ##[id$=".adframe-"]:not(html):not(body)
-##[id$=".adframe-"]:not(html):not(body)
 ##[id$=".adframe."]:not(html):not(body)
-##[id$=".adframe."]:not(html):not(body)
-##[id$=".adframe_"]:not(html):not(body)
 ##[id$=".adframe_"]:not(html):not(body)
 ##[id$=".ads-"]:not(html):not(body)
 ##[id$=".ads."]:not(html):not(body)
@@ -2277,10 +2199,7 @@
 ##[id$="_adfox."]:not(html):not(body)
 ##[id$="_adfox_"]:not(html):not(body)
 ##[id$="_adframe-"]:not(html):not(body)
-##[id$="_adframe-"]:not(html):not(body)
 ##[id$="_adframe."]:not(html):not(body)
-##[id$="_adframe."]:not(html):not(body)
-##[id$="_adframe_"]:not(html):not(body)
 ##[id$="_adframe_"]:not(html):not(body)
 ##[id$="_ads-"]:not(html):not(body)
 ##[id$="_ads."]:not(html):not(body)
@@ -2364,10 +2283,7 @@
 ##[id*="-adfox."]:not(html):not(body)
 ##[id*="-adfox_"]:not(html):not(body)
 ##[id*="-adframe-"]:not(html):not(body)
-##[id*="-adframe-"]:not(html):not(body)
 ##[id*="-adframe."]:not(html):not(body)
-##[id*="-adframe."]:not(html):not(body)
-##[id*="-adframe_"]:not(html):not(body)
 ##[id*="-adframe_"]:not(html):not(body)
 ##[id*="-ads-"]:not(html):not(body)
 ##[id*="-ads."]:not(html):not(body)
@@ -2451,10 +2367,7 @@
 ##[id*=".adfox."]:not(html):not(body)
 ##[id*=".adfox_"]:not(html):not(body)
 ##[id*=".adframe-"]:not(html):not(body)
-##[id*=".adframe-"]:not(html):not(body)
 ##[id*=".adframe."]:not(html):not(body)
-##[id*=".adframe."]:not(html):not(body)
-##[id*=".adframe_"]:not(html):not(body)
 ##[id*=".adframe_"]:not(html):not(body)
 ##[id*=".ads-"]:not(html):not(body)
 ##[id*=".ads."]:not(html):not(body)
@@ -2538,10 +2451,7 @@
 ##[id*="_adfox."]:not(html):not(body)
 ##[id*="_adfox_"]:not(html):not(body)
 ##[id*="_adframe-"]:not(html):not(body)
-##[id*="_adframe-"]:not(html):not(body)
 ##[id*="_adframe."]:not(html):not(body)
-##[id*="_adframe."]:not(html):not(body)
-##[id*="_adframe_"]:not(html):not(body)
 ##[id*="_adframe_"]:not(html):not(body)
 ##[id*="_ads-"]:not(html):not(body)
 ##[id*="_ads."]:not(html):not(body)
@@ -2625,10 +2535,7 @@
 ##[id="-adfox."]:not(html):not(body)
 ##[id="-adfox_"]:not(html):not(body)
 ##[id="-adframe-"]:not(html):not(body)
-##[id="-adframe-"]:not(html):not(body)
 ##[id="-adframe."]:not(html):not(body)
-##[id="-adframe."]:not(html):not(body)
-##[id="-adframe_"]:not(html):not(body)
 ##[id="-adframe_"]:not(html):not(body)
 ##[id="-ads-"]:not(html):not(body)
 ##[id="-ads."]:not(html):not(body)
@@ -2712,10 +2619,7 @@
 ##[id=".adfox."]:not(html):not(body)
 ##[id=".adfox_"]:not(html):not(body)
 ##[id=".adframe-"]:not(html):not(body)
-##[id=".adframe-"]:not(html):not(body)
 ##[id=".adframe."]:not(html):not(body)
-##[id=".adframe."]:not(html):not(body)
-##[id=".adframe_"]:not(html):not(body)
 ##[id=".adframe_"]:not(html):not(body)
 ##[id=".ads-"]:not(html):not(body)
 ##[id=".ads."]:not(html):not(body)
@@ -2799,10 +2703,7 @@
 ##[id="_adfox."]:not(html):not(body)
 ##[id="_adfox_"]:not(html):not(body)
 ##[id="_adframe-"]:not(html):not(body)
-##[id="_adframe-"]:not(html):not(body)
 ##[id="_adframe."]:not(html):not(body)
-##[id="_adframe."]:not(html):not(body)
-##[id="_adframe_"]:not(html):not(body)
 ##[id="_adframe_"]:not(html):not(body)
 ##[id="_ads-"]:not(html):not(body)
 ##[id="_ads."]:not(html):not(body)
@@ -2886,10 +2787,7 @@
 ##[id^="-adfox."]:not(html):not(body)
 ##[id^="-adfox_"]:not(html):not(body)
 ##[id^="-adframe-"]:not(html):not(body)
-##[id^="-adframe-"]:not(html):not(body)
 ##[id^="-adframe."]:not(html):not(body)
-##[id^="-adframe."]:not(html):not(body)
-##[id^="-adframe_"]:not(html):not(body)
 ##[id^="-adframe_"]:not(html):not(body)
 ##[id^="-ads-"]:not(html):not(body)
 ##[id^="-ads."]:not(html):not(body)
@@ -2973,10 +2871,7 @@
 ##[id^=".adfox."]:not(html):not(body)
 ##[id^=".adfox_"]:not(html):not(body)
 ##[id^=".adframe-"]:not(html):not(body)
-##[id^=".adframe-"]:not(html):not(body)
 ##[id^=".adframe."]:not(html):not(body)
-##[id^=".adframe."]:not(html):not(body)
-##[id^=".adframe_"]:not(html):not(body)
 ##[id^=".adframe_"]:not(html):not(body)
 ##[id^=".ads-"]:not(html):not(body)
 ##[id^=".ads."]:not(html):not(body)
@@ -3060,10 +2955,7 @@
 ##[id^="_adfox."]:not(html):not(body)
 ##[id^="_adfox_"]:not(html):not(body)
 ##[id^="_adframe-"]:not(html):not(body)
-##[id^="_adframe-"]:not(html):not(body)
 ##[id^="_adframe."]:not(html):not(body)
-##[id^="_adframe."]:not(html):not(body)
-##[id^="_adframe_"]:not(html):not(body)
 ##[id^="_adframe_"]:not(html):not(body)
 ##[id^="_ads-"]:not(html):not(body)
 ##[id^="_ads."]:not(html):not(body)
@@ -3134,17 +3026,17 @@
 ##[id^="_yandex_rtb-"]:not(html):not(body)
 ##[id^="_yandex_rtb."]:not(html):not(body)
 ##[id^="_yandex_rtb_"]:not(html):not(body)
-##a[href*="/enrefer/"]>img
-##a[href*="/refer/"]>img
-##a[href*="/rurefer/"]>img
-##a[href*="?partner="]>img
-##a[href*="banner"]>img
-##a[href*="bit.ly"]>img
-##a[href*="clck.ru"]>img
-##a[href*="cutter.li"]>img
-##a[href*="goo.gl"]>img
-##a[href*="vk.cc"]>img
-##a[href*="vsemayki"]>img
+##a[href*="/enrefer/"] > img
+##a[href*="/refer/"] > img
+##a[href*="/rurefer/"] > img
+##a[href*="?partner="] > img
+##a[href*="banner"] > img
+##a[href*="bit.ly"] > img
+##a[href*="clck.ru"] > img
+##a[href*="cutter.li"] > img
+##a[href*="goo.gl"] > img
+##a[href*="vk.cc"] > img
+##a[href*="vsemayki"] > img
 ##a[href^="http://ad.doubleclick.net/"]
 ##a[href^="http://pubads.g.doubleclick.net/"]
 ##a[href^="http://top.mail.ru/jump"]
@@ -3175,11 +3067,11 @@
 ##leftads:not(:root):not(body):not(input)
 ##rightads:not(:root):not(body):not(input)
 ##topads:not(:root):not(body):not(input)
-$cookie=/act|s|t|p|testcookie/,domain=ok.ru|mail.ru
-$cookie=/blcrm|bltsr|yabs|adb|cmtchd|crookie|kpunk|is_adblock|abp|yp|ys/,domain=yandex.ru|yandex.ua|yandex.by|kinopoisk.ru|avito.ru
-$cookie=/unique_id/,domain=twitch.tv
-*$font,first-party,important
-*$font,third-party,important
+$cookie=/act|s|t|p|testcookie/,domain=mail.ru|ok.ru
+$cookie=/blcrm|bltsr|yabs|adb|cmtchd|crookie|kpunk|is-adblock|abp|yp|ys/,domain=avito.ru|kinopoisk.ru|yandex.by|yandex.ru|yandex.ua
+$cookie=/unique-id/,domain=twitch.tv
+$first-party,font,important
+$font,important,third-party
 -0pixel-$important
 -0pixel.$important
 -0pixel^$important
@@ -3640,7 +3532,7 @@ $cookie=/unique_id/,domain=twitch.tv
 -ads9.$important
 -ads9^$important
 -ads9_$important
--ads-$domain=~yahoo.com|~github.com|~yandex.ru|~yandex.ua|~yandex.by
+-ads-$domain=~github.com|~yahoo.com|~yandex.by|~yandex.ru|~yandex.ua
 -ads-banner-$important
 -ads-banner.$important
 -ads-banner^$important
@@ -4019,7 +3911,7 @@ $cookie=/unique_id/,domain=twitch.tv
 -adv-
 -adv.
 -adv^
--adv_$domain=~yandex.ru|~yandex.ua|~yandex.by
+-adv_$domain=~yandex.by|~yandex.ru|~yandex.ua
 -adv_keywords-$important
 -adv_keywords.$important
 -adv_keywords^$important
@@ -4434,7 +4326,7 @@ $cookie=/unique_id/,domain=twitch.tv
 -count.type.$important
 -count.type^$important
 -count.type_$important
--count^$domain=~yandex.ru|~yandex.ua|~yandex.by
+-count^$domain=~yandex.by|~yandex.ru|~yandex.ua
 -count^type-$important
 -count^type.$important
 -count^type^$important
@@ -4444,9 +4336,9 @@ $cookie=/unique_id/,domain=twitch.tv
 -count_type.$important
 -count_type^$important
 -count_type_$important
--counter-$domain=~yandex.ru|~yandex.ua|~yandex.by
+-counter-$domain=~yandex.by|~yandex.ru|~yandex.ua
 -counter.
--counter^$domain=~yandex.ru|~yandex.ua|~yandex.by
+-counter^$domain=~yandex.by|~yandex.ru|~yandex.ua
 -counter_
 -counters-
 -counters.
@@ -4821,7 +4713,7 @@ $cookie=/unique_id/,domain=twitch.tv
 -kill-adblock^$important
 -kill-adblock_$important
 -landing-
--landing.$domain=~yandex.ru|~yandex.ua|~yandex.by
+-landing.$domain=~yandex.by|~yandex.ru|~yandex.ua
 -landing^$domain=~last.fm
 -landing_
 -landingpage-
@@ -4884,7 +4776,7 @@ $cookie=/unique_id/,domain=twitch.tv
 -loadgoogletagbanners.$important
 -loadgoogletagbanners^$important
 -loadgoogletagbanners_$important
--log-$domain=~yandex.ru|~yandex.ua|~yandex.by
+-log-$domain=~yandex.by|~yandex.ru|~yandex.ua
 -log-type-$important
 -log-type.$important
 -log-type^$important
@@ -5416,9 +5308,9 @@ $cookie=/unique_id/,domain=twitch.tv
 -topframead.$important
 -topframead^$important
 -topframead_$important
--track-$domain=~yandex.ru|~yandex.ua|~yandex.by
+-track-$domain=~yandex.by|~yandex.ru|~yandex.ua
 -track.
--track^$domain=~yandex.ru|~yandex.ua|~yandex.by
+-track^$domain=~yandex.by|~yandex.ru|~yandex.ua
 -track_
 -trackalyze-$important
 -trackalyze.$important
@@ -7801,7 +7693,7 @@ $cookie=/unique_id/,domain=twitch.tv
 .trackalyze^$important
 .trackalyze_$important
 .tracker-
-.tracker.$domain=~wikia.com|~fandom.com
+.tracker.$domain=~fandom.com|~wikia.com
 .tracker^
 .tracker_
 .tracking-
@@ -7946,13 +7838,13 @@ $cookie=/unique_id/,domain=twitch.tv
 /^https?:\/\/[\w.]?(client\-event\-reporter|countess|mp|polyfill|sentinel|spade|trowel|fan)\.+twitch(svc)?\.(net|tv|com)/$important
 /^https?:\/\/[\w\.]?(an|awaps|awsync|appmetrica|bs|direct|grade\.market|informer|kiks|main\.zdevx|mc|web\-metrica|yabs|zen|browser\-updater)\.+yandex\.(ru|com|net|ua|by|kz|com\.tr|uz|com)/$important
 /^https?:\/\/[\w\.]?(id|adservice|mobilecrashreporting|imasdk|metric|csi|tagmanager)\.+g(static)?oogle(apis)?\.(ad|ae|al|am|as|at|az|ba|be|bf|bg|bi|bj|bs|bt|by|ca|cat|cd|cf|cg|ch|ci|cl|cm|cn|co.ao|co.bw|co.ck|co.cr|co.id|co.il|co.in|co.jp|co.ke|co.kr|co.ls|co.ma|co.mz|co.nz|co.th|co.tz|co.ug|co.uk|co.uz|co.ve|co.vi|co.za|co.zm|co.zw|com|com.af|com.ag|com.ai|com.ar|com.au|com.bd|com.bh|com.bn|com.bo|com.br|com.bz|com.co|com.cu|com.cy|com.do|com.ec|com.eg|com.et|com.fj|com.gh|com.gi|com.gt|com.hk|com.jm|com.kh|com.kw|com.lb|com.ly|com.mm|com.mt|com.mx|com.my|com.na|com.nf|com.ng|com.ni|com.np|com.om|com.pa|com.pe|com.pg|com.ph|com.pk|com.pr|com.py|com.qa|com.sa|com.sb|com.sg|com.sl|com.sv|com.tj|com.tr|com.tw|com.ua|com.uy|com.vc|com.vn|cv|cz|de|dj|dk|dm|dz|ee|es|fi|fm|fr|ga|ge|gg|gl|gm|gp|gr|gy|hn|hr|ht|hu|ie|im|iq|is|it|je|jo|kg|ki|kz|la|li|lk|lt|lu|lv|md|me|mg|mk|ml|mn|ms|mu|mv|mw|ne|nl|no|nr|nu|pl|pn|ps|pt|ro|rs|ru|rw|sc|se|sh|si|sk|sm|sn|so|sr|st|td|tg|tk|tl|tm|tn|to|tt|vg|vu|ws)/$important
-/^https?:\/\/contentbooster\.me+\/(?!manifest)[a-z0-9]{5,45}/$xmlhttprequest,important
+/^https?:\/\/contentbooster\.me+\/(?!manifest)[a-z0-9]{5,45}/$important,xmlhttprequest
 /^https?:\/\/graph\.(facebook|instagram)\.com/$important
-/^https?:\/\/news\.yandex\.(by|ru|ua)\/[^\s]{300,}/$xmlhttprequest,subdocument,important
-/^https?:\/\/tv\.yandex\.(by|ru|ua)/[^\s]{300,}/$subdocument,xmlhttprequest,important
-/^https?:\/\/yandex\.(by|ru|ua)/images/(?!(search\?rpt=\imageview)|(search\?callback\=jQuery)|(search\?exp_flags=)|(search\?serpid=)|(touch/search?))[^\s]{80,}/$subdocument,~third-party,xmlhttprequest,important
+/^https?:\/\/news\.yandex\.(by|ru|ua)\/[^\s]{300,}/$important,subdocument,xmlhttprequest
+/^https?:\/\/tv\.yandex\.(by|ru|ua)/[^\s]{300,}/$important,subdocument,xmlhttprequest
+/^https?:\/\/yandex\.(by|ru|ua)/images/(?!(search\?rpt=\imageview)|(search\?callback\=jQuery)|(search\?exp_flags=)|(search\?serpid=)|(touch/search?))[^\s]{80,}/$important,subdocument,~third-party,xmlhttprequest
 /^https?:\/\/yastatic\.net\/[^\s]{500,}/$domain=~vh.yandex.ru
-/_/batch|$1p,xmlhttprequest,important
+/_/batch|$1p,important,xmlhttprequest
 /a.gif$important
 /ads.js$important
 /advert1.js$important
@@ -7965,7 +7857,7 @@ $cookie=/unique_id/,domain=twitch.tv
 /banners/*.gif$important
 /blank.gif$domain=~m.vk.com|~vk.com|~web.telegram.org
 /c.gif$important
-/cdn-cgi/apps/head/*$first-party,script,important
+/cdn-cgi/apps/head/*$first-party,important,script
 /cleardot.*^$domain=~drive.google.com|~mail.google.com
 /cnn-analytics.min.js$important
 /count.json^$important
@@ -7994,7 +7886,7 @@ $cookie=/unique_id/,domain=twitch.tv
 /popups.js$important
 /prum.*^$important
 /pubfig.min.js$important
-/publishertag.*$script,important
+/publishertag.$important,script
 /px.*^$important
 /pxl.*^$important
 /redot.gif^$important
@@ -8003,7 +7895,7 @@ $cookie=/unique_id/,domain=twitch.tv
 /s.png^$important
 /snow.js$script
 /spacer.gif$important
-/stat.*^$image,object,script,subdocument,important
+/stat.*^$image,important,object,script,subdocument
 /view.*^$important
 /x.gif$important
 /z.gif$important
@@ -8014,8 +7906,17 @@ $cookie=/unique_id/,domain=twitch.tv
 1xstavka$important
 2ch.hk###mobile-plashque
 2ch.hk###plashque
-@@||api-maps.yandex.*^$script,xmlhttprequest,subdocument,1p
-@@||cloud-api.yandex.*^$script,xmlhttprequest,subdocument,1p
+2ip.ru,auto.ru,novinky.cz,whoer.net## + js(cookie-remover.js)
+3g2upl4pq6kufc4m.onion,duckduckgo.com##.badge-link.ddg-extension-hide:style(display: none!important;)
+3g2upl4pq6kufc4m.onion,duckduckgo.com##.header__label.showcase.header--aside__item
+3g2upl4pq6kufc4m.onion,duckduckgo.com##.js-header-aside.is-hidden:style(display: block!important;)
+3g2upl4pq6kufc4m.onion,duckduckgo.com##.onboarding-ed
+3g2upl4pq6kufc4m.onion,duckduckgo.com##.serp__bottom-right
+3g2upl4pq6kufc4m.onion,duckduckgo.com##.social.header--aside__item
+3g2upl4pq6kufc4m.onion,duckduckgo.com##.tag-home
+3g2upl4pq6kufc4m.onion,facebook.com###pagelet_growth_expanding_cta
+@@||api-maps.yandex.*^$1p,script,subdocument,xmlhttprequest
+@@||cloud-api.yandex.*^$1p,script,subdocument,xmlhttprequest
 @@||connect.facebook.net^
 @@||connect.ok.ru
 @@||facebook.com/*/plugins/like.php^
@@ -8172,7 +8073,7 @@ $cookie=/unique_id/,domain=twitch.tv
 ^ad24.$important
 ^ad24^$important
 ^ad24_$important
-^ad-$domain=~yahoo.com|~github.com
+^ad-$domain=~github.com|~yahoo.com
 ^ad-boxes-$important
 ^ad-boxes.$important
 ^ad-boxes^$important
@@ -8538,7 +8439,7 @@ $cookie=/unique_id/,domain=twitch.tv
 ^ads.gif.$important
 ^ads.gif^$important
 ^ads.gif_$important
-^ads^$domain=~yahoo.com|~google.ad|~google.ae|~google.al|~google.am|~google.as|~google.at|~google.az|~google.ba|~google.be|~google.bf|~google.bg|~google.bi|~google.bj|~google.bs|~google.bt|~google.by|~google.ca|~google.cat|~google.cd|~google.cf|~google.cg|~google.ch|~google.ci|~google.cl|~google.cm|~google.cn|~google.co.ao|~google.co.bw|~google.co.ck|~google.co.cr|~google.co.id|~google.co.il|~google.co.in|~google.co.jp|~google.co.ke|~google.co.kr|~google.co.ls|~google.co.ma|~google.co.mz|~google.co.nz|~google.co.th|~google.co.tz|~google.co.ug|~google.co.uk|~google.co.uz|~google.co.ve|~google.co.vi|~google.co.za|~google.co.zm|~google.co.zw|~google.com|~google.com.af|~google.com.ag|~google.com.ai|~google.com.ar|~google.com.au|~google.com.bd|~google.com.bh|~google.com.bn|~google.com.bo|~google.com.br|~google.com.bz|~google.com.co|~google.com.cu|~google.com.cy|~google.com.do|~google.com.ec|~google.com.eg|~google.com.et|~google.com.fj|~google.com.gh|~google.com.gi|~google.com.gt|~google.com.hk|~google.com.jm|~google.com.kh|~google.com.kw|~google.com.lb|~google.com.ly|~google.com.mm|~google.com.mt|~google.com.mx|~google.com.my|~google.com.na|~google.com.nf|~google.com.ng|~google.com.ni|~google.com.np|~google.com.om|~google.com.pa|~google.com.pe|~google.com.pg|~google.com.ph|~google.com.pk|~google.com.pr|~google.com.py|~google.com.qa|~google.com.sa|~google.com.sb|~google.com.sg|~google.com.sl|~google.com.sv|~google.com.tj|~google.com.tr|~google.com.tw|~google.com.ua|~google.com.uy|~google.com.vc|~google.com.vn|~google.cv|~google.cz|~google.de|~google.dj|~google.dk|~google.dm|~google.dz|~google.ee|~google.es|~google.fi|~google.fm|~google.fr|~google.ga|~google.ge|~google.gg|~google.gl|~google.gm|~google.gp|~google.gr|~google.gy|~google.hn|~google.hr|~google.ht|~google.hu|~google.ie|~google.im|~google.iq|~google.is|~google.it|~google.je|~google.jo|~google.kg|~google.ki|~google.kz|~google.la|~google.li|~google.lk|~google.lt|~google.lu|~google.lv|~google.md|~google.me|~google.mg|~google.mk|~google.ml|~google.mn|~google.ms|~google.mu|~google.mv|~google.mw|~google.ne|~google.nl|~google.no|~google.nr|~google.nu|~google.pl|~google.pn|~google.ps|~google.pt|~google.ro|~google.rs|~google.ru|~google.rw|~google.sc|~google.se|~google.sh|~google.si|~google.sk|~google.sm|~google.sn|~google.so|~google.sr|~google.st|~google.td|~google.tg|~google.tk|~google.tl|~google.tm|~google.tn|~google.to|~google.tt|~google.vg|~google.vu|~google.ws
+^ads^$domain=~google.ad|~google.ae|~google.al|~google.am|~google.as|~google.at|~google.az|~google.ba|~google.be|~google.bf|~google.bg|~google.bi|~google.bj|~google.bs|~google.bt|~google.by|~google.ca|~google.cat|~google.cd|~google.cf|~google.cg|~google.ch|~google.ci|~google.cl|~google.cm|~google.cn|~google.co.ao|~google.co.bw|~google.co.ck|~google.co.cr|~google.co.id|~google.co.il|~google.co.in|~google.co.jp|~google.co.ke|~google.co.kr|~google.co.ls|~google.co.ma|~google.co.mz|~google.co.nz|~google.co.th|~google.co.tz|~google.co.ug|~google.co.uk|~google.co.uz|~google.co.ve|~google.co.vi|~google.co.za|~google.co.zm|~google.co.zw|~google.com|~google.com.af|~google.com.ag|~google.com.ai|~google.com.ar|~google.com.au|~google.com.bd|~google.com.bh|~google.com.bn|~google.com.bo|~google.com.br|~google.com.bz|~google.com.co|~google.com.cu|~google.com.cy|~google.com.do|~google.com.ec|~google.com.eg|~google.com.et|~google.com.fj|~google.com.gh|~google.com.gi|~google.com.gt|~google.com.hk|~google.com.jm|~google.com.kh|~google.com.kw|~google.com.lb|~google.com.ly|~google.com.mm|~google.com.mt|~google.com.mx|~google.com.my|~google.com.na|~google.com.nf|~google.com.ng|~google.com.ni|~google.com.np|~google.com.om|~google.com.pa|~google.com.pe|~google.com.pg|~google.com.ph|~google.com.pk|~google.com.pr|~google.com.py|~google.com.qa|~google.com.sa|~google.com.sb|~google.com.sg|~google.com.sl|~google.com.sv|~google.com.tj|~google.com.tr|~google.com.tw|~google.com.ua|~google.com.uy|~google.com.vc|~google.com.vn|~google.cv|~google.cz|~google.de|~google.dj|~google.dk|~google.dm|~google.dz|~google.ee|~google.es|~google.fi|~google.fm|~google.fr|~google.ga|~google.ge|~google.gg|~google.gl|~google.gm|~google.gp|~google.gr|~google.gy|~google.hn|~google.hr|~google.ht|~google.hu|~google.ie|~google.im|~google.iq|~google.is|~google.it|~google.je|~google.jo|~google.kg|~google.ki|~google.kz|~google.la|~google.li|~google.lk|~google.lt|~google.lu|~google.lv|~google.md|~google.me|~google.mg|~google.mk|~google.ml|~google.mn|~google.ms|~google.mu|~google.mv|~google.mw|~google.ne|~google.nl|~google.no|~google.nr|~google.nu|~google.pl|~google.pn|~google.ps|~google.pt|~google.ro|~google.rs|~google.ru|~google.rw|~google.sc|~google.se|~google.sh|~google.si|~google.sk|~google.sm|~google.sn|~google.so|~google.sr|~google.st|~google.td|~google.tg|~google.tk|~google.tl|~google.tm|~google.tn|~google.to|~google.tt|~google.vg|~google.vu|~google.ws|~yahoo.com
 ^ads^boxes-$important
 ^ads^boxes.$important
 ^ads^boxes^$important
@@ -8547,7 +8448,7 @@ $cookie=/unique_id/,domain=twitch.tv
 ^ads^gif.$important
 ^ads^gif^$important
 ^ads^gif_$important
-^ads_$domain=~yahoo.com|~vk.com
+^ads_$domain=~vk.com|~yahoo.com
 ^ads_boxes-$important
 ^ads_boxes.$important
 ^ads_boxes^$important
@@ -8866,7 +8767,7 @@ $cookie=/unique_id/,domain=twitch.tv
 ^adv9_$important
 ^adv-
 ^adv.
-^adv^$domain=~mail.google.com|~livejournal.com
+^adv^$domain=~livejournal.com|~mail.google.com
 ^adv_
 ^adv_keywords-$important
 ^adv_keywords.$important
@@ -9187,7 +9088,7 @@ $cookie=/unique_id/,domain=twitch.tv
 ^bottomframead_$important
 ^branding-
 ^branding.
-^branding^$domain=~yandex.ru|~music.yandex.ru|~music.yandex.ua|~music.yandex.by|~gstatic.com|~google.ad|~google.ae|~google.al|~google.am|~google.as|~google.at|~google.az|~google.ba|~google.be|~google.bf|~google.bg|~google.bi|~google.bj|~google.bs|~google.bt|~google.by|~google.ca|~google.cat|~google.cd|~google.cf|~google.cg|~google.ch|~google.ci|~google.cl|~google.cm|~google.cn|~google.co.ao|~google.co.bw|~google.co.ck|~google.co.cr|~google.co.id|~google.co.il|~google.co.in|~google.co.jp|~google.co.ke|~google.co.kr|~google.co.ls|~google.co.ma|~google.co.mz|~google.co.nz|~google.co.th|~google.co.tz|~google.co.ug|~google.co.uk|~google.co.uz|~google.co.ve|~google.co.vi|~google.co.za|~google.co.zm|~google.co.zw|~google.com|~google.com.af|~google.com.ag|~google.com.ai|~google.com.ar|~google.com.au|~google.com.bd|~google.com.bh|~google.com.bn|~google.com.bo|~google.com.br|~google.com.bz|~google.com.co|~google.com.cu|~google.com.cy|~google.com.do|~google.com.ec|~google.com.eg|~google.com.et|~google.com.fj|~google.com.gh|~google.com.gi|~google.com.gt|~google.com.hk|~google.com.jm|~google.com.kh|~google.com.kw|~google.com.lb|~google.com.ly|~google.com.mm|~google.com.mt|~google.com.mx|~google.com.my|~google.com.na|~google.com.nf|~google.com.ng|~google.com.ni|~google.com.np|~google.com.om|~google.com.pa|~google.com.pe|~google.com.pg|~google.com.ph|~google.com.pk|~google.com.pr|~google.com.py|~google.com.qa|~google.com.sa|~google.com.sb|~google.com.sg|~google.com.sl|~google.com.sv|~google.com.tj|~google.com.tr|~google.com.tw|~google.com.ua|~google.com.uy|~google.com.vc|~google.com.vn|~google.cv|~google.cz|~google.de|~google.dj|~google.dk|~google.dm|~google.dz|~google.ee|~google.es|~google.fi|~google.fm|~google.fr|~google.ga|~google.ge|~google.gg|~google.gl|~google.gm|~google.gp|~google.gr|~google.gy|~google.hn|~google.hr|~google.ht|~google.hu|~google.ie|~google.im|~google.iq|~google.is|~google.it|~google.je|~google.jo|~google.kg|~google.ki|~google.kz|~google.la|~google.li|~google.lk|~google.lt|~google.lu|~google.lv|~google.md|~google.me|~google.mg|~google.mk|~google.ml|~google.mn|~google.ms|~google.mu|~google.mv|~google.mw|~google.ne|~google.nl|~google.no|~google.nr|~google.nu|~google.pl|~google.pn|~google.ps|~google.pt|~google.ro|~google.rs|~google.ru|~google.rw|~google.sc|~google.se|~google.sh|~google.si|~google.sk|~google.sm|~google.sn|~google.so|~google.sr|~google.st|~google.td|~google.tg|~google.tk|~google.tl|~google.tm|~google.tn|~google.to|~google.tt|~google.vg|~google.vu|~google.ws|~twitch.tv|~gstatic.com
+^branding^$domain=~google.ad|~google.ae|~google.al|~google.am|~google.as|~google.at|~google.az|~google.ba|~google.be|~google.bf|~google.bg|~google.bi|~google.bj|~google.bs|~google.bt|~google.by|~google.ca|~google.cat|~google.cd|~google.cf|~google.cg|~google.ch|~google.ci|~google.cl|~google.cm|~google.cn|~google.co.ao|~google.co.bw|~google.co.ck|~google.co.cr|~google.co.id|~google.co.il|~google.co.in|~google.co.jp|~google.co.ke|~google.co.kr|~google.co.ls|~google.co.ma|~google.co.mz|~google.co.nz|~google.co.th|~google.co.tz|~google.co.ug|~google.co.uk|~google.co.uz|~google.co.ve|~google.co.vi|~google.co.za|~google.co.zm|~google.co.zw|~google.com|~google.com.af|~google.com.ag|~google.com.ai|~google.com.ar|~google.com.au|~google.com.bd|~google.com.bh|~google.com.bn|~google.com.bo|~google.com.br|~google.com.bz|~google.com.co|~google.com.cu|~google.com.cy|~google.com.do|~google.com.ec|~google.com.eg|~google.com.et|~google.com.fj|~google.com.gh|~google.com.gi|~google.com.gt|~google.com.hk|~google.com.jm|~google.com.kh|~google.com.kw|~google.com.lb|~google.com.ly|~google.com.mm|~google.com.mt|~google.com.mx|~google.com.my|~google.com.na|~google.com.nf|~google.com.ng|~google.com.ni|~google.com.np|~google.com.om|~google.com.pa|~google.com.pe|~google.com.pg|~google.com.ph|~google.com.pk|~google.com.pr|~google.com.py|~google.com.qa|~google.com.sa|~google.com.sb|~google.com.sg|~google.com.sl|~google.com.sv|~google.com.tj|~google.com.tr|~google.com.tw|~google.com.ua|~google.com.uy|~google.com.vc|~google.com.vn|~google.cv|~google.cz|~google.de|~google.dj|~google.dk|~google.dm|~google.dz|~google.ee|~google.es|~google.fi|~google.fm|~google.fr|~google.ga|~google.ge|~google.gg|~google.gl|~google.gm|~google.gp|~google.gr|~google.gy|~google.hn|~google.hr|~google.ht|~google.hu|~google.ie|~google.im|~google.iq|~google.is|~google.it|~google.je|~google.jo|~google.kg|~google.ki|~google.kz|~google.la|~google.li|~google.lk|~google.lt|~google.lu|~google.lv|~google.md|~google.me|~google.mg|~google.mk|~google.ml|~google.mn|~google.ms|~google.mu|~google.mv|~google.mw|~google.ne|~google.nl|~google.no|~google.nr|~google.nu|~google.pl|~google.pn|~google.ps|~google.pt|~google.ro|~google.rs|~google.ru|~google.rw|~google.sc|~google.se|~google.sh|~google.si|~google.sk|~google.sm|~google.sn|~google.so|~google.sr|~google.st|~google.td|~google.tg|~google.tk|~google.tl|~google.tm|~google.tn|~google.to|~google.tt|~google.vg|~google.vu|~google.ws|~gstatic.com|~music.yandex.by|~music.yandex.ru|~music.yandex.ua|~twitch.tv|~yandex.ru
 ^branding_
 ^browser-update-$important
 ^browser-update.$important
@@ -9283,7 +9184,7 @@ $cookie=/unique_id/,domain=twitch.tv
 ^count.type.$important
 ^count.type^$important
 ^count.type_$important
-^count^$domain=~github.com|~travis-ci.org|~yahoo.com|~google.ad|~google.ae|~google.al|~google.am|~google.as|~google.at|~google.az|~google.ba|~google.be|~google.bf|~google.bg|~google.bi|~google.bj|~google.bs|~google.bt|~google.by|~google.ca|~google.cat|~google.cd|~google.cf|~google.cg|~google.ch|~google.ci|~google.cl|~google.cm|~google.cn|~google.co.ao|~google.co.bw|~google.co.ck|~google.co.cr|~google.co.id|~google.co.il|~google.co.in|~google.co.jp|~google.co.ke|~google.co.kr|~google.co.ls|~google.co.ma|~google.co.mz|~google.co.nz|~google.co.th|~google.co.tz|~google.co.ug|~google.co.uk|~google.co.uz|~google.co.ve|~google.co.vi|~google.co.za|~google.co.zm|~google.co.zw|~google.com|~google.com.af|~google.com.ag|~google.com.ai|~google.com.ar|~google.com.au|~google.com.bd|~google.com.bh|~google.com.bn|~google.com.bo|~google.com.br|~google.com.bz|~google.com.co|~google.com.cu|~google.com.cy|~google.com.do|~google.com.ec|~google.com.eg|~google.com.et|~google.com.fj|~google.com.gh|~google.com.gi|~google.com.gt|~google.com.hk|~google.com.jm|~google.com.kh|~google.com.kw|~google.com.lb|~google.com.ly|~google.com.mm|~google.com.mt|~google.com.mx|~google.com.my|~google.com.na|~google.com.nf|~google.com.ng|~google.com.ni|~google.com.np|~google.com.om|~google.com.pa|~google.com.pe|~google.com.pg|~google.com.ph|~google.com.pk|~google.com.pr|~google.com.py|~google.com.qa|~google.com.sa|~google.com.sb|~google.com.sg|~google.com.sl|~google.com.sv|~google.com.tj|~google.com.tr|~google.com.tw|~google.com.ua|~google.com.uy|~google.com.vc|~google.com.vn|~google.cv|~google.cz|~google.de|~google.dj|~google.dk|~google.dm|~google.dz|~google.ee|~google.es|~google.fi|~google.fm|~google.fr|~google.ga|~google.ge|~google.gg|~google.gl|~google.gm|~google.gp|~google.gr|~google.gy|~google.hn|~google.hr|~google.ht|~google.hu|~google.ie|~google.im|~google.iq|~google.is|~google.it|~google.je|~google.jo|~google.kg|~google.ki|~google.kz|~google.la|~google.li|~google.lk|~google.lt|~google.lu|~google.lv|~google.md|~google.me|~google.mg|~google.mk|~google.ml|~google.mn|~google.ms|~google.mu|~google.mv|~google.mw|~google.ne|~google.nl|~google.no|~google.nr|~google.nu|~google.pl|~google.pn|~google.ps|~google.pt|~google.ro|~google.rs|~google.ru|~google.rw|~google.sc|~google.se|~google.sh|~google.si|~google.sk|~google.sm|~google.sn|~google.so|~google.sr|~google.st|~google.td|~google.tg|~google.tk|~google.tl|~google.tm|~google.tn|~google.to|~google.tt|~google.vg|~google.vu|~google.ws|~vk.com|~bing.com|~twitter.com|~yastatic.net
+^count^$domain=~bing.com|~github.com|~google.ad|~google.ae|~google.al|~google.am|~google.as|~google.at|~google.az|~google.ba|~google.be|~google.bf|~google.bg|~google.bi|~google.bj|~google.bs|~google.bt|~google.by|~google.ca|~google.cat|~google.cd|~google.cf|~google.cg|~google.ch|~google.ci|~google.cl|~google.cm|~google.cn|~google.co.ao|~google.co.bw|~google.co.ck|~google.co.cr|~google.co.id|~google.co.il|~google.co.in|~google.co.jp|~google.co.ke|~google.co.kr|~google.co.ls|~google.co.ma|~google.co.mz|~google.co.nz|~google.co.th|~google.co.tz|~google.co.ug|~google.co.uk|~google.co.uz|~google.co.ve|~google.co.vi|~google.co.za|~google.co.zm|~google.co.zw|~google.com|~google.com.af|~google.com.ag|~google.com.ai|~google.com.ar|~google.com.au|~google.com.bd|~google.com.bh|~google.com.bn|~google.com.bo|~google.com.br|~google.com.bz|~google.com.co|~google.com.cu|~google.com.cy|~google.com.do|~google.com.ec|~google.com.eg|~google.com.et|~google.com.fj|~google.com.gh|~google.com.gi|~google.com.gt|~google.com.hk|~google.com.jm|~google.com.kh|~google.com.kw|~google.com.lb|~google.com.ly|~google.com.mm|~google.com.mt|~google.com.mx|~google.com.my|~google.com.na|~google.com.nf|~google.com.ng|~google.com.ni|~google.com.np|~google.com.om|~google.com.pa|~google.com.pe|~google.com.pg|~google.com.ph|~google.com.pk|~google.com.pr|~google.com.py|~google.com.qa|~google.com.sa|~google.com.sb|~google.com.sg|~google.com.sl|~google.com.sv|~google.com.tj|~google.com.tr|~google.com.tw|~google.com.ua|~google.com.uy|~google.com.vc|~google.com.vn|~google.cv|~google.cz|~google.de|~google.dj|~google.dk|~google.dm|~google.dz|~google.ee|~google.es|~google.fi|~google.fm|~google.fr|~google.ga|~google.ge|~google.gg|~google.gl|~google.gm|~google.gp|~google.gr|~google.gy|~google.hn|~google.hr|~google.ht|~google.hu|~google.ie|~google.im|~google.iq|~google.is|~google.it|~google.je|~google.jo|~google.kg|~google.ki|~google.kz|~google.la|~google.li|~google.lk|~google.lt|~google.lu|~google.lv|~google.md|~google.me|~google.mg|~google.mk|~google.ml|~google.mn|~google.ms|~google.mu|~google.mv|~google.mw|~google.ne|~google.nl|~google.no|~google.nr|~google.nu|~google.pl|~google.pn|~google.ps|~google.pt|~google.ro|~google.rs|~google.ru|~google.rw|~google.sc|~google.se|~google.sh|~google.si|~google.sk|~google.sm|~google.sn|~google.so|~google.sr|~google.st|~google.td|~google.tg|~google.tk|~google.tl|~google.tm|~google.tn|~google.to|~google.tt|~google.vg|~google.vu|~google.ws|~travis-ci.org|~twitter.com|~vk.com|~yahoo.com|~yastatic.net
 ^count^type-$important
 ^count^type.$important
 ^count^type^$domain=~github.com
@@ -9293,13 +9194,13 @@ $cookie=/unique_id/,domain=twitch.tv
 ^count_type.$important
 ^count_type^$important
 ^count_type_$important
-^counter-$domain=~yandex.ru|~yandex.ua|~yandex.by|~twitch.tv
+^counter-$domain=~twitch.tv|~yandex.by|~yandex.ru|~yandex.ua
 ^counter.
-^counter^$domain=~yandex.ua|~yandex.ru|~yandex.by|~youtube.com|~googlevideo.com
+^counter^$domain=~googlevideo.com|~yandex.by|~yandex.ru|~yandex.ua|~youtube.com
 ^counter_
 ^counters-
 ^counters.
-^counters^$domain=~yandex.ua|~yandex.ru|~yandex.by
+^counters^$domain=~yandex.by|~yandex.ru|~yandex.ua
 ^counters_
 ^criteo-$important
 ^criteo.$important
@@ -9635,13 +9536,13 @@ $cookie=/unique_id/,domain=twitch.tv
 ^impression_logging_
 ^informer-
 ^informer.
-^informer^$domain=~yandex.ru|~yandex.ua|~yandex.by|~m.vk.com
+^informer^$domain=~m.vk.com|~yandex.by|~yandex.ru|~yandex.ua
 ^informer_
 ^intellitxt-$important
 ^intellitxt.$important
 ^intellitxt^$important
 ^intellitxt_$important
-^invoke.*$script,important
+^invoke.$important,script
 ^js-token-$important
 ^js-token.$important
 ^js-token^$important
@@ -9745,7 +9646,7 @@ $cookie=/unique_id/,domain=twitch.tv
 ^log.type.$important
 ^log.type^$important
 ^log.type_$important
-^log^$domain=~myactivity.google.com|~disk.yandex.ua|~disk.yandex.by|~disk.yandex.ru|~github.com|~travis-ci.org|~fandom.com
+^log^$domain=~disk.yandex.by|~disk.yandex.ru|~disk.yandex.ua|~fandom.com|~github.com|~myactivity.google.com|~travis-ci.org
 ^log^type-$important
 ^log^type.$important
 ^log^type^$important
@@ -9846,7 +9747,7 @@ $cookie=/unique_id/,domain=twitch.tv
 ^partner-$domain=~yastatic.net
 ^partner.
 ^partner^$domain=~yahoo.com|~yastatic.net
-^partner_$domain=~yastatic.net|~yandex.ru
+^partner_$domain=~yandex.ru|~yastatic.net
 ^phpads-$important
 ^phpads.$important
 ^phpads^$important
@@ -9949,7 +9850,7 @@ $cookie=/unique_id/,domain=twitch.tv
 ^readcounter_$important
 ^ref-$domain=~github.com
 ^ref.
-^ref^$domain=~github.com|~yandex.ru|~yandex.ua|~yandex.by
+^ref^$domain=~github.com|~yandex.by|~yandex.ru|~yandex.ua
 ^ref_
 ^refer-$important
 ^refer.$important
@@ -9977,7 +9878,7 @@ $cookie=/unique_id/,domain=twitch.tv
 ^referer_frame_$important
 ^referrer-$important
 ^referrer.$important
-^referrer^$domain=~vk.com|~facebook.com
+^referrer^$domain=~facebook.com|~vk.com
 ^referrer_$important
 ^referrerurl-$important
 ^referrerurl.$important
@@ -10237,7 +10138,7 @@ $cookie=/unique_id/,domain=twitch.tv
 ^teaser9_
 ^teaser-
 ^teaser.
-^teaser^$domain=~yandex.ru|~yandex.ua|~yandex.by
+^teaser^$domain=~yandex.by|~yandex.ru|~yandex.ua
 ^teaser_
 ^teasers-
 ^teasers.
@@ -10267,22 +10168,22 @@ $cookie=/unique_id/,domain=twitch.tv
 ^topframead.$important
 ^topframead^$important
 ^topframead_$important
-^track-$domain=~yandex.ru|~yandex.ua|~yandex.by
-^track.$domain=~yandex.ru|~yandex.ua|~yandex.by
-^track^$domain=~yandex.ru|~yandex.ua|~yandex.by
-^track_$domain=~yandex.ru|~yandex.ua|~yandex.by
+^track-$domain=~yandex.by|~yandex.ru|~yandex.ua
+^track.$domain=~yandex.by|~yandex.ru|~yandex.ua
+^track^$domain=~yandex.by|~yandex.ru|~yandex.ua
+^track_$domain=~yandex.by|~yandex.ru|~yandex.ua
 ^trackalyze-$important
 ^trackalyze.$important
 ^trackalyze^$important
 ^trackalyze_$important
 ^tracker-
 ^tracker.
-^tracker^$domain=~wikia.com|~fandom.com|~github.com
+^tracker^$domain=~fandom.com|~github.com|~wikia.com
 ^tracker_
 ^tracking-$domain=~yahoo.com
 ^tracking.
-^tracking^$domain=~yahoo.com|~imdb.com
-^tracking_$domain=~wikia.com|~fandom.com|~imdb.com
+^tracking^$domain=~imdb.com|~yahoo.com
+^tracking_$domain=~fandom.com|~imdb.com|~wikia.com
 ^trackingaffilies-$important
 ^trackingaffilies.$important
 ^trackingaffilies^$important
@@ -11666,7 +11567,7 @@ _count.type-$important
 _count.type.$important
 _count.type^$important
 _count.type_$important
-_count^$domain=~travis-ci.org|~yahoo.com|~yandex.ru|~yandex.ua|~yandex.by|~facebook.com|~googlevideo.com|~youtube.com|~twitter.com
+_count^$domain=~facebook.com|~googlevideo.com|~travis-ci.org|~twitter.com|~yahoo.com|~yandex.by|~yandex.ru|~yandex.ua|~youtube.com
 _count^type-$important
 _count^type.$important
 _count^type^$important
@@ -11676,9 +11577,9 @@ _count_type-$important
 _count_type.$important
 _count_type^$important
 _count_type_$important
-_counter-$domain=~yandex.ru|~yandex.ua|~yandex.by
+_counter-$domain=~yandex.by|~yandex.ru|~yandex.ua
 _counter.
-_counter^$domain=~yandex.ru|~yandex.ua|~yandex.by|~youtube.com
+_counter^$domain=~yandex.by|~yandex.ru|~yandex.ua|~youtube.com
 _counter_
 _counters-
 _counters.
@@ -12658,7 +12559,7 @@ _trackalyze^$important
 _trackalyze_$important
 _tracker-
 _tracker.
-_tracker^$domain=~wikia.com|~fandom.com
+_tracker^$domain=~fandom.com|~wikia.com
 _tracker_
 _tracking-
 _tracking.
@@ -12788,69 +12689,58 @@ _zone_injection-$important
 _zone_injection.$important
 _zone_injection^$important
 _zone_injection_$important
-disk.yandex.ru,disk.yandex.ua,disk.yandex.by##.software-header-product_win.software-header-product.hover-dropdown
-disk.yandex.ru,disk.yandex.ua,disk.yandex.by##.yaplus
-duckduckgo.com,3g2upl4pq6kufc4m.onion##.badge-link.ddg-extension-hide:style(display: none!important;)
-duckduckgo.com,3g2upl4pq6kufc4m.onion##.header__label.showcase.header--aside__item
-duckduckgo.com,3g2upl4pq6kufc4m.onion##.js-header-aside.is-hidden:style(display: block!important;)
-duckduckgo.com,3g2upl4pq6kufc4m.onion##.onboarding-ed
-duckduckgo.com,3g2upl4pq6kufc4m.onion##.serp__bottom-right
-duckduckgo.com,3g2upl4pq6kufc4m.onion##.social.header--aside__item
-duckduckgo.com,3g2upl4pq6kufc4m.onion##.tag-home
-facebook.com,3g2upl4pq6kufc4m.onion###pagelet_growth_expanding_cta
+disk.yandex.by,disk.yandex.ru,disk.yandex.ua##.software-header-product_win.software-header-product.hover-dropdown
+disk.yandex.by,disk.yandex.ru,disk.yandex.ua,news.yandex.by,news.yandex.ru,news.yandex.ua##.yaplus
 freebitco.in##.open.reveal-modal
 freebitco.in##.reveal-modal-bg
 ggbet$image,important
-kinopoisk.ru##+js(setInterval-defuser.js, (), 500)
+kinopoisk.ru## + js(setInterval-defuser.js, (), 500)
 kinopoisk.ru##[data-type="teaserspec"]
 kinopoisk.ru##[href*="adblock"]:xpath(..)
 kinopoisk.ru##[href*="https://www.kinopoisk.ru/"]
 kinopoisk.ru##div[style="height: 210px; left: 0px; position: absolute; top: 110px; width: 850px; display: block; right: 0px; margin: auto;"]
+kinopoisk.ru,yandex.by,yandex.ru,yandex.ua## + js(cookie-remover.js, /^blcrm|^bltsr|^yabs|^adb|^cmtchd|^crookie|^kpunk|^is_adblock|^abp|^yp|^ys/)
 m.vk.com##.feedAssistance_importContacts.feedAssistance.wall_item
 m.vk.com##.feedBlocks__articles.feedBlocks__container.wall_item
 m.youtube.com##.mealbar-promo-renderer
-music.yandex.ru,music.yandex.ua,music.yandex.by##.multi-auth__plus
-music.yandex.ua,music.yandex.ru,music.yandex.by##.sidebar__under
-news.yandex.ru,news.yandex.ua,news.yandex.by##+js(setTimeout-defuser.js, AdvManager)
-news.yandex.ru,news.yandex.ua,news.yandex.by##.yaplus
-outlook.live.com##div#app > div.ms-fabric > div:last-child > div:first-child > div:first-child > div[data-min-width][data-max-width][style^="width:"]~div:last-child
+music.yandex.by,music.yandex.ru,music.yandex.ua##.multi-auth__plus
+music.yandex.by,music.yandex.ru,music.yandex.ua##.sidebar__under
+news.yandex.by,news.yandex.ru,news.yandex.ua## + js(setTimeout-defuser.js, AdvManager)
+outlook.live.com##div#app > div.ms-fabric > div:last-child > div:first-child > div:first-child > div[data-min-width][data-max-width][style^="width:"] ~ div:last-child
 pornhub.com###age-verification-container
 pornhub.com###age-verification-wrapper
-translate.yandex.ru,translate.yandex.ua,translate.yandex.by##.button_icon_collections.button_icon.button
-twitch.tv##+js(twitch-videoad.js)
+translate.yandex.by,translate.yandex.ru,translate.yandex.ua##.button_icon_collections.button_icon.button
+twitch.tv## + js(twitch-videoad.js)
 twitch.tv##.tw-inline-flex.tw-align-items-center > .tw-tooltip-wrapper.tw-inline-flex > .tw-stat > .tw-stat__icon
 twitch.tv##.tw-inline-flex.tw-c-text-live.channel-info-bar__viewers-wrapper > .tw-tooltip-wrapper.tw-inline-flex > .tw-stat > .tw-stat__icon > .tw-inline-flex.tw-icon.tw-align-items-center
 twitch.tv##.tw-mg-t-2 > .tw-mg-b-2
 twitch.tv##.tw-relative.chat-rules
-twitch.tv##a[href*=".gg"]>img
-twitch.tv##a[href*="/buy/"]>img
-twitch.tv##a[href*="/go/"]>img
-twitch.tv##a[href*="/joinchat/"]>img
-twitch.tv##a[href*="/promo/"]>img
-twitch.tv##a[href*="/shop/"]>img
-twitch.tv##a[href*="?br="]>img
-twitch.tv##a[href*="bet4.pm"]>img
-twitch.tv##a[href*="betsdota2.com"]>img
-twitch.tv##a[href*="casino"]>img
-twitch.tv##a[href*="dotapl.us"]>img
-twitch.tv##a[href*="dxracer-europe.com"]>img
-twitch.tv##a[href*="gg.bet"]>img
-twitch.tv##a[href*="gosu.ai"]>img
-twitch.tv##a[href*="noblechairs.com"]>img
-twitch.tv##a[href*="poker"]>img
-twitch.tv##a[href*="upskill.ru"]>img
+twitch.tv##a[href*=".gg"] > img
+twitch.tv##a[href*="/buy/"] > img
+twitch.tv##a[href*="/go/"] > img
+twitch.tv##a[href*="/joinchat/"] > img
+twitch.tv##a[href*="/promo/"] > img
+twitch.tv##a[href*="/shop/"] > img
+twitch.tv##a[href*="?br="] > img
+twitch.tv##a[href*="bet4.pm"] > img
+twitch.tv##a[href*="betsdota2.com"] > img
+twitch.tv##a[href*="casino"] > img
+twitch.tv##a[href*="dotapl.us"] > img
+twitch.tv##a[href*="dxracer-europe.com"] > img
+twitch.tv##a[href*="gg.bet"] > img
+twitch.tv##a[href*="gosu.ai"] > img
+twitch.tv##a[href*="noblechairs.com"] > img
+twitch.tv##a[href*="poker"] > img
+twitch.tv##a[href*="upskill.ru"] > img
 twitch.tv##main.tw-flex > div[class]:not([data-test-selector]) > div[data-test-selector="test_selector_prime_tracking_button_wrapper"]
 twitter.com##[data-focusable="true"]:has-text(/Promoted|Gesponsert|Реклама/)
 vk.com##.audio_promo
 vk.com##aside[aria-label="Актуальные новости"]
-whoer.net,2ip.ru,novinky.cz,auto.ru##+js(cookie-remover.js)
 wikipedia.org###siteNotice
-yandex.ru,yandex.by,yandex.ua##.tooltip_shown_yes.popup2_visible_yes.popup2_direction_right-center.popup2_js_inited.tooltip-api_js_inited.tooltip_js_inited.i-bem.chat-tooltip__content.tooltip-api_theme_promo.tooltip-api.tooltip_align_center.tooltip_view_classic.tooltip_tone_default.tooltip_size_m.tooltip_theme_promo.tooltip.popup2_theme_normal.popup2_view_classic.popup2_autoclosable_no.popup2_hiding_yes.popup2_target_anchor.popup2
-yandex.ru,yandex.by,yandex.ua,~mail.yandex.ru##+js(set-constant.js, Math.random, trueFunc)
-yandex.ru,yandex.ua,yandex.bu##.media-grid_js_inited.font-regular.i-bem.media-grid_theme_white.media-grid_visible_yes.media-grid
-yandex.ru,yandex.ua,yandex.by##.yaplus_js_inited.i-bem.yaplus_available_yes.yaplus
-yandex.ru,yandex.ua,yandex.by,kinopoisk.ru##+js(cookie-remover.js, /^blcrm|^bltsr|^yabs|^adb|^cmtchd|^crookie|^kpunk|^is_adblock|^abp|^yp|^ys/)
-yandex.ua.yandex.ru,yandex.by##.rows__row_last.rows__row.row
+yandex.bu,yandex.ru,yandex.ua##.media-grid_js_inited.font-regular.i-bem.media-grid_theme_white.media-grid_visible_yes.media-grid
+yandex.by,yandex.ru,yandex.ua##.tooltip_shown_yes.popup2_visible_yes.popup2_direction_right-center.popup2_js_inited.tooltip-api_js_inited.tooltip_js_inited.i-bem.chat-tooltip__content.tooltip-api_theme_promo.tooltip-api.tooltip_align_center.tooltip_view_classic.tooltip_tone_default.tooltip_size_m.tooltip_theme_promo.tooltip.popup2_theme_normal.popup2_view_classic.popup2_autoclosable_no.popup2_hiding_yes.popup2_target_anchor.popup2
+yandex.by,yandex.ru,yandex.ua##.yaplus_js_inited.i-bem.yaplus_available_yes.yaplus
+yandex.by,yandex.ua.yandex.ru##.rows__row_last.rows__row.row
 youtube.com##.html5-endscreen
 |http*://ad0.*^$important
 |http*://ad1.*^$important
@@ -12881,7 +12771,7 @@ youtube.com##.html5-endscreen
 |http*://analytics1.*^$important
 |http*://analytics.*^$important
 |http*://anon-stats.**^$important
-|http*://c.*/c.$image,object,subdocument,important
+|http*://c.*/c.$image,important,object,subdocument
 |http*://clicktrack.*^$important
 |http*://counter.*^$important
 |http*://csp.*^$important
@@ -12906,8 +12796,8 @@ youtube.com##.html5-endscreen
 |http*://tracking.*^$important
 |http*://yads.*^$important
 ||2ch.hk/banners/$image,important
-||2ch.hk/images/$media,image,important
-||2ch.hk/js/snowstorm.js$script,important
+||2ch.hk/images/$image,important,media
+||2ch.hk/js/snowstorm.js$important,script
 ||2ch.hk/makaba/templates/js/c.gif$image,important
 ||2ch.hk/makaba/templates/js/tracker.js$important
 ||2mdn.net^$important
@@ -12928,12 +12818,12 @@ youtube.com##.html5-endscreen
 ||ads-twitter.com^$important
 ||adsafeprotected.com^$important
 ||adswrapme.click^$important
-||afisha.yandex.ru^$xmlhttprequest,important
+||afisha.yandex.ru^$important,xmlhttprequest
 ||agkn.com^$important
 ||amazon-adsystem.com^$important
 ||amazonaws.com/homad-global-configs.schneevonmorgen.com
 ||amazonaws.com/ki.js/$important
-||api.twitch.tv/*/channels/*/extensions$xmlhttprequest,domain=twitch.tv,important
+||api.twitch.tv/*/channels/*/extensions$important,xmlhttprequest,domain=twitch.tv
 ||assets.adobedtm.com^$important
 ||atdmt.com^$important
 ||bat.bing.com^$important
@@ -12993,7 +12883,7 @@ youtube.com##.html5-endscreen
 ||jsc.marketgid.com^$important
 ||jwpltx.com^$important
 ||kissmetrics.com^$important
-||kp.yandex.net/js/brand$domain=www.kinopoisk.ru,important
+||kp.yandex.net/js/brand$important,domain=www.kinopoisk.ru
 ||krxd.net^$important
 ||lentainform.com^$important
 ||lijit.com^$important
@@ -13002,9 +12892,9 @@ youtube.com##.html5-endscreen
 ||lp4.io^$important
 ||luxup.ru^$important
 ||luxupadva.com^$important
-||mail.yandex.*$1p,script,important
+||mail.yandex.$1p,important,script
 ||mail.yandex.*/monitoring_liza.txt$important
-||media-amazon.com^*/zergnet-$domain=imdb.com,important
+||media-amazon.com^*/zergnet-$important,domain=imdb.com
 ||media.net^$important
 ||mediametrics.ru^$important
 ||microad.net^$important
@@ -13069,10 +12959,11 @@ youtube.com##.html5-endscreen
 ||yahoo.com/pageview^$important
 ||yandex.*/*/yandcache.js|$important
 ||yandex.*/*stripe.html|$important
-||yandex.ru/maps/api/branding^$xmlhttprequest,important
+||yandex.ru/maps/api/branding^$important,xmlhttprequest
 ||yastatic.net/*/atom.js|$important
-||yastatic.net^$popup,important
-||yimg.com/rq/darla/$domain=yahoo.com,important
+||yastatic.net^$important,popup
+||yimg.com/rq/darla/$important,domain=yahoo.com
 ||youtube.com/api/stats/$important
 ||youtube.com/get_midroll_info^$important
 ||youtube.com^$csp=default-src 'self' 'unsafe-inline' 'unsafe-eval' blob: data: *.ggpht.com *.googlevideo.com *.ytimg.com *.googleusercontent.com www.youtube.com,important
+~mail.yandex.ru,yandex.by,yandex.ru,yandex.ua## + js(set-constant.js, math.random, trueFunc)
