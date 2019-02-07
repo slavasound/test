@@ -5,6 +5,8 @@ pref("services.sync.engine.addresses", false);
 pref("services.sync.engine.addresses.available", false);
 pref("services.sync.engine.bookmarks", true);
 pref("services.sync.engine.bookmarks.buffer", false);
+pref("services.sync.engine.bookmarks.repair.enabled", true);
+pref("services.sync.engine.bookmarks.validation.enabled", true);
 pref("services.sync.engine.bookmarks.validation.interval", 86400); // 24 hours in seconds
 pref("services.sync.engine.bookmarks.validation.maxRecords", 1000);
 pref("services.sync.engine.bookmarks.validation.percentageChance", 10);
@@ -12,6 +14,7 @@ pref("services.sync.engine.creditcards", false);
 pref("services.sync.engine.creditcards.available", false);
 pref("services.sync.engine.history", true);
 pref("services.sync.engine.passwords", true);
+pref("services.sync.engine.passwords.validation.enabled", true);
 pref("services.sync.engine.passwords.validation.interval", 86400); // 24 hours in seconds
 pref("services.sync.engine.passwords.validation.maxRecords", 1000);
 pref("services.sync.engine.passwords.validation.percentageChance", 10);
@@ -25,7 +28,7 @@ pref("services.sync.log.appender.console", "Fatal");
 pref("services.sync.log.appender.dump", "Error");
 pref("services.sync.log.appender.file.level", "Trace");
 pref("services.sync.log.appender.file.logOnError", true);
-pref("services.sync.log.appender.file.logOnSuccess", false);
+pref("services.sync.log.appender.file.logOnSuccess", true);
 pref("services.sync.log.appender.file.maxErrorAge", 864000); // 10 days
 pref("services.sync.log.cryptoDebug", false);
 pref("services.sync.log.logger", "Debug");
