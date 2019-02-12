@@ -577,7 +577,7 @@ pref("media.navigator.video.h264.max_mbps", 0);
 //@line 455 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("media.navigator.mediadatadecoder_vpx_enabled", false);
 //@line 460 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
-pref("media.navigator.mediadatadecoder_h264_enabled", true);
+pref("media.navigator.mediadatadecoder_h264_enabled", false);
 //@line 462 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("media.peerconnection.video.vp9_enabled", true);
 pref("media.peerconnection.video.vp9_preferred", false);

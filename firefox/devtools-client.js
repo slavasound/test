@@ -316,17 +316,20 @@ pref("devtools.responsive.reloadConditions.userAgent", false);
 pref("devtools.responsive.reloadNotification.enabled", true);
 // Whether or not touch simulation is enabled.
 pref("devtools.responsive.touchSimulation.enabled", false);
+// Whether or not meta viewport is enabled, if and only if touchSimulation
+// is also enabled.
+pref("devtools.responsive.metaViewport.enabled", false);
 // The user agent of the viewport.
 pref("devtools.responsive.userAgent", "");
 
 // Whether to show the settings onboarding tooltip only in release or beta builds.
-//@line 328 "/builds/worker/workspace/build/src/devtools/client/preferences/devtools-client.js"
+//@line 331 "/builds/worker/workspace/build/src/devtools/client/preferences/devtools-client.js"
 pref("devtools.responsive.show-setting-tooltip", true);
-//@line 332 "/builds/worker/workspace/build/src/devtools/client/preferences/devtools-client.js"
+//@line 335 "/builds/worker/workspace/build/src/devtools/client/preferences/devtools-client.js"
 // Show the custom user agent input in Nightly builds.
-//@line 336 "/builds/worker/workspace/build/src/devtools/client/preferences/devtools-client.js"
+//@line 339 "/builds/worker/workspace/build/src/devtools/client/preferences/devtools-client.js"
 pref("devtools.responsive.showUserAgentInput", false);
-//@line 338 "/builds/worker/workspace/build/src/devtools/client/preferences/devtools-client.js"
+//@line 341 "/builds/worker/workspace/build/src/devtools/client/preferences/devtools-client.js"
 
 // Enable new about:debugging.
 pref("devtools.aboutdebugging.new-enabled", false);
@@ -345,9 +348,9 @@ pref("devtools.aboutdebugging.collapsibilities.tab", false);
 pref("devtools.aboutdebugging.collapsibilities.temporaryExtension", false);
 
 // about:debugging: only show system add-ons in local builds by default.
-//@line 357 "/builds/worker/workspace/build/src/devtools/client/preferences/devtools-client.js"
+//@line 360 "/builds/worker/workspace/build/src/devtools/client/preferences/devtools-client.js"
   pref("devtools.aboutdebugging.showSystemAddons", false);
-//@line 361 "/builds/worker/workspace/build/src/devtools/client/preferences/devtools-client.js"
+//@line 364 "/builds/worker/workspace/build/src/devtools/client/preferences/devtools-client.js"
 
 // Map top-level await expressions in the console
 pref("devtools.debugger.features.map-await-expression", true);
