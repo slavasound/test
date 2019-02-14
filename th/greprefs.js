@@ -928,10 +928,10 @@ pref("gfx.font_rendering.graphite.enabled", true);
 
 pref("gfx.font_rendering.opentype_svg.enabled", true);
 
-//@line 893 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 891 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("gfx.canvas.azure.backends", "skia");
 pref("gfx.content.azure.backends", "skia");
-//@line 897 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 895 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
 pref("gfx.canvas.skiagl.dynamic-cache", true);
 
@@ -948,9 +948,9 @@ pref("gfx.logging.peak-texture-usage.enabled", false);
 pref("gfx.ycbcr.accurate-conversion", false);
 
 pref("gfx.webrender.all", false);
-//@line 916 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 914 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("gfx.webrender.enabled", false);
-//@line 922 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 920 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
 pref("gfx.webrender.highlight-painted-layers", false);
 pref("gfx.webrender.blob-images", 1);
@@ -972,7 +972,7 @@ pref("accessibility.warn_on_browsewithcaret", true);
 
 pref("accessibility.browsewithcaret_shortcut.enabled", true);
 
-//@line 944 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 942 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 // Tab focus model bit field:
 // 1 focuses text controls, 2 focuses other form elements, 4 adds links.
 // Most users will want 1, 3, or 7.
@@ -980,12 +980,12 @@ pref("accessibility.browsewithcaret_shortcut.enabled", true);
 // unless accessibility.tabfocus is set by the user.
 pref("accessibility.tabfocus", 7);
 pref("accessibility.tabfocus_applies_to_xul", false);
-//@line 955 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 953 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
 // We follow the "Click in the scrollbar to:" system preference on OS X and
 // "gtk-primary-button-warps-slider" property with GTK (since 2.24 / 3.6),
 // unless this preference is explicitly set.
-//@line 962 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 960 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
 // provide ability to turn on support for canvas focus rings
 pref("canvas.focusring.enabled", true);
@@ -1014,7 +1014,7 @@ pref("accessibility.force_disabled", 0);
 
 pref("accessibility.AOM.enabled", false);
 
-//@line 1002 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 1000 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
 pref("focusmanager.testmode", false);
 
@@ -1036,9 +1036,9 @@ pref("accessibility.typeaheadfind.timeout", 4000);
 pref("accessibility.typeaheadfind.enabletimeout", true);
 pref("accessibility.typeaheadfind.soundURL", "beep");
 pref("accessibility.typeaheadfind.enablesound", true);
-//@line 1026 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 1024 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("accessibility.typeaheadfind.prefillwithselection", true);
-//@line 1028 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 1026 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("accessibility.typeaheadfind.matchesCountLimit", 1000);
 pref("findbar.highlightAll", false);
 pref("findbar.modalHighlight", false);
@@ -1075,9 +1075,9 @@ pref("toolkit.telemetry.debugSlowSql", false);
 // Whether to use the unified telemetry behavior, requires a restart.
 pref("toolkit.telemetry.unified", true);
 // AsyncShutdown delay before crashing in case of shutdown freeze
-//@line 1065 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 1063 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("toolkit.asyncshutdown.crash_timeout", 60000); // 1 minute
-//@line 1071 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 1069 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 // Extra logging for AsyncShutdown barriers and phases
 pref("toolkit.asyncshutdown.log", false);
 
@@ -1090,18 +1090,18 @@ pref("devtools.enabled", true);
 // Enable deprecation warnings.
 pref("devtools.errorconsole.deprecation_warnings", true);
 
-//@line 1087 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 1085 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("devtools.debugger.prompt-connection", true, sticky);
-//@line 1089 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 1087 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
-//@line 1091 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 1089 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 // Disable debugging chrome
 pref("devtools.chrome.enabled", false, sticky);
 // Disable remote debugging connections
 pref("devtools.debugger.remote-enabled", false, sticky);
 // enable JS dump() function.
 pref("browser.dom.window.dump.enabled", false, sticky);
-//@line 1103 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 1101 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
 
 // Disable remote debugging protocol logging
@@ -1252,9 +1252,9 @@ pref("print.print_edge_right", 0);
 pref("print.print_edge_bottom", 0);
 
 // Print via the parent process. This is only used when e10s is enabled.
-//@line 1254 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 1252 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("print.print_via_parent", true);
-//@line 1258 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 1256 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
 // Pref used by the spellchecker extension to control the
 // maximum number of misspelled words that will be underlined
@@ -1360,9 +1360,9 @@ pref("dom.forms.autocomplete.formautofill", false);
 pref("dom.forms.selectSearch", false);
 // Allow for webpages to provide custom styling for <select>
 // popups. Disabled on GTK due to bug 1338283.
-//@line 1364 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 1362 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("dom.forms.select.customstyling", false);
-//@line 1368 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 1366 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("dom.select_popup_in_parent.enabled", false);
 // Bug 1421229 - content-select
 pref("dom.select_popup_in_content.enabled", false);
@@ -1377,9 +1377,9 @@ pref("dom.input.skip_cursor_move_for_same_value_set", true);
 pref("dom.cycle_collector.incremental", true);
 
 // Parsing perf prefs. For now just mimic what the old code did.
-//@line 1383 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 1381 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("content.sink.pending_event_mode", 0);
-//@line 1385 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 1383 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
 // Disable popups from plugins by default
 //   0 = openAllowed
@@ -1424,9 +1424,9 @@ pref("privacy.resistFingerprinting.reduceTimerPrecision.microseconds", 1000);
 pref("privacy.resistFingerprinting.reduceTimerPrecision.jitter", true);
 // Lower the priority of network loads for resources on the tracking protection list.
 // Note that this requires the privacy.trackingprotection.annotate_channels pref to be on in order to have any effect.
-//@line 1432 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 1430 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("privacy.trackingprotection.lower_network_priority", false);
-//@line 1434 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 1432 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
 pref("dom.event.contextmenu.enabled",       true);
 pref("dom.event.clipboardevents.enabled",   true);
@@ -1434,15 +1434,15 @@ pref("dom.event.highrestimestamp.enabled",  true);
 pref("dom.event.coalesce_mouse_move",       true);
 
 pref("dom.webcomponents.shadowdom.enabled", false);
-//@line 1444 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 1442 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("dom.webcomponents.customelements.enabled", false);
-//@line 1446 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 1444 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
 pref("javascript.enabled",                  true);
 // Enable Array.prototype.values
 pref("javascript.options.array_prototype_values", true);
 pref("javascript.options.strict",           false);
-//@line 1454 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 1452 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("javascript.options.baselinejit",      true);
 pref("javascript.options.ion",              true);
 pref("javascript.options.asmjs",            true);
@@ -1451,12 +1451,12 @@ pref("javascript.options.wasm_ionjit",      true);
 pref("javascript.options.wasm_baselinejit", true);
 pref("javascript.options.native_regexp",    true);
 pref("javascript.options.parallel_parsing", true);
-//@line 1465 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 1463 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("javascript.options.asyncstack",       false);
-//@line 1467 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 1465 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("javascript.options.throw_on_asmjs_validation_failure", false);
 pref("javascript.options.ion.offthread_compilation", true);
-//@line 1472 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 1470 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 // This preference instructs the JS engine to discard the
 // source of any privileged JS after compilation. This saves
 // memory, but makes things like Function.prototype.toSource()
@@ -1477,9 +1477,9 @@ pref("javascript.options.mem.high_water_mark", 128);
 pref("javascript.options.mem.max", -1);
 
 // JSGC_MAX_NURSERY_BYTES
-//@line 1495 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 1493 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("javascript.options.mem.nursery.max_kb", 16384);
-//@line 1497 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 1495 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
 // JSGC_MODE
 pref("javascript.options.mem.gc_per_zone", true);
@@ -1496,9 +1496,9 @@ pref("javascript.options.mem.log", false);
 pref("javascript.options.mem.notify", false);
 pref("javascript.options.gc_on_memory_pressure", true);
 pref("javascript.options.compact_on_user_inactive", true);
-//@line 1516 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 1514 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("javascript.options.compact_on_user_inactive_delay", 300000); // ms
-//@line 1518 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 1516 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
 // JSGC_HIGH_FREQUENCY_TIME_LIMIT
 pref("javascript.options.mem.gc_high_frequency_time_limit_ms", 1000);
@@ -1589,9 +1589,9 @@ pref("network.allow-experiments", true);
 pref("network.notify.changed", true);
 
 // Allow network detection of IPv6 related changes (bug 1245059)
-//@line 1611 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 1609 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("network.notify.IPv6", true);
-//@line 1613 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 1611 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
 // Transmit UDP busy-work to the LAN when anticipating low latency
 // network reads and on wifi to mitigate 802.11 Power Save Polling delays
@@ -1614,7 +1614,7 @@ pref("network.protocol-handler.external.data", false);
 pref("network.protocol-handler.external.ms-help", false);
 pref("network.protocol-handler.external.shell", false);
 pref("network.protocol-handler.external.vnd.ms.radio", false);
-//@line 1638 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 1636 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("network.protocol-handler.external.disk", false);
 pref("network.protocol-handler.external.disks", false);
 pref("network.protocol-handler.external.afp", false);
@@ -1680,9 +1680,9 @@ pref("network.http.response.timeout", 300);
 // Limit the absolute number of http connections.
 // Note: the socket transport service will clamp the number below this if the OS
 // cannot allocate that many FDs
-//@line 1706 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 1704 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("network.http.max-connections", 900);
-//@line 1708 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 1706 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
 // If NOT connecting via a proxy, then
 // a new connection will only be attempted if the number of active persistent
@@ -2187,7 +2187,7 @@ pref("network.negotiate-auth.gsslib", "");
 // Specify if the gss lib comes standard with the OS
 pref("network.negotiate-auth.using-native-gsslib", true);
 
-//@line 2218 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 2216 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
 // Controls which NTLM authentication implementation we default to. True forces
 // the use of our generic (internal) NTLM authentication implementation vs. any
@@ -2308,7 +2308,7 @@ pref("network.proxy.no_proxies_on",         "localhost, 127.0.0.1");
 pref("network.proxy.failover_timeout",      1800); // 30 minutes
 pref("network.online",                      true); //online/offline
 pref("network.cookie.cookieBehavior",       0); // 0-Accept, 1-dontAcceptForeign, 2-dontAcceptAny, 3-limitForeign
-//@line 2341 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 2339 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("network.cookie.thirdparty.sessionOnly", false);
 pref("network.cookie.thirdparty.nonsecureSessionOnly", false);
 pref("network.cookie.leave-secure-alone",   true);
@@ -2361,9 +2361,9 @@ pref("intl.fallbackCharsetList.ISO-8859-1", "windows-1252");
 pref("font.language.group",                 "chrome://global/locale/intl.properties");
 
 // Android-specific pref to use key-events-only mode for IME-unaware webapps.
-//@line 2396 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 2394 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("intl.ime.hack.on_ime_unaware_apps.fire_key_events_for_composition", false);
-//@line 2398 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 2396 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
 // If you use legacy Chinese IME which puts an ideographic space to composition
 // string as placeholder, this pref might be useful.  If this is true and when
@@ -2595,9 +2595,9 @@ pref("security.notification_enable_delay", 500);
 pref("security.csp.enable", true);
 pref("security.csp.experimentalEnabled", false);
 pref("security.csp.enableStrictDynamic", true);
-//@line 2632 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 2630 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("security.csp.enable_violation_events", false);
-//@line 2634 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 2632 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
 // Default Content Security Policy to apply to signed contents.
 pref("security.signed_content.CSP.default", "script-src 'self'; style-src 'self'");
@@ -2610,9 +2610,9 @@ pref("security.mixed_content.block_display_content", false);
 pref("security.mixed_content.upgrade_display_content", false);
 
 // Block sub requests that happen within an object
-//@line 2649 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 2647 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("security.mixed_content.block_object_subrequest", false);
-//@line 2651 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 2649 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
 // Sub-resource integrity
 pref("security.sri.enable", true);
@@ -2712,7 +2712,7 @@ pref("clipboard.autocopy", false);
 // Clipboard only supports text/plain
 pref("clipboard.plainTextOnly", false);
 
-//@line 2757 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 2755 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
 // mouse wheel scroll transaction period of time (in milliseconds)
 pref("mousewheel.transaction.timeout", 1500);
@@ -2910,9 +2910,9 @@ pref("layout.css.report_errors", true);
 pref("layout.css.visited_links_enabled", true);
 
 // Pref to control whether @-moz-document rules are enabled in content pages.
-//@line 2957 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 2955 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("layout.css.moz-document.content.enabled",  true);
-//@line 2959 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 2957 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
 // Override DPI. A value of -1 means use the maximum of 96 and the system DPI.
 // A value of 0 means use the system DPI. A positive value is used as the DPI.
@@ -2965,14 +2965,14 @@ pref("layout.css.DOMQuad.enabled", true);
 pref("layout.css.DOMMatrix.enabled", true);
 
 // Is support for GeometryUtils.getBoxQuads enabled?
-//@line 3012 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 3010 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("layout.css.getBoxQuads.enabled", false);
-//@line 3016 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 3014 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
 // Is support for GeometryUtils.convert*FromNode enabled?
-//@line 3019 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 3017 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("layout.css.convertFromNode.enabled", false);
-//@line 3023 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 3021 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
 // Is support for CSS "text-align: unsafe X" enabled?
 pref("layout.css.text-align-unsafe-value.enabled", false);
@@ -2994,14 +2994,14 @@ pref("layout.css.font-display.enabled", true);
 pref("layout.css.font-variations.enabled", false);
 
 // Is support for the frames() timing function enabled?
-//@line 3045 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 3043 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("layout.css.frames-timing.enabled", false);
-//@line 3049 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 3047 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
 // Are we emulating -moz-{inline}-box layout using CSS flexbox?
 // (This pref only takes effect in prerelease builds, so we only
 // bother specifying a default in prerelease builds as well.)
-//@line 3056 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 3054 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
 // Is the paint-order property supported for HTML text?
 // (It is always supported for SVG.)
@@ -3045,9 +3045,9 @@ pref("layout.css.text-combine-upright-digits.enabled", false);
 
 // Is -moz-osx-font-smoothing enabled?
 // Only supported in OSX builds
-//@line 3102 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 3100 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("layout.css.osx-font-smoothing.enabled", false);
-//@line 3104 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 3102 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
 // Is support for the CSS-wide "unset" value enabled?
 pref("layout.css.unset-value.enabled", true);
@@ -3102,9 +3102,9 @@ pref("layout.css.shape-outside.enabled", false);
 pref("layout.css.font-loading-api.enabled", true);
 
 // Should stray control characters be rendered visibly?
-//@line 3159 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 3157 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("layout.css.control-characters.visible", false);
-//@line 3163 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 3161 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
 // Is support for column-span enabled?
 pref("layout.css.column-span.enabled", false);
@@ -3141,9 +3141,9 @@ pref("layout.display-list.dump-content", false);
 pref("layout.display-list.dump-parent", false);
 
 // Toggle retaining display lists between paints
-//@line 3200 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 3198 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("layout.display-list.retain", false);
-//@line 3204 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 3202 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("layout.display-list.retain.chrome", false);
 
 // Set the maximum amount of modified frames allowed before doing a full
@@ -3168,9 +3168,9 @@ pref("layout.idle_period.time_limit", 1);
 // Before enabling this by default, make sure also CSSPseudoElement interface
 // has been spec'ed properly, or we should add a separate pref for
 // CSSPseudoElement interface. See Bug 1174575 for further details.
-//@line 3229 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 3227 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("dom.animations-api.core.enabled", false);
-//@line 3233 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 3231 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
 // Is support for the Element.animate() function (a subset of the Web Animations
 // API) enabled?
@@ -3271,7 +3271,7 @@ pref("plugins.favorfallback.rules", "");
 // Set IPC timeouts for plugins and tabs, except in leak-checking and
 // dynamic analysis builds.  (NS_FREE_PERMANENT_DATA is C++ only, so
 // approximate its definition here.)
-//@line 3334 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 3332 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 // How long a plugin is allowed to process a synchronous IPC message
 // before we consider it "hung".
 pref("dom.ipc.plugins.timeoutSecs", 45);
@@ -3285,12 +3285,12 @@ pref("dom.ipc.plugins.contentTimeoutSecs", 10);
 // How long a plugin launch is allowed to take before
 // we consider it failed.
 pref("dom.ipc.plugins.processLaunchTimeoutSecs", 45);
-//@line 3354 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 3352 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 // How long a content process can take before closing its IPC channel
 // after shutdown is initiated.  If the process exceeds the timeout,
 // we fear the worst and kill it.
 pref("dom.ipc.tabs.shutdownTimeoutSecs", 5);
-//@line 3370 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 3368 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
 pref("dom.ipc.plugins.flash.disable-protected-mode", false);
 
@@ -3316,9 +3316,9 @@ pref("dom.ipc.processCount.file", 1);
 pref("dom.ipc.processCount.extension", 1);
 
 // Whether a native event loop should be used in the content process.
-//@line 3398 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 3396 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("dom.ipc.useNativeEventProcessing.content", true);
-//@line 3400 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 3398 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
 // Quantum DOM scheduling:
 pref("dom.ipc.scheduler.useMultipleQueues", true);
@@ -3365,7 +3365,7 @@ pref("svg.new-getBBox.enabled", false);
 
 pref("svg.transform-box.enabled", true);
 
-//@line 3452 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 3450 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("svg.context-properties.content.enabled", false);
 
 // Default font types and sizes by locale
@@ -3655,13 +3655,13 @@ pref("ui.mouse.radius.visitedWeight", 120);
 // When false, the prefs will be used for all mouse events.
 pref("ui.mouse.radius.inputSource.touchOnly", true);
 
-//@line 4115 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 4113 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
-//@line 4332 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 4330 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
-//@line 4378 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 4376 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
-//@line 4382 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 4380 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 // Handled differently under Mac/Windows
 pref("network.protocol-handler.warn-external.file", false);
 pref("browser.drag_out_of_frame_style", 1);
@@ -3832,18 +3832,18 @@ pref("mousewheel.system_scroll_override_on_root_content.enabled", false);
 
 pref("intl.ime.use_simple_context_on_password_field", false);
 
-//@line 4553 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 4551 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 // maximum number of fonts to substitute for a generic
 pref("gfx.font_rendering.fontconfig.max_generic_substitutions", 3);
-//@line 4556 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 4554 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
-//@line 4561 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 4559 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
-//@line 4582 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 4580 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
-//@line 4641 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 4639 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
-//@line 4661 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 4659 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
 // Login Manager prefs
 pref("signon.rememberSignons",              true);
@@ -3937,9 +3937,9 @@ pref("image.mem.animated.discardable", true);
 
 // Whether the heap should be used for frames from animated images. On Android,
 // volatile memory keeps file handles open for each buffer.
-//@line 4757 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 4755 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("image.mem.animated.use_heap", false);
-//@line 4759 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 4757 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
 // Decodes images into shared memory to allow direct use in separate
 // rendering processes.
@@ -3974,9 +3974,9 @@ pref("image.mem.surfacecache.discard_factor", 1);
 
 // What is the minimum buffer size in KB before using volatile memory over the
 // heap. On Android, volatile memory keeps file handles open for each buffer.
-//@line 4796 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 4794 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("image.mem.volatile.min_threshold_kb", -1);
-//@line 4798 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 4796 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
 // How many threads we'll use for multithreaded decoding. If < 0, will be
 // automatically determined based on the system's number of cores.
@@ -3990,17 +3990,17 @@ pref("image.multithreaded_decoding.idle_timeout", 600000);
 pref("canvas.image.cache.limit", 0);
 
 // WebGL prefs
-//@line 4815 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 4813 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("gl.msaa-level", 2);
-//@line 4817 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 4815 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("gl.require-hardware", false);
-//@line 4821 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 4819 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("gl.ignore-dx-interop2-blacklist", false);
 pref("gl.use-tls-is-current", 0);
 
-//@line 4827 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 4825 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("webgl.1.allow-core-profiles", false);
-//@line 4829 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 4827 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("webgl.force-enabled", false);
 pref("webgl.disabled", false);
 pref("webgl.disable-angle", false);
@@ -4015,10 +4015,10 @@ pref("webgl.force-index-validation", 0);
 pref("webgl.lose-context-on-memory-pressure", false);
 pref("webgl.can-lose-context-in-foreground", true);
 pref("webgl.restore-context-when-visible", true);
-//@line 4847 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 4845 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("webgl.max-contexts", 32);
 pref("webgl.max-contexts-per-principal", 16);
-//@line 4850 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 4848 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("webgl.max-warnings-per-context", 32);
 pref("webgl.enable-draft-extensions", false);
 pref("webgl.enable-privileged-extensions", false);
@@ -4038,7 +4038,7 @@ pref("webgl.enable-debug-renderer-info", true);
 pref("webgl.renderer-string-override", "");
 pref("webgl.vendor-string-override", "");
 
-//@line 4876 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 4874 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
 pref("gfx.offscreencanvas.enabled", false);
 
@@ -4055,18 +4055,18 @@ pref("network.tcp.keepalive.enabled", true);
 pref("network.tcp.keepalive.idle_time", 600); // seconds; 10 mins
 // Default timeout for retransmission of unack'd keepalive probes.
 // Win and Linux only; not configurable on Mac.
-//@line 4893 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 4891 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("network.tcp.keepalive.retry_interval", 1); // seconds
-//@line 4895 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 4893 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 // Default maximum probe retransmissions.
 // Linux only; not configurable on Win and Mac; fixed at 10 and 8 respectively.
-//@line 4898 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 4896 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("network.tcp.keepalive.probe_count", 4);
-//@line 4900 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 4898 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
-//@line 4902 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 4900 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("network.tcp.tcp_fastopen_enable", false);
-//@line 4908 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 4906 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
 pref("network.tcp.tcp_fastopen_consecutive_failure_limit", 5);
 // We are trying to detect stalled tcp connections that use TFO and TLS
@@ -4086,23 +4086,23 @@ pref("layers.acceleration.disabled", false);
 // and output the result to stderr.
 pref("layers.bench.enabled", false);
 
-//@line 4935 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 4933 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
 // Whether to force acceleration on, ignoring blacklists.
-//@line 4945 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 4943 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("layers.acceleration.force-enabled", false);
-//@line 4947 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 4945 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
 pref("layers.acceleration.draw-fps", false);
 
 // Enable DEAA antialiasing for transformed layers in the compositor
-//@line 4952 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 4950 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 // Desktop prefs
 pref("layers.deaa.enabled", true);
-//@line 4958 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 4956 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
 pref("layers.dump", false);
-//@line 4967 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 4965 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("layers.draw-borders", false);
 pref("layers.draw-tile-borders", false);
 pref("layers.draw-bigimage-borders", false);
@@ -4128,9 +4128,9 @@ pref("layers.tiles.adjust", true);
 // 0  -> full-tilt mode: Recomposite even if not transaction occured.
 pref("layers.offmainthreadcomposition.frame-rate", -1);
 
-//@line 4998 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 4996 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
-//@line 5002 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 5000 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
 // Whether to animate simple opacity and transforms on the compositor
 pref("layers.offmainthreadcomposition.async-animations", true);
@@ -4145,24 +4145,24 @@ pref("layers.draw-mask-debug", false);
 
 pref("gfx.content.always-paint", false);
 
-//@line 5019 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 5017 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
-//@line 5022 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 5020 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("gfx.xrender.enabled",false);
 pref("widget.chrome.allow-gtk-dark-theme", false);
 pref("widget.content.allow-gtk-dark-theme", false);
-//@line 5027 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 5025 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
 pref("widget.window-transforms.disabled", false);
 
-//@line 5047 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 5045 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
 // Copy-on-write canvas
 pref("layers.shared-buffer-provider.enabled", true);
 
-//@line 5054 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 5052 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
-//@line 5059 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 5057 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
 // Force all possible layers to be always active layers
 pref("layers.force-active", false);
@@ -4177,10 +4177,10 @@ pref("geo.wifi.xhr.timeout", 60000);
 pref("device.sensors.enabled", true);
 pref("device.sensors.orientation.enabled", true);
 pref("device.sensors.motion.enabled", true);
-//@line 5077 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 5075 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("device.sensors.proximity.enabled", true);
 pref("device.sensors.ambientLight.enabled", true);
-//@line 5080 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 5078 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
 // Enable/Disable the device storage API for content
 pref("device.storage.enabled", false);
@@ -4230,9 +4230,9 @@ pref("extensions.webextensions.tabhide.enabled", false);
 
 // Report Site Issue button
 pref("extensions.webcompat-reporter.newIssueEndpoint", "https://webcompat.com/issues/new");
-//@line 5132 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 5130 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("extensions.webcompat-reporter.enabled", false);
-//@line 5134 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 5132 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
 pref("network.buffer.cache.count", 24);
 pref("network.buffer.cache.size",  32768);
@@ -4241,9 +4241,9 @@ pref("network.buffer.cache.size",  32768);
 pref("dom.webnotifications.enabled", true);
 pref("dom.webnotifications.serviceworker.enabled", true);
 pref("dom.webnotifications.requireinteraction.count", 3);
-//@line 5145 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 5143 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("dom.webnotifications.requireinteraction.enabled", false);
-//@line 5147 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 5145 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
 // Show favicons in web notifications.
 pref("alerts.showFavicons", false);
@@ -4255,18 +4255,18 @@ pref("alerts.useSystemBackend", true);
 
 // DOM full-screen API.
 pref("full-screen-api.enabled", false);
-//@line 5159 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 5157 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("full-screen-api.unprefix.enabled", false);
-//@line 5163 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 5161 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("full-screen-api.allow-trusted-requests-only", true);
 // whether to prevent the top level widget from going fullscreen
 pref("full-screen-api.ignore-widgets", false);
 pref("full-screen-api.pointer-lock.enabled", true);
 // transition duration of fade-to-black and fade-from-black, unit: ms
-//@line 5172 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 5170 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("full-screen-api.transition-duration.enter", "0 0");
 pref("full-screen-api.transition-duration.leave", "0 0");
-//@line 5175 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 5173 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 // timeout for black screen in fullscreen transition, unit: ms
 pref("full-screen-api.transition.timeout", 1000);
 // time for the warning box stays on the screen before sliding out, unit: ms
@@ -4341,18 +4341,18 @@ pref("dom.push.http2.retryInterval", 5000);
 // W3C touch events
 // 0 - disabled, 1 - enabled, 2 - autodetect
 // Autodetection is currently only supported on Windows and GTK3
-//@line 5252 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 5250 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("dom.w3c_touch_events.enabled", 2);
-//@line 5254 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 5252 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
 // W3C draft pointer events
-//@line 5257 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 5255 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("dom.w3c_pointer_events.enabled", true);
-//@line 5261 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 5259 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
 // Control firing WidgetMouseEvent by handling Windows pointer messages or mouse
 // messages.
-//@line 5267 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 5265 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
 // W3C pointer events draft
 pref("dom.w3c_pointer_events.implicit_capture", false);
@@ -4383,9 +4383,9 @@ pref("layout.css.touch_action.enabled", true);
 // This only has an effect in DEBUG-builds.
 pref("layout.css.expensive-style-struct-assertions.enabled", false);
 
-//@line 5301 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 5299 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("dom.netinfo.enabled", false);
-//@line 5303 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 5301 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
 // How long must we wait before declaring that a window is a "ghost" (i.e., a
 // likely leak)?  This should be longer than it usually takes for an eligible
@@ -4423,9 +4423,9 @@ pref("dom.placeholder.show_on_focus", true);
 
 // WebVR is enabled by default in beta and release for Windows and for all
 // platforms in nightly and aurora.
-//@line 5343 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 5341 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("dom.vr.enabled", false);
-//@line 5345 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 5343 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 // It is often desirable to automatically start vr presentation when
 // a user puts on the VR headset.  This is done by emitting the
 // Window.vrdisplayactivate event when the headset's sensors detect it
@@ -4443,10 +4443,10 @@ pref("dom.vr.controller_trigger_threshold", "0.1");
 // result in a non-responsive browser in the VR headset.
 pref("dom.vr.navigation.timeout", 5000);
 // Oculus device
-//@line 5363 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 5361 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 // We are only enabling WebVR by default on 64-bit builds (Bug 1384459)
 pref("dom.vr.oculus.enabled", true);
-//@line 5368 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 5366 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 // Minimum number of milliseconds after content has stopped VR presentation
 // before the Oculus session is re-initialized to an invisible / tracking
 // only mode.  If this value is too high, users will need to wait longer
@@ -4473,10 +4473,10 @@ pref("dom.vr.oculus.invisible.enabled", true);
 // OSVR device
 pref("dom.vr.osvr.enabled", false);
 // OpenVR device
-//@line 5401 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 5399 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 // See Bug 1310663 (Linux)
 pref("dom.vr.openvr.enabled", false);
-//@line 5404 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 5402 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 // Minimum number of milliseconds that the browser will wait before
 // attempting to poll again for connected VR controllers.  The browser
 // will not attempt to poll for VR controllers until it needs to use them.
@@ -4572,20 +4572,20 @@ pref("captivedetect.maxWaitingTime", 5000);
 pref("captivedetect.pollingTime", 3000);
 pref("captivedetect.maxRetryCount", 5);
 
-//@line 5500 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 5498 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("dom.forms.inputmode", false);
-//@line 5504 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 5502 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
 // Enable mapped array buffer by default.
 pref("dom.mapped_arraybuffer.enabled", true);
 
 // The tables used for Safebrowsing phishing and malware checks
 pref("urlclassifier.malwareTable", "goog-malware-proto,goog-unwanted-proto,test-harmful-simple,test-malware-simple,test-unwanted-simple");
-//@line 5511 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 5509 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 // In official builds, we are allowed to use Google's private phishing
 // list (see bug 1288840).
 pref("urlclassifier.phishTable", "goog-phish-proto,test-phish-simple");
-//@line 5517 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 5515 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
 // Tables for application reputation
 pref("urlclassifier.downloadAllowTable", "goog-downloadwhite-proto");
@@ -4624,9 +4624,9 @@ pref("browser.safebrowsing.allowOverride", true);
 
 // These names are approved by the Google Safe Browsing team.
 // Any changes must be coordinated with them.
-//@line 5556 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 5554 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("browser.safebrowsing.id", "navclient-auto-ffox");
-//@line 5560 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 5558 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
 // Download protection
 pref("browser.safebrowsing.downloads.enabled", true);
@@ -4779,7 +4779,7 @@ pref("dom.presentation.discoverable.encrypted", true);
 pref("dom.presentation.discoverable.retry_ms", 5000);
 pref("dom.presentation.session_transport.data_channel.enable", false);
 
-//@line 5720 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 5718 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
 // Enable meta-viewport support in remote APZ-enabled frames.
 pref("dom.meta-viewport.enabled", false);
@@ -4796,10 +4796,10 @@ pref("browser.search.geoSpecificDefaults", false);
 pref("browser.search.geoip.url", "https://location.services.mozilla.com/v1/country?key=%MOZILLA_API_KEY%");
 pref("browser.search.geoip.timeout", 3000);
 
-//@line 5737 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 5735 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 // {moz:official} expands to "official"
 pref("browser.search.official", true);
-//@line 5740 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 5738 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
 // GMPInstallManager prefs
 
@@ -4880,9 +4880,9 @@ pref("reader.has_used_toolbar", false);
 // Whether to use a vertical or horizontal toolbar.
 pref("reader.toolbar.vertical", true);
 
-//@line 5821 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 5819 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("narrate.enabled", true);
-//@line 5825 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 5823 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
 pref("narrate.test", false);
 pref("narrate.rate", 0);
@@ -4890,12 +4890,12 @@ pref("narrate.voice", " { \"default\": \"automatic\" }");
 // Only make voices that match content language available.
 pref("narrate.filter-voices", true);
 
-//@line 5833 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 5831 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 // Whether to allow, on a Linux system that doesn't support the necessary sandboxing
 // features, loading Gecko Media Plugins unsandboxed.  However, EME CDMs will not be
 // loaded without sandboxing even if this pref is changed.
 pref("media.gmp.insecure.allow", false);
-//@line 5838 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 5836 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
 // HTML <dialog> element
 pref("dom.dialog_element.enabled", false);
@@ -4951,26 +4951,26 @@ pref("media.seekToNextFrame.enabled", true);
 pref("dom.maxHardwareConcurrency", 16);
 
 // Shutdown the osfile worker if its no longer needed.
-//@line 5896 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 5894 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
-//@line 5898 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 5896 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("dom.webkitBlink.dirPicker.enabled", true);
 pref("dom.webkitBlink.filesystem.enabled", true);
-//@line 5901 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 5899 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
 pref("media.block-autoplay-until-in-foreground", true);
 
 // Is Stylo CSS support built and enabled?
 // Only define these prefs if Stylo support is actually built in.
-//@line 5908 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 5906 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("layout.css.servo.enabled", true);
-//@line 5912 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 5910 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 // Whether Stylo is enabled for chrome document?
 // If Stylo is not enabled, this pref doesn't take any effect.
 // Note that this pref is only read once when requested. Changing it
 // at runtime may have no effect.
 pref("layout.css.servo.chrome.enabled", true);
-//@line 5918 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 5916 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
 // TODO: Bug 1324406: Treat 'data:' documents as unique, opaque origins
 // If true, data: URIs will be treated as unique opaque origins, hence will use
@@ -4985,9 +4985,9 @@ pref("security.data_uri.unique_opaque_origin", true);
 pref("security.data_uri.block_toplevel_data_uri_navigations", true);
 
 // Enable Storage API for all platforms except Android.
-//@line 5933 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 5931 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("dom.storageManager.enabled", true);
-//@line 5937 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 5935 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("dom.storageManager.prompt.testing", false);
 pref("dom.storageManager.prompt.testing.allow", false);
 
@@ -5016,11 +5016,11 @@ pref("dom.timeout.max_consecutive_callbacks_ms", 4);
 pref("dom.payments.request.enabled", false);
 pref("dom.payments.loglevel", "Warn");
 
-//@line 5968 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 5966 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
-//@line 5973 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 5971 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
-//@line 5981 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 5979 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
 // Set advanced layers preferences here to have them show up in about:config or
 // to be overridable in reftest.list files. They should pretty much all be set
@@ -5052,18 +5052,18 @@ pref("dom.clients.openwindow_favors_same_process", true);
 
 // When a crash happens, whether to include heap regions of the crash context
 // in the minidump. Enabled by default on nightly and aurora.
-//@line 6013 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 6011 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("toolkit.crashreporter.include_context_heap", false);
-//@line 6017 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 6015 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 
 // Open noopener links in a new process
 pref("dom.noopener.newprocess.enabled", true);
 
-//@line 6024 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 6022 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("layers.omtp.enabled", false);
-//@line 6029 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 6027 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("layers.omtp.paint-workers", 1);
-//@line 6031 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
+//@line 6029 "/builds/worker/workspace/build/src/modules/libpref/init/all.js"
 pref("layers.omtp.release-capture-on-main-thread", false);
 pref("layers.omtp.dump-capture", false);
 
