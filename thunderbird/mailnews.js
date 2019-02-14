@@ -165,6 +165,7 @@ pref("mail.imap.expunge_option",            0);
 pref("mail.imap.expunge_threshold_number",  20);
 pref("mail.imap.filter_on_new", true);
 pref("mail.imap.force_select_detect", "\"name\" \"Email Mx\",\"vendor\" \"Openwave Messaging\"");
+pref("mail.imap.force_select_detect", "\"name\" \"Email Mx\",\"vendor\" \"Openwave Messaging\";\"vendor\" \"Yahoo! Inc.\",\"name\" \"Y!IMAP\";");
 pref("mail.imap.hdr_chunk_size", 200);
 pref("mail.imap.hide_other_users",          false);
 pref("mail.imap.hide_unused_namespaces",    true);
@@ -333,7 +334,8 @@ pref("mailnews.default_view_flags", 0); // for Mail/RSS/... (nsMsgDatabase)
 pref("mailnews.disable_fallback_to_utf8.ISO-2022-JP", false);
 pref("mailnews.display.date_senders_timezone", false);
 pref("mailnews.display.disable_format_flowed_support", false);
-pref("mailnews.display.disallow_mime_handlers", 0);
+pref("mailnews.display.disallow_mime_handlers", 0);  /* Let only a few classes process incoming data. This protects from bugs (e.g. buffer overflows) and from security loopholes (e.g. allowing unchecked HTML in some obscure classes, although the user has html_as > 0).
+pref("mailnews.display.html_as", 0);  // How to display HTML/MIME parts. 0 = Render the sender's HTML; 1 = HTML->TXT->HTML; 2 = Show HTML source; 3 = Sanitize HTML; 4 = Show all body parts
 pref("mailnews.display.html_sanitizer.drop_media", false); // whether to drop <img>, <video> and <audio>
 pref("mailnews.display.html_sanitizer.drop_non_css_presentation", true); // whether to drop <font>, <center>, align='...', etc.
 pref("mailnews.display.prefer_plaintext", false);  // Ignore HTML parts in multipart/alternative

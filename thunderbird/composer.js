@@ -1,4 +1,3 @@
-pref("editor.encode_entity",                 "html");
 pref("clipboard.paste_image_type", 1);
 pref("editor.CR_creates_new_p", false);
 pref("editor.active_link_color",            "#000088");
@@ -8,6 +7,7 @@ pref("editor.background_color",             "#FFFFFF");
 pref("editor.default_background_image",     "");
 pref("editor.disable_spell_checker", false);
 pref("editor.dont_lock_spell_files", true);
+pref("editor.encode_entity",                 "html");
 pref("editor.followed_link_color",          "#FF0000");
 pref("editor.history.url_maximum", 10);
 pref("editor.hrule.align",                  1); // center

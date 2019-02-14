@@ -46,7 +46,6 @@ pref("devtools.command-button-screenshot.enabled", false);
 pref("devtools.command-button-splitconsole.enabled", true);
 pref("devtools.computed.boxmodel.opened", true);
 pref("devtools.defaultColorUnit", "authored");
-pref("devtools.devedition.promo.enabled", false);
 pref("devtools.devedition.promo.shown", false);
 pref("devtools.devedition.promo.url", "https://www.mozilla.org/firefox/developer/?utm_source=firefox-dev-tools&utm_medium=firefox-browser&utm_content=betadoorhanger");
 pref("devtools.dom.enabled", false);
