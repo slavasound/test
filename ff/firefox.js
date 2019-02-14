@@ -214,14 +214,12 @@ pref("browser.startup.homepage",            "about:home");
 // Whether we should skip the homepage when opening the first-run page
 pref("browser.startup.firstrunSkipsHomepage", true);
 
-pref("browser.dedicatedprofile.welcome.accounts.endpoint", "https://accounts.firefox.com/");
-
 // Show an about:blank window as early as possible for quick startup feedback.
 // Held to nightly on Linux due to bug 1450626.
 // Disabled on Mac because the bouncing dock icon already provides feedback.
-//@line 246 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 244 "z:\build\build\src\browser\app\profile\firefox.js"
 pref("browser.startup.blankWindow", true);
-//@line 250 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 248 "z:\build\build\src\browser\app\profile\firefox.js"
 
 pref("browser.slowStartup.notificationDisabled", false);
 pref("browser.slowStartup.timeThreshold", 20000);
@@ -239,11 +237,11 @@ pref("browser.warnOnQuit", true);
 pref("browser.fullscreen.autohide", true);
 pref("browser.overlink-delay", 80);
 
-//@line 270 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 268 "z:\build\build\src\browser\app\profile\firefox.js"
 pref("browser.urlbar.clickSelectsAll", true);
-//@line 275 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 273 "z:\build\build\src\browser\app\profile\firefox.js"
 pref("browser.urlbar.doubleClickSelectsAll", false);
-//@line 277 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 275 "z:\build\build\src\browser\app\profile\firefox.js"
 
 // Whether using `ctrl` when hitting return/enter in the URL bar
 // (or clicking 'go') should prefix 'www.' and suffix
@@ -337,9 +335,9 @@ pref("browser.download.panel.shown", false);
 // on whether there are downloads to show.
 pref("browser.download.autohideButton", true);
 
-//@line 371 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 369 "z:\build\build\src\browser\app\profile\firefox.js"
 pref("browser.helperApps.deleteTempFileOnExit", true);
-//@line 373 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 371 "z:\build\build\src\browser\app\profile\firefox.js"
 
 // search engines URL
 pref("browser.search.searchEnginesURL",      "https://addons.mozilla.org/%LOCALE%/firefox/search-engines/");
@@ -360,9 +358,9 @@ pref("browser.search.hiddenOneOffs", "");
 // Mirrors whether the search-container widget is in the navigation toolbar.
 pref("browser.search.widget.inNavBar", false);
 
-//@line 394 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 392 "z:\build\build\src\browser\app\profile\firefox.js"
 pref("browser.search.reset.enabled", true);
-//@line 396 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 394 "z:\build\build\src\browser\app\profile\firefox.js"
 
 pref("browser.sessionhistory.max_entries", 50);
 
@@ -396,9 +394,9 @@ pref("browser.link.open_newwindow.restriction", 2);
 // window.open arguments) when the browser is in fullscreen mode.
 // We set this differently on Mac because the fullscreen implementation there is
 // different.
-//@line 432 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 430 "z:\build\build\src\browser\app\profile\firefox.js"
 pref("browser.link.open_newwindow.disabled_in_fullscreen", false);
-//@line 434 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 432 "z:\build\build\src\browser\app\profile\firefox.js"
 
 // Tabbed browser
 pref("browser.tabs.multiselect", true);
@@ -426,9 +424,9 @@ pref("browser.tabs.tabClipWidth", 140);
 pref("browser.tabs.tabMinWidth", 76);
 // Initial titlebar state is managed by -moz-gtk-csd-hide-titlebar-by-default
 // on Linux.
-//@line 462 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 460 "z:\build\build\src\browser\app\profile\firefox.js"
 pref("browser.tabs.drawInTitlebar", true);
-//@line 464 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 462 "z:\build\build\src\browser\app\profile\firefox.js"
 
 // Offer additional drag space to the user. The drag space
 // will only be shown if browser.tabs.drawInTitlebar is true.
@@ -449,9 +447,9 @@ pref("browser.tabs.delayHidingAudioPlayingIconMS", 3000);
 pref("browser.tabs.newanimations", false);
 
 // Pref to control whether we use separate privileged content processes.
-//@line 485 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 483 "z:\build\build\src\browser\app\profile\firefox.js"
 pref("browser.tabs.remote.separatePrivilegedContentProcess", true);
-//@line 487 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 485 "z:\build\build\src\browser\app\profile\firefox.js"
 
 pref("browser.ctrlTab.recentlyUsedOrder", true);
 
@@ -545,16 +543,16 @@ pref("browser.gesture.swipe.left", "Browser:BackOrBackDuplicate");
 pref("browser.gesture.swipe.right", "Browser:ForwardOrForwardDuplicate");
 pref("browser.gesture.swipe.up", "cmd_scrollTop");
 pref("browser.gesture.swipe.down", "cmd_scrollBottom");
-//@line 584 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 582 "z:\build\build\src\browser\app\profile\firefox.js"
 pref("browser.gesture.pinch.latched", false);
 pref("browser.gesture.pinch.threshold", 25);
-//@line 588 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 586 "z:\build\build\src\browser\app\profile\firefox.js"
 // Enabled for touch input display zoom.
 pref("browser.gesture.pinch.out", "cmd_fullZoomEnlarge");
 pref("browser.gesture.pinch.in", "cmd_fullZoomReduce");
 pref("browser.gesture.pinch.out.shift", "cmd_fullZoomReset");
 pref("browser.gesture.pinch.in.shift", "cmd_fullZoomReset");
-//@line 600 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 598 "z:\build\build\src\browser\app\profile\firefox.js"
 pref("browser.gesture.twist.latched", false);
 pref("browser.gesture.twist.threshold", 0);
 pref("browser.gesture.twist.right", "cmd_gestureRotateRight");
@@ -570,7 +568,7 @@ pref("browser.history_swipe_animation.disabled", false);
 // 3: Zoom in or out (reflowing zoom).
 // 4: Treat vertical wheel as horizontal scroll
 // 5: Zoom in or out (pinch zoom).
-//@line 632 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 630 "z:\build\build\src\browser\app\profile\firefox.js"
 // On the other platforms (non-macOS), user may use legacy mouse which supports
 // only vertical wheel but want to scroll horizontally.  For such users, we
 // should provide horizontal scroll with shift+wheel (same as Chrome).
@@ -580,7 +578,7 @@ pref("browser.history_swipe_animation.disabled", false);
 pref("mousewheel.with_shift.action", 4);
 pref("mousewheel.with_alt.action", 2);
 pref("mousewheel.with_meta.action", 1); // win key on Win, Super/Hyper on Linux
-//@line 642 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 640 "z:\build\build\src\browser\app\profile\firefox.js"
 pref("mousewheel.with_control.action",3);
 pref("mousewheel.with_win.action", 1);
 
@@ -599,18 +597,18 @@ pref("network.protocol-handler.external.mailto", true); // for mail
 pref("network.protocol-handler.external.news", true);   // for news
 pref("network.protocol-handler.external.snews", true);  // for secure news
 pref("network.protocol-handler.external.nntp", true);   // also news
-//@line 661 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 659 "z:\build\build\src\browser\app\profile\firefox.js"
 pref("network.protocol-handler.external.ms-windows-store", true);
-//@line 663 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 661 "z:\build\build\src\browser\app\profile\firefox.js"
 
 // ...without warning dialogs
 pref("network.protocol-handler.warn-external.mailto", false);
 pref("network.protocol-handler.warn-external.news", false);
 pref("network.protocol-handler.warn-external.snews", false);
 pref("network.protocol-handler.warn-external.nntp", false);
-//@line 670 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 668 "z:\build\build\src\browser\app\profile\firefox.js"
 pref("network.protocol-handler.warn-external.ms-windows-store", false);
-//@line 672 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 670 "z:\build\build\src\browser\app\profile\firefox.js"
 
 // By default, all protocol handlers are exposed.  This means that
 // the browser will respond to openURL commands for all URL types.
@@ -658,9 +656,9 @@ pref("plugins.favorfallback.mode", "follow-ctp");
 pref("plugins.favorfallback.rules", "nosrc,video");
 
 
-//@line 720 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 718 "z:\build\build\src\browser\app\profile\firefox.js"
 pref("browser.preferences.instantApply", false);
-//@line 724 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 722 "z:\build\build\src\browser\app\profile\firefox.js"
 
 // Toggling Search bar on and off in about:preferences
 pref("browser.preferences.search", true);
@@ -674,9 +672,9 @@ pref("browser.download.hide_plugins_without_extensions", true);
 // 0 goes Back/Forward
 // 1 act like PgUp/PgDown
 // 2 and other values, nothing
-//@line 740 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 738 "z:\build\build\src\browser\app\profile\firefox.js"
 pref("browser.backspace_action", 0);
-//@line 742 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 740 "z:\build\build\src\browser\app\profile\firefox.js"
 
 // this will automatically enable inline spellchecking (if it is available) for
 // editable elements in HTML
@@ -880,9 +878,9 @@ pref("toolkit.crashreporter.infoURL",
 pref("app.support.baseURL", "https://support.mozilla.org/1/firefox/%VERSION%/%OS%/%LOCALE%/");
 
 // base url for web-based feedback pages
-//@line 948 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 946 "z:\build\build\src\browser\app\profile\firefox.js"
 pref("app.feedback.baseURL", "https://input.mozilla.org/%LOCALE%/feedback/%APP%/%VERSION%/");
-//@line 950 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 948 "z:\build\build\src\browser\app\profile\firefox.js"
 
 // base URL for web-based marketing pages
 pref("app.productInfo.baseURL", "https://www.mozilla.org/firefox/features/");
@@ -891,9 +889,9 @@ pref("app.productInfo.baseURL", "https://www.mozilla.org/firefox/features/");
 pref("security.alternate_certificate_error_page", "certerror");
 
 // Enable the new certificate error pages.
-//@line 959 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 957 "z:\build\build\src\browser\app\profile\firefox.js"
 pref("browser.security.newcerterrorpage.enabled", true);
-//@line 963 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 961 "z:\build\build\src\browser\app\profile\firefox.js"
 
 pref("browser.security.newcerterrorpage.mitm.enabled", true);
 pref("security.certerrors.recordEventTelemetry", true);
@@ -903,9 +901,7 @@ pref("security.certerrors.permanentOverride", true);
 pref("browser.privatebrowsing.autostart", false);
 
 // Whether to show the new private browsing UI with in-content search box.
-//@line 973 "z:\build\build\src\browser\app\profile\firefox.js"
 pref("browser.privatebrowsing.searchUI", true);
-//@line 977 "z:\build\build\src\browser\app\profile\firefox.js"
 
 // Whether the bookmark panel should be shown when bookmarking a page.
 pref("browser.bookmarks.editDialog.showForNewBookmarks", true);
@@ -924,7 +920,7 @@ pref("browser.flash-protected-mode-flip.done", false);
 
 pref("dom.ipc.shims.enabledWarnings", false);
 
-//@line 996 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 990 "z:\build\build\src\browser\app\profile\firefox.js"
 // Controls whether and how the Windows NPAPI plugin process is sandboxed.
 // To get a different setting for a particular plugin replace "default", with
 // the plugin's nice file name, see: nsPluginTag::GetNiceFileName.
@@ -936,28 +932,28 @@ pref("dom.ipc.shims.enabledWarnings", false);
 // 3 - the strongest settings we seem to be able to use without breaking
 //     everything, but will probably cause some functionality restrictions
 pref("dom.ipc.plugins.sandbox-level.default", 0);
-//@line 1008 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 1002 "z:\build\build\src\browser\app\profile\firefox.js"
 // The base sandbox level in nsPluginTag::InitSandboxLevel must be
 // updated to keep in sync with this value.
 pref("dom.ipc.plugins.sandbox-level.flash", 3);
-//@line 1014 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 1008 "z:\build\build\src\browser\app\profile\firefox.js"
 
-//@line 1016 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 1010 "z:\build\build\src\browser\app\profile\firefox.js"
 // This controls the strength of the Windows content process sandbox for testing
 // purposes. This will require a restart.
 // On windows these levels are:
 // See - security/sandbox/win/src/sandboxbroker/sandboxBroker.cpp
 // SetSecurityLevelForContentProcess() for what the different settings mean.
-//@line 1024 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 1018 "z:\build\build\src\browser\app\profile\firefox.js"
 pref("security.sandbox.content.level", 5);
-//@line 1026 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 1020 "z:\build\build\src\browser\app\profile\firefox.js"
 
 // This controls the depth of stack trace that is logged when Windows sandbox
 // logging is turned on.  This is only currently available for the content
 // process because the only other sandbox (for GMP) has too strict a policy to
 // allow stack tracing.  This does not require a restart to take effect.
 pref("security.sandbox.windows.log.stackTraceDepth", 0);
-//@line 1033 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 1027 "z:\build\build\src\browser\app\profile\firefox.js"
 
 // This controls the strength of the Windows GPU process sandbox.  Changes
 // will require restart.
@@ -972,33 +968,33 @@ pref("security.sandbox.rdd.win32k-disable", true);
 // Note: win32k is currently _not_ disabled for GMP due to intermittent test
 // failures, where the GMP process fails very early. See bug 1449348.
 pref("security.sandbox.gmp.win32k-disable", false);
+//@line 1042 "z:\build\build\src\browser\app\profile\firefox.js"
+
 //@line 1048 "z:\build\build\src\browser\app\profile\firefox.js"
 
-//@line 1054 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 1066 "z:\build\build\src\browser\app\profile\firefox.js"
 
-//@line 1072 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 1086 "z:\build\build\src\browser\app\profile\firefox.js"
 
-//@line 1092 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 1105 "z:\build\build\src\browser\app\profile\firefox.js"
 
-//@line 1111 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 1115 "z:\build\build\src\browser\app\profile\firefox.js"
 
-//@line 1121 "z:\build\build\src\browser\app\profile\firefox.js"
-
-//@line 1124 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 1118 "z:\build\build\src\browser\app\profile\firefox.js"
 // ID (a UUID when set by gecko) that is used to form the name of a
 // sandbox-writable temporary directory to be used by content processes
 // when a temporary writable file is required in a level 1 sandbox.
 pref("security.sandbox.content.tempDirSuffix", "");
-//@line 1129 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 1123 "z:\build\build\src\browser\app\profile\firefox.js"
 pref("security.sandbox.plugin.tempDirSuffix", "");
-//@line 1131 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 1125 "z:\build\build\src\browser\app\profile\firefox.js"
 
-//@line 1133 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 1127 "z:\build\build\src\browser\app\profile\firefox.js"
 // This pref determines if messages relevant to sandbox violations are
 // logged.
-//@line 1136 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 1130 "z:\build\build\src\browser\app\profile\firefox.js"
 pref("security.sandbox.logging.enabled", false);
-//@line 1139 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 1133 "z:\build\build\src\browser\app\profile\firefox.js"
 
 // This pref governs whether we attempt to work around problems caused by
 // plugins using OS calls to manipulate the cursor while running out-of-
@@ -1007,9 +1003,9 @@ pref("security.sandbox.logging.enabled", false);
 // in the browser process.  Eventually plugins will be required to use the
 // NPAPI to manipulate the cursor, and these workarounds will be removed.
 // See bug 621117.
-//@line 1150 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 1144 "z:\build\build\src\browser\app\profile\firefox.js"
 
-//@line 1152 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 1146 "z:\build\build\src\browser\app\profile\firefox.js"
 pref("browser.taskbar.previews.enable", false);
 pref("browser.taskbar.previews.max", 20);
 pref("browser.taskbar.previews.cachetime", 5);
@@ -1019,7 +1015,7 @@ pref("browser.taskbar.lists.recent.enabled", false);
 pref("browser.taskbar.lists.maxListItemCount", 7);
 pref("browser.taskbar.lists.tasks.enabled", true);
 pref("browser.taskbar.lists.refreshInSeconds", 120);
-//@line 1162 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 1156 "z:\build\build\src\browser\app\profile\firefox.js"
 
 // Preferences to be synced by default
 pref("services.sync.prefs.sync.accessibility.blockautorefresh", true);
@@ -1082,6 +1078,7 @@ pref("services.sync.prefs.sync.intl.accept_languages", true);
 pref("services.sync.prefs.sync.layout.spellcheckDefault", true);
 pref("services.sync.prefs.sync.lightweightThemes.selectedThemeID", true);
 pref("services.sync.prefs.sync.lightweightThemes.usedThemes", true);
+pref("services.sync.prefs.sync.media.autoplay.default", true);
 pref("services.sync.prefs.sync.media.eme.enabled", true);
 pref("services.sync.prefs.sync.network.cookie.cookieBehavior", true);
 pref("services.sync.prefs.sync.network.cookie.lifetimePolicy", true);
@@ -1126,9 +1123,9 @@ pref("services.sync.prefs.sync.xpinstall.whitelist.required", true);
 pref("services.sync.syncedTabs.showRemoteIcons", true);
 
 // Developer edition preferences
-//@line 1272 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 1267 "z:\build\build\src\browser\app\profile\firefox.js"
 pref("lightweightThemes.selectedThemeID", "default-theme@mozilla.org", sticky);
-//@line 1274 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 1269 "z:\build\build\src\browser\app\profile\firefox.js"
 
 // Whether the character encoding menu is under the main Firefox button. This
 // preference is a string so that localizers can alter it.
@@ -1145,9 +1142,9 @@ pref("browser.newtabpage.enabled", true);
 
 // Activity Stream prefs that control to which page to redirect
 pref("browser.newtabpage.activity-stream.prerender", true);
-//@line 1291 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 1286 "z:\build\build\src\browser\app\profile\firefox.js"
 pref("browser.newtabpage.activity-stream.debug", false);
-//@line 1293 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 1288 "z:\build\build\src\browser\app\profile\firefox.js"
 
 pref("browser.library.activity-stream.enabled", true);
 
@@ -1162,9 +1159,9 @@ pref("browser.newtabpage.activity-stream.asrouter.providers.cfr", "{\"id\":\"cfr
 pref("browser.newtabpage.activity-stream.asrouter.providers.snippets", "{\"id\":\"snippets\",\"enabled\":true,\"type\":\"remote\",\"url\":\"https://snippets.cdn.mozilla.net/%STARTPAGE_VERSION%/%NAME%/%VERSION%/%APPBUILDID%/%BUILD_TARGET%/%LOCALE%/%CHANNEL%/%OS_VERSION%/%DISTRIBUTION%/%DISTRIBUTION_VERSION%/\",\"updateCycleInMs\":14400000}");
 
 // The pref controls if search hand-off is enabled for Activity Stream.
-//@line 1308 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 1303 "z:\build\build\src\browser\app\profile\firefox.js"
 pref("browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar", true);
-//@line 1312 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 1307 "z:\build\build\src\browser\app\profile\firefox.js"
 
 // Enable the DOM fullscreen API.
 pref("full-screen-api.enabled", true);
@@ -1176,9 +1173,9 @@ pref("toolkit.startup.max_resumed_crashes", 3);
 
 // Whether to use RegisterApplicationRestart to restart the browser and resume
 // the session on next Windows startup
-//@line 1324 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 1319 "z:\build\build\src\browser\app\profile\firefox.js"
 pref("toolkit.winRegisterApplicationRestart", true);
-//@line 1326 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 1321 "z:\build\build\src\browser\app\profile\firefox.js"
 
 // Completely disable pdf.js as an option to preview pdfs within firefox.
 // Note: if this is not disabled it does not necessarily mean pdf.js is the pdf
@@ -1209,9 +1206,9 @@ pref("security.insecure_field_warning.contextual.enabled", true);
 // Show degraded UI for http pages; disabled for now
 pref("security.insecure_connection_icon.enabled", false);
 // Show degraded UI for http pages in private mode only for Nightly: Bug 1434626
-//@line 1357 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 1352 "z:\build\build\src\browser\app\profile\firefox.js"
 pref("security.insecure_connection_icon.pbmode.enabled", true);
-//@line 1361 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 1356 "z:\build\build\src\browser\app\profile\firefox.js"
 
 // Show "Not Secure" text for http pages; disabled for now
 pref("security.insecure_connection_text.enabled", false);
@@ -1230,19 +1227,19 @@ pref("dom.debug.propagate_gesture_events_through_content", false);
 
 // All the Geolocation preferences are here.
 //
-//@line 1382 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 1377 "z:\build\build\src\browser\app\profile\firefox.js"
 // Use MLS on Nightly and early Beta.
 pref("geo.wifi.uri", "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%");
-//@line 1385 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 1380 "z:\build\build\src\browser\app\profile\firefox.js"
 
-//@line 1389 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 1384 "z:\build\build\src\browser\app\profile\firefox.js"
 
 // Set to false if things are really broken.
-//@line 1392 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 1387 "z:\build\build\src\browser\app\profile\firefox.js"
 pref("geo.provider.ms-windows-location", true);
-//@line 1394 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 1389 "z:\build\build\src\browser\app\profile\firefox.js"
 
-//@line 1398 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 1393 "z:\build\build\src\browser\app\profile\firefox.js"
 
 // CustomizableUI debug logging.
 pref("browser.uiCustomization.debug", false);
@@ -1282,9 +1279,9 @@ pref("identity.mobilepromo.ios", "https://www.mozilla.org/firefox/ios/?utm_sourc
 
 // Migrate any existing Firefox Account data from the default profile to the
 // Developer Edition profile.
-//@line 1440 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 1435 "z:\build\build\src\browser\app\profile\firefox.js"
 pref("identity.fxaccounts.migrateToDevEdition", false);
-//@line 1442 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 1437 "z:\build\build\src\browser\app\profile\firefox.js"
 
 // If activated, send tab will use the new FxA commands backend.
 pref("identity.fxaccounts.commands.enabled", true);
@@ -1293,11 +1290,11 @@ pref("identity.fxaccounts.commands.enabled", true);
 pref("identity.fxaccounts.commands.missed.fetch_interval", 86400);
 
 // On GTK, we now default to showing the menubar only when alt is pressed:
-//@line 1453 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 1448 "z:\build\build\src\browser\app\profile\firefox.js"
 
-//@line 1455 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 1450 "z:\build\build\src\browser\app\profile\firefox.js"
 pref("media.eme.vp9-in-mp4.enabled", true);
-//@line 1459 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 1454 "z:\build\build\src\browser\app\profile\firefox.js"
 
 pref("media.eme.hdcp-policy-check.enabled", false);
 
@@ -1313,10 +1310,10 @@ pref("media.gmp.trial-create.enabled", true);
 // to enable the CDM if its disabled; it's as if the keysystem is completely
 // unsupported.
 
-//@line 1475 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 1470 "z:\build\build\src\browser\app\profile\firefox.js"
 pref("media.gmp-widevinecdm.visible", true);
 pref("media.gmp-widevinecdm.enabled", true);
-//@line 1478 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 1473 "z:\build\build\src\browser\app\profile\firefox.js"
 
 
 // Switch block autoplay logic to v2, and enable UI.
@@ -1324,11 +1321,14 @@ pref("media.autoplay.enabled.user-gestures-needed", true);
 // Set Firefox to block autoplay, asking for permission by default.
 pref("media.autoplay.default", 1); // 0=Allowed, 1=Blocked
 
-//@line 1486 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 1481 "z:\build\build\src\browser\app\profile\firefox.js"
 // Block WebAudio from playing automatically.
 pref("media.autoplay.block-webaudio", true);
-//@line 1491 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 1486 "z:\build\build\src\browser\app\profile\firefox.js"
 
+//@line 1488 "z:\build\build\src\browser\app\profile\firefox.js"
+pref("media.videocontrols.picture-in-picture.enabled", false);
+//@line 1490 "z:\build\build\src\browser\app\profile\firefox.js"
 
 // Play with different values of the decay time and get telemetry,
 // 0 means to randomize (and persist) the experiment value in users' profiles,
@@ -1371,9 +1371,9 @@ pref("media.gmp-provider.enabled", true);
 
 // Enable blocking access to storage from tracking resources only in nightly
 // and early beta. By default the value is 0: BEHAVIOR_ACCEPT
-//@line 1535 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 1533 "z:\build\build\src\browser\app\profile\firefox.js"
 pref("network.cookie.cookieBehavior", 4 /* BEHAVIOR_REJECT_TRACKER */);
-//@line 1537 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 1535 "z:\build\build\src\browser\app\profile\firefox.js"
 
 pref("browser.contentblocking.allowlist.storage.enabled", true);
 
@@ -1393,9 +1393,9 @@ pref("browser.contentblocking.cryptomining.preferences.ui.enabled", false);
 pref("browser.contentblocking.fingerprinting.preferences.ui.enabled", false);
 
 // Enable the Report Breakage UI on Nightly and Beta but not on Release yet.
-//@line 1557 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 1555 "z:\build\build\src\browser\app\profile\firefox.js"
 pref("browser.contentblocking.reportBreakage.enabled", true);
-//@line 1561 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 1559 "z:\build\build\src\browser\app\profile\firefox.js"
 // Show report breakage for tracking cookies in all channels.
 pref("browser.contentblocking.rejecttrackers.reportBreakage.enabled", true);
 
@@ -1411,13 +1411,13 @@ pref("urlclassifier.trackingAnnotationSkipURLs", "google.com/recaptcha/,*.google
 // Always enable newtab segregation using containers
 pref("privacy.usercontext.about_newtab_segregation.enabled", true);
 // Enable Contextual Identity Containers
-//@line 1577 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 1575 "z:\build\build\src\browser\app\profile\firefox.js"
 pref("privacy.userContext.enabled", true);
 pref("privacy.userContext.ui.enabled", true);
 
 // 0 disables long press, 1 when clicked, the menu is shown, 2 the menu is shown after X milliseconds.
 pref("privacy.userContext.longPressBehavior", 2);
-//@line 1589 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 1587 "z:\build\build\src\browser\app\profile\firefox.js"
 pref("privacy.userContext.extension", "");
 
 // Start the browser in e10s mode
@@ -1455,14 +1455,14 @@ pref("dom.ipc.cpows.forbid-unsafe-from-browser", true);
 // detection).
 pref("dom.ipc.processHangMonitor", true);
 
-//@line 1627 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 1625 "z:\build\build\src\browser\app\profile\firefox.js"
 // Allows us to deprioritize the processes of background tabs at an OS level
 pref("dom.ipc.processPriorityManager.enabled", true);
-//@line 1630 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 1628 "z:\build\build\src\browser\app\profile\firefox.js"
 
-//@line 1636 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 1634 "z:\build\build\src\browser\app\profile\firefox.js"
 pref("dom.ipc.reportProcessHangs", true);
-//@line 1638 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 1636 "z:\build\build\src\browser\app\profile\firefox.js"
 
 // Don't limit how many nodes we care about on desktop:
 pref("reader.parse-node-limit", 0);
@@ -1504,6 +1504,7 @@ pref("extensions.pocket.oAuthConsumerKey", "40249-e88c401e1b1f2242d9e441c4");
 pref("extensions.pocket.site", "getpocket.com");
 
 pref("signon.schemeUpgrades", true);
+pref("signon.privateBrowsingCapture.enabled", true);
 
 // Enable the "Simplify Page" feature in Print Preview. This feature
 // is disabled by default in toolkit.
@@ -1516,9 +1517,9 @@ pref("webchannel.allowObject.urlWhitelist", "https://content.cdn.mozilla.net htt
 // Whether or not the browser should scan for unsubmitted
 // crash reports, and then show a notification for submitting
 // those reports.
-//@line 1692 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 1691 "z:\build\build\src\browser\app\profile\firefox.js"
 pref("browser.crashReports.unsubmittedCheck.enabled", true);
-//@line 1696 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 1695 "z:\build\build\src\browser\app\profile\firefox.js"
 
 // chancesUntilSuppress is how many times we'll show the unsubmitted
 // crash report notification across different days and shutdown
@@ -1531,9 +1532,9 @@ pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false);
 // The truthy values of "extensions.formautofill.available" are "on" and "detect",
 // any other value means autofill isn't available.
 // "detect" means it's enabled if conditions defined in the extension are met.
-//@line 1709 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 1708 "z:\build\build\src\browser\app\profile\firefox.js"
 pref("extensions.formautofill.available", "on");
-//@line 1713 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 1712 "z:\build\build\src\browser\app\profile\firefox.js"
 pref("extensions.formautofill.creditCards.available", false);
 pref("extensions.formautofill.addresses.enabled", true);
 pref("extensions.formautofill.creditCards.enabled", true);
@@ -1552,11 +1553,11 @@ pref("extensions.formautofill.reauth.enabled", false);
 pref("extensions.formautofill.section.enabled", true);
 pref("extensions.formautofill.loglevel", "Warn");
 
-//@line 1732 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 1731 "z:\build\build\src\browser\app\profile\firefox.js"
 // Comma separated list of countries Form Autofill is available in.
 pref("extensions.formautofill.supportedCountries", "US,CA,DE");
 pref("extensions.formautofill.supportRTL", true);
-//@line 1739 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 1738 "z:\build\build\src\browser\app\profile\firefox.js"
 
 // Whether or not to restore a session with lazy-browser tabs.
 pref("browser.sessionstore.restore_tabs_lazily", true);
@@ -1582,16 +1583,16 @@ pref("app.normandy.logging.level", 50); // Warn
 pref("app.normandy.run_interval_seconds", 21600); // 6 hours
 pref("app.normandy.shieldLearnMoreUrl", "https://support.mozilla.org/1/firefox/%VERSION%/%OS%/%LOCALE%/shield");
 pref("app.normandy.remotesettings.enabled", false);
-//@line 1765 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 1764 "z:\build\build\src\browser\app\profile\firefox.js"
 pref("app.shield.optoutstudies.enabled", true);
-//@line 1769 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 1768 "z:\build\build\src\browser\app\profile\firefox.js"
 
 // Multi-lingual preferences
-//@line 1775 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 1774 "z:\build\build\src\browser\app\profile\firefox.js"
 pref("intl.multilingual.enabled", false);
 // AMO only serves language packs for release and beta versions.
 pref("intl.multilingual.downloadEnabled", false);
-//@line 1779 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 1778 "z:\build\build\src\browser\app\profile\firefox.js"
 
 // Simulate conditions that will happen when the browser
 // is running with Fission enabled. This is meant to assist
@@ -1605,18 +1606,18 @@ pref("browser.fission.simulate", false);
 // On platforms that do not build libprio, do not set these prefs at all, which gives us a way to detect support.
 
 // Curve25519 public keys for Prio servers
-//@line 1793 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 1792 "z:\build\build\src\browser\app\profile\firefox.js"
 pref("prio.publicKeyA", "35AC1C7576C7C6EDD7FED6BCFC337B34D48CB4EE45C86BEEFB40BD8875707733");
 pref("prio.publicKeyB", "26E6674E65425B823F1F1D5F96E3BB3EF9E406EC7FBA7DEF8B08A35DD135AF50");
-//@line 1796 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 1795 "z:\build\build\src\browser\app\profile\firefox.js"
 
 // Coverage ping is disabled by default.
 pref("toolkit.coverage.enabled", false);
 pref("toolkit.coverage.endpoint.base", "https://coverage.mozilla.org");
 // Whether or not Prio-encoded Telemetry will be sent along with the main ping.
-//@line 1802 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 1801 "z:\build\build\src\browser\app\profile\firefox.js"
 pref("prio.enabled", true);
-//@line 1804 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 1803 "z:\build\build\src\browser\app\profile\firefox.js"
 
 // Discovery prefs
 pref("browser.discovery.enabled", true);
@@ -1627,6 +1628,6 @@ pref("browser.engagement.recent_visited_origins.expiry", 86400); // 24 * 60 * 60
 
 pref("browser.aboutConfig.showWarning", true);
 
-//@line 1815 "z:\build\build\src\browser\app\profile\firefox.js"
+//@line 1814 "z:\build\build\src\browser\app\profile\firefox.js"
 // Launcher process is disabled by default, will be selectively enabled via SHIELD
 pref("browser.launcherProcess.enabled", false);

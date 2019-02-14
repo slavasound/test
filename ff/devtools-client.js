@@ -50,8 +50,6 @@ pref("devtools.inspector.showUserAgentStyles", false);
 pref("devtools.inspector.showAllAnonymousContent", false);
 // Show user agent shadow roots
 pref("devtools.inspector.showUserAgentShadowRoots", false);
-// Enable the CSS shapes highlighter
-pref("devtools.inspector.shapesHighlighter.enabled", true);
 // Enable the font highlight-on-hover feature
 pref("devtools.inspector.fonthighlighter.enabled", true);
 // Enable tracking of style changes and the Changes panel in the Inspector
@@ -59,17 +57,15 @@ pref("devtools.inspector.changes.enabled", true);
 // Enable the new Rules View
 pref("devtools.inspector.new-rulesview.enabled", false);
 // Enable the 'scrollable' markup-badges in nightly only for now
-//@line 63 "z:\build\build\src\devtools\client\preferences\devtools-client.js"
+//@line 61 "z:\build\build\src\devtools\client\preferences\devtools-client.js"
 pref("devtools.inspector.scrollable-badges.enabled", true);
-//@line 67 "z:\build\build\src\devtools\client\preferences\devtools-client.js"
+//@line 65 "z:\build\build\src\devtools\client\preferences\devtools-client.js"
 
 // Flexbox preferences
-pref("devtools.inspector.flexboxHighlighter.enabled", true);
-pref("devtools.flexboxinspector.enabled", true);
-
-//@line 73 "z:\build\build\src\devtools\client\preferences\devtools-client.js"
+// Whether or not to show the combined flexbox and box model highlighter.
+//@line 69 "z:\build\build\src\devtools\client\preferences\devtools-client.js"
 pref("devtools.inspector.flexboxHighlighter.combine", true);
-//@line 77 "z:\build\build\src\devtools\client\preferences\devtools-client.js"
+//@line 73 "z:\build\build\src\devtools\client\preferences\devtools-client.js"
 
 // Grid highlighter preferences
 pref("devtools.gridinspector.gridOutlineMaxColumns", 50);
@@ -138,9 +134,9 @@ pref("devtools.performance.ui.show-triggers-for-gc-types",
 pref("devtools.performance.ui.enable-memory-flame", false);
 
 // Enable experimental options in the UI only in Nightly
-//@line 146 "z:\build\build\src\devtools\client\preferences\devtools-client.js"
+//@line 142 "z:\build\build\src\devtools\client\preferences\devtools-client.js"
 pref("devtools.performance.ui.experimental", true);
-//@line 150 "z:\build\build\src\devtools\client\preferences\devtools-client.js"
+//@line 146 "z:\build\build\src\devtools\client\preferences\devtools-client.js"
 
 // Preferences for the new performance panel
 // This pref configures the base URL for the perf.html instance to use. This is
@@ -276,9 +272,9 @@ pref("devtools.netmonitor.persistlog", false);
 pref("devtools.webconsole.timestampMessages", false);
 
 // Enable the webconsole sidebar toggle in Nightly builds.
-//@line 286 "z:\build\build\src\devtools\client\preferences\devtools-client.js"
+//@line 282 "z:\build\build\src\devtools\client\preferences\devtools-client.js"
 pref("devtools.webconsole.sidebarToggle", true);
-//@line 290 "z:\build\build\src\devtools\client\preferences\devtools-client.js"
+//@line 286 "z:\build\build\src\devtools\client\preferences\devtools-client.js"
 
 // Enable CodeMirror in the JsTerm
 pref("devtools.webconsole.jsterm.codeMirror", true);
@@ -333,13 +329,13 @@ pref("devtools.responsive.metaViewport.enabled", false);
 pref("devtools.responsive.userAgent", "");
 
 // Whether to show the settings onboarding tooltip only in release or beta builds.
-//@line 347 "z:\build\build\src\devtools\client\preferences\devtools-client.js"
+//@line 343 "z:\build\build\src\devtools\client\preferences\devtools-client.js"
 pref("devtools.responsive.show-setting-tooltip", false);
-//@line 349 "z:\build\build\src\devtools\client\preferences\devtools-client.js"
+//@line 345 "z:\build\build\src\devtools\client\preferences\devtools-client.js"
 // Show the custom user agent input in Nightly builds.
-//@line 351 "z:\build\build\src\devtools\client\preferences\devtools-client.js"
+//@line 347 "z:\build\build\src\devtools\client\preferences\devtools-client.js"
 pref("devtools.responsive.showUserAgentInput", true);
-//@line 355 "z:\build\build\src\devtools\client\preferences\devtools-client.js"
+//@line 351 "z:\build\build\src\devtools\client\preferences\devtools-client.js"
 
 // Enable new about:debugging.
 pref("devtools.aboutdebugging.new-enabled", false);
@@ -358,9 +354,9 @@ pref("devtools.aboutdebugging.collapsibilities.tab", false);
 pref("devtools.aboutdebugging.collapsibilities.temporaryExtension", false);
 
 // about:debugging: only show system add-ons in local builds by default.
-//@line 374 "z:\build\build\src\devtools\client\preferences\devtools-client.js"
+//@line 370 "z:\build\build\src\devtools\client\preferences\devtools-client.js"
   pref("devtools.aboutdebugging.showSystemAddons", false);
-//@line 378 "z:\build\build\src\devtools\client\preferences\devtools-client.js"
+//@line 374 "z:\build\build\src\devtools\client\preferences\devtools-client.js"
 
 // Map top-level await expressions in the console
 pref("devtools.debugger.features.map-await-expression", true);
