@@ -1,0 +1,1 @@
+pref("spellchecker.dictionary", "en-US");

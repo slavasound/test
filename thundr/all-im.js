@@ -1,0 +1,10 @@
+pref("chat.twitter.consumerKey", "7Gzq35FbZLYJQ9n3sJmJw");
+pref("chat.twitter.consumerSecret", "fz0dXr3yul1uncHNf0vITTiIOtSKAVCvopKDrqR1Mo");
+pref("mailnews.database.global.search.im.limit", 1000)
+pref("messenger.conversations.doubleClickToReply", !0);
+pref("messenger.conversations.showNicks", !0);
+pref("messenger.conversations.textbox.autoResize", !0);
+pref("messenger.options.emoticonsTheme", "messenger-emoticons");
+pref("messenger.options.getAttentionOnNewMessages", !1);
+pref("messenger.options.messagesStyle.theme", "mail");
+pref("purple.debug.loglevel", 3);
