@@ -1,6 +1,10 @@
 ---
 name: English issue template
 about: For people who don't speak Polish.
+title: buh
+labels: data
+assignees: slavasound
+
 ---
 
 <!--
@@ -34,4 +38,3 @@ Insert here a direct link to the page, where the element, ad or error occurs.
 4. 
 
 **Other important informations that may be relevant (optional):**
-
