@@ -12,9 +12,7 @@ body:
     id: url
     attributes:
       label: Check the link/s
-      description: |
-      Enter the web address where the issue occurred.
-      The backticks (`) surrounding the URLs are important, it prevents the URL from being clickable. 
+      description: Enter the web address where the issue occurred. The backticks (`) surrounding the URLs are important, it prevents the URL from being clickable. 
       placeholder: ex. `https://example.com/`
     validations:
       required: true
