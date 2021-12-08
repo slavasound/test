@@ -1,9 +1,12 @@
 name: Adblock Bypass
 description: A message asking you to disable your ad blocker
+labels: antiadblock
+
 body:
-- type: markdown
-  value: "## Welcome!"
 - type: markdown
   attributes:
     value: |
-      Thanks for taking the time to fill out this bug! If you need real-time help, join us on Discord.
+      ## 👋 Welcome to MCI bug tracker
+      If you found any sort of bug, or any thing that might break the game, feel free to create a bug report. If you need more urgent help, check our [Discord](https://discord.gg/ShcuJyzJzj)
+      <br /><strong><i>Fields marked with an asterisk (*) are required.</i></strong>
+      <br />
