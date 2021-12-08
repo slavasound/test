@@ -78,32 +78,3 @@ body:
       placeholder: ex. 1.71.2
     validations:
       required: true
-
-- type: dropdown
-    id: filters
-    attributes:
-      label: What filters do you have enabled?
-      description: Select enabled filters from the list or enter URLs of any custom filters in the comment field below.
-      multiple: true
-      options:
-        - EasyList
-        - EasyPrivacy
-        - AdGuard Base filter
-        - AdGuard Mobile Ads filter
-        - AdGuard Chinese filter
-        - AdGuard Dutch filter
-        - AdGuard French filter
-        - AdGuard German filter
-        - AdGuard Japanese filter
-        - AdGuard Russian filter
-        - AdGuard Spanish/Portuguese filter
-        - AdGuard Turkish filter
-        - AdGuard Tracking Protection filter
-        - AdGuard Annoyances filter
-        - uBlock filters
-        - uBlock filters – Badware risks
-        - uBlock filters – Privacy
-        - uBlock filters – Resource abuse
-        - uBlock filters – Unbreak
-    validations:
-      required: true
