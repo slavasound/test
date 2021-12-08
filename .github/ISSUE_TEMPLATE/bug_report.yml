@@ -7,7 +7,6 @@ body:
     attributes:
       value: |
         ### Basic information
-        
   - type: input
     id: url
     attributes:
@@ -16,7 +15,6 @@ body:
       placeholder: ex. https://example.com/
     validations:
       required: true
-      
   - type: input
     id: ip_address
     attributes:
@@ -25,12 +23,10 @@ body:
       placeholder: ex. United States of America, France, Germany or Russia
     validations:
       required: true
-
   - type: markdown
     attributes:
       value: |
         ### User environment
-
   - type: dropdown
     id: browsers
     attributes:
@@ -40,11 +36,7 @@ body:
         - Firefox
         - Chrome
         - Safari
-        - Microsoft Edge
         - Opera
-        - Yandex Browser
-        - other(specify in comment below)
-        - the problem is with app, not a site
     validations:
       required: true
 
@@ -52,7 +44,7 @@ body:
     id: browsers_type
     attributes:
       label: Which device do you use?
-      multiple: false
+      multiple: true
       options:
         - Desktop
         - Mobile
@@ -102,25 +94,6 @@ body:
       placeholder: for example, 7.7.2, 2.6.1.1060 nightly, 3.6.14 beta
     validations:
       required: true
-
-  - type: dropdown
-    id: what-happened
-    attributes:
-      label: What type of problem have you encountered?
-      description: If the problem does not fall under any category that is listed here, please contact our tech support - support@adguard.com
-      multiple: true
-      options:
-        - Missed ads or ad leftovers
-        - Website or app doesn't work properly
-        - AdGuard gets detected on a website
-        - Social media buttons — share, like, tweet, etc.
-        - Annoyances — pop-ups, cookie warnings, etc.
-        - Missed analytics or tracker
-        - Dangerous site
-    validations:
-      required: true
-
-
 
   - type: dropdown
     id: filters
