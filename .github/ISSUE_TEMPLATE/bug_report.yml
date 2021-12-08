@@ -1,6 +1,7 @@
 name: Adblock Bypass
 description: A message asking you to disable your ad blocker
 labels: ["data"]
+title: "ENTER DOMAIN HERE"
 
 body:
   - type: markdown
