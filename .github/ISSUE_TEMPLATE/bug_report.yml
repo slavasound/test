@@ -12,7 +12,7 @@ body:
   - type: input
     id: url
     attributes:
-      label: <font size="2">Check the link</font>
+      value: Check the link
       description: Enter the web address or affected application link.
       placeholder: ex. https://example.com/
     validations:
