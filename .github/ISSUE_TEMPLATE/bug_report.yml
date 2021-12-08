@@ -1,7 +1,7 @@
 name: Adblock Bypass
 description: A message asking you to disable your ad blocker
 labels: ["data"]
-title: ["ENTER TEXT HERE"]
+title: "[Bug]: "
 
 body:
   - type: markdown
