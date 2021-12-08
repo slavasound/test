@@ -7,15 +7,6 @@ body:
     attributes:
       value: |
         ### Basic information
-        
-
-  - type: checkboxes
-    attributes:
-      label: Prerequisites
-      description: To avoid invalid reports, please check and confirm following checkboxes.
-      options:
-        - label: Only one ad blocker is enabled.
-          required: true
   - type: input
     id: url
     attributes:
