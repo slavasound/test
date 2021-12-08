@@ -8,10 +8,10 @@ body:
       value: |
         ### Basic information
         
-  - type: input
+  - type: markdown
     id: url
     attributes:
-      label: Check the link
+      label: Check the link/s
       description: Enter the web address or affected application link.
       placeholder: ex. https://example.com/
     validations:
