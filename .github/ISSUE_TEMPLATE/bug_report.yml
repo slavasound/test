@@ -16,7 +16,6 @@ body:
       options:
         - label: Only one ad blocker is enabled.
           required: true
-        - label: [Look](https://github.com/slavasound/test/issues) maybe your issue is already solved.
   - type: input
     id: url
     attributes:
