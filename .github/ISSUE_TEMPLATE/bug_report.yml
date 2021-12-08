@@ -2,68 +2,8 @@ name: Adblock Bypass
 description: A message asking you to disable your ad blocker
 body:
 - type: markdown
+  value: "## Welcome!"
+- type: markdown
   attributes:
     value: |
-      ## ❤️ Thank you for submitting your bug report and helping us to give players a better game experience!
-  - type: textarea
-    attributes:
-      label: URL(s) where the issue occurs
-      description: |
-        At least one URL for a web page where the clearly described issue occurs is **mandatory**. 
-        The backticks (`) surrounding the URLs are important, it prevents the URL from being clickable. Warn with "NSFW" where applicable.
-      placeholder: |
-        `https://example.com`
-        `https://example.org`
-        `https://example.net`
-    validations:
-      required: true
-
-  - type: textarea
-    attributes:
-      label: Describe the issue
-      description: |
-        Be as clear as possible: nobody can read mind, and nobody is looking at your issue over your shoulder.
-    validations:
-      required: true
-
-  - type: textarea
-    attributes:
-      label: Screenshot(s)
-      description: |
-        Screenshot(s) for **difficult to describe visual issues are mandatory**. 
-        Post **links** instead of inline images for screenshots containing **adult material**.
-    validations:
-      required: false
-
-  - type: input
-    attributes:
-      label: uBlock Origin version
-    validations:
-      required: true
-
-  - type: input
-    attributes:
-      label: Browser name and version
-    validations:
-      required: true
-
-  - type: textarea
-    attributes:
-      label: Settings
-      description: List all the changes you've made to uBO's default settings here
-      placeholder: |
-        - Change 1
-        - Change 2
-        - Change 3
-    validations:
-      required: true  
-
-  - type: textarea
-    attributes:
-      label: Notes
-      description: |
-        Please investigate the issues you report -- this prevents burdening other volunteers. 
-        This is especially true for issues arising from settings which are very different from default ones.
-      placeholder: Write here the result of whatever investigation work you have done
-    validations:
-      required: false
+      Thanks for taking the time to fill out this bug! If you need real-time help, join us on Discord.
