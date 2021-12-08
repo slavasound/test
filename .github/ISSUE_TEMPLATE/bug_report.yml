@@ -1,8 +1,13 @@
 name: Adblock Bypass
 description: A message asking you to disable your ad blocker
-labels: ["antiadblock"]
+labels: ["data"]
 
 body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report!
+        
   - type: checkboxes
     attributes:
       label: Prerequisites
