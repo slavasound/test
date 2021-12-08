@@ -22,7 +22,40 @@ body:
     attributes:
       label: Reported from
       description: In which country is your IP address?
-      placeholder: United States of America, France, Germany or Russia
+      placeholder: ex. United States of America, France, Germany or Russia
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ### User environment
+
+  - type: dropdown
+    id: browsers
+    attributes:
+      label: Which browser(s) do you use?
+      multiple: true
+      options:
+        - Firefox
+        - Chrome
+        - Safari
+        - Microsoft Edge
+        - Opera
+        - Yandex Browser
+        - other(specify in comment below)
+        - the problem is with app, not a site
+    validations:
+      required: true
+
+  - type: dropdown
+    id: browsers_type
+    attributes:
+      label: Which device do you use?
+      multiple: false
+      options:
+        - Desktop
+        - Mobile
     validations:
       required: true
 
@@ -87,33 +120,7 @@ body:
     validations:
       required: true
 
-  - type: dropdown
-    id: browsers
-    attributes:
-      label: Which browser(s) do you use?
-      multiple: true
-      options:
-        - Firefox
-        - Chrome
-        - Safari
-        - Microsoft Edge
-        - Opera
-        - Yandex Browser
-        - other(specify in comment below)
-        - the problem is with app, not a site
-    validations:
-      required: true
 
-  - type: dropdown
-    id: browsers_type
-    attributes:
-      label: Which device do you use?
-      multiple: false
-      options:
-        - Desktop
-        - Mobile
-    validations:
-      required: true
 
   - type: dropdown
     id: filters
