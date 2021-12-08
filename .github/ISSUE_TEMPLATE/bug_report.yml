@@ -85,7 +85,7 @@ body:
       label: What filters do you have enabled?
       description: Select enabled filters from the list or enter URLs of any custom filters in the comment field below.
       multiple: true
-      options:
+      options: |
         - EasyList
         - EasyPrivacy
         - AdGuard Base filter
