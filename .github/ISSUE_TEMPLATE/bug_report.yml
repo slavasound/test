@@ -12,7 +12,7 @@ body:
   - type: input
     id: url
     attributes:
-      label: Check the link/s
+      label: <font size="2">Check the link</font>
       description: Enter the web address or affected application link.
       placeholder: ex. https://example.com/
     validations:
@@ -35,8 +35,8 @@ body:
   - type: dropdown
     id: browsers
     attributes:
-      label: Which browser(s) do you use?
-      multiple: true
+      label: Which browser do you use?
+      multiple: false
       options:
         - Firefox
         - Chrome
@@ -49,7 +49,7 @@ body:
     id: browsers_type
     attributes:
       label: Which device do you use?
-      multiple: true
+      multiple: false
       options:
         - Desktop
         - Mobile
@@ -60,7 +60,7 @@ body:
     id: application
     attributes:
       label: What product do you use?
-      multiple: true
+      multiple: false
       options:
         - AdGuard Browser Extension
         - uBlock Origin Extension
