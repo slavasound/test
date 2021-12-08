@@ -107,3 +107,10 @@ body:
         - uBlock filters – Unbreak
     validations:
       required: true
+
+  - type: textarea
+    attributes:
+      label: Additional message
+      description: Write only useful information here, if there is none, leave this area empty.
+    validations:
+      required: false
