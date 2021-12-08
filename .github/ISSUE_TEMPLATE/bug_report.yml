@@ -50,6 +50,29 @@ body:
         - Mobile
     validations:
       required: true
+  - type: dropdown
+    id: extension-or-program
+    attributes:
+      label: What product do you use?
+      multiple: true
+      options:
+        - AdGuard Browser Extension
+        - uBlock Origin Extension
+        - AdGuard for Android
+        - AdGuard for Mac
+        - AdGuard for Windows
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Ad blocker version
+      description: What version of our software are you running?
+      placeholder: for example, 7.7.2, 2.6.1.1060 nightly, 3.6.14 beta
+    validations:
+      required: true
+
 
   - type: checkboxes
     attributes:
@@ -68,32 +91,9 @@ body:
           required: true
         - label: If the site or app is broken, disabling AdGuard protection resolves an issue.
           required: true
-  - type: dropdown
-    id: adguards
-    attributes:
-      label: What product do you use?
-      multiple: true
-      options:
-        - AdGuard Browser Extension
-        - AdGuard Content Blocker
-        - AdGuard DNS
-        - AdGuard for Android
-        - AdGuard for iOS
-        - AdGuard for Mac
-        - AdGuard for Safari
-        - AdGuard for Windows
-        - Other ad blocker
-    validations:
-      required: true
+  
 
-  - type: input
-    id: version
-    attributes:
-      label: AdGuard version
-      description: What version of our software are you running?
-      placeholder: for example, 7.7.2, 2.6.1.1060 nightly, 3.6.14 beta
-    validations:
-      required: true
+
 
   - type: dropdown
     id: filters
