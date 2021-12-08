@@ -1,29 +1,6 @@
-name: Report Filter Issues
-description: file a filterlist issue
+name: Adblock Bypass
+description: A message asking you to disable your ad blocker
 body:
-  - type: checkboxes
-    attributes:
-      label: Prerequisites
-      description: To rule out invalid issues, confirm and check each one of the checkboxes.
-      options:
-        - label: This is not a [support issue or a question](https://old.reddit.com/r/uBlockOrigin/)
-          required: true
-        - label: I performed a [cursory search of the issue tracker](https://github.com/uBlockOrigin/uAssets/issues) to avoid opening a duplicate issue
-          required: true
-        - label: I am running the latest version of uBlock Origin
-          required: true
-    
-  - type: checkboxes
-    attributes:
-      label: I tried to reproduce the issue when...
-      options:
-        - label: uBO is the only extension
-          required: true
-        - label: uBO with default lists/settings
-          required: true
-        - label: using a new, unmodified browser profile
-          required: true
-
   - type: textarea
     attributes:
       label: URL(s) where the issue occurs
