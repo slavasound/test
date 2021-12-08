@@ -16,8 +16,15 @@ body:
       placeholder: ex. https://example.com/
     validations:
       required: true
-
-
+      
+  - type: input
+    id: ip_address
+    attributes:
+      label: Reported from
+      description: In which country is your IP address?
+      placeholder: United States of America, France, Germany or Russia
+    validations:
+      required: true
 
   - type: checkboxes
     attributes:
