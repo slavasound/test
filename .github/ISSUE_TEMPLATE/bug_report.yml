@@ -1,6 +1,9 @@
 name: Adblock Bypass
 description: A message asking you to disable your ad blocker
 body:
+- type: markdown
+    attributes:
+      value: ## Hi, thank you for taking the time to create an issue!
   - type: textarea
     attributes:
       label: URL(s) where the issue occurs
