@@ -7,12 +7,25 @@ body:
     attributes:
       value: |
         ### Basic information
+        
+
+  - type: checkboxes
+    attributes:
+      label: Prerequisites
+      description: To avoid invalid reports, please check and confirm following checkboxes.
+      options:
+        - label: Only one ad blocker is enabled.
+          required: true
+        - label: [Look](https://github.com/slavasound/test/issues) maybe your issue is already solved.
+          required: true
   - type: input
     id: url
     attributes:
       label: Check the link/s
-      description: Enter the web address or affected application link.
-      placeholder: ex. https://example.com/
+      description: |
+      Enter the web address where the issue occurred.
+      The backticks (`) surrounding the URLs are important, it prevents the URL from being clickable. 
+      placeholder: ex. `https://example.com/`
     validations:
       required: true
   - type: input
@@ -30,7 +43,7 @@ body:
   - type: dropdown
     id: browsers
     attributes:
-      label: Which browser(s) do you use?
+      label: Which browser/s do you use?
       multiple: true
       options:
         - Firefox
@@ -39,11 +52,10 @@ body:
         - Opera
     validations:
       required: true
-
   - type: dropdown
     id: browsers_type
     attributes:
-      label: Which device do you use?
+      label: What type of device are you using the browser on?
       multiple: true
       options:
         - Desktop
@@ -51,10 +63,10 @@ body:
     validations:
       required: true
   - type: dropdown
-    id: extension-or-program
+    id: application
     attributes:
       label: What product do you use?
-      multiple: true
+      multiple: false
       options:
         - AdGuard Browser Extension
         - uBlock Origin Extension
@@ -63,46 +75,24 @@ body:
         - AdGuard for Windows
     validations:
       required: true
-
   - type: input
     id: version
     attributes:
       label: Ad blocker version
-      description: What version of our software are you running?
-      placeholder: for example, 7.7.2, 2.6.1.1060 nightly, 3.6.14 beta
+      description: Which version of the software are you using?
+      placeholder: ex. 1.71.2
     validations:
       required: true
 
-
-  - type: checkboxes
-    attributes:
-      label: Prerequisites
-      description: |
-        To avoid invalid reports, please check and confirm following checkboxes.
-        It is highly recommended to use our [Web Reporting Tool](https://kb.adguard.com/en/technical-support/reporting-tool) instead of creating an issue on GitHub.
-      options:
-        - label: This site DOES NOT contains sexually explicit material, otherwise use [NSFW-specific form](./new?template=bug_report_NSFW.yml);
-          required: true
-        - label: Filters were updated before reproducing an issue;
-          required: true
-        - label: AdGuard product version is up-to-date;
-          required: true
-        - label: Browser version is up-to-date;
-          required: true
-        - label: If the site or app is broken, disabling AdGuard protection resolves an issue.
-          required: true
-  
-
-
-
-  - type: dropdown
+- type: dropdown
     id: filters
     attributes:
       label: What filters do you have enabled?
       description: Select enabled filters from the list or enter URLs of any custom filters in the comment field below.
       multiple: true
       options:
-        - ---AdGuard filters---
+        - EasyList
+        - EasyPrivacy
         - AdGuard Base filter
         - AdGuard Mobile Ads filter
         - AdGuard Chinese filter
@@ -114,87 +104,12 @@ body:
         - AdGuard Spanish/Portuguese filter
         - AdGuard Turkish filter
         - AdGuard Tracking Protection filter
-        - AdGuard URL Tracking filter
-        - AdGuard Social Media filter
         - AdGuard Annoyances filter
-        - AdGuard DNS filter
-        - AdGuard Experimental filter
-        - Filter unblocking search ads and self-promotion
-        - ---Third-party filters---
-        - EasyList
-        - ABPindo
-        - Bulgarian list
-        - EasyList China
-        - EasyList Czech and Slovak
-        - EasyList Dutch
-        - EasyList Germany
-        - EasyList Hebrew
-        - EasyList Italy
-        - EasyList Lithuania
-        - Latvian List
-        - Liste AR
-        - Liste FR
-        - ROList
-        - EasyPrivacy
-        - Icelandic ABP List
-        - AdBlockID
-        - Greek AdBlock Filter
-        - Fanboy's Annoyances
-        - Fanboy's Social Blocking List
-        - Web Annoyances Ultralist
-        - Thai Ads Filters
-        - Hungarian filter
-        - Peter Lowe's Blocklist
-        - Xfiles
-        - Adblock Warning Removal List
-        - Online Malicious URL Blocklist
-        - Spam404
-        - RU AdList - Counters
-        - ABPVN List
-        - Fanboy's Enhanced Tracking List
-        - Official Polish filters for AdBlock, uBlock Origin & AdGuard
-        - Polish GDPR-Cookies Filters
-        - Estonian List
-        - ChinaList+EasyList
-        - CJX's Annoyances List
-        - Polish Social Filters
-        - Adblock-Persian list
-        - Fanboy's Swedish
-        - Fanboy's Anti-Facebook List
-        - Fanboy's Vietnamese
-        - List-KR
-        - xinggsf
-        - I don't care about cookies
-        - Fanboy's Spanish\/Portuguese
-        - EasyList Spanish
-        - KAD - Anti-Scam
-        - Adblock List for Finland
-        - ROLIST2
-        - Iranian filter
-        - road-block
-        - Polish Annoyances Filters
-        - Polish Anti Adblock Filters
-        - Fanboy's Anti-thirdparty Fonts
-        - BarbBlock
-        - EasyList Cookie List
-        - NoCoin Filter List
-        - Frellwit's Swedish Filter
-        - YousList
-        - AlleBlock
-        - EasyList Polish
-        - Polish Anti-Annoying Special Supplement
-        - Dandelion Sprout's Nordic Filters
-        - Dandelion Sprout's Annoyances List
-        - Legitimate URL Shortener
+        - uBlock filters
+        - uBlock filters – Badware risks
+        - uBlock filters – Privacy
+        - uBlock filters – Resource abuse
+        - uBlock filters – Unbreak
     validations:
       required: true
 
-
-  - type: checkboxes
-    id: terms
-    attributes:
-      label: Privacy
-      description: By submitting this issue, you agree that report does not contain private info
-      options:
-        - label: I agree to follow this condition
-          required: true
