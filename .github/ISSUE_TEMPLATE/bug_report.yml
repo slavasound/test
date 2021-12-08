@@ -1,22 +1,23 @@
 name: Adblock Bypass
 description: A message asking you to disable your ad blocker
 labels: ["data"]
+title: ["ENTER TEXT HERE"]
 
 body:
   - type: markdown
     attributes:
       value: |
         ### Basic information
-        
+
   - type: input
     id: url
     attributes:
-      label: Check the link/s
-      description: Enter the web address where the issue occurred. The backticks (`) surrounding the URLs are important, it prevents the URL from being clickable. 
-      placeholder: ex. `https://example.com/`
+      label: Check the link
+      description: Enter the web address or affected application link.
+      placeholder: ex. https://example.com/
     validations:
       required: true
-      
+
   - type: input
     id: ip_address
     attributes:
@@ -25,14 +26,16 @@ body:
       placeholder: ex. United States of America, France, Germany or Russia
     validations:
       required: true
+
   - type: markdown
     attributes:
       value: |
         ### User environment
+
   - type: dropdown
     id: browsers
     attributes:
-      label: Which browser/s do you use?
+      label: Which browser(s) do you use?
       multiple: true
       options:
         - Firefox
@@ -41,21 +44,23 @@ body:
         - Opera
     validations:
       required: true
+
   - type: dropdown
     id: browsers_type
     attributes:
-      label: What type of device are you using the browser on?
+      label: Which device do you use?
       multiple: true
       options:
         - Desktop
         - Mobile
     validations:
       required: true
+
   - type: dropdown
     id: application
     attributes:
       label: What product do you use?
-      multiple: false
+      multiple: true
       options:
         - AdGuard Browser Extension
         - uBlock Origin Extension
@@ -64,6 +69,7 @@ body:
         - AdGuard for Windows
     validations:
       required: true
+
   - type: input
     id: version
     attributes:
@@ -101,4 +107,3 @@ body:
         - uBlock filters – Unbreak
     validations:
       required: true
-
