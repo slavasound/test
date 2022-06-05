@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Anonymous redirect</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- http://caniuse.com/#feat=referrer-policy -->
+    <meta name="referrer" content="no-referrer" />
+    <!-- For Edge and Safari -->
+    <meta name="referrer" content="never" />
+
+    <style>
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, Arial, sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 1.428571429;
+            color: #4d4d4d;
+        }
+
+        .main {
+            padding: 70px 15px;
+            text-align: center;
+        }
+
+        .title {
+            margin: 0 0 30px;
+            line-height: 1.2;
+        }
+
+        .text {
+            max-width: 800px;
+            margin: 0 auto 20px;
+            line-height: 1.6;
+        }
+
+        code {
+            display: block;
+            word-break: break-word;
+        }
+
+        .button {
+            display: inline-block;
+            vertical-align: middle;
+            min-width: 200px;
+            margin-bottom: 30px;
+            background-image: none;
+            padding: 13px 15px;
+            font-family: inherit;
+            font-size: 15px;
+            font-weight: 400;
+            text-align: center;
+            text-transform: uppercase;
+            text-decoration: none;
+            white-space: nowrap;
+            color: #fff;
+            background-color: #67b279;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .button:hover,
+        .button:focus {
+            background-color: #58a273;
+            outline: 0;
+        }
+
+        footer {
+            max-width: 400px;
+            margin: 0 auto;
+            font-size: 13px;
+        }
+
+        .link {
+            color: #67b279;
+        }
+
+        .link:hover,
+        .link:focus {
+            text-decoration: none;
+        }
+
+        .wrap {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <h1 class="title">
+            Anonymous redirect
+        </h1>
+
+        <p class="text">
+            You are about to go to the following page:
+            <code id="currentUrl">https://example.org/</code>
+        </p>
+
+        <div class="wrap">
+            <button type="button" class="button" id="redirectButton">
+                Take me there
+            </button>
+        </div>
+
+        <footer>
+            The point of this page is to hide the source page from the target website to prevent all kinds of tracking.
+            <a href="https://github.com/AdguardTeam/AnonymousRedirect" class="link" target="_blank">Source code</a>.
+        </footer>
+    </div>
+
+    <script type="text/javascript">
+        if (!String.prototype.endsWith) {
+            Object.defineProperty(String.prototype, 'endsWith', {
+                value: function (searchString, position) {
+                    var subjectString = this.toString();
+                    if (position === undefined || position > subjectString.length) {
+                        position = subjectString.length;
+                    }
+                    position -= searchString.length;
+                    var lastIndex = subjectString.indexOf(searchString, position);
+                    return lastIndex !== -1 && lastIndex === position;
+                },
+            });
+        }
+
+        function getParameterByName(name, url) {
+            if (!url) {
+                url = window.location.href;
+            }
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+
+        function getHostname(url) {
+            if (!url) {
+                return '';
+            }
+
+            var hostname = '';
+
+            if (url.indexOf('//') > -1) {
+                hostname = url.split('/')[2];
+            } else {
+                hostname = url.split('/')[0];
+            }
+
+            hostname = hostname.split(':')[0];
+            hostname = hostname.split('?')[0];
+
+            return hostname;
+        }
+
+        var url = getParameterByName('url');
+        var host = getHostname(document.referrer);
+
+        if (host === 'adguard.com' || host.endsWith('.adguard.com')) {
+            performRedirect();
+        }
+
+        var currentUrl = document.getElementById('currentUrl');
+
+        if (currentUrl) {
+            currentUrl.innerText = url;
+        }
+
+        function performRedirect() {
+            // Rick-rolling in case of wrong URL
+            window.location.href = url || 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
+        }
+
+        var redirectButton = document.getElementById('redirectButton');
+
+        if (redirectButton) {
+            redirectButton.addEventListener('click', performRedirect);
+        }
+    </script>
+
+    <body>
+</html>
